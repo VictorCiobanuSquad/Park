@@ -634,26 +634,26 @@ codeunit 50100 "Portal Integration"
         success := true;
     end;
 
-    procedure GetUser(nif: Text): Text
+    procedure GetUser(email: Text): Text
     var
         RecPortalUser: Record "Portal User";
         JArray: JsonArray;
     begin
-        if not FindUser(nif, RecPortalUser) then
+        if not FindUser(email, RecPortalUser) then
             exit;
-        AddToJsonArray(nif, RecPortalUser, JArray);
+        AddToJsonArray(email, RecPortalUser, JArray);
         exit(FormatResponse(JArray));
 
     end;
 
-    local procedure FindUser(nif: Text;
+    local procedure FindUser(email: Text;
     var RecPortalUser: Record "Portal User"): Boolean
     var
         RecUsersFamily: Record "Users Family";
     begin
-        if nif <> '' then begin
+        if email <> '' then begin
             RecUsersFamily.Reset();
-            RecUsersFamily.SetRange("VAT Registration No.", nif);
+            RecUsersFamily.SetRange("E-Mail", email);
             RecUsersFamily.FindSet();
             RecPortalUser.Reset();
             RecPortalUser.SetFilter(Email, RecUsersFamily."E-mail");
@@ -661,12 +661,12 @@ codeunit 50100 "Portal Integration"
         end;
     end;
 
-    local procedure AddToJsonArray(nif: Text; var PortalUser: Record "Portal User"; JArray: JsonArray)
+    local procedure AddToJsonArray(email: Text; var PortalUser: Record "Portal User"; JArray: JsonArray)
     var
         JObject: JsonObject;
     begin
         Clear(JObject);
-        JObject.Add('NIF', nif);
+        JObject.Add('email', email);
         JObject.Add('UserId', PortalUser.UserID);
         JObject.Add('UserName', PortalUser.Name);
         JObject.Add('UserEmail', PortalUser.Email);
