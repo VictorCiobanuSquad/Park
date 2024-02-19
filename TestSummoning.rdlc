@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Test_Test_Type">
+          <DataField>Test_Test_Type</DataField>
+        </Field>
+        <Field Name="Test_Test_No_">
+          <DataField>Test_Test_No_</DataField>
+        </Field>
+        <Field Name="Test_Line_Type">
+          <DataField>Test_Line_Type</DataField>
+        </Field>
+        <Field Name="Test_Candidate_no_">
+          <DataField>Test_Candidate_no_</DataField>
+        </Field>
+        <Field Name="Test_Student_No_">
+          <DataField>Test_Student_No_</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="vTexto">
+          <DataField>vTexto</DataField>
+        </Field>
+        <Field Name="FORMAT_Test__Type_of_Test______________Test_Description">
+          <DataField>FORMAT_Test__Type_of_Test______________Test_Description</DataField>
+        </Field>
+        <Field Name="TestCandidate__Candidate_Name_______">
+          <DataField>TestCandidate__Candidate_Name_______</DataField>
+        </Field>
+        <Field Name="Test_Date">
+          <DataField>Test_Date</DataField>
+        </Field>
+        <Field Name="Test_Hour">
+          <DataField>Test_Hour</DataField>
+        </Field>
+        <Field Name="Test_Duration">
+          <DataField>Test_Duration</DataField>
+        </Field>
+        <Field Name="Test_DurationFormat">
+          <DataField>Test_DurationFormat</DataField>
+        </Field>
+        <Field Name="Test_Room">
+          <DataField>Test_Room</DataField>
+        </Field>
+        <Field Name="vTeacherName">
+          <DataField>vTeacherName</DataField>
+        </Field>
+        <Field Name="vRoom">
+          <DataField>vRoom</DataField>
+        </Field>
+        <Field Name="Text0002">
+          <DataField>Text0002</DataField>
+        </Field>
+        <Field Name="Text0003">
+          <DataField>Text0003</DataField>
+        </Field>
+        <Field Name="Test_SummoningCaption">
+          <DataField>Test_SummoningCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Test_DateCaption">
+          <DataField>Test_DateCaption</DataField>
+        </Field>
+        <Field Name="Test_HourCaption">
+          <DataField>Test_HourCaption</DataField>
+        </Field>
+        <Field Name="Test_DurationCaption">
+          <DataField>Test_DurationCaption</DataField>
+        </Field>
+        <Field Name="Test_RoomCaption">
+          <DataField>Test_RoomCaption</DataField>
+        </Field>
+        <Field Name="vTeacherNameCaption">
+          <DataField>vTeacherNameCaption</DataField>
+        </Field>
+        <Field Name="TestCandidate_Test_Type">
+          <DataField>TestCandidate_Test_Type</DataField>
+        </Field>
+        <Field Name="TestCandidate_Test_No_">
+          <DataField>TestCandidate_Test_No_</DataField>
+        </Field>
+        <Field Name="TestCandidate_Line_Type">
+          <DataField>TestCandidate_Line_Type</DataField>
+        </Field>
+        <Field Name="TestCandidate_Candidate_no_">
+          <DataField>TestCandidate_Candidate_no_</DataField>
+        </Field>
+        <Field Name="TestCandidate_Student_No_">
+          <DataField>TestCandidate_Student_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

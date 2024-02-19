@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="vAlvo">
+          <DataField>vAlvo</DataField>
+        </Field>
+        <Field Name="HorariCaption">
+          <DataField>HorariCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Cabecalho_Number">
+          <DataField>Cabecalho_Number</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_">
+          <DataField>vDayDescription_1_</DataField>
+        </Field>
+        <Field Name="vDayDescription_3_">
+          <DataField>vDayDescription_3_</DataField>
+        </Field>
+        <Field Name="vDayDescription_2_">
+          <DataField>vDayDescription_2_</DataField>
+        </Field>
+        <Field Name="vDayDescription_4_">
+          <DataField>vDayDescription_4_</DataField>
+        </Field>
+        <Field Name="vDayDescription_5_">
+          <DataField>vDayDescription_5_</DataField>
+        </Field>
+        <Field Name="Text0006">
+          <DataField>Text0006</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065115">
+          <DataField>Text0006_Control1102065115</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065117">
+          <DataField>Text0006_Control1102065117</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065119">
+          <DataField>Text0006_Control1102065119</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065121">
+          <DataField>Text0006_Control1102065121</DataField>
+        </Field>
+        <Field Name="Horas_Timetable_Code">
+          <DataField>Horas_Timetable_Code</DataField>
+        </Field>
+        <Field Name="Horas_School_Year">
+          <DataField>Horas_School_Year</DataField>
+        </Field>
+        <Field Name="Horas_Study_Plan">
+          <DataField>Horas_Study_Plan</DataField>
+        </Field>
+        <Field Name="Horas_Class">
+          <DataField>Horas_Class</DataField>
+        </Field>
+        <Field Name="Horas_Line_No_">
+          <DataField>Horas_Line_No_</DataField>
+        </Field>
+        <Field Name="FORMAT_TempHoras__Start_Hour__0___Hours24___Minutes_2___">
+          <DataField>FORMAT_TempHoras__Start_Hour__0___Hours24___Minutes_2___</DataField>
+        </Field>
+        <Field Name="FORMAT_TempHoras__End_Hour__0___Hours24___Minutes_2___">
+          <DataField>FORMAT_TempHoras__End_Hour__0___Hours24___Minutes_2___</DataField>
+        </Field>
+        <Field Name="vSubject_1_">
+          <DataField>vSubject_1_</DataField>
+        </Field>
+        <Field Name="vSubject_2_">
+          <DataField>vSubject_2_</DataField>
+        </Field>
+        <Field Name="vSubject_4_">
+          <DataField>vSubject_4_</DataField>
+        </Field>
+        <Field Name="vSubject_3_">
+          <DataField>vSubject_3_</DataField>
+        </Field>
+        <Field Name="vSubject_5_">
+          <DataField>vSubject_5_</DataField>
+        </Field>
+        <Field Name="vRoom_2_">
+          <DataField>vRoom_2_</DataField>
+        </Field>
+        <Field Name="vRoom_3_">
+          <DataField>vRoom_3_</DataField>
+        </Field>
+        <Field Name="vRoom_4_">
+          <DataField>vRoom_4_</DataField>
+        </Field>
+        <Field Name="vRoom_5_">
+          <DataField>vRoom_5_</DataField>
+        </Field>
+        <Field Name="vRoom_1_">
+          <DataField>vRoom_1_</DataField>
+        </Field>
+        <Field Name="Horas2_Number">
+          <DataField>Horas2_Number</DataField>
+        </Field>
+        <Field Name="Teacher_Class__Teacher_Class___Subject_Description_">
+          <DataField>Teacher_Class__Teacher_Class___Subject_Description_</DataField>
+        </Field>
+        <Field Name="Teacher_Class__Teacher_Class___Full_Name_">
+          <DataField>Teacher_Class__Teacher_Class___Full_Name_</DataField>
+        </Field>
+        <Field Name="Teacher_Class__Teacher_Class___Full_Name_Caption">
+          <DataField>Teacher_Class__Teacher_Class___Full_Name_Caption</DataField>
+        </Field>
+        <Field Name="Teacher_Class__Teacher_Class___Subject_Description_Caption">
+          <DataField>Teacher_Class__Teacher_Class___Subject_Description_Caption</DataField>
+        </Field>
+        <Field Name="Teacher_Class_User_Type">
+          <DataField>Teacher_Class_User_Type</DataField>
+        </Field>
+        <Field Name="Teacher_Class_User">
+          <DataField>Teacher_Class_User</DataField>
+        </Field>
+        <Field Name="Teacher_Class_Line_No_">
+          <DataField>Teacher_Class_Line_No_</DataField>
+        </Field>
+        <Field Name="vDayDescription_3__Control1102065048">
+          <DataField>vDayDescription_3__Control1102065048</DataField>
+        </Field>
+        <Field Name="vDayDescription_2__Control1102065049">
+          <DataField>vDayDescription_2__Control1102065049</DataField>
+        </Field>
+        <Field Name="vDayDescription_4__Control1102065050">
+          <DataField>vDayDescription_4__Control1102065050</DataField>
+        </Field>
+        <Field Name="vDayDescription_5__Control1102065052">
+          <DataField>vDayDescription_5__Control1102065052</DataField>
+        </Field>
+        <Field Name="vDayDescription_1__Control1102065062">
+          <DataField>vDayDescription_1__Control1102065062</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065127">
+          <DataField>Text0006_Control1102065127</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065129">
+          <DataField>Text0006_Control1102065129</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065131">
+          <DataField>Text0006_Control1102065131</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065133">
+          <DataField>Text0006_Control1102065133</DataField>
+        </Field>
+        <Field Name="Text0006_Control1102065135">
+          <DataField>Text0006_Control1102065135</DataField>
+        </Field>
+        <Field Name="HorasProf_Timetable_Code">
+          <DataField>HorasProf_Timetable_Code</DataField>
+        </Field>
+        <Field Name="HorasProf_Timetable_Line_No_">
+          <DataField>HorasProf_Timetable_Line_No_</DataField>
+        </Field>
+        <Field Name="HorasProf_Filter_Period">
+          <DataField>HorasProf_Filter_Period</DataField>
+        </Field>
+        <Field Name="HorasProf_Teacher_No_">
+          <DataField>HorasProf_Teacher_No_</DataField>
+        </Field>
+        <Field Name="HorasProf_Class">
+          <DataField>HorasProf_Class</DataField>
+        </Field>
+        <Field Name="HorasProf_Subject">
+          <DataField>HorasProf_Subject</DataField>
+        </Field>
+        <Field Name="vSubject_4__Control1102065068">
+          <DataField>vSubject_4__Control1102065068</DataField>
+        </Field>
+        <Field Name="vSubject_3__Control1102065069">
+          <DataField>vSubject_3__Control1102065069</DataField>
+        </Field>
+        <Field Name="vSubject_5__Control1102065071">
+          <DataField>vSubject_5__Control1102065071</DataField>
+        </Field>
+        <Field Name="vSubject_2__Control1102065079">
+          <DataField>vSubject_2__Control1102065079</DataField>
+        </Field>
+        <Field Name="FORMAT_TempHorasProf__Start_Hour__0___Hours24___Minutes_2___">
+          <DataField>FORMAT_TempHorasProf__Start_Hour__0___Hours24___Minutes_2___</DataField>
+        </Field>
+        <Field Name="FORMAT_TempHorasProf__End_Hour__0___Hours24___Minutes_2___">
+          <DataField>FORMAT_TempHorasProf__End_Hour__0___Hours24___Minutes_2___</DataField>
+        </Field>
+        <Field Name="vRoom_1__Control1102065101">
+          <DataField>vRoom_1__Control1102065101</DataField>
+        </Field>
+        <Field Name="vRoom_2__Control1102065103">
+          <DataField>vRoom_2__Control1102065103</DataField>
+        </Field>
+        <Field Name="vRoom_3__Control1102065105">
+          <DataField>vRoom_3__Control1102065105</DataField>
+        </Field>
+        <Field Name="vRoom_4__Control1102065107">
+          <DataField>vRoom_4__Control1102065107</DataField>
+        </Field>
+        <Field Name="vRoom_5__Control1102065109">
+          <DataField>vRoom_5__Control1102065109</DataField>
+        </Field>
+        <Field Name="vSubject_1__Control1102065081">
+          <DataField>vSubject_1__Control1102065081</DataField>
+        </Field>
+        <Field Name="HorasProf2_Number">
+          <DataField>HorasProf2_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

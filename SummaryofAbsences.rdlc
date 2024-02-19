@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="Registration__Student_Code_No__">
+          <DataField>Registration__Student_Code_No__</DataField>
+        </Field>
+        <Field Name="varNameStud">
+          <DataField>varNameStud</DataField>
+        </Field>
+        <Field Name="BeginingDate">
+          <DataField>BeginingDate</DataField>
+        </Field>
+        <Field Name="EndingDate">
+          <DataField>EndingDate</DataField>
+        </Field>
+        <Field Name="Summary_of_AbsencesCaption">
+          <DataField>Summary_of_AbsencesCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Registration__Student_Code_No__Caption">
+          <DataField>Registration__Student_Code_No__Caption</DataField>
+        </Field>
+        <Field Name="Begining_Date_Caption">
+          <DataField>Begining_Date_Caption</DataField>
+        </Field>
+        <Field Name="Ending_Date_Caption">
+          <DataField>Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Name_Caption">
+          <DataField>Name_Caption</DataField>
+        </Field>
+        <Field Name="Registration_School_Year">
+          <DataField>Registration_School_Year</DataField>
+        </Field>
+        <Field Name="Registration_Responsibility_Center">
+          <DataField>Registration_Responsibility_Center</DataField>
+        </Field>
+        <Field Name="Registration_Schooling_Year">
+          <DataField>Registration_Schooling_Year</DataField>
+        </Field>
+        <Field Name="vArray_1_">
+          <DataField>vArray_1_</DataField>
+        </Field>
+        <Field Name="vArray_2_">
+          <DataField>vArray_2_</DataField>
+        </Field>
+        <Field Name="vArray_3_">
+          <DataField>vArray_3_</DataField>
+        </Field>
+        <Field Name="vArray_4_">
+          <DataField>vArray_4_</DataField>
+        </Field>
+        <Field Name="vArray_5_">
+          <DataField>vArray_5_</DataField>
+        </Field>
+        <Field Name="vArray_6_">
+          <DataField>vArray_6_</DataField>
+        </Field>
+        <Field Name="vArray_7_">
+          <DataField>vArray_7_</DataField>
+        </Field>
+        <Field Name="vArray_8_">
+          <DataField>vArray_8_</DataField>
+        </Field>
+        <Field Name="vArray_9_">
+          <DataField>vArray_9_</DataField>
+        </Field>
+        <Field Name="vArray_10_">
+          <DataField>vArray_10_</DataField>
+        </Field>
+        <Field Name="vClass">
+          <DataField>vClass</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Description">
+          <DataField>Registration_Subjects_Description</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Status">
+          <DataField>Registration_Subjects_Status</DataField>
+        </Field>
+        <Field Name="vArrayAbs_1_">
+          <DataField>vArrayAbs_1_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_1_Format">
+          <DataField>vArrayAbs_1_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_2_">
+          <DataField>vArrayAbs_2_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_2_Format">
+          <DataField>vArrayAbs_2_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_3_">
+          <DataField>vArrayAbs_3_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_3_Format">
+          <DataField>vArrayAbs_3_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_4_">
+          <DataField>vArrayAbs_4_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_4_Format">
+          <DataField>vArrayAbs_4_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_5_">
+          <DataField>vArrayAbs_5_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_5_Format">
+          <DataField>vArrayAbs_5_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_6_">
+          <DataField>vArrayAbs_6_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_6_Format">
+          <DataField>vArrayAbs_6_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_7_">
+          <DataField>vArrayAbs_7_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_7_Format">
+          <DataField>vArrayAbs_7_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_8_">
+          <DataField>vArrayAbs_8_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_8_Format">
+          <DataField>vArrayAbs_8_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_9_">
+          <DataField>vArrayAbs_9_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_9_Format">
+          <DataField>vArrayAbs_9_Format</DataField>
+        </Field>
+        <Field Name="vArrayAbs_10_">
+          <DataField>vArrayAbs_10_</DataField>
+        </Field>
+        <Field Name="vArrayAbs_10_Format">
+          <DataField>vArrayAbs_10_Format</DataField>
+        </Field>
+        <Field Name="text0002">
+          <DataField>text0002</DataField>
+        </Field>
+        <Field Name="vClassCaption">
+          <DataField>vClassCaption</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_DescriptionCaption">
+          <DataField>Registration_Subjects_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_StatusCaption">
+          <DataField>Registration_Subjects_StatusCaption</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Student_Code_No_">
+          <DataField>Registration_Subjects_Student_Code_No_</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_School_Year">
+          <DataField>Registration_Subjects_School_Year</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Line_No_">
+          <DataField>Registration_Subjects_Line_No_</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Schooling_Year">
+          <DataField>Registration_Subjects_Schooling_Year</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

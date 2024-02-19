@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Student_Teacher_Code_No__">
+          <DataField>Equipment_Entry__Student_Teacher_Code_No__</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Entry_Type_">
+          <DataField>Equipment_Entry__Entry_Type_</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_Type_">
+          <DataField>Equipment_Entry__Equipment_Type_</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_Code_">
+          <DataField>Equipment_Entry__Equipment_Code_</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_description_">
+          <DataField>Equipment_Entry__Equipment_description_</DataField>
+        </Field>
+        <Field Name="Equipment_Entry_Quantity">
+          <DataField>Equipment_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Available_Quantity_">
+          <DataField>Equipment_Entry__Available_Quantity_</DataField>
+        </Field>
+        <Field Name="varHourBegin">
+          <DataField>varHourBegin</DataField>
+        </Field>
+        <Field Name="varHourEnd">
+          <DataField>varHourEnd</DataField>
+        </Field>
+        <Field Name="varDate">
+          <DataField>varDate</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Lista_equipamentCaption">
+          <DataField>Lista_equipamentCaption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Student_Teacher_Code_No__Caption">
+          <DataField>Equipment_Entry__Student_Teacher_Code_No__Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Entry_Type_Caption">
+          <DataField>Equipment_Entry__Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_Type_Caption">
+          <DataField>Equipment_Entry__Equipment_Type_Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_Code_Caption">
+          <DataField>Equipment_Entry__Equipment_Code_Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Equipment_description_Caption">
+          <DataField>Equipment_Entry__Equipment_description_Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry_QuantityCaption">
+          <DataField>Equipment_Entry_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry__Available_Quantity_Caption">
+          <DataField>Equipment_Entry__Available_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Equipment_Entry_Entry_No_">
+          <DataField>Equipment_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="EE_int">
+          <DataField>EE_int</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

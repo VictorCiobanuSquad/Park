@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="Titulo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Titulo</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Titulo</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Turma">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Turma</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Turma</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NumAluno">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NumAluno</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NumAluno</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Nome">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Nome</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Nome</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Pai">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Pai</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Pai</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Mae">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Mae</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Mae</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Contacto">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Contacto</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Contacto</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EncEdu">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EncEdu</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EncEdu</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="MailLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MailLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>MailLbl</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Class_Class">
+          <DataField>Class_Class</DataField>
+        </Field>
+        <Field Name="ClassDirectorName_Class">
+          <DataField>ClassDirectorName_Class</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="StudentCodeNo_RegistrationClass">
+          <DataField>StudentCodeNo_RegistrationClass</DataField>
+        </Field>
+        <Field Name="Name_RegistrationClass">
+          <DataField>Name_RegistrationClass</DataField>
+        </Field>
+        <Field Name="Painome">
+          <DataField>Painome</DataField>
+        </Field>
+        <Field Name="Paitelefone">
+          <DataField>Paitelefone</DataField>
+        </Field>
+        <Field Name="Paiemail">
+          <DataField>Paiemail</DataField>
+        </Field>
+        <Field Name="Maenome">
+          <DataField>Maenome</DataField>
+        </Field>
+        <Field Name="Maetelefone">
+          <DataField>Maetelefone</DataField>
+        </Field>
+        <Field Name="Maeemail">
+          <DataField>Maeemail</DataField>
+        </Field>
+        <Field Name="EncarregadoEdu">
+          <DataField>EncarregadoEdu</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

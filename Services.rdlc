@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="StudentsSF">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StudentsSF</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StudentsSF</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FiltersCap">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FiltersCap</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FiltersCap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StudentNoCap">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StudentNoCap</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StudentNoCap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClassCap">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ClassCap</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ClassCap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ServCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ServCode</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ServCode</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Description">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Description</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Description</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ServiceType">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ServiceType</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ServiceType</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PriceExcVat">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PriceExcVat</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PriceExcVat</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Quantity">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Quantity</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Quantity</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateRegister">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateRegister</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateRegister</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LinePDiscount">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LinePDiscount</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LinePDiscount</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LineDiscountAmt">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LineDiscountAmt</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LineDiscountAmt</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Amount">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Amount</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Amount</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SalesTotal">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SalesTotal</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SalesTotal</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DiscountTotal">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DiscountTotal</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DiscountTotal</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GeneralTotal">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GeneralTotal</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GeneralTotal</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Page">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Page</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Page</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Phone">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Phone</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Phone</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CINFO_Name">
+          <DataField>CINFO_Name</DataField>
+        </Field>
+        <Field Name="CAddr2">
+          <DataField>CAddr2</DataField>
+        </Field>
+        <Field Name="CAddr3">
+          <DataField>CAddr3</DataField>
+        </Field>
+        <Field Name="CINFO_Picture">
+          <DataField>CINFO_Picture</DataField>
+        </Field>
+        <Field Name="CINFO_PhoneNo">
+          <DataField>CINFO_PhoneNo</DataField>
+        </Field>
+        <Field Name="Workdate_Formated">
+          <DataField>Workdate_Formated</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="StudentNo_SLE">
+          <DataField>StudentNo_SLE</DataField>
+        </Field>
+        <Field Name="Class_SLE">
+          <DataField>Class_SLE</DataField>
+        </Field>
+        <Field Name="ServiceCode_SLE">
+          <DataField>ServiceCode_SLE</DataField>
+        </Field>
+        <Field Name="Description_SLE">
+          <DataField>Description_SLE</DataField>
+        </Field>
+        <Field Name="ServiceType_SLE">
+          <DataField>ServiceType_SLE</DataField>
+        </Field>
+        <Field Name="UnitPrice_SLE">
+          <DataField>UnitPrice_SLE</DataField>
+        </Field>
+        <Field Name="UnitPrice_SLEFormat">
+          <DataField>UnitPrice_SLEFormat</DataField>
+        </Field>
+        <Field Name="Quantity_SLE">
+          <DataField>Quantity_SLE</DataField>
+        </Field>
+        <Field Name="PostingDate_SLE">
+          <DataField>PostingDate_SLE</DataField>
+        </Field>
+        <Field Name="LineDiscountPerc_SLE">
+          <DataField>LineDiscountPerc_SLE</DataField>
+        </Field>
+        <Field Name="LineDiscountPerc_SLEFormat">
+          <DataField>LineDiscountPerc_SLEFormat</DataField>
+        </Field>
+        <Field Name="LineDiscAmount_SLE">
+          <DataField>LineDiscAmount_SLE</DataField>
+        </Field>
+        <Field Name="LineDiscAmount_SLEFormat">
+          <DataField>LineDiscAmount_SLEFormat</DataField>
+        </Field>
+        <Field Name="Amount_SLE">
+          <DataField>Amount_SLE</DataField>
+        </Field>
+        <Field Name="Amount_SLEFormat">
+          <DataField>Amount_SLEFormat</DataField>
+        </Field>
+        <Field Name="TotalFor_Class">
+          <DataField>TotalFor_Class</DataField>
+        </Field>
+        <Field Name="TotalFor_Student">
+          <DataField>TotalFor_Student</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

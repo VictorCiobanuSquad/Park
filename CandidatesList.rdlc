@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__School_Year_">
+          <DataField>Candidate_Entry__School_Year_</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_No__">
+          <DataField>Candidate_Entry__Candidate_No__</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_Entry___Total_Points_">
+          <DataField>Candidate_Entry__Candidate_Entry___Total_Points_</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_Entry___Total_Points_Format">
+          <DataField>Candidate_Entry__Candidate_Entry___Total_Points_Format</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_Name_">
+          <DataField>Candidate_Entry__Candidate_Name_</DataField>
+        </Field>
+        <Field Name="vSituation">
+          <DataField>vSituation</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Schooling_Year_">
+          <DataField>Candidate_Entry__Schooling_Year_</DataField>
+        </Field>
+        <Field Name="Candidate_Entry_Priority">
+          <DataField>Candidate_Entry_Priority</DataField>
+        </Field>
+        <Field Name="vOtherPoints">
+          <DataField>vOtherPoints</DataField>
+        </Field>
+        <Field Name="vTestPoints">
+          <DataField>vTestPoints</DataField>
+        </Field>
+        <Field Name="Candidate_ListCaption">
+          <DataField>Candidate_ListCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="FiltersCaption">
+          <DataField>FiltersCaption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_No__Caption">
+          <DataField>Candidate_Entry__Candidate_No__Caption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_Name_Caption">
+          <DataField>Candidate_Entry__Candidate_Name_Caption</DataField>
+        </Field>
+        <Field Name="vSituationCaption">
+          <DataField>vSituationCaption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Schooling_Year_Caption">
+          <DataField>Candidate_Entry__Schooling_Year_Caption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry_PriorityCaption">
+          <DataField>Candidate_Entry_PriorityCaption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry__Candidate_Entry___Total_Points_Caption">
+          <DataField>Candidate_Entry__Candidate_Entry___Total_Points_Caption</DataField>
+        </Field>
+        <Field Name="vOtherPointsCaption">
+          <DataField>vOtherPointsCaption</DataField>
+        </Field>
+        <Field Name="vTestPointsCaption">
+          <DataField>vTestPointsCaption</DataField>
+        </Field>
+        <Field Name="Candidate_Entry_Line_No_">
+          <DataField>Candidate_Entry_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

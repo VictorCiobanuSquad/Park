@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="vTitle">
+          <DataField>vTitle</DataField>
+        </Field>
+        <Field Name="Transport__Transport_No__">
+          <DataField>Transport__Transport_No__</DataField>
+        </Field>
+        <Field Name="Transport_Description">
+          <DataField>Transport_Description</DataField>
+        </Field>
+        <Field Name="Transport__License_plate_">
+          <DataField>Transport__License_plate_</DataField>
+        </Field>
+        <Field Name="Transport_Driver">
+          <DataField>Transport_Driver</DataField>
+        </Field>
+        <Field Name="Transport_Vendor">
+          <DataField>Transport_Vendor</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Stops__Estimated_Hour_Caption">
+          <DataField>Stops__Estimated_Hour_Caption</DataField>
+        </Field>
+        <Field Name="Stops__Stop_Address_Caption">
+          <DataField>Stops__Stop_Address_Caption</DataField>
+        </Field>
+        <Field Name="Transport__Transport_No__Caption">
+          <DataField>Transport__Transport_No__Caption</DataField>
+        </Field>
+        <Field Name="Transport__License_plate_Caption">
+          <DataField>Transport__License_plate_Caption</DataField>
+        </Field>
+        <Field Name="Transport_DriverCaption">
+          <DataField>Transport_DriverCaption</DataField>
+        </Field>
+        <Field Name="Transport_VendorCaption">
+          <DataField>Transport_VendorCaption</DataField>
+        </Field>
+        <Field Name="Stops__Post_Code_Caption">
+          <DataField>Stops__Post_Code_Caption</DataField>
+        </Field>
+        <Field Name="Stops_LocationCaption">
+          <DataField>Stops_LocationCaption</DataField>
+        </Field>
+        <Field Name="Transport_Type">
+          <DataField>Transport_Type</DataField>
+        </Field>
+        <Field Name="Transport_Line_No_">
+          <DataField>Transport_Line_No_</DataField>
+        </Field>
+        <Field Name="vSpecificDay">
+          <DataField>vSpecificDay</DataField>
+        </Field>
+        <Field Name="Stops__Estimated_Hour_">
+          <DataField>Stops__Estimated_Hour_</DataField>
+        </Field>
+        <Field Name="Stops__Stop_Address_">
+          <DataField>Stops__Stop_Address_</DataField>
+        </Field>
+        <Field Name="Stops__Post_Code_">
+          <DataField>Stops__Post_Code_</DataField>
+        </Field>
+        <Field Name="Stops_Location">
+          <DataField>Stops_Location</DataField>
+        </Field>
+        <Field Name="Stops_Type">
+          <DataField>Stops_Type</DataField>
+        </Field>
+        <Field Name="Stops_Transport_No_">
+          <DataField>Stops_Transport_No_</DataField>
+        </Field>
+        <Field Name="Stops_Line_No_">
+          <DataField>Stops_Line_No_</DataField>
+        </Field>
+        <Field Name="vStudentName">
+          <DataField>vStudentName</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours__Student_Code_No__">
+          <DataField>Students_Non_Lective_Hours__Student_Code_No__</DataField>
+        </Field>
+        <Field Name="vDay">
+          <DataField>vDay</DataField>
+        </Field>
+        <Field Name="vClass">
+          <DataField>vClass</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_School_Year">
+          <DataField>Students_Non_Lective_Hours_School_Year</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Week_Day">
+          <DataField>Students_Non_Lective_Hours_Week_Day</DataField>
+        </Field>
+        <Field Name="intWD">
+          <DataField>intWD</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Responsibility_Center">
+          <DataField>Students_Non_Lective_Hours_Responsibility_Center</DataField>
+        </Field>
+        <Field Name="vClass_Control1102065009">
+          <DataField>vClass_Control1102065009</DataField>
+        </Field>
+        <Field Name="vStudentName_Control1102065010">
+          <DataField>vStudentName_Control1102065010</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Day__Student_Code_No__">
+          <DataField>Students_Non_Lective_Hours_Day__Student_Code_No__</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Day_School_Year">
+          <DataField>Students_Non_Lective_Hours_Day_School_Year</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Day_Week_Day">
+          <DataField>Students_Non_Lective_Hours_Day_Week_Day</DataField>
+        </Field>
+        <Field Name="Students_Non_Lective_Hours_Day_Responsibility_Center">
+          <DataField>Students_Non_Lective_Hours_Day_Responsibility_Center</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

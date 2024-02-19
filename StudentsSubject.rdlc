@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="vTotal_Control1102065012Caption">
+          <DataField>vTotal_Control1102065012Caption</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="TeacherName">
+          <DataField>TeacherName</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Description">
+          <DataField>Registration_Subjects_Description</DataField>
+        </Field>
+        <Field Name="Registration_Subjects__Subjects_Code_">
+          <DataField>Registration_Subjects__Subjects_Code_</DataField>
+        </Field>
+        <Field Name="vTotal">
+          <DataField>vTotal</DataField>
+        </Field>
+        <Field Name="Students_SubjectCaption">
+          <DataField>Students_SubjectCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="FiltersCaption">
+          <DataField>FiltersCaption</DataField>
+        </Field>
+        <Field Name="TeacherCaption">
+          <DataField>TeacherCaption</DataField>
+        </Field>
+        <Field Name="StatusCaption">
+          <DataField>StatusCaption</DataField>
+        </Field>
+        <Field Name="Class_No_Caption">
+          <DataField>Class_No_Caption</DataField>
+        </Field>
+        <Field Name="ClassCaption">
+          <DataField>ClassCaption</DataField>
+        </Field>
+        <Field Name="Students_NameCaption">
+          <DataField>Students_NameCaption</DataField>
+        </Field>
+        <Field Name="Registration_Subjects__Subjects_Code_Caption">
+          <DataField>Registration_Subjects__Subjects_Code_Caption</DataField>
+        </Field>
+        <Field Name="Students__No__Caption">
+          <DataField>Students__No__Caption</DataField>
+        </Field>
+        <Field Name="TurnoCaption">
+          <DataField>TurnoCaption</DataField>
+        </Field>
+        <Field Name="vTotalCaption">
+          <DataField>vTotalCaption</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Student_Code_No_">
+          <DataField>Registration_Subjects_Student_Code_No_</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_School_Year">
+          <DataField>Registration_Subjects_School_Year</DataField>
+        </Field>
+        <Field Name="Registration_Subjects_Line_No_">
+          <DataField>Registration_Subjects_Line_No_</DataField>
+        </Field>
+        <Field Name="Students__No__">
+          <DataField>Students__No__</DataField>
+        </Field>
+        <Field Name="Students_Name">
+          <DataField>Students_Name</DataField>
+        </Field>
+        <Field Name="vClass">
+          <DataField>vClass</DataField>
+        </Field>
+        <Field Name="Registration_Subjects___Class_No__">
+          <DataField>Registration_Subjects___Class_No__</DataField>
+        </Field>
+        <Field Name="Registration_Subjects__Status">
+          <DataField>Registration_Subjects__Status</DataField>
+        </Field>
+        <Field Name="statusText">
+          <DataField>statusText</DataField>
+        </Field>
+        <Field Name="Registration_Subjects__Turn">
+          <DataField>Registration_Subjects__Turn</DataField>
+        </Field>
+        <Field Name="TempStudents__No__">
+          <DataField>TempStudents__No__</DataField>
+        </Field>
+        <Field Name="TempStudents_Name">
+          <DataField>TempStudents_Name</DataField>
+        </Field>
+        <Field Name="vClass_Control1102065008">
+          <DataField>vClass_Control1102065008</DataField>
+        </Field>
+        <Field Name="TempRegistrationSubjects__Class_No__">
+          <DataField>TempRegistrationSubjects__Class_No__</DataField>
+        </Field>
+        <Field Name="TempRegistrationSubjects_Status">
+          <DataField>TempRegistrationSubjects_Status</DataField>
+        </Field>
+        <Field Name="vTotal_Control1102065012">
+          <DataField>vTotal_Control1102065012</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

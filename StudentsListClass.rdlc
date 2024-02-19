@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="classs_Class">
+          <DataField>classs_Class</DataField>
+        </Field>
+        <Field Name="classs_School_Year">
+          <DataField>classs_School_Year</DataField>
+        </Field>
+        <Field Name="classs_Schooling_Year">
+          <DataField>classs_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="ShowPicture">
+          <DataField>ShowPicture</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Registration_Class__Registration_Class__Class">
+          <DataField>Registration_Class__Registration_Class__Class</DataField>
+        </Field>
+        <Field Name="classs__Schooling_Year____________classs__Class_Letter_">
+          <DataField>classs__Schooling_Year____________classs__Class_Letter_</DataField>
+        </Field>
+        <Field Name="classs__Class_Director_Name_">
+          <DataField>classs__Class_Director_Name_</DataField>
+        </Field>
+        <Field Name="classs__Secretary_Name_">
+          <DataField>classs__Secretary_Name_</DataField>
+        </Field>
+        <Field Name="classs_Room">
+          <DataField>classs_Room</DataField>
+        </Field>
+        <Field Name="Registration_Class__Registration_Class___School_Year_">
+          <DataField>Registration_Class__Registration_Class___School_Year_</DataField>
+        </Field>
+        <Field Name="rStudents_Picture">
+          <DataField>rStudents_Picture</DataField>
+        </Field>
+        <Field Name="Registration_Class_Name">
+          <DataField>Registration_Class_Name</DataField>
+        </Field>
+        <Field Name="Registration_Class__Class_No__">
+          <DataField>Registration_Class__Class_No__</DataField>
+        </Field>
+        <Field Name="Registration_Class__Student_Code_No__">
+          <DataField>Registration_Class__Student_Code_No__</DataField>
+        </Field>
+        <Field Name="Registration_Class_Status">
+          <DataField>Registration_Class_Status</DataField>
+        </Field>
+        <Field Name="Registration_Class_Name_Control1102059003">
+          <DataField>Registration_Class_Name_Control1102059003</DataField>
+        </Field>
+        <Field Name="Registration_Class__Class_No___Control1102059004">
+          <DataField>Registration_Class__Class_No___Control1102059004</DataField>
+        </Field>
+        <Field Name="Registration_Class__Student_Code_No___Control1102059005">
+          <DataField>Registration_Class__Student_Code_No___Control1102059005</DataField>
+        </Field>
+        <Field Name="Registration_Class_Status_Control1102065005">
+          <DataField>Registration_Class_Status_Control1102065005</DataField>
+        </Field>
+        <Field Name="vTotal">
+          <DataField>vTotal</DataField>
+        </Field>
+        <Field Name="Filtres_Caption">
+          <DataField>Filtres_Caption</DataField>
+        </Field>
+        <Field Name="Llista_d_alumnes_per_classeCaption">
+          <DataField>Llista_d_alumnes_per_classeCaption</DataField>
+        </Field>
+        <Field Name="Any_Acadèmic_Caption">
+          <DataField>Any_Acadèmic_Caption</DataField>
+        </Field>
+        <Field Name="Classe_Caption">
+          <DataField>Classe_Caption</DataField>
+        </Field>
+        <Field Name="Secretari_Caption">
+          <DataField>Secretari_Caption</DataField>
+        </Field>
+        <Field Name="Director_de_la_classe_Caption">
+          <DataField>Director_de_la_classe_Caption</DataField>
+        </Field>
+        <Field Name="Sala_Caption">
+          <DataField>Sala_Caption</DataField>
+        </Field>
+        <Field Name="Codi_de_l_alumneCaption">
+          <DataField>Codi_de_l_alumneCaption</DataField>
+        </Field>
+        <Field Name="NomCaption">
+          <DataField>NomCaption</DataField>
+        </Field>
+        <Field Name="N__de_la_classeCaption">
+          <DataField>N__de_la_classeCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Registration_Class_StatusCaption">
+          <DataField>Registration_Class_StatusCaption</DataField>
+        </Field>
+        <Field Name="vTotalCaption">
+          <DataField>vTotalCaption</DataField>
+        </Field>
+        <Field Name="Registration_Class_Schooling_Year">
+          <DataField>Registration_Class_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Registration_Class_Study_Plan_Code">
+          <DataField>Registration_Class_Study_Plan_Code</DataField>
+        </Field>
+        <Field Name="Registration_Class_Type">
+          <DataField>Registration_Class_Type</DataField>
+        </Field>
+        <Field Name="Registration_Class_Line_No_">
+          <DataField>Registration_Class_Line_No_</DataField>
+        </Field>
+        <Field Name="ResponsableTeacherLbl">
+          <DataField>ResponsableTeacherLbl</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

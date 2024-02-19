@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Filters">
+          <DataField>Filters</DataField>
+        </Field>
+        <Field Name="rStructureEducationCountry__Education_Level_">
+          <DataField>rStructureEducationCountry__Education_Level_</DataField>
+        </Field>
+        <Field Name="Class____________rClass_Description">
+          <DataField>Class____________rClass_Description</DataField>
+        </Field>
+        <Field Name="Student_No_____________StudentName">
+          <DataField>Student_No_____________StudentName</DataField>
+        </Field>
+        <Field Name="Entity_ID____________EntityName">
+          <DataField>Entity_ID____________EntityName</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Service_Code_">
+          <DataField>Student_Ledger_Entry__Service_Code_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Posting_Date_">
+          <DataField>Student_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Description">
+          <DataField>Student_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Quantity">
+          <DataField>Student_Ledger_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Percent___">
+          <DataField>Student_Ledger_Entry__Percent___</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Percent___Format">
+          <DataField>Student_Ledger_Entry__Percent___Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount">
+          <DataField>Student_Ledger_Entry_Amount</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_AmountFormat">
+          <DataField>Student_Ledger_Entry_AmountFormat</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount___">
+          <DataField>Student_Ledger_Entry__Line_Discount___</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount___Format">
+          <DataField>Student_Ledger_Entry__Line_Discount___Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount_">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount_Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount_Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Unit_Price_">
+          <DataField>Student_Ledger_Entry__Unit_Price_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Unit_Price_Format">
+          <DataField>Student_Ledger_Entry__Unit_Price_Format</DataField>
+        </Field>
+        <Field Name="Line_Discount_Amount____Amount">
+          <DataField>Line_Discount_Amount____Amount</DataField>
+        </Field>
+        <Field Name="Line_Discount_Amount____AmountFormat">
+          <DataField>Line_Discount_Amount____AmountFormat</DataField>
+        </Field>
+        <Field Name="TotalFor___EntityName">
+          <DataField>TotalFor___EntityName</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065056">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065056</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065056Format">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065056Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065057">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065057</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065057Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065057Format</DataField>
+        </Field>
+        <Field Name="Amount___InvoiceAmountDisc">
+          <DataField>Amount___InvoiceAmountDisc</DataField>
+        </Field>
+        <Field Name="Amount___InvoiceAmountDiscFormat">
+          <DataField>Amount___InvoiceAmountDiscFormat</DataField>
+        </Field>
+        <Field Name="TotalFor___EntityName_Control1102065031">
+          <DataField>TotalFor___EntityName_Control1102065031</DataField>
+        </Field>
+        <Field Name="InvoiceAmountDisc">
+          <DataField>InvoiceAmountDisc</DataField>
+        </Field>
+        <Field Name="InvoiceAmountDiscFormat">
+          <DataField>InvoiceAmountDiscFormat</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065037">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065037</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065037Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065037Format</DataField>
+        </Field>
+        <Field Name="TextDiscount">
+          <DataField>TextDiscount</DataField>
+        </Field>
+        <Field Name="TotalFor___StudentName">
+          <DataField>TotalFor___StudentName</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065059">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065059</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065059Format">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065059Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065060">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065060</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065060Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065060Format</DataField>
+        </Field>
+        <Field Name="TotalFor_________Class_________rClass_Description">
+          <DataField>TotalFor_________Class_________rClass_Description</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065062">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065062</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065062Format">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065062Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065063">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065063</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065063Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065063Format</DataField>
+        </Field>
+        <Field Name="TotalFor___rStructureEducationCountry__Education_Level_">
+          <DataField>TotalFor___rStructureEducationCountry__Education_Level_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065065">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065065</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065065Format">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065065Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065066">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065066</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065066Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065066Format</DataField>
+        </Field>
+        <Field Name="FinalTotal">
+          <DataField>FinalTotal</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065026">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065026</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount__Control1102065026Format">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount__Control1102065026Format</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065027">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065027</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Amount_Control1102065027Format">
+          <DataField>Student_Ledger_Entry_Amount_Control1102065027Format</DataField>
+        </Field>
+        <Field Name="Pre_Billing_ValidationCaption">
+          <DataField>Pre_Billing_ValidationCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Filters_Caption">
+          <DataField>Filters_Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Service_Code_Caption">
+          <DataField>Student_Ledger_Entry__Service_Code_Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Posting_Date_Caption">
+          <DataField>Student_Ledger_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_DescriptionCaption">
+          <DataField>Student_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_QuantityCaption">
+          <DataField>Student_Ledger_Entry_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Percent___Caption">
+          <DataField>Student_Ledger_Entry__Percent___Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_AmountCaption">
+          <DataField>Student_Ledger_Entry_AmountCaption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount___Caption">
+          <DataField>Student_Ledger_Entry__Line_Discount___Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Line_Discount_Amount_Caption">
+          <DataField>Student_Ledger_Entry__Line_Discount_Amount_Caption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry__Unit_Price_Caption">
+          <DataField>Student_Ledger_Entry__Unit_Price_Caption</DataField>
+        </Field>
+        <Field Name="Line_Discount_Amount____AmountCaption">
+          <DataField>Line_Discount_Amount____AmountCaption</DataField>
+        </Field>
+        <Field Name="ClasseCaption">
+          <DataField>ClasseCaption</DataField>
+        </Field>
+        <Field Name="Núm__estudiantCaption">
+          <DataField>Núm__estudiantCaption</DataField>
+        </Field>
+        <Field Name="Id__entitatCaption">
+          <DataField>Id__entitatCaption</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Entry_No_">
+          <DataField>Student_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Schooling_Year">
+          <DataField>Student_Ledger_Entry_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Class">
+          <DataField>Student_Ledger_Entry_Class</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Student_No_">
+          <DataField>Student_Ledger_Entry_Student_No_</DataField>
+        </Field>
+        <Field Name="Student_Ledger_Entry_Entity_ID">
+          <DataField>Student_Ledger_Entry_Entity_ID</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

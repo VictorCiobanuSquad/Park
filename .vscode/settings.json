@@ -1,0 +1,7 @@
+{
+"al.assemblyProbingPaths": [
+    "./.netpackages",
+    "C:/Program Files/Assemblies",
+    "C:/Program Files/Microsoft Dynamics 365 Business Central/200/Service/Add-ins/SMTP"
+]
+}

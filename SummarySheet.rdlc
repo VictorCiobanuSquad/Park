@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="rCompanyInfo_Picture">
+          <DataField>rCompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Schooling_Year_____________Class_Letter_">
+          <DataField>Schooling_Year_____________Class_Letter_</DataField>
+        </Field>
+        <Field Name="Class__School_Year_">
+          <DataField>Class__School_Year_</DataField>
+        </Field>
+        <Field Name="FiltresCaption">
+          <DataField>FiltresCaption</DataField>
+        </Field>
+        <Field Name="Full_de_ResumCaption">
+          <DataField>Full_de_ResumCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Class__School_Year_Caption">
+          <DataField>Class__School_Year_Caption</DataField>
+        </Field>
+        <Field Name="ClasseCaption">
+          <DataField>ClasseCaption</DataField>
+        </Field>
+        <Field Name="Class_Class">
+          <DataField>Class_Class</DataField>
+        </Field>
+        <Field Name="Timetable_Timetable_Code">
+          <DataField>Timetable_Timetable_Code</DataField>
+        </Field>
+        <Field Name="Timetable_Class">
+          <DataField>Timetable_Class</DataField>
+        </Field>
+        <Field Name="Timetable_School_Year">
+          <DataField>Timetable_School_Year</DataField>
+        </Field>
+        <Field Name="Calendar_Subject">
+          <DataField>Calendar_Subject</DataField>
+        </Field>
+        <Field Name="Calendar__Start_Hour_">
+          <DataField>Calendar__Start_Hour_</DataField>
+        </Field>
+        <Field Name="vSummary">
+          <DataField>vSummary</DataField>
+        </Field>
+        <Field Name="vFaltas">
+          <DataField>vFaltas</DataField>
+        </Field>
+        <Field Name="Calendar__Filter_Period_">
+          <DataField>Calendar__Filter_Period_</DataField>
+        </Field>
+        <Field Name="Data_i_HoraCaption">
+          <DataField>Data_i_HoraCaption</DataField>
+        </Field>
+        <Field Name="ResumCaption">
+          <DataField>ResumCaption</DataField>
+        </Field>
+        <Field Name="Nombre_d_alumnes_absentsCaption">
+          <DataField>Nombre_d_alumnes_absentsCaption</DataField>
+        </Field>
+        <Field Name="Signatura_del_professorCaption">
+          <DataField>Signatura_del_professorCaption</DataField>
+        </Field>
+        <Field Name="Calendar_Timetable_Code">
+          <DataField>Calendar_Timetable_Code</DataField>
+        </Field>
+        <Field Name="Calendar_School_Year">
+          <DataField>Calendar_School_Year</DataField>
+        </Field>
+        <Field Name="Calendar_Study_Plan">
+          <DataField>Calendar_Study_Plan</DataField>
+        </Field>
+        <Field Name="Calendar_Class">
+          <DataField>Calendar_Class</DataField>
+        </Field>
+        <Field Name="Calendar_Line_No_">
+          <DataField>Calendar_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

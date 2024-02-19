@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="vDayDescription_1_1_">
+          <DataField>vDayDescription_1_1_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_2_">
+          <DataField>vDayDescription_1_2_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_3_">
+          <DataField>vDayDescription_1_3_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_4_">
+          <DataField>vDayDescription_1_4_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_5_">
+          <DataField>vDayDescription_1_5_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_6_">
+          <DataField>vDayDescription_1_6_</DataField>
+        </Field>
+        <Field Name="vDayDescription_1_7_">
+          <DataField>vDayDescription_1_7_</DataField>
+        </Field>
+        <Field Name="Timetable_Lines__Start_Hour_">
+          <DataField>Timetable_Lines__Start_Hour_</DataField>
+        </Field>
+        <Field Name="Timetable_Lines__End_Hour_">
+          <DataField>Timetable_Lines__End_Hour_</DataField>
+        </Field>
+        <Field Name="vSubject_1_1_">
+          <DataField>vSubject_1_1_</DataField>
+        </Field>
+        <Field Name="vSubject_1_2_">
+          <DataField>vSubject_1_2_</DataField>
+        </Field>
+        <Field Name="vSubject_1_3_">
+          <DataField>vSubject_1_3_</DataField>
+        </Field>
+        <Field Name="vSubject_1_4_">
+          <DataField>vSubject_1_4_</DataField>
+        </Field>
+        <Field Name="vSubject_1_5_">
+          <DataField>vSubject_1_5_</DataField>
+        </Field>
+        <Field Name="vSubject_1_6_">
+          <DataField>vSubject_1_6_</DataField>
+        </Field>
+        <Field Name="vSubject_1_7_">
+          <DataField>vSubject_1_7_</DataField>
+        </Field>
+        <Field Name="Timetable_Lines_Timetable_Code">
+          <DataField>Timetable_Lines_Timetable_Code</DataField>
+        </Field>
+        <Field Name="Timetable_Lines_Class">
+          <DataField>Timetable_Lines_Class</DataField>
+        </Field>
+        <Field Name="Timetable_Lines_Template_Code">
+          <DataField>Timetable_Lines_Template_Code</DataField>
+        </Field>
+        <Field Name="Timetable_Lines_Line_No_">
+          <DataField>Timetable_Lines_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

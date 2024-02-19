@@ -1,0 +1,21 @@
+Publish-NAVApp -ServerInstance BC200 -Path 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Extensions\SOFTSTORE_Localization_Pack_for_Portugal_21.4.1905.1_runtime.app' -PassThru -SkipVerification
+Sync-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Localization Pack for Portugal' -Mode ForceSync
+Install-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Localization Pack for Portugal'
+
+Publish-NAVApp -ServerInstance BC200 -Path 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Extensions\SOFTSTORE_External_Pack_for_Portugal_21.4.1905.1_runtime.app' -PassThru -SkipVerification
+Sync-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE External Pack for Portugal'
+Install-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE External Pack for Portugal'
+
+Publish-NAVApp -ServerInstance BC200 -Path 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Extensions\SOFTSTORE_Language_Pack_for_Portugal_21.4.1905.1_runtime.app' -PassThru -SkipVerification
+Sync-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Language Pack for Portugal'
+Install-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Language Pack for Portugal'
+
+Publish-NAVApp -ServerInstance BC200 -Path 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Extensions\SOFTSTORE_Fixed_Asset_Pack_for_Portugal_21.4.1905.1_runtime.app' -PassThru -SkipVerification
+Sync-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Fixed Asset Pack for Portugal'
+Install-NAVApp -ServerInstance BC200 -Name 'SOFTSTORE Fixed Asset Pack for Portugal'
+
+
+
+Publish-NAVApp -ServerInstance BC200 -Path 'C:\Program Files\Microsoft Dynamics 365 Business Central\200\Extensions\Default publisher_Park-IS_1.0.0.1.app' -PassThru -SkipVerification
+Sync-NAVApp -ServerInstance BC200 -Name 'Park-IS'
+Install-NAVApp -ServerInstance BC200 -Name 'Park-IS'

@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="rCompanyInfo_Picture">
+          <DataField>rCompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="EstatisticasCaption">
+          <DataField>EstatisticasCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="FiltresCaption">
+          <DataField>FiltresCaption</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_1_">
+          <DataField>vAvalTEXT_1_</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_2_">
+          <DataField>vAvalTEXT_2_</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_3_">
+          <DataField>vAvalTEXT_3_</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_4_">
+          <DataField>vAvalTEXT_4_</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_5_">
+          <DataField>vAvalTEXT_5_</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_6_">
+          <DataField>vAvalTEXT_6_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Study_Plan_Lines___Subject_Description_">
+          <DataField>Study_Plan_Lines__Study_Plan_Lines___Subject_Description_</DataField>
+        </Field>
+        <Field Name="vAvalCount_1_">
+          <DataField>vAvalCount_1_</DataField>
+        </Field>
+        <Field Name="vAvalCount_1_Format">
+          <DataField>vAvalCount_1_Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_2_">
+          <DataField>vAvalCount_2_</DataField>
+        </Field>
+        <Field Name="vAvalCount_2_Format">
+          <DataField>vAvalCount_2_Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_3_">
+          <DataField>vAvalCount_3_</DataField>
+        </Field>
+        <Field Name="vAvalCount_3_Format">
+          <DataField>vAvalCount_3_Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_4_">
+          <DataField>vAvalCount_4_</DataField>
+        </Field>
+        <Field Name="vAvalCount_4_Format">
+          <DataField>vAvalCount_4_Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_5_">
+          <DataField>vAvalCount_5_</DataField>
+        </Field>
+        <Field Name="vAvalCount_5_Format">
+          <DataField>vAvalCount_5_Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_6_">
+          <DataField>vAvalCount_6_</DataField>
+        </Field>
+        <Field Name="vAvalCount_6_Format">
+          <DataField>vAvalCount_6_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_1_">
+          <DataField>vAvalCountTotal_1_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_1_Format">
+          <DataField>vAvalCountTotal_1_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_2_">
+          <DataField>vAvalCountTotal_2_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_2_Format">
+          <DataField>vAvalCountTotal_2_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_3_">
+          <DataField>vAvalCountTotal_3_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_3_Format">
+          <DataField>vAvalCountTotal_3_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_4_">
+          <DataField>vAvalCountTotal_4_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_4_Format">
+          <DataField>vAvalCountTotal_4_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_5_">
+          <DataField>vAvalCountTotal_5_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_5_Format">
+          <DataField>vAvalCountTotal_5_Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_6_">
+          <DataField>vAvalCountTotal_6_</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_6_Format">
+          <DataField>vAvalCountTotal_6_Format</DataField>
+        </Field>
+        <Field Name="Disciplinas_NívelCaption">
+          <DataField>Disciplinas_NívelCaption</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_Code">
+          <DataField>Study_Plan_Lines_Code</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_School_Year">
+          <DataField>Study_Plan_Lines_School_Year</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_Schooling_Year">
+          <DataField>Study_Plan_Lines_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_Subject_Code">
+          <DataField>Study_Plan_Lines_Subject_Code</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_1__Control1102058033">
+          <DataField>vAvalTEXT_1__Control1102058033</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_2__Control1102058034">
+          <DataField>vAvalTEXT_2__Control1102058034</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_3__Control1102058035">
+          <DataField>vAvalTEXT_3__Control1102058035</DataField>
+        </Field>
+        <Field Name="vAvalTEXT_6__Control1102058038">
+          <DataField>vAvalTEXT_6__Control1102058038</DataField>
+        </Field>
+        <Field Name="StudyPlanLines2_StudyPlanLines2__Subject_Description_">
+          <DataField>StudyPlanLines2_StudyPlanLines2__Subject_Description_</DataField>
+        </Field>
+        <Field Name="vAvalCount_1__Control1102058041">
+          <DataField>vAvalCount_1__Control1102058041</DataField>
+        </Field>
+        <Field Name="vAvalCount_1__Control1102058041Format">
+          <DataField>vAvalCount_1__Control1102058041Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_2__Control1102058042">
+          <DataField>vAvalCount_2__Control1102058042</DataField>
+        </Field>
+        <Field Name="vAvalCount_2__Control1102058042Format">
+          <DataField>vAvalCount_2__Control1102058042Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_3__Control1102058043">
+          <DataField>vAvalCount_3__Control1102058043</DataField>
+        </Field>
+        <Field Name="vAvalCount_3__Control1102058043Format">
+          <DataField>vAvalCount_3__Control1102058043Format</DataField>
+        </Field>
+        <Field Name="vAvalCount_6__Control1102058046">
+          <DataField>vAvalCount_6__Control1102058046</DataField>
+        </Field>
+        <Field Name="vAvalCount_6__Control1102058046Format">
+          <DataField>vAvalCount_6__Control1102058046Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_1__Control1102058047">
+          <DataField>vAvalCountTotal_1__Control1102058047</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_1__Control1102058047Format">
+          <DataField>vAvalCountTotal_1__Control1102058047Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_2__Control1102058048">
+          <DataField>vAvalCountTotal_2__Control1102058048</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_2__Control1102058048Format">
+          <DataField>vAvalCountTotal_2__Control1102058048Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_3__Control1102058049">
+          <DataField>vAvalCountTotal_3__Control1102058049</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_3__Control1102058049Format">
+          <DataField>vAvalCountTotal_3__Control1102058049Format</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_6__Control1102058052">
+          <DataField>vAvalCountTotal_6__Control1102058052</DataField>
+        </Field>
+        <Field Name="vAvalCountTotal_6__Control1102058052Format">
+          <DataField>vAvalCountTotal_6__Control1102058052Format</DataField>
+        </Field>
+        <Field Name="Disciplinas_NívelCaption_Control1102058032">
+          <DataField>Disciplinas_NívelCaption_Control1102058032</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1102058053">
+          <DataField>TotalCaption_Control1102058053</DataField>
+        </Field>
+        <Field Name="StudyPlanLines2_Code">
+          <DataField>StudyPlanLines2_Code</DataField>
+        </Field>
+        <Field Name="StudyPlanLines2_School_Year">
+          <DataField>StudyPlanLines2_School_Year</DataField>
+        </Field>
+        <Field Name="StudyPlanLines2_Schooling_Year">
+          <DataField>StudyPlanLines2_Schooling_Year</DataField>
+        </Field>
+        <Field Name="StudyPlanLines2_Subject_Code">
+          <DataField>StudyPlanLines2_Subject_Code</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

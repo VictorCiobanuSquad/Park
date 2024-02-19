@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="Schooling_Year_____________Class_Letter_">
+          <DataField>Schooling_Year_____________Class_Letter_</DataField>
+        </Field>
+        <Field Name="Class__School_Year_">
+          <DataField>Class__School_Year_</DataField>
+        </Field>
+        <Field Name="Class__Class_Director_Name_">
+          <DataField>Class__Class_Director_Name_</DataField>
+        </Field>
+        <Field Name="Full_de_puntCaption">
+          <DataField>Full_de_puntCaption</DataField>
+        </Field>
+        <Field Name="ClassCaption">
+          <DataField>ClassCaption</DataField>
+        </Field>
+        <Field Name="School_YearCaption">
+          <DataField>School_YearCaption</DataField>
+        </Field>
+        <Field Name="Class__Class_Director_Name_Caption">
+          <DataField>Class__Class_Director_Name_Caption</DataField>
+        </Field>
+        <Field Name="Class_Class">
+          <DataField>Class_Class</DataField>
+        </Field>
+        <Field Name="print1">
+          <DataField>print1</DataField>
+        </Field>
+        <Field Name="AlunosVar1_Picture">
+          <DataField>AlunosVar1_Picture</DataField>
+        </Field>
+        <Field Name="print2">
+          <DataField>print2</DataField>
+        </Field>
+        <Field Name="AlunosVar2_Picture">
+          <DataField>AlunosVar2_Picture</DataField>
+        </Field>
+        <Field Name="print3">
+          <DataField>print3</DataField>
+        </Field>
+        <Field Name="AlunosVar3_Picture">
+          <DataField>AlunosVar3_Picture</DataField>
+        </Field>
+        <Field Name="print4">
+          <DataField>print4</DataField>
+        </Field>
+        <Field Name="AlunosVar4_Picture">
+          <DataField>AlunosVar4_Picture</DataField>
+        </Field>
+        <Field Name="print5">
+          <DataField>print5</DataField>
+        </Field>
+        <Field Name="AlunosVar5_Picture">
+          <DataField>AlunosVar5_Picture</DataField>
+        </Field>
+        <Field Name="print6">
+          <DataField>print6</DataField>
+        </Field>
+        <Field Name="AlunosVar6_Picture">
+          <DataField>AlunosVar6_Picture</DataField>
+        </Field>
+        <Field Name="Registration_Class_Class">
+          <DataField>Registration_Class_Class</DataField>
+        </Field>
+        <Field Name="Registration_Class_School_Year">
+          <DataField>Registration_Class_School_Year</DataField>
+        </Field>
+        <Field Name="Registration_Class_Schooling_Year">
+          <DataField>Registration_Class_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Registration_Class_Study_Plan_Code">
+          <DataField>Registration_Class_Study_Plan_Code</DataField>
+        </Field>
+        <Field Name="Registration_Class_Student_Code_No_">
+          <DataField>Registration_Class_Student_Code_No_</DataField>
+        </Field>
+        <Field Name="Registration_Class_Type">
+          <DataField>Registration_Class_Type</DataField>
+        </Field>
+        <Field Name="Registration_Class_Line_No_">
+          <DataField>Registration_Class_Line_No_</DataField>
+        </Field>
+        <Field Name="Registration_Class_No">
+          <DataField>Registration_Class_No</DataField>
+        </Field>
+        <Field Name="ResponsableTeacherLbl">
+          <DataField>ResponsableTeacherLbl</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

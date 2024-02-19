@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Course_Header_Code">
+          <DataField>Course_Header_Code</DataField>
+        </Field>
+        <Field Name="Course_Header_Description">
+          <DataField>Course_Header_Description</DataField>
+        </Field>
+        <Field Name="varSchoolingYear">
+          <DataField>varSchoolingYear</DataField>
+        </Field>
+        <Field Name="Course_Header_CodeCaption">
+          <DataField>Course_Header_CodeCaption</DataField>
+        </Field>
+        <Field Name="Course_Header_DescriptionCaption">
+          <DataField>Course_Header_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="rCourseLinesTEMP__Subject_Code_">
+          <DataField>rCourseLinesTEMP__Subject_Code_</DataField>
+        </Field>
+        <Field Name="varSettingRatings">
+          <DataField>varSettingRatings</DataField>
+        </Field>
+        <Field Name="rCourseLinesTEMP__Legal_Code_">
+          <DataField>rCourseLinesTEMP__Legal_Code_</DataField>
+        </Field>
+        <Field Name="FORMAT_rCourseLinesTEMP__Evaluation_Type__">
+          <DataField>FORMAT_rCourseLinesTEMP__Evaluation_Type__</DataField>
+        </Field>
+        <Field Name="rCourseLinesTEMP__Assessment_Code_">
+          <DataField>rCourseLinesTEMP__Assessment_Code_</DataField>
+        </Field>
+        <Field Name="rCourseLinesTEMP__Option_Group_">
+          <DataField>rCourseLinesTEMP__Option_Group_</DataField>
+        </Field>
+        <Field Name="varAspects">
+          <DataField>varAspects</DataField>
+        </Field>
+        <Field Name="Codi_matèriaCaption">
+          <DataField>Codi_matèriaCaption</DataField>
+        </Field>
+        <Field Name="Codi_legalCaption">
+          <DataField>Codi_legalCaption</DataField>
+        </Field>
+        <Field Name="Grup_assignaturesCaption">
+          <DataField>Grup_assignaturesCaption</DataField>
+        </Field>
+        <Field Name="Codi_de_notesCaption">
+          <DataField>Codi_de_notesCaption</DataField>
+        </Field>
+        <Field Name="Tipus_avaluacióCaption">
+          <DataField>Tipus_avaluacióCaption</DataField>
+        </Field>
+        <Field Name="varAspectsCaption">
+          <DataField>varAspectsCaption</DataField>
+        </Field>
+        <Field Name="varSettingRatingsCaption">
+          <DataField>varSettingRatingsCaption</DataField>
+        </Field>
+        <Field Name="integer1_Number">
+          <DataField>integer1_Number</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Sub_Subject_Code_">
+          <DataField>StudyPlanSubSubjectsLines__Sub_Subject_Code_</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Evaluation_Type_">
+          <DataField>StudyPlanSubSubjectsLines__Evaluation_Type_</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Assessment_Code_">
+          <DataField>StudyPlanSubSubjectsLines__Assessment_Code_</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065044">
+          <DataField>varSettingRatings_Control1102065044</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065045">
+          <DataField>varAspects_Control1102065045</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Sub_Subject_Code_Caption">
+          <DataField>StudyPlanSubSubjectsLines__Sub_Subject_Code_Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Evaluation_Type_Caption">
+          <DataField>StudyPlanSubSubjectsLines__Evaluation_Type_Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines__Assessment_Code_Caption">
+          <DataField>StudyPlanSubSubjectsLines__Assessment_Code_Caption</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065045Caption">
+          <DataField>varAspects_Control1102065045Caption</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065044Caption">
+          <DataField>varSettingRatings_Control1102065044Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines_Type">
+          <DataField>StudyPlanSubSubjectsLines_Type</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines_Code">
+          <DataField>StudyPlanSubSubjectsLines_Code</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines_Schooling_Year">
+          <DataField>StudyPlanSubSubjectsLines_Schooling_Year</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines_Subject_Code">
+          <DataField>StudyPlanSubSubjectsLines_Subject_Code</DataField>
+        </Field>
+        <Field Name="Study_Plan_Header_Description">
+          <DataField>Study_Plan_Header_Description</DataField>
+        </Field>
+        <Field Name="Study_Plan_Header_Code">
+          <DataField>Study_Plan_Header_Code</DataField>
+        </Field>
+        <Field Name="varSchoolingYear_Control1102065036">
+          <DataField>varSchoolingYear_Control1102065036</DataField>
+        </Field>
+        <Field Name="Study_Plan_Header_CodeCaption">
+          <DataField>Study_Plan_Header_CodeCaption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Header_DescriptionCaption">
+          <DataField>Study_Plan_Header_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Header_Schooling_Year">
+          <DataField>Study_Plan_Header_Schooling_Year</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065032">
+          <DataField>varSettingRatings_Control1102065032</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065034">
+          <DataField>varAspects_Control1102065034</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Subject_Code_">
+          <DataField>Study_Plan_Lines__Subject_Code_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Legal_Code_">
+          <DataField>Study_Plan_Lines__Legal_Code_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Evaluation_Type_">
+          <DataField>Study_Plan_Lines__Evaluation_Type_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Assessment_Code_">
+          <DataField>Study_Plan_Lines__Assessment_Code_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Option_Group_">
+          <DataField>Study_Plan_Lines__Option_Group_</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Subject_Code_Caption">
+          <DataField>Study_Plan_Lines__Subject_Code_Caption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Legal_Code_Caption">
+          <DataField>Study_Plan_Lines__Legal_Code_Caption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Evaluation_Type_Caption">
+          <DataField>Study_Plan_Lines__Evaluation_Type_Caption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Assessment_Code_Caption">
+          <DataField>Study_Plan_Lines__Assessment_Code_Caption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines__Option_Group_Caption">
+          <DataField>Study_Plan_Lines__Option_Group_Caption</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065032Caption">
+          <DataField>varSettingRatings_Control1102065032Caption</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065034Caption">
+          <DataField>varAspects_Control1102065034Caption</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_Code">
+          <DataField>Study_Plan_Lines_Code</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_School_Year">
+          <DataField>Study_Plan_Lines_School_Year</DataField>
+        </Field>
+        <Field Name="Study_Plan_Lines_Schooling_Year">
+          <DataField>Study_Plan_Lines_Schooling_Year</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065050">
+          <DataField>varSettingRatings_Control1102065050</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065051">
+          <DataField>varAspects_Control1102065051</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Sub_Subject_Code_">
+          <DataField>StudyPlanSubSubjectsLines1__Sub_Subject_Code_</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Evaluation_Type_">
+          <DataField>StudyPlanSubSubjectsLines1__Evaluation_Type_</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Assessment_Code_">
+          <DataField>StudyPlanSubSubjectsLines1__Assessment_Code_</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Sub_Subject_Code_Caption">
+          <DataField>StudyPlanSubSubjectsLines1__Sub_Subject_Code_Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Evaluation_Type_Caption">
+          <DataField>StudyPlanSubSubjectsLines1__Evaluation_Type_Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1__Assessment_Code_Caption">
+          <DataField>StudyPlanSubSubjectsLines1__Assessment_Code_Caption</DataField>
+        </Field>
+        <Field Name="varAspects_Control1102065051Caption">
+          <DataField>varAspects_Control1102065051Caption</DataField>
+        </Field>
+        <Field Name="varSettingRatings_Control1102065050Caption">
+          <DataField>varSettingRatings_Control1102065050Caption</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1_Type">
+          <DataField>StudyPlanSubSubjectsLines1_Type</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1_Code">
+          <DataField>StudyPlanSubSubjectsLines1_Code</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1_Schooling_Year">
+          <DataField>StudyPlanSubSubjectsLines1_Schooling_Year</DataField>
+        </Field>
+        <Field Name="StudyPlanSubSubjectsLines1_Subject_Code">
+          <DataField>StudyPlanSubSubjectsLines1_Subject_Code</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

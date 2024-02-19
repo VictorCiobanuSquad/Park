@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="PageCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PageCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PageCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RepTitleCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RepTitleCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RepTitleCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FiltersCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FiltersCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FiltersCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SchoolYearCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SchoolYearCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SchoolYearCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SchoolingYearCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SchoolingYearCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SchoolingYearCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StudentNoCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StudentNoCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StudentNoCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StudentNameCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>StudentNameCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>StudentNameCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RecoverClassCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RecoverClassCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RecoverClassCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AbsentCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AbsentCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AbsentCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SubjectsCodeCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SubjectsCodeCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SubjectsCodeCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DateFormated">
+          <DataField>DateFormated</DataField>
+        </Field>
+        <Field Name="CINFO_Picture">
+          <DataField>CINFO_Picture</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="Test_SchoolY">
+          <DataField>Test_SchoolY</DataField>
+        </Field>
+        <Field Name="Test_SchoolingY">
+          <DataField>Test_SchoolingY</DataField>
+        </Field>
+        <Field Name="Test_Date">
+          <DataField>Test_Date</DataField>
+        </Field>
+        <Field Name="Test_StudentNo">
+          <DataField>Test_StudentNo</DataField>
+        </Field>
+        <Field Name="Test_StudentName">
+          <DataField>Test_StudentName</DataField>
+        </Field>
+        <Field Name="Test_RecoverClassif">
+          <DataField>Test_RecoverClassif</DataField>
+        </Field>
+        <Field Name="Test_Absent">
+          <DataField>Test_Absent</DataField>
+        </Field>
+        <Field Name="Test_SubjectsCode">
+          <DataField>Test_SubjectsCode</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

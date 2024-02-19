@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="NumberLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NumberLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NumberLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EmisDateLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EmisDateLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EmisDateLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EntityNoLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>EntityNoLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>EntityNoLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SedeLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SedeLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SedeLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AddressFooterLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AddressFooterLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AddressFooterLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AddressFooter2Lbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AddressFooter2Lbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AddressFooter2Lbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AddressFooter3Lbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AddressFooter3Lbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AddressFooter3Lbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SocialCapitalFooterLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SocialCapitalFooterLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SocialCapitalFooterLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RegComercialLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RegComercialLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RegComercialLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ProcessedComputerLbl">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ProcessedComputerLbl</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ProcessedComputerLbl</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerNo_CustLedgEntryCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerNo_CustLedgEntryCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerNo_CustLedgEntryCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocType_CustLedgEntry1Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocType_CustLedgEntry1Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocType_CustLedgEntry1Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentNo_CustLedgEntry1Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentNo_CustLedgEntry1Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentNo_CustLedgEntry1Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Desc_CustLedgEntry1Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Desc_CustLedgEntry1Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Desc_CustLedgEntry1Caption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="EntryNo_CustLedgEntry">
+          <DataField>EntryNo_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="CustAddr6">
+          <DataField>CustAddr6</DataField>
+        </Field>
+        <Field Name="CustAddr7">
+          <DataField>CustAddr7</DataField>
+        </Field>
+        <Field Name="CustAddr8">
+          <DataField>CustAddr8</DataField>
+        </Field>
+        <Field Name="CustAddr4">
+          <DataField>CustAddr4</DataField>
+        </Field>
+        <Field Name="CustAddr5">
+          <DataField>CustAddr5</DataField>
+        </Field>
+        <Field Name="CustAddr3">
+          <DataField>CustAddr3</DataField>
+        </Field>
+        <Field Name="CustAddr1">
+          <DataField>CustAddr1</DataField>
+        </Field>
+        <Field Name="CustAddr2">
+          <DataField>CustAddr2</DataField>
+        </Field>
+        <Field Name="CustomerNo_CustLedgEntry">
+          <DataField>CustomerNo_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="DocDate_CustLedgEntry">
+          <DataField>DocDate_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="CompanyAddr1">
+          <DataField>CompanyAddr1</DataField>
+        </Field>
+        <Field Name="CompanyAddr2">
+          <DataField>CompanyAddr2</DataField>
+        </Field>
+        <Field Name="CompanyAddr3">
+          <DataField>CompanyAddr3</DataField>
+        </Field>
+        <Field Name="CompanyAddr4">
+          <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="CompanyAddr6">
+          <DataField>CompanyAddr6</DataField>
+        </Field>
+        <Field Name="CompanyInfoEMail">
+          <DataField>CompanyInfoEMail</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNo">
+          <DataField>CompanyInfoPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoHomePage">
+          <DataField>CompanyInfoHomePage</DataField>
+        </Field>
+        <Field Name="CompanyInfoVATRegNo">
+          <DataField>CompanyInfoVATRegNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoGiroNo">
+          <DataField>CompanyInfoGiroNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankName">
+          <DataField>CompanyInfoBankName</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccountNo">
+          <DataField>CompanyInfoBankAccountNo</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="ReportTitle">
+          <DataField>ReportTitle</DataField>
+        </Field>
+        <Field Name="DocumentNo_CustLedgEntry">
+          <DataField>DocumentNo_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="PaymentDiscountTitle">
+          <DataField>PaymentDiscountTitle</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNoCaption">
+          <DataField>CompanyInfoPhoneNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoGiroNoCaption">
+          <DataField>CompanyInfoGiroNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankNameCptn">
+          <DataField>CompanyInfoBankNameCptn</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccNoCptn">
+          <DataField>CompanyInfoBankAccNoCptn</DataField>
+        </Field>
+        <Field Name="ReceiptNoCaption">
+          <DataField>ReceiptNoCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoVATRegNoCptn">
+          <DataField>CompanyInfoVATRegNoCptn</DataField>
+        </Field>
+        <Field Name="CustLedgEntry1PostDtCptn">
+          <DataField>CustLedgEntry1PostDtCptn</DataField>
+        </Field>
+        <Field Name="AmountCaption">
+          <DataField>AmountCaption</DataField>
+        </Field>
+        <Field Name="PaymAmtSpecificationCptn">
+          <DataField>PaymAmtSpecificationCptn</DataField>
+        </Field>
+        <Field Name="PmtTolInvCurrCaption">
+          <DataField>PmtTolInvCurrCaption</DataField>
+        </Field>
+        <Field Name="DocumentDateCaption">
+          <DataField>DocumentDateCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoEMailCaption">
+          <DataField>CompanyInfoEMailCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoHomePageCptn">
+          <DataField>CompanyInfoHomePageCptn</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo_Customer">
+          <DataField>VATRegistrationNo_Customer</DataField>
+        </Field>
+        <Field Name="OriginalTxt">
+          <DataField>OriginalTxt</DataField>
+        </Field>
+        <Field Name="ReceiptTxt">
+          <DataField>ReceiptTxt</DataField>
+        </Field>
+        <Field Name="PostDate_CustLedgEntry1">
+          <DataField>PostDate_CustLedgEntry1</DataField>
+        </Field>
+        <Field Name="DocType_CustLedgEntry1">
+          <DataField>DocType_CustLedgEntry1</DataField>
+        </Field>
+        <Field Name="DocumentNo_CustLedgEntry1">
+          <DataField>DocumentNo_CustLedgEntry1</DataField>
+        </Field>
+        <Field Name="Desc_CustLedgEntry1">
+          <DataField>Desc_CustLedgEntry1</DataField>
+        </Field>
+        <Field Name="CurrCode_CustLedgEntry1">
+          <DataField>CurrCode_CustLedgEntry1</DataField>
+        </Field>
+        <Field Name="ShowAmount">
+          <DataField>ShowAmount</DataField>
+        </Field>
+        <Field Name="ShowAmountFormat">
+          <DataField>ShowAmountFormat</DataField>
+        </Field>
+        <Field Name="PmtDiscInvCurr">
+          <DataField>PmtDiscInvCurr</DataField>
+        </Field>
+        <Field Name="PmtDiscInvCurrFormat">
+          <DataField>PmtDiscInvCurrFormat</DataField>
+        </Field>
+        <Field Name="PmtTolInvCurr">
+          <DataField>PmtTolInvCurr</DataField>
+        </Field>
+        <Field Name="PmtTolInvCurrFormat">
+          <DataField>PmtTolInvCurrFormat</DataField>
+        </Field>
+        <Field Name="CurrencyCodeCaption">
+          <DataField>CurrencyCodeCaption</DataField>
+        </Field>
+        <Field Name="AppliedAmount">
+          <DataField>AppliedAmount</DataField>
+        </Field>
+        <Field Name="AppliedAmountFormat">
+          <DataField>AppliedAmountFormat</DataField>
+        </Field>
+        <Field Name="Desc_CustLedgEntry2">
+          <DataField>Desc_CustLedgEntry2</DataField>
+        </Field>
+        <Field Name="DocumentNo_CustLedgEntry2">
+          <DataField>DocumentNo_CustLedgEntry2</DataField>
+        </Field>
+        <Field Name="DocType_CustLedgEntry2">
+          <DataField>DocType_CustLedgEntry2</DataField>
+        </Field>
+        <Field Name="PostDate_CustLedgEntry2">
+          <DataField>PostDate_CustLedgEntry2</DataField>
+        </Field>
+        <Field Name="PmtDiscInvCurr1">
+          <DataField>PmtDiscInvCurr1</DataField>
+        </Field>
+        <Field Name="PmtDiscInvCurr1Format">
+          <DataField>PmtDiscInvCurr1Format</DataField>
+        </Field>
+        <Field Name="PmtTolInvCurr1">
+          <DataField>PmtTolInvCurr1</DataField>
+        </Field>
+        <Field Name="PmtTolInvCurr1Format">
+          <DataField>PmtTolInvCurr1Format</DataField>
+        </Field>
+        <Field Name="RemainingAmount">
+          <DataField>RemainingAmount</DataField>
+        </Field>
+        <Field Name="RemainingAmountFormat">
+          <DataField>RemainingAmountFormat</DataField>
+        </Field>
+        <Field Name="CurrCode_CustLedgEntry">
+          <DataField>CurrCode_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="OriginalAmt_CustLedgEntry">
+          <DataField>OriginalAmt_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="OriginalAmt_CustLedgEntryFormat">
+          <DataField>OriginalAmt_CustLedgEntryFormat</DataField>
+        </Field>
+        <Field Name="ExtDocNo_CustLedgEntry">
+          <DataField>ExtDocNo_CustLedgEntry</DataField>
+        </Field>
+        <Field Name="PaymAmtNotAllocatedCptn">
+          <DataField>PaymAmtNotAllocatedCptn</DataField>
+        </Field>
+        <Field Name="CustLedgEntryOrgAmtCptn">
+          <DataField>CustLedgEntryOrgAmtCptn</DataField>
+        </Field>
+        <Field Name="ExternalDocumentNoCaption">
+          <DataField>ExternalDocumentNoCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

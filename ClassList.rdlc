@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReportTitle</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportTitle</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PageCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PageCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PageCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RegisteredCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RegisteredCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RegisteredCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FilterCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FilterCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FilterCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Class_SchoolYearCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Class_SchoolYearCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Class_SchoolYearCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Class_SchoolingYearCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Class_SchoolingYearCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Class_SchoolingYearCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Class_ClassCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Class_ClassCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Class_ClassCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Class_ClassDirectorNameCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Class_ClassDirectorNameCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Class_ClassDirectorNameCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DateFormated">
+          <DataField>DateFormated</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="Class_SchoolYear">
+          <DataField>Class_SchoolYear</DataField>
+        </Field>
+        <Field Name="Class_SchoolingYear">
+          <DataField>Class_SchoolingYear</DataField>
+        </Field>
+        <Field Name="Class_Class">
+          <DataField>Class_Class</DataField>
+        </Field>
+        <Field Name="SchoolYear_ClassLetter">
+          <DataField>SchoolYear_ClassLetter</DataField>
+        </Field>
+        <Field Name="Class_ClassDirectorName">
+          <DataField>Class_ClassDirectorName</DataField>
+        </Field>
+        <Field Name="totalRegis">
+          <DataField>totalRegis</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="CompanyInfo_NameCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CompanyInfo_NameCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CompanyInfo_NameCaption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola2">
+          <DataField>nomeEscola2</DataField>
+        </Field>
+        <Field Name="Fitxa_de_l_AlumneCaption">
+          <DataField>Fitxa_de_l_AlumneCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Name_2_">
+          <DataField>CompanyInfo__Name_2_</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Name">
+          <DataField>CompanyInfo_Name</DataField>
+        </Field>
+        <Field Name="Students_Students_Name">
+          <DataField>Students_Students_Name</DataField>
+        </Field>
+        <Field Name="Students__Doc__Number_Id_">
+          <DataField>Students__Doc__Number_Id_</DataField>
+        </Field>
+        <Field Name="Students__Date_of_Issuance_">
+          <DataField>Students__Date_of_Issuance_</DataField>
+        </Field>
+        <Field Name="Students_Date_Validity">
+          <DataField>Students_Date_Validity</DataField>
+        </Field>
+        <Field Name="Students_NIF">
+          <DataField>Students_NIF</DataField>
+        </Field>
+        <Field Name="Students__Archive_of_Identification_">
+          <DataField>Students__Archive_of_Identification_</DataField>
+        </Field>
+        <Field Name="Students_Naturalness">
+          <DataField>Students_Naturalness</DataField>
+        </Field>
+        <Field Name="Students_County">
+          <DataField>Students_County</DataField>
+        </Field>
+        <Field Name="Students__Birth_Date_">
+          <DataField>Students__Birth_Date_</DataField>
+        </Field>
+        <Field Name="Students_Address">
+          <DataField>Students_Address</DataField>
+        </Field>
+        <Field Name="Students__Address_2_">
+          <DataField>Students__Address_2_</DataField>
+        </Field>
+        <Field Name="Students__Post_Code_">
+          <DataField>Students__Post_Code_</DataField>
+        </Field>
+        <Field Name="Students_Location">
+          <DataField>Students_Location</DataField>
+        </Field>
+        <Field Name="Students__Phone_No__">
+          <DataField>Students__Phone_No__</DataField>
+        </Field>
+        <Field Name="varEncEduc">
+          <DataField>varEncEduc</DataField>
+        </Field>
+        <Field Name="varEncEduc2">
+          <DataField>varEncEduc2</DataField>
+        </Field>
+        <Field Name="FiltresCaption">
+          <DataField>FiltresCaption</DataField>
+        </Field>
+        <Field Name="Students_Students_NameCaption">
+          <DataField>Students_Students_NameCaption</DataField>
+        </Field>
+        <Field Name="Students__Doc__Number_Id_Caption">
+          <DataField>Students__Doc__Number_Id_Caption</DataField>
+        </Field>
+        <Field Name="Students_NaturalnessCaption">
+          <DataField>Students_NaturalnessCaption</DataField>
+        </Field>
+        <Field Name="Students_CountyCaption">
+          <DataField>Students_CountyCaption</DataField>
+        </Field>
+        <Field Name="Students__Birth_Date_Caption">
+          <DataField>Students__Birth_Date_Caption</DataField>
+        </Field>
+        <Field Name="Students_AddressCaption">
+          <DataField>Students_AddressCaption</DataField>
+        </Field>
+        <Field Name="Students__Post_Code_Caption">
+          <DataField>Students__Post_Code_Caption</DataField>
+        </Field>
+        <Field Name="Students_LocationCaption">
+          <DataField>Students_LocationCaption</DataField>
+        </Field>
+        <Field Name="Students__Phone_No__Caption">
+          <DataField>Students__Phone_No__Caption</DataField>
+        </Field>
+        <Field Name="varEncEducCaption">
+          <DataField>varEncEducCaption</DataField>
+        </Field>
+        <Field Name="varEncEduc2Caption">
+          <DataField>varEncEduc2Caption</DataField>
+        </Field>
+        <Field Name="Students_No_">
+          <DataField>Students_No_</DataField>
+        </Field>
+        <Field Name="Identificació_tutorCaption">
+          <DataField>Identificació_tutorCaption</DataField>
+        </Field>
+        <Field Name="Students_No_Caption">
+          <DataField>Students_No_Caption</DataField>
+        </Field>
+        <Field Name="DataValidade_Caption">
+          <DataField>DataValidade_Caption</DataField>
+        </Field>
+        <Field Name="NIF_Caption">
+          <DataField>NIF_Caption</DataField>
+        </Field>
+        <Field Name="Users_Family___Students_School_Year">
+          <DataField>Users_Family___Students_School_Year</DataField>
+        </Field>
+        <Field Name="Users_Family___Students_Student_Code_No_">
+          <DataField>Users_Family___Students_Student_Code_No_</DataField>
+        </Field>
+        <Field Name="Users_Family___Students_Kinship">
+          <DataField>Users_Family___Students_Kinship</DataField>
+        </Field>
+        <Field Name="Users_Family___Students_No_">
+          <DataField>Users_Family___Students_No_</DataField>
+        </Field>
+        <Field Name="varEndEnc">
+          <DataField>varEndEnc</DataField>
+        </Field>
+        <Field Name="varNomeEnc">
+          <DataField>varNomeEnc</DataField>
+        </Field>
+        <Field Name="Users_Family__Post_Code_">
+          <DataField>Users_Family__Post_Code_</DataField>
+        </Field>
+        <Field Name="Users_Family_Location">
+          <DataField>Users_Family_Location</DataField>
+        </Field>
+        <Field Name="Users_Family__Phone_No__">
+          <DataField>Users_Family__Phone_No__</DataField>
+        </Field>
+        <Field Name="Users_Family__Mobile_Phone_">
+          <DataField>Users_Family__Mobile_Phone_</DataField>
+        </Field>
+        <Field Name="Users_Family__E_mail_">
+          <DataField>Users_Family__E_mail_</DataField>
+        </Field>
+        <Field Name="varEndEncCaption">
+          <DataField>varEndEncCaption</DataField>
+        </Field>
+        <Field Name="Nome_CompletoCaption">
+          <DataField>Nome_CompletoCaption</DataField>
+        </Field>
+        <Field Name="Users_Family__Post_Code_Caption">
+          <DataField>Users_Family__Post_Code_Caption</DataField>
+        </Field>
+        <Field Name="Users_Family_LocationCaption">
+          <DataField>Users_Family_LocationCaption</DataField>
+        </Field>
+        <Field Name="Users_Family__Phone_No__Caption">
+          <DataField>Users_Family__Phone_No__Caption</DataField>
+        </Field>
+        <Field Name="Users_Family__Mobile_Phone_Caption">
+          <DataField>Users_Family__Mobile_Phone_Caption</DataField>
+        </Field>
+        <Field Name="Users_Family__E_mail_Caption">
+          <DataField>Users_Family__E_mail_Caption</DataField>
+        </Field>
+        <Field Name="Users_Family_No_">
+          <DataField>Users_Family_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
