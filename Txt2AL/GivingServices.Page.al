@@ -206,6 +206,7 @@ page 31009778 "Giving Services"
             }
             group(Month)
             {
+                Caption = 'Month';
                 field("varMonths[9]"; varMonths[9])
                 {
                     ApplicationArea = Basic, Suite;

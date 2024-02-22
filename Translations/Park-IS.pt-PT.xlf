@@ -25269,6 +25269,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varStudent - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2317060138 - Control 3465500804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Month</source>
+          <target>Mês</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control Month - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2317060138 - Control 4249783099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>October</source>
           <target>Outubro</target>
@@ -38775,12 +38781,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort CreatePortalUser - Property Caption</note>
         </trans-unit>
-        <trans-unit id="XmlPort 1563740741 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>CreateReturnOrders</source>
-          <target>Criar Pedidos de Devolução</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort CreateReturnOrders - Property Caption</note>
-        </trans-unit>
         <trans-unit id="XmlPort 375456256 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export JDE Int. G/L Entries</source>
           <target state="needs-translation"/>
@@ -39050,12 +39050,6 @@
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort UpsertTempOrders - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="XmlPort 2971467850 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>XMlportTest</source>
-          <target state="needs-translation"/>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort XMlportTest - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 717353120 - Control 737013726 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2292249509">
           <source>Configurations</source>
@@ -39539,7 +39533,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 2607613373 - Field 2553811200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1994964448">
           <source>JDE Pupil No.</source>
-          <target state="needs-translation"/>
+          <target>Nº Aluno JDE</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Customer Ext. - Field JDE Pupil No. - Property Caption</note>
         </trans-unit>
@@ -40175,7 +40169,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 4077452 - Field 2553811200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>JDE Pupil No.</source>
-          <target>Nº JDE Aluno</target>
+          <target>Nº Aluno JDE</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension Sales Header Ext. - Field JDE Pupil No. - Property Caption</note>
         </trans-unit>
