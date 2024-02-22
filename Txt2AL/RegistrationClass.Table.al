@@ -9,7 +9,7 @@ table 31009764 "Registration Class"
         field(1; Class; Code[20])
         {
             Caption = 'Class';
-            TableRelation = Class.Class;
+            //TableRelation = Class.Class;
         }
         field(2; "School Year"; Code[9])
         {

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
@@ -11,6 +11,150 @@
       <rd:DataSourceID>b3190a57-d431-4cb1-8665-e07864cabf8a</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="classs_Class">
+          <DataField>classs_Class</DataField>
+        </Field>
+        <Field Name="classs_School_Year">
+          <DataField>classs_School_Year</DataField>
+        </Field>
+        <Field Name="classs_Schooling_Year">
+          <DataField>classs_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Filtros">
+          <DataField>Filtros</DataField>
+        </Field>
+        <Field Name="ShowPicture">
+          <DataField>ShowPicture</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Picture">
+          <DataField>CompanyInfo_Picture</DataField>
+        </Field>
+        <Field Name="nomeEscola">
+          <DataField>nomeEscola</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="Registration_Class__Registration_Class__Class">
+          <DataField>Registration_Class__Registration_Class__Class</DataField>
+        </Field>
+        <Field Name="classs__Schooling_Year____________classs__Class_Letter_">
+          <DataField>classs__Schooling_Year____________classs__Class_Letter_</DataField>
+        </Field>
+        <Field Name="classs__Class_Director_Name_">
+          <DataField>classs__Class_Director_Name_</DataField>
+        </Field>
+        <Field Name="classs__Secretary_Name_">
+          <DataField>classs__Secretary_Name_</DataField>
+        </Field>
+        <Field Name="classs_Room">
+          <DataField>classs_Room</DataField>
+        </Field>
+        <Field Name="Registration_Class__Registration_Class___School_Year_">
+          <DataField>Registration_Class__Registration_Class___School_Year_</DataField>
+        </Field>
+        <Field Name="rStudents_Picture">
+          <DataField>rStudents_Picture</DataField>
+        </Field>
+        <Field Name="Registration_Class_Name">
+          <DataField>Registration_Class_Name</DataField>
+        </Field>
+        <Field Name="Registration_Class__Class_No__">
+          <DataField>Registration_Class__Class_No__</DataField>
+        </Field>
+        <Field Name="Registration_Class__Student_Code_No__">
+          <DataField>Registration_Class__Student_Code_No__</DataField>
+        </Field>
+        <Field Name="Registration_Class_Status">
+          <DataField>Registration_Class_Status</DataField>
+        </Field>
+        <Field Name="Registration_Class_Name_Control1102059003">
+          <DataField>Registration_Class_Name_Control1102059003</DataField>
+        </Field>
+        <Field Name="Registration_Class__Class_No___Control1102059004">
+          <DataField>Registration_Class__Class_No___Control1102059004</DataField>
+        </Field>
+        <Field Name="Registration_Class__Student_Code_No___Control1102059005">
+          <DataField>Registration_Class__Student_Code_No___Control1102059005</DataField>
+        </Field>
+        <Field Name="Registration_Class_Status_Control1102065005">
+          <DataField>Registration_Class_Status_Control1102065005</DataField>
+        </Field>
+        <Field Name="vTotal">
+          <DataField>vTotal</DataField>
+        </Field>
+        <Field Name="Filtres_Caption">
+          <DataField>Filtres_Caption</DataField>
+        </Field>
+        <Field Name="Llista_d_alumnes_per_classeCaption">
+          <DataField>Llista_d_alumnes_per_classeCaption</DataField>
+        </Field>
+        <Field Name="Any_Acadèmic_Caption">
+          <DataField>Any_Acadèmic_Caption</DataField>
+        </Field>
+        <Field Name="Classe_Caption">
+          <DataField>Classe_Caption</DataField>
+        </Field>
+        <Field Name="Secretari_Caption">
+          <DataField>Secretari_Caption</DataField>
+        </Field>
+        <Field Name="Director_de_la_classe_Caption">
+          <DataField>Director_de_la_classe_Caption</DataField>
+        </Field>
+        <Field Name="Sala_Caption">
+          <DataField>Sala_Caption</DataField>
+        </Field>
+        <Field Name="Codi_de_l_alumneCaption">
+          <DataField>Codi_de_l_alumneCaption</DataField>
+        </Field>
+        <Field Name="NomCaption">
+          <DataField>NomCaption</DataField>
+        </Field>
+        <Field Name="N__de_la_classeCaption">
+          <DataField>N__de_la_classeCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Registration_Class_StatusCaption">
+          <DataField>Registration_Class_StatusCaption</DataField>
+        </Field>
+        <Field Name="vTotalCaption">
+          <DataField>vTotalCaption</DataField>
+        </Field>
+        <Field Name="Registration_Class_Schooling_Year">
+          <DataField>Registration_Class_Schooling_Year</DataField>
+        </Field>
+        <Field Name="Registration_Class_Study_Plan_Code">
+          <DataField>Registration_Class_Study_Plan_Code</DataField>
+        </Field>
+        <Field Name="Registration_Class_Type">
+          <DataField>Registration_Class_Type</DataField>
+        </Field>
+        <Field Name="Registration_Class_Line_No_">
+          <DataField>Registration_Class_Line_No_</DataField>
+        </Field>
+        <Field Name="ResponsableTeacherLbl">
+          <DataField>ResponsableTeacherLbl</DataField>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet</rd:DataSetName>
+        <rd:SchemaPath>Report.xsd</rd:SchemaPath>
+        <rd:TableName>Result</rd:TableName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -46,7 +190,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class__Student_Code_No__.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class__Student_Code_No__.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -76,7 +220,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -115,7 +259,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class_Name.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Name.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -132,6 +276,7 @@ CSTR(Fields!Filtros.Value)
                             <VerticalAlign>Top</VerticalAlign>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -142,7 +287,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class_Status.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Status.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -189,7 +334,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class__Student_Code_No__.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class__Student_Code_No__.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -219,7 +364,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -258,7 +403,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class_Name.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Name.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -285,7 +430,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Registration_Class_Status.Value</Value>
+                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Status.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -313,7 +458,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -345,7 +490,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -374,7 +519,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -402,7 +547,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -430,7 +575,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -460,7 +605,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -496,7 +641,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -525,7 +670,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -552,7 +697,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Auto" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -578,7 +723,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!vTotalCaption.Value)</Value>
+                                  <Value EvaluationMode="Auto">=First(Fields!vTotalCaption.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -613,7 +758,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Last(Fields!vTotal.Value)</Value>
+                                  <Value EvaluationMode="Auto">=Last(Fields!vTotal.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -719,7 +864,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Secretari_Caption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Secretari_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -743,7 +888,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!ResponsableTeacherLbl.Value, "DataSet_Result")</Value>
+                      <Value EvaluationMode="Auto">=First(Fields!ResponsableTeacherLbl.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -768,7 +913,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Classe_Caption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Classe_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -793,7 +938,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Llista_d_alumnes_per_classeCaption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Llista_d_alumnes_per_classeCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>12pt</FontSize>
@@ -821,7 +966,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Any_Acadèmic_Caption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Any_Acadèmic_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -847,7 +992,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Sala_Caption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Sala_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -872,7 +1017,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!CurrReport_PAGENOCaption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!CurrReport_PAGENOCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -899,7 +1044,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Registration_Class_StatusCaption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Registration_Class_StatusCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -927,7 +1072,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Codi_de_l_alumneCaption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Codi_de_l_alumneCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -954,7 +1099,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!NomCaption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!NomCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -980,7 +1125,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!Filtres_Caption.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!Filtres_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1005,7 +1150,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(7,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(7,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1030,7 +1175,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!nomeEscola.Value</Value>
+                      <Value EvaluationMode="Auto">=Fields!nomeEscola.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -1071,7 +1216,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Globals!PageNumber</Value>
+                      <Value EvaluationMode="Auto">=Globals!PageNumber</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1098,7 +1243,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Globals!ExecutionTime</Value>
+                      <Value EvaluationMode="Auto">=Globals!ExecutionTime</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1126,7 +1271,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(1,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(1,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1151,7 +1296,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(6,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(6,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1176,7 +1321,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(3,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(3,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1201,7 +1346,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(5,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(5,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1226,7 +1371,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(2,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(2,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1251,7 +1396,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(4,1)</Value>
+                      <Value EvaluationMode="Auto">=Code.GetData(4,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1357,140 +1502,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>b87a05ca-630f-45a9-9587-fbb078c1f8ee</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="classs_Class">
-          <DataField>classs_Class</DataField>
-        </Field>
-        <Field Name="classs_School_Year">
-          <DataField>classs_School_Year</DataField>
-        </Field>
-        <Field Name="classs_Schooling_Year">
-          <DataField>classs_Schooling_Year</DataField>
-        </Field>
-        <Field Name="Filtros">
-          <DataField>Filtros</DataField>
-        </Field>
-        <Field Name="ShowPicture">
-          <DataField>ShowPicture</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Picture">
-          <DataField>CompanyInfo_Picture</DataField>
-        </Field>
-        <Field Name="nomeEscola">
-          <DataField>nomeEscola</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="Registration_Class__Registration_Class__Class">
-          <DataField>Registration_Class__Registration_Class__Class</DataField>
-        </Field>
-        <Field Name="classs__Schooling_Year____________classs__Class_Letter_">
-          <DataField>classs__Schooling_Year____________classs__Class_Letter_</DataField>
-        </Field>
-        <Field Name="classs__Class_Director_Name_">
-          <DataField>classs__Class_Director_Name_</DataField>
-        </Field>
-        <Field Name="classs__Secretary_Name_">
-          <DataField>classs__Secretary_Name_</DataField>
-        </Field>
-        <Field Name="classs_Room">
-          <DataField>classs_Room</DataField>
-        </Field>
-        <Field Name="Registration_Class__Registration_Class___School_Year_">
-          <DataField>Registration_Class__Registration_Class___School_Year_</DataField>
-        </Field>
-        <Field Name="rStudents_Picture">
-          <DataField>rStudents_Picture</DataField>
-        </Field>
-        <Field Name="Registration_Class_Name">
-          <DataField>Registration_Class_Name</DataField>
-        </Field>
-        <Field Name="Registration_Class__Class_No__">
-          <DataField>Registration_Class__Class_No__</DataField>
-        </Field>
-        <Field Name="Registration_Class__Student_Code_No__">
-          <DataField>Registration_Class__Student_Code_No__</DataField>
-        </Field>
-        <Field Name="Registration_Class_Status">
-          <DataField>Registration_Class_Status</DataField>
-        </Field>
-        <Field Name="Registration_Class_Name_Control1102059003">
-          <DataField>Registration_Class_Name_Control1102059003</DataField>
-        </Field>
-        <Field Name="Registration_Class__Class_No___Control1102059004">
-          <DataField>Registration_Class__Class_No___Control1102059004</DataField>
-        </Field>
-        <Field Name="Registration_Class__Student_Code_No___Control1102059005">
-          <DataField>Registration_Class__Student_Code_No___Control1102059005</DataField>
-        </Field>
-        <Field Name="Registration_Class_Status_Control1102065005">
-          <DataField>Registration_Class_Status_Control1102065005</DataField>
-        </Field>
-        <Field Name="vTotal">
-          <DataField>vTotal</DataField>
-        </Field>
-        <Field Name="Filtres_Caption">
-          <DataField>Filtres_Caption</DataField>
-        </Field>
-        <Field Name="Llista_d_alumnes_per_classeCaption">
-          <DataField>Llista_d_alumnes_per_classeCaption</DataField>
-        </Field>
-        <Field Name="Any_Acadèmic_Caption">
-          <DataField>Any_Acadèmic_Caption</DataField>
-        </Field>
-        <Field Name="Classe_Caption">
-          <DataField>Classe_Caption</DataField>
-        </Field>
-        <Field Name="Secretari_Caption">
-          <DataField>Secretari_Caption</DataField>
-        </Field>
-        <Field Name="Director_de_la_classe_Caption">
-          <DataField>Director_de_la_classe_Caption</DataField>
-        </Field>
-        <Field Name="Sala_Caption">
-          <DataField>Sala_Caption</DataField>
-        </Field>
-        <Field Name="Codi_de_l_alumneCaption">
-          <DataField>Codi_de_l_alumneCaption</DataField>
-        </Field>
-        <Field Name="NomCaption">
-          <DataField>NomCaption</DataField>
-        </Field>
-        <Field Name="N__de_la_classeCaption">
-          <DataField>N__de_la_classeCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Registration_Class_StatusCaption">
-          <DataField>Registration_Class_StatusCaption</DataField>
-        </Field>
-        <Field Name="vTotalCaption">
-          <DataField>vTotalCaption</DataField>
-        </Field>
-        <Field Name="Registration_Class_Schooling_Year">
-          <DataField>Registration_Class_Schooling_Year</DataField>
-        </Field>
-        <Field Name="Registration_Class_Study_Plan_Code">
-          <DataField>Registration_Class_Study_Plan_Code</DataField>
-        </Field>
-        <Field Name="Registration_Class_Type">
-          <DataField>Registration_Class_Type</DataField>
-        </Field>
-        <Field Name="Registration_Class_Line_No_">
-          <DataField>Registration_Class_Line_No_</DataField>
-        </Field>
-        <Field Name="ResponsableTeacherLbl">
-          <DataField>ResponsableTeacherLbl</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

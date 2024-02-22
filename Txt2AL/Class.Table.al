@@ -529,13 +529,13 @@ table 31009763 Class
     var
         rClass: Record Class;
     begin
-        rClass := Rec;
+        //rClass := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Class Nos.");
         if NoSeriesMgt.SelectSeries(rEduConfiguration."Class Nos.", OldClass."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries(Class);
-            Rec := rClass;
-            exit(true);
+            //Rec := rClass;
+            // exit(true);
         end;
     end;
 

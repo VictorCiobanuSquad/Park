@@ -5,7 +5,8 @@ page 31009758 "Teacher List"
     CardPageID = Teacher;
     PageType = List;
     SourceTable = Teacher;
-
+    UsageCategory = Lists;
+    ApplicationArea = All;
     layout
     {
         area(content)

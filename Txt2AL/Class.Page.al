@@ -116,7 +116,6 @@ page 31009785 Class
             }
             part(SubForm; "Registration Class")
             {
-                ApplicationArea = Basic, Suite;
                 SubPageLink = Class = FIELD(Class),
                               "School Year" = FIELD("School Year"),
                               "Schooling Year" = FIELD("Schooling Year"),
@@ -255,7 +254,7 @@ page 31009785 Class
                             Error(Text0015);
                         //Normatica 2013.07.22 - Fim
 
-                        CurrPage.SubForm.PAGE.GetRecord(rRegistrationClass);
+                        //CurrPage.SubForm.PAGE.GetRecord(rRegistrationClass);
 
                         if (rRegistrationClass.Status = rRegistrationClass.Status::" ") then
                             Rec.SubscribedRegistrationClass()

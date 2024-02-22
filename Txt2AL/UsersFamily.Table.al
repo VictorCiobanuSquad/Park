@@ -777,13 +777,13 @@ table 31009753 "Users Family"
     var
         UserFamily: Record "Users Family";
     begin
-        UserFamily := Rec;
+        //  UserFamily := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Users Family Nos.");
         if NoSeriesMgt.SelectSeries(rEduConfiguration."Users Family Nos.", OldUserFamily."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries("No.");
-            Rec := UserFamily;
-            exit(true);
+            //   Rec := UserFamily;
+            //exit(true);
         end;
     end;
 

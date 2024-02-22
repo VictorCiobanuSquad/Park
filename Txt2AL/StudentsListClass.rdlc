@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
@@ -190,7 +190,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class__Student_Code_No__.Value</Value>
+                                  <Value>=Fields!Registration_Class__Student_Code_No__.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -220,7 +220,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -259,7 +259,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Name.Value</Value>
+                                  <Value>=Fields!Registration_Class_Name.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -276,7 +276,6 @@ CSTR(Fields!Filtros.Value)
                             <VerticalAlign>Top</VerticalAlign>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -287,7 +286,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Status.Value</Value>
+                                  <Value>=Fields!Registration_Class_Status.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -334,7 +333,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class__Student_Code_No__.Value</Value>
+                                  <Value>=Fields!Registration_Class__Student_Code_No__.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -364,7 +363,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -403,7 +402,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Name.Value</Value>
+                                  <Value>=Fields!Registration_Class_Name.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -430,7 +429,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Fields!Registration_Class_Status.Value</Value>
+                                  <Value>=Fields!Registration_Class_Status.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -458,7 +457,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -490,7 +489,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -519,7 +518,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -547,7 +546,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -575,7 +574,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -605,7 +604,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -641,7 +640,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -670,7 +669,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -697,7 +696,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto" />
+                                  <Value />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                   </Style>
@@ -723,7 +722,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=First(Fields!vTotalCaption.Value)</Value>
+                                  <Value>=First(Fields!vTotalCaption.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -758,7 +757,7 @@ CSTR(Fields!Filtros.Value)
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Auto">=Last(Fields!vTotal.Value)</Value>
+                                  <Value>=Last(Fields!vTotal.Value)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -864,7 +863,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Secretari_Caption.Value</Value>
+                      <Value>=Fields!Secretari_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -888,7 +887,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=First(Fields!ResponsableTeacherLbl.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!ResponsableTeacherLbl.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -913,7 +912,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Classe_Caption.Value</Value>
+                      <Value>=Fields!Classe_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -938,7 +937,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Llista_d_alumnes_per_classeCaption.Value</Value>
+                      <Value>=Fields!Llista_d_alumnes_per_classeCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>12pt</FontSize>
@@ -966,7 +965,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Any_Acadèmic_Caption.Value</Value>
+                      <Value>=Fields!Any_Acadèmic_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -992,7 +991,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Sala_Caption.Value</Value>
+                      <Value>=Fields!Sala_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1017,7 +1016,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!CurrReport_PAGENOCaption.Value</Value>
+                      <Value>=Fields!CurrReport_PAGENOCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1044,7 +1043,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Registration_Class_StatusCaption.Value</Value>
+                      <Value>=Fields!Registration_Class_StatusCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1072,7 +1071,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Codi_de_l_alumneCaption.Value</Value>
+                      <Value>=Fields!Codi_de_l_alumneCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1099,7 +1098,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!NomCaption.Value</Value>
+                      <Value>=Fields!NomCaption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1125,7 +1124,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!Filtres_Caption.Value</Value>
+                      <Value>=Fields!Filtres_Caption.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -1150,7 +1149,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(7,1)</Value>
+                      <Value>=Code.GetData(7,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1175,7 +1174,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Fields!nomeEscola.Value</Value>
+                      <Value>=Fields!nomeEscola.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontWeight>Bold</FontWeight>
@@ -1216,7 +1215,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Globals!PageNumber</Value>
+                      <Value>=Globals!PageNumber</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1243,7 +1242,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Globals!ExecutionTime</Value>
+                      <Value>=Globals!ExecutionTime</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1271,7 +1270,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(1,1)</Value>
+                      <Value>=Code.GetData(1,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1296,7 +1295,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(6,1)</Value>
+                      <Value>=Code.GetData(6,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1321,7 +1320,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(3,1)</Value>
+                      <Value>=Code.GetData(3,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1346,7 +1345,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(5,1)</Value>
+                      <Value>=Code.GetData(5,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1371,7 +1370,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(2,1)</Value>
+                      <Value>=Code.GetData(2,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1396,7 +1395,7 @@ CSTR(Fields!Filtros.Value)
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value EvaluationMode="Auto">=Code.GetData(4,1)</Value>
+                      <Value>=Code.GetData(4,1)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>7pt</FontSize>
@@ -1451,6 +1450,12 @@ CSTR(Fields!Filtros.Value)
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""

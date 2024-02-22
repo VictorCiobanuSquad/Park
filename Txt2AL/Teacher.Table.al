@@ -518,12 +518,12 @@ table 31009756 Teacher
     var
         Teacher: Record Teacher;
     begin
-        Teacher := Rec;
+        //Teacher := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Teacher Nos.");
         if NoSeriesMgt.SelectSeries(rEduConfiguration."Teacher Nos.", OldTeacher."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries("No.");
-            Rec := Teacher;
+            //  Rec := Teacher;
             exit(true);
         end;
     end;

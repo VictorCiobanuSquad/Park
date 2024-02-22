@@ -10,6 +10,7 @@ page 31009757 Teacher
     RefreshOnActivate = true;
     SourceTable = Teacher;
 
+
     layout
     {
         area(content)

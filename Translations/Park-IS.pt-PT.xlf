@@ -27401,13 +27401,13 @@
         </trans-unit>
         <trans-unit id="Page 602709991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Class List</source>
-          <target>Lista Inscrição Turma</target>
+          <target>Lista Matriculas</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page Registration Class List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3504040511 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Entry</source>
-          <target>Mov. Inscrição Turma</target>
+          <target>Matriculas</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page Registration Entry - Property Caption</note>
         </trans-unit>

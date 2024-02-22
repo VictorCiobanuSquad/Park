@@ -1234,13 +1234,13 @@ table 31009750 Students
         Students: Record Students;
     begin
 
-        Students := Rec;
+        // Students := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Student Nos.");
         if NoSeriesMgt.SelectSeries(rEduConfiguration."Student Nos.", OldStudent."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries("No.");
-            Rec := Students;
-            exit(true);
+            //Rec := Students;
+            //exit(true);
         end;
     end;
 
