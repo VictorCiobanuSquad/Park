@@ -11,9 +11,11 @@ page 31009952 "Processing Services"
     InsertAllowed = false;
     PageType = Card;
     SourceTable = Registration;
-
+    UsageCategory = Lists;
+    ApplicationArea = All;
     layout
     {
+
         area(content)
         {
             part("Student Ledger Entry"; "SubForm Student Ledger Entry")
@@ -44,6 +46,25 @@ page 31009952 "Processing Services"
     {
         area(processing)
         {
+
+            action("Alterar Ano Escolar")
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Alterar Ano Escolar';
+                Image = Process;
+                Promoted = true;
+                PromotedCategory = Process;
+
+                trigger OnAction()
+                begin
+                    Rec.Reset;
+                    GetSchoolYear;
+                    Rec.SetRange("School Year", varSchoolYear);
+                    if not Rec.FindSet() then
+                        Clear(Rec);
+
+                end;
+            }
             action("P&rocessing Services")
             {
                 ApplicationArea = Basic, Suite;
@@ -126,13 +147,21 @@ page 31009952 "Processing Services"
         }
     }
 
+
+
     trigger OnOpenPage()
     begin
         //cStudentsRegistration.CompanyLimitation;
-        Rec.Reset;
-        GetSchoolYear;
-        Rec.SetRange("School Year", varSchoolYear);
+
     end;
+
+    trigger OnAfterGetCurrRecord()
+    var
+        myInt: Integer;
+    begin
+
+    end;
+
 
     var
         "reportProcessarServiços": Report "Processing Services";

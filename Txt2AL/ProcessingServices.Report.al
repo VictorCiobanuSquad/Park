@@ -173,6 +173,9 @@ report 31009750 "Processing Services"
 
             trigger OnPreDataItem()
             begin
+                if ResCenter <> '' then
+                    SetFilter("Responsibility Center", ResCenter);
+
                 if cUserEducation.GetEducationFilter(UserId) <> '' then
                     SetRange("Responsibility Center", cUserEducation.GetEducationFilter(UserId));
 
@@ -198,8 +201,42 @@ report 31009750 "Processing Services"
                     }
                     field(Month; optionMes)
                     {
+                        Caption = 'Mês';
                         ApplicationArea = Basic, Suite;
 
+                    }
+
+                    field("ResCenter"; ResCenter)
+                    {
+                        Caption = 'Centro de Responsabilidade';
+                        ApplicationArea = Basic, Suite;
+                        TableRelation = "Responsibility Center";
+
+                        trigger OnAssistEdit()
+                        var
+                            l_PageResCenterList: Page "Responsibility Center List";
+                            l_RecResCenter: Record "Responsibility Center";
+                        begin
+                            l_RecResCenter.RESET;
+                            if l_RecResCenter.findset then begin
+                                Clear(l_PageResCenterList);
+                                l_PageResCenterList.SetTableView(l_RecResCenter);
+                                l_PageResCenterList.LookupMode := true;
+                                if l_PageResCenterList.RunModal() = Action::LookupOK then begin
+                                    l_PageResCenterList.SetSelectionFilter(l_RecResCenter);
+                                    if l_RecResCenter.findset then begin
+                                        Clear(ResCenter);
+                                        repeat
+                                            if ResCenter = '' then
+                                                ResCenter := l_RecResCenter.Code
+                                            else
+                                                ResCenter += '|' + l_RecResCenter.Code;
+
+                                        until l_RecResCenter.Next() = 0;
+                                    end;
+                                end;
+                            end;
+                        end;
                     }
                 }
             }
@@ -279,6 +316,7 @@ report 31009750 "Processing Services"
         rServicesET: Record "Services ET";
         rServicesET2: Record "Services ET";
         rStudentServicePlan: Record "Student Service Plan";
+        ResCenter: Text[250];
 
     //[Scope('OnPrem')]
     procedure FilterStudentServPlan()

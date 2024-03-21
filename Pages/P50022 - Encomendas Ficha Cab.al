@@ -54,6 +54,7 @@ page 50022 "Encomendas Ficha Cab"
                     Editable = false;
                 }
             }
+
             part("Encomendas Ficha Linhas"; "Encomendas Ficha Linhas")
             {
                 Editable = false;

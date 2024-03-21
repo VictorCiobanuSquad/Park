@@ -19,7 +19,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin
@@ -57,7 +57,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin
@@ -95,7 +95,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin
@@ -134,7 +134,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin
@@ -172,7 +172,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin
@@ -208,7 +208,7 @@ codeunit 31009776 "Multi-Company Invoicing"
         //ERROR(Text0001, lCompany."Master Company");
 
         lCompany.Reset;
-        //lCompany.SETRANGE("Master Company",COMPANYNAME);
+        lCompany.SetFilter(Name, '<>%1', CompanyName);
         if lCompany.FindSet then
             repeat
                 if not IsDelete then begin

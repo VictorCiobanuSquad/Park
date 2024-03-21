@@ -228,6 +228,10 @@ table 50017 iSAMS
         {
             Caption = 'NIF Outro';
         }
+        field(308; "HasError"; Boolean)
+        {
+            Caption = 'Error ao Importar';
+        }
     }
 
     keys

@@ -63,6 +63,16 @@ page 31009750 "Student Card"
                 {
                     ApplicationArea = Basic, Suite;
                 }
+
+
+                field("JDE Payer No."; Rec."JDE Payer No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("JDE Pupil No."; Rec."JDE Pupil No.")
+                {
+                    ApplicationArea = All;
+                }
                 field("E-mail"; Rec."E-mail")
                 {
                     ApplicationArea = Basic, Suite;
@@ -81,7 +91,7 @@ page 31009750 "Student Card"
                     ApplicationArea = Basic, Suite;
                     ShowCaption = false;
                 }
-                field("FORMAT(""Periodicidade Pagamento"") + ' Anos'"; Format(Rec."Periodicidade Pagamento") + ' Anos')
+                field("Anos"; Format(Rec."Periodicidade Pagamento") + ' Anos')
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;

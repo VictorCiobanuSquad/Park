@@ -12,350 +12,184 @@ page 31009778 "Giving Services"
     // 
     // //IT005 - 2017.07.21 - Tem de Filtrar por ciclo e não estava
 
-    Caption = 'Giving Services';
+    Caption = 'Atribuir Serviços';
     PageType = Card;
     UsageCategory = Tasks;
     ApplicationArea = All;
-    SourceTable = Registration;
-    SourceTableView = SORTING(Class, "Class No.")
-                      ORDER(Ascending);
-
     layout
     {
         area(content)
         {
             group(Geral)
             {
-                Caption = 'Filter Students:';
-                field(varSchoolYear; varSchoolYear)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'School Year';
-                    TableRelation = "School Year"."School Year" WHERE(Status = FILTER(Planning | Active));
+                Caption = 'Filtros Estudantes:';
 
-                    trigger OnValidate()
-                    begin
-                        Filter;
-                    end;
-                }
-                field(varLevel; varLevel)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Level';
-
-                    trigger OnValidate()
-                    begin
-                        Filter;
-                    end;
-                }
-                field(varSchoolingYear2; varSchoolingYear2)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Schooling Year';
-                    TableRelation = "Structure Education Country"."Schooling Year";
-
-                    trigger OnValidate()
-                    begin
-                        Filter;
-                    end;
-                }
                 field(varClass; varClass)
                 {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Class Code ';
-                    Importance = Promoted;
-                    TableRelation = Class.Class WHERE("School Year" = FIELD("School Year"));
+                    Caption = 'Cód. Turma';
 
                     trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
 
-                        rSchoolYear.Reset;
-                        rSchoolYear.SetRange(Status, rSchoolYear.Status::Active);
-                        if rSchoolYear.FindFirst then begin
-                            rClass.Reset;
-                            rClass.SetRange("School Year", rSchoolYear."School Year");
-                            rClass.SetRange(Class, varClass);
-                            if rClass.FindFirst then begin
+                    begin
+
+                        rSchoolYear.RESET;
+                        rSchoolYear.SETRANGE(Status, rSchoolYear.Status::Active);
+                        IF rSchoolYear.FIND('-') THEN BEGIN
+                            rClass.RESET;
+                            rClass.SETRANGE("School Year", rSchoolYear."School Year");
+                            rClass.SETRANGE(Class, varClass);
+                            IF rClass.FIND('-') THEN BEGIN
                                 varSchoolingYear := rClass."Schooling Year";
                                 varSchoolYear := rClass."School Year";
-                            end else begin
-                                Clear(varStudent);
-                                rStudentsTemP.DeleteAll;
-                                Clear(rStudentsTemP);
-                            end;
-                        end;
-
-
+                                varRespCenter := rClass."Responsibility Center";
+                                varSchoolingYear2 := rClass."Schooling Year";
+                                recStrutureEdu.RESET;
+                                recStrutureEdu.SETRANGE("Schooling Year", varSchoolingYear2);
+                                IF recStrutureEdu.FIND('-') THEN
+                                    varLevel := recStrutureEdu.Level;
+                            END ELSE BEGIN
+                                CLEAR(varStudent);
+                                rStudentsTemP.DELETEALL;
+                                CLEAR(rStudentsTemP);
+                            END;
+                        END;
                         Filter;
                     end;
+
+                    trigger OnLookup(var varText: Text): Boolean
+                    begin
+
+                        CLEAR(varStudent);
+
+                        rSchoolYear.RESET;
+                        rSchoolYear.SETRANGE(Status, rSchoolYear.Status::Active);
+                        IF rSchoolYear.FINDFIRST THEN;
+
+                        rClass.RESET;
+                        rClass.SETRANGE("School Year", rSchoolYear."School Year");
+                        IF rClass.FIND('-') THEN BEGIN
+                            IF PAGE.RUNMODAL(PAGE::"Class List", rClass) = ACTION::LookupOK THEN BEGIN
+                                varClass := rClass.Class;
+                                varSchoolingYear := rClass."Schooling Year";
+                                varSchoolYear := rClass."School Year";
+                                varRespCenter := rClass."Responsibility Center";
+                                varSchoolingYear2 := rClass."Schooling Year";
+                                recStrutureEdu.RESET;
+                                recStrutureEdu.SETRANGE("Schooling Year", varSchoolingYear);
+                                IF recStrutureEdu.FIND('-') THEN
+                                    varLevel := recStrutureEdu.Level;
+                                varStudent := '';
+                            END;
+                            Filter;
+
+                            CurrPage.fAtribuirServ.PAGE.FiltraCentResp(varRespCenter);
+                        END;
+                    end;
                 }
+
+
                 field(varStudent; varStudent)
                 {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Student Code ';
-                    Importance = Promoted;
+                    Caption = 'Cód. Aluno';
 
-                    trigger OnLookup(var Text: Text): Boolean
-                    begin
-                        rStudentsTemP.DeleteAll;
-                        Clear(rStudentsTemP);
-                        Clear(varStudent);
-                        if varClass <> '' then begin
-                            rRegistrationClass.Reset;
-                            rRegistrationClass.SetRange(Class, varClass);
-                            rRegistrationClass.SetRange("School Year", rSchoolYear."School Year");
-                            rRegistrationClass.SetRange(Status, rRegistrationClass.Status::Subscribed);
-                            rRegistrationClass.SetRange("Responsibility Center", varRespCenter);
-                            if rRegistrationClass.FindSet then begin
-                                repeat
-                                    rStudents.Reset;
-                                    rStudents.SetRange("No.", rRegistrationClass."Student Code No.");
-                                    if rStudents.FindFirst then begin
-                                        rStudentsTemP.Reset;
-                                        rStudentsTemP.TransferFields(rStudents);
-                                        rStudentsTemP.Insert;
-                                    end;
-                                until rRegistrationClass.Next = 0;
-                                if PAGE.RunModal(PAGE::"Students List", rStudentsTemP) = ACTION::LookupOK then
-                                    varStudent := rStudentsTemP."No.";
-                                Filter;
-                            end;
-                        end else begin
-                            Clear(varStudent);
-                            rStudents.Reset;
-                            if PAGE.RunModal(PAGE::"Students List", rStudents) = ACTION::LookupOK then begin
-                                varStudent := rStudents."No.";
-                                rRegistrationClass.Reset;
-                                rRegistrationClass.SetRange("Student Code No.", rStudents."No.");
-                                rRegistrationClass.SetRange("School Year", rSchoolYear."School Year");
-                                rRegistrationClass.SetRange(Status, rRegistrationClass.Status::Subscribed);
-                                rRegistrationClass.SetRange("Responsibility Center", varRespCenter);
-                                if rRegistrationClass.FindFirst then begin
-                                    varClass := rRegistrationClass.Class;
-                                    varSchoolYear := rRegistrationClass."School Year";
-                                end;
-                                Filter;
-                            end;
-                        end;
-                    end;
 
                     trigger OnValidate()
+                    var
                     begin
                         Filter;
                     end;
+
+                    trigger OnLookup(var varText: Text): Boolean
+                    var
+                        myInt: Integer;
+                    begin
+
+                        rStudentsTemP.DELETEALL;
+                        CLEAR(rStudentsTemP);
+                        CLEAR(varStudent);
+                        IF varClass <> '' THEN BEGIN
+                            rRegistrationClass.RESET;
+                            rRegistrationClass.SETRANGE(Class, varClass);
+                            rRegistrationClass.SETRANGE("School Year", rSchoolYear."School Year");
+                            rRegistrationClass.SETRANGE(Status, rRegistrationClass.Status::Subscribed);
+                            rRegistrationClass.SETRANGE("Responsibility Center", varRespCenter);
+                            IF rRegistrationClass.FIND('-') THEN BEGIN
+                                REPEAT
+                                    rStudents.RESET;
+                                    rStudents.SETRANGE("No.", rRegistrationClass."Student Code No.");
+                                    IF rStudents.FIND('-') THEN BEGIN
+                                        rStudentsTemP.RESET;
+                                        rStudentsTemP.TRANSFERFIELDS(rStudents);
+                                        rStudentsTemP.INSERT;
+                                    END;
+                                UNTIL rRegistrationClass.NEXT = 0;
+                                IF PAGE.RUNMODAL(PAGE::"Students List", rStudentsTemP) = ACTION::LookupOK THEN
+                                    varStudent := rStudentsTemP."No.";
+                                Filter;
+                            END;
+                        END ELSE BEGIN
+                            CLEAR(varStudent);
+                            rStudents.RESET;
+                            IF PAGE.RUNMODAL(PAGE::"Students List", rStudents) = ACTION::LookupOK THEN BEGIN
+                                varStudent := rStudents."No.";
+                                rRegistrationClass.RESET;
+                                rRegistrationClass.SETRANGE("Student Code No.", rStudents."No.");
+                                rRegistrationClass.SETRANGE("School Year", rSchoolYear."School Year");
+                                rRegistrationClass.SETRANGE(Status, rRegistrationClass.Status::Subscribed);
+                                rRegistrationClass.SETRANGE("Responsibility Center", varRespCenter);
+                                IF rRegistrationClass.FIND('-') THEN BEGIN
+                                    varClass := rRegistrationClass.Class;
+                                    varSchoolYear := rRegistrationClass."School Year";
+                                    varSchoolingYear2 := rRegistrationClass."Schooling Year";
+                                    recStrutureEdu.RESET;
+                                    recStrutureEdu.SETRANGE("Schooling Year", varSchoolingYear);
+                                    IF recStrutureEdu.FIND('-') THEN
+                                        varLevel := recStrutureEdu.Level;
+                                END;
+                                Filter;
+                            END;
+                        END;
+                    end;
                 }
+
+
+                field(varSchoolYear; varSchoolYear)
+                {
+                    Caption = 'Ano Lectivo';
+
+                    trigger OnValidate()
+
+                    begin
+                        Filter();
+                    end;
+
+                    trigger OnLookup(var varText: Text): Boolean
+                    var
+                    begin
+                        rSchoolYear.RESET;
+                        rSchoolYear.SETRANGE(rSchoolYear.Status, rSchoolYear.Status::Planning, rSchoolYear.Status::Active);
+                        IF PAGE.RUNMODAL(PAGE::"School Year", rSchoolYear) = ACTION::LookupOK THEN BEGIN
+                            varClass := '';
+                            varSchoolYear := rSchoolYear."School Year";
+                        END;
+                        Filter;
+                    end;
+                }
+
             }
-            group("Assign Services:")
+            part(fAtribuirServ; "Atribuir Multiplos Serviços")
             {
-                Caption = 'Assign Services:';
-                field(varType; varType)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Type';
 
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field(varServices; varServices)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Service No.';
-                    Importance = Promoted;
-                    TableRelation = "Services ET"."No.";
-
-                    trigger OnValidate()
-                    begin
-                        if varServices <> '' then begin
-                            ServicesET.Get(varServices);
-                            GetService;
-                            varDescService := ServicesET.Description;
-                            CurrPage.Update(true);
-                        end;
-                    end;
-                }
-                field(varDescService; varDescService)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Service Description';
-                    Editable = false;
-                }
-                field(varQuant; varQuant)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'Quantity';
-                    Importance = Promoted;
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field(varPrice; varPrice)
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'New Price';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-            }
-            group(Month)
-            {
-                Caption = 'Month';
-                field("varMonths[9]"; varMonths[9])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'September';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[10]"; varMonths[10])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'October';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[11]"; varMonths[11])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'November';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[12]"; varMonths[12])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'December';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[1]"; varMonths[1])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'January';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[2]"; varMonths[2])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'February';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[3]"; varMonths[3])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'March';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[4]"; varMonths[4])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'April';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[5]"; varMonths[5])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'May';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[6]"; varMonths[6])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'June';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[7]"; varMonths[7])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'July';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
-                field("varMonths[8]"; varMonths[8])
-                {
-                    ApplicationArea = Basic, Suite;
-                    Caption = 'August';
-
-                    trigger OnValidate()
-                    begin
-                        CurrPage.Update(true);
-                    end;
-                }
             }
 
-            repeater(Control1000000026)
+            part(PagePartServiceList; "P50036 - Services List")
             {
-                ShowCaption = false;
-                field(Selection; Rec.Selection)
-                {
-                    ApplicationArea = Basic, Suite;
-                }
-                field("Student Code No."; Rec."Student Code No.")
-                {
-                    ApplicationArea = Basic, Suite;
-                }
-                field(Name; Rec.Name)
-                {
-                    ApplicationArea = Basic, Suite;
-                }
-                field(Class; Rec.Class)
-                {
-                    ApplicationArea = Basic, Suite;
-                }
-                field("Class No."; Rec."Class No.")
-                {
-                    ApplicationArea = Basic, Suite;
-                }
+                Caption = ' ';
             }
         }
-    }
 
+
+    }
     actions
     {
         area(creation)
@@ -364,15 +198,42 @@ page 31009778 "Giving Services"
             {
                 Caption = '&Process';
                 Image = Process;
-
+                ShortcutKey = F11;
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
+                var
+                    l_ServicosAAtribuir: Record "Serviços a Atrbuir";
                 begin
 
-                    if varQuant = 0 then
-                        Error(Text0003);
+                    l_ServicosAAtribuir.RESET;
+                    l_ServicosAAtribuir.SETRANGE(l_ServicosAAtribuir."User ID", USERID);
+                    IF l_ServicosAAtribuir.FIND('-') THEN BEGIN
+                        REPEAT
+                            IF (l_ServicosAAtribuir.January = FALSE) AND (l_ServicosAAtribuir.February = FALSE) AND
+                               (l_ServicosAAtribuir.March = FALSE) AND (l_ServicosAAtribuir.April = FALSE) AND
+                               (l_ServicosAAtribuir.May = FALSE) AND (l_ServicosAAtribuir.June = FALSE) AND
+                               (l_ServicosAAtribuir.July = FALSE) AND (l_ServicosAAtribuir.August = FALSE) AND
+                               (l_ServicosAAtribuir.Setember = FALSE) AND (l_ServicosAAtribuir.October = FALSE) AND
+                               (l_ServicosAAtribuir.November = FALSE) AND (l_ServicosAAtribuir.Dezember = FALSE) THEN
+                                ERROR(Text50001);
+                        UNTIL l_ServicosAAtribuir.NEXT = 0;
+                    END;
 
-                    if varSchoolYear = '' then
-                        Error(Text0012);
+
+                    //IF varQuant = 0 THEN
+                    //  ERROR(Text0003);
+                    l_ServicosAAtribuir.RESET;
+                    l_ServicosAAtribuir.SETRANGE(l_ServicosAAtribuir."User ID", USERID);
+                    l_ServicosAAtribuir.SETRANGE(l_ServicosAAtribuir.Quantidade, 0);
+                    IF l_ServicosAAtribuir.FIND('-') THEN
+                        ERROR(Text0003);
+                    //IT001 - Park - en
+
+
+                    IF varSchoolYear = '' THEN
+                        ERROR(Text0012);
                     //ValidateUserSelection();
                     ValidateSelection;
                     AtribuirServiços;
@@ -382,497 +243,503 @@ page 31009778 "Giving Services"
             {
                 Caption = '&Mark All';
                 Image = Allocations;
-
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
-
-                    if varSchoolYear = '' then Error(Text0012);
-                    MarkAll(true);
+                    if varSchoolYear = '' then
+                        Error(Text0012)
+                    else
+                        MarkAll(true);
                 end;
             }
             action(UnmarkAll)
             {
                 Caption = '&Unmark All';
                 Image = CancelAllLines;
-
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
                     MarkAll(false);
                 end;
             }
+
+
+            action("Carregar Plano Serviços")
+            {
+                Caption = '&Carregar Plano Serviços';
+                Image = ImportChartOfAccounts;
+                Promoted = true;
+                PromotedCategory = Process;
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    ServicosAtribuir: record "Serviços a Atrbuir";
+                    ServicesPlanLine: record "Services Plan Line";
+                begin
+                    ServicesPlanLine.RESET;
+                    ServicesPlanLine.SETRANGE(ServicesPlanLine.Code, varRespCenter);
+                    IF ServicesPlanLine.FINDFIRST THEN BEGIN
+                        REPEAT
+                            ServicosAtribuir.INIT;
+                            ServicosAtribuir."User ID" := USERID;
+                            ServicosAtribuir.Tipo := ServicosAtribuir.Tipo::Serviço;
+                            ServicosAtribuir.VALIDATE(ServicosAtribuir."No.", ServicesPlanLine."Service Code");
+                            ServicosAtribuir.Quantidade := ServicesPlanLine.Qtd; //IT002 - Park- 2018.06.28 - Novo campo qtd
+                            ServicosAtribuir.January := ServicesPlanLine.January;
+                            ServicosAtribuir.February := ServicesPlanLine.February;
+                            ServicosAtribuir.March := ServicesPlanLine.March;
+                            ServicosAtribuir.April := ServicesPlanLine.April;
+                            ServicosAtribuir.May := ServicesPlanLine.May;
+                            ServicosAtribuir.June := ServicesPlanLine.June;
+                            ServicosAtribuir.July := ServicesPlanLine.July;
+                            ServicosAtribuir.August := ServicesPlanLine.August;
+                            ServicosAtribuir.Setember := ServicesPlanLine.Setember;
+                            ServicosAtribuir.October := ServicesPlanLine.October;
+                            ServicosAtribuir.November := ServicesPlanLine.November;
+                            ServicosAtribuir.Dezember := ServicesPlanLine.Dezember;
+                            ServicosAtribuir."Service Plan Code" := ServicesPlanLine.Code;
+                            ServicosAtribuir.INSERT;
+                        UNTIL ServicesPlanLine.NEXT = 0;
+                        Message('Plano de Serviço Importado.');
+                    END ELSE
+                        Message('Não existem planos para serem importados.');
+                end;
+            }
         }
+
     }
 
-    trigger OnClosePage()
-    begin
-        CleanRegisterClass;
-    end;
 
     trigger OnOpenPage()
     begin
 
-        Clear(varLevel);
-        Clear(varClass);
-        Clear(varSchoolingYear);
-        Clear(varStudent);
-        Clear(varPeriod);
-        //RESET;
+        CLEAR(varClass);
+        CLEAR(varSchoolingYear);
+        CLEAR(varStudent);
 
-        rSchoolYear.Reset;
-        rSchoolYear.SetRange(Status, rSchoolYear.Status::Active);
-        if rSchoolYear.FindFirst then;
-
-
+        rSchoolYear.RESET;
+        rSchoolYear.SETRANGE(Status, rSchoolYear.Status::Active);
+        IF rSchoolYear.FINDFIRST THEN;
         Filter;
     end;
 
-    var
-        varClass: Code[20];
-        varSchoolingYear: Code[10];
-        varServices: Code[20];
-        varStudent: Code[20];
-        varDescService: Text[50];
-        varQuant: Integer;
-        varMonths: array[12] of Boolean;
-        TextOptions: Label 'Insert Quantity, Increment Quantity';
-        Text0001: Label 'The Service is already associated with the student.\Choose one of the following options in order to continue with the process.';
-        Text0002: Label 'Done';
-        Text0003: Label 'You must define the quantity to be processed!';
-        Text0004: Label 'Canceled';
-        Text0005: Label 'You must choose at least one student to continue with the process!';
-        Text0006: Label 'The process of service allocation was completed successfully.';
-        Text0007: Label 'There is no selected student in order to assign the service.';
-        Text0008: Label 'Confirm that you want to process these services?';
-        Text0009: Label 'Feld "Class" is mandatory.';
-        Text0010: Label 'Service does not exist.';
-        Text0011: Label 'You must choose a Service before being able to process it.';
-        Text0012: Label 'The User must select a School Year';
-        ServicesET: Record "Services ET";
-        rSchoolYear: Record "School Year";
-        rClass: Record Class;
-        rRegistrationClass: Record "Registration Class";
-        rStudentServPlan: Record "Student Service Plan";
-        LineNo: Integer;
-        cStudentServices: Codeunit "Student Services";
-        varRespCenter: Code[10];
-        rStudentsTemP: Record Students temporary;
-        rStudents: Record Students;
-        rRegistration: Record Registration;
-        varSchoolYear: Code[20];
-        varPrice: Decimal;
-        varPeriod: Option " ",Mensal,Trimestral,Anual;
-        varType: Option "Serviço",Produto;
-        recItem: Record Item;
-        varSchoolingYear2: Code[50];
-        varLevel: Option "Pré-Escolar","1º Ciclo","2º Ciclo","3º Ciclo","Secundário";
-        recStrutureEdu: Record "Structure Education Country";
-        Text1102059001: Label 'Filter Students:';
-        Text1102059002: Label 'Assign Services:';
 
-    local procedure GetService()
+    trigger OnClosePage()
     begin
-        if ServicesET.Get(varServices) then begin
-            varMonths[1] := ServicesET.January;
-            varMonths[2] := ServicesET.February;
-            varMonths[3] := ServicesET.March;
-            varMonths[4] := ServicesET.April;
-            varMonths[5] := ServicesET.May;
-            varMonths[6] := ServicesET.June;
-            varMonths[7] := ServicesET.July;
-            varMonths[8] := ServicesET.August;
-            varMonths[9] := ServicesET.Setember;
-            varMonths[10] := ServicesET.October;
-            varMonths[11] := ServicesET.November;
-            varMonths[12] := ServicesET.December;
-        end;
+        CleanRegisterClass;
+        CleanAtribuirServicos; //IT001 - Park   
     end;
 
-    //[Scope('OnPrem')]
-    procedure "AtribuirServiços"()
+    local procedure Filter()
     var
-        recStudServPlan: Record "Student Service Plan";
+        l_recRegistration: Record Registration;
+    begin
+
+        l_recRegistration.RESET;
+        IF varClass <> '' THEN BEGIN
+
+            l_recRegistration.SETRANGE(Class);
+            l_recRegistration.SETRANGE(Class, varClass);
+            l_recRegistration.SETRANGE(Status, l_recRegistration.Status::Subscribed);
+        END ELSE
+            l_recRegistration.SETRANGE(Class, '');
+
+
+        l_recRegistration.SETFILTER("Student Code No.", varStudent);
+        l_recRegistration.SETFILTER("School Year", varSchoolYear);
+
+        IF (varClass = '') AND (varStudent = '') AND (varSchoolYear = '') THEN
+            l_recRegistration.SETRANGE("Student Code No.", '');
+
+        if l_recRegistration.findset then BEGIN
+            CurrPage.PagePartServiceList.Page.SetTableView(l_recRegistration);
+            CurrPage.PagePartServiceList.Page.Update();
+        END ELSE begin
+            l_recRegistration.reset;
+            l_recRegistration.findset;
+            CurrPage.PagePartServiceList.Page.SetTableView(l_recRegistration);
+            CurrPage.PagePartServiceList.Page.Update();
+        end;
+        CurrPage.Update(true);
+    end;
+
+
+    local procedure MarkAll(Mark: Boolean)
+    begin
+
+
+        rRegistration.RESET;
+        IF varSchoolYear <> '' THEN
+            rRegistration.SETRANGE("School Year", varSchoolYear);
+        IF varClass <> '' THEN BEGIN
+            rRegistration.SETRANGE(Class, varClass);
+            rRegistration.SETRANGE(Status, rRegistration.Status::Subscribed);
+        END;
+        IF varStudent <> '' THEN
+            rRegistration.SETRANGE("Student Code No.", varStudent);
+        rRegistration.MODIFYALL(Selection, Mark);
+        //2011.10.07
+        IF Mark = TRUE THEN
+            rRegistration.MODIFYALL("User Session", UPPERCASE(USERID))
+        ELSE
+            rRegistration.MODIFYALL("User Session", '');
+        CurrPage.UPDATE();
+    end;
+
+
+    local procedure CleanRegisterClass()
+    begin
+
+        rRegistration.RESET;
+        rRegistration.SETRANGE(Selection, TRUE);
+        IF rRegistration.FIND('-') THEN BEGIN
+            rRegistration.MODIFYALL(Selection, FALSE);
+            rRegistration.MODIFYALL("User Session", '');
+        END;
+    end;
+
+
+    local procedure CleanAtribuirServicos()
+    var
+        ServicosAtribuir: Record "Serviços a Atrbuir";
+    begin
+
+        //IT001 - Park - sn
+        ServicosAtribuir.RESET;
+        ServicosAtribuir.SETRANGE(ServicosAtribuir."User ID", UPPERCASE(USERID));
+        IF ServicosAtribuir.FINDFIRST THEN
+            ServicosAtribuir.DELETEALL;
+        //IT001 - Park - en    
+    end;
+
+    local procedure ValidateSelection()
+    var
+        myInt: Integer;
+    begin
+
+        rRegistration.RESET;
+        rRegistration.SETRANGE(Class, varClass);
+        rRegistration.SETRANGE(Selection, TRUE);
+        rRegistration.SETRANGE("User Session", UPPERCASE(USERID));
+        IF NOT rRegistration.FIND('-') THEN
+            ERROR(Text0007);
+    end;
+
+    local procedure AtribuirServiços()
+    var
         int: Integer;
     begin
-        if not Confirm(Text0008, false) then
-            exit;
-        if varServices = '' then
-            Error(Text0011);
 
-        rRegistration.Reset;
-        if varClass <> '' then
-            rRegistration.SetRange(Class, varClass);
-        rRegistration.SetRange("School Year", varSchoolYear);
-        if varSchoolingYear <> '' then
-            rRegistration.SetRange("Schooling Year", varSchoolingYear);
-        rRegistration.SetRange(Selection, true);
-        if rRegistration.FindSet then begin
-            repeat
-                rStudentServPlan.Reset;
-                rStudentServPlan.SetRange("Student No.", rRegistration."Student Code No.");
-                rStudentServPlan.SetRange("School Year", rRegistration."School Year");
-                if varSchoolingYear <> '' then
-                    rStudentServPlan.SetRange("Schooling Year", varSchoolingYear);
-                rStudentServPlan.SetRange("Service Code", varServices);
-                if rStudentServPlan.Find('-') then begin
-                    if rStudentServPlan.Selected then begin
-                        if (int = 0) or (int <> 3) then begin
-                            Message(Text0001);
-                            int := DIALOG.StrMenu(TextOptions);
-                        end;
-                        if int = 0 then begin
-                            Message(Text0004);
-                            exit;
-                        end else
-                            InsertServices(int, false);
-                    end else begin
-                        InsertServices(0, false);
-                    end;
-                end else
-                    InsertServices(int, true);
+        IF NOT CONFIRM(Text0008, FALSE) THEN
+            EXIT;
 
-                //Actualiza as entidades pagadoras
-                //ValidatePayingEntity(rRegistration."Student Code No.",rSchoolYear."School Year");
-                //Normatica 2012.10.09 - tem de ser o ano que o utilizador escolheu no ecran e não o ativo
-                ValidatePayingEntity(rRegistration."Student Code No.", varSchoolYear);
+        //IT001 - Park - sn
+        //IF varServices = '' THEN
+        //  ERROR(Text0011);
+        //IT001 - Park - en
+
+        rRegistration.RESET;
+        IF varClass <> '' THEN
+            rRegistration.SETRANGE(Class, varClass);
+        rRegistration.SETRANGE("School Year", varSchoolYear);
+        IF varSchoolingYear <> '' THEN
+            rRegistration.SETRANGE("Schooling Year", varSchoolingYear);
+        rRegistration.SETRANGE(Selection, TRUE);
+        rRegistration.SETRANGE(rRegistration."User Session", USERID);//IT001 - Park
+        IF rRegistration.FIND('-') THEN BEGIN
+            REPEAT
+                //IT001 - Park - sn
+                rServicosaAtribuir.RESET;
+                rServicosaAtribuir.SETRANGE(rServicosaAtribuir."User ID", USERID);
+                IF rServicosaAtribuir.FINDSET THEN BEGIN
+                    REPEAT
+                        //IT001 - Park - en
+
+                        rStudentServPlan.RESET;
+                        rStudentServPlan.SETRANGE("Student No.", rRegistration."Student Code No.");
+                        rStudentServPlan.SETRANGE("School Year", rRegistration."School Year");
+                        IF varSchoolingYear <> '' THEN
+                            rStudentServPlan.SETRANGE("Schooling Year", varSchoolingYear);
+                        //IT001 - Park - sn
+                        //rStudentServPlan.SETRANGE("Service Code", varServices);
+                        rStudentServPlan.SETRANGE("Service Code", rServicosaAtribuir."No.");
+                        //IT001 - Park - en
+
+                        IF rStudentServPlan.FIND('-') THEN BEGIN
+                            IF rStudentServPlan.Selected THEN BEGIN
+                                IF (int = 0) OR (int <> 3) THEN BEGIN
+                                    MESSAGE(Text0001);
+                                    int := DIALOG.STRMENU(TextOptions);
+                                END;
+                                IF int = 0 THEN BEGIN
+                                    MESSAGE(Text0004);
+                                    EXIT;
+                                END ELSE
+                                    InsertServices(int, FALSE);
+                            END ELSE BEGIN
+                                InsertServices(0, FALSE);
+                            END;
+                        END ELSE
+                            InsertServices(int, TRUE);
+
+                        //Actualiza as entidades pagadoras
+                        //ValidatePayingEntity(rRegistration."Student Code No.",rSchoolYear."School Year");
+                        //Normatica 2012.10.09 - tem de ser o ano que o utilizador escolheu no ecran e não o ativo
+                        ValidatePayingEntity(rRegistration."Student Code No.", varSchoolYear);
 
 
-                rRegistration.Selection := false;
-                rRegistration."User Session" := '';
-                rRegistration.Modify;
-            until rRegistration.Next = 0;
-            Message(Text0006);
-        end;
+                        rRegistration.Selection := FALSE;
+                        rRegistration."User Session" := '';
+                        rRegistration.MODIFY;
 
-        if varServices = '' then begin
-            varDescService := '';
-            varMonths[1] := false;
-            varMonths[2] := false;
-            varMonths[3] := false;
-            varMonths[4] := false;
-            varMonths[5] := false;
-            varMonths[6] := false;
-            varMonths[7] := false;
-            varMonths[8] := false;
-            varMonths[9] := false;
-            varMonths[10] := false;
-            varMonths[11] := false;
-            varMonths[12] := false;
-        end;
 
-        if varQuant <> 0 then
-            varQuant := 0
+
+                    //IT001 - Park - sn
+                    UNTIL rServicosaAtribuir.NEXT = 0;
+                END ELSE
+                    ERROR(Text0011);
+            //IT001 - Park - en
+
+            UNTIL rRegistration.NEXT = 0;
+            MESSAGE(Text0006);
+        END;
+
+
+        //IT001 - Park - sn
+        /*
+        IF varServices = '' THEN BEGIN
+                    varDescService := '';
+                    varMonths[1] := FALSE;
+                    varMonths[2] := FALSE;
+                    varMonths[3] := FALSE;
+                    varMonths[4] := FALSE;
+                    varMonths[5] := FALSE;
+                    varMonths[6] := FALSE;
+                    varMonths[7] := FALSE;
+                    varMonths[8] := FALSE;
+                    varMonths[9] := FALSE;
+                    varMonths[10] := FALSE;
+                    varMonths[11] := FALSE;
+                    varMonths[12] := FALSE;
+
+                END;
+
+
+
+                IF varQuant <> 0 THEN BEGIN
+                    varQuant := 0;
+
+                    //Normatica 2012.10.24 - se não limpa o Cod. do produto/serviço não deve limpar o Preço
+                    /*
+                    IF varPrice <> 0 THEN
+                                    varPrice := 0;
+                    
+s
+        IF vVariant <> '' THEN
+            vVariant := '';
+    END;
+
+*/
+        //IT001 - Park - en    
     end;
 
-    //[Scope('OnPrem')]
-    procedure ValidateStudentServ() outInt: Integer
-    var
-        StudentServPlanTEMP: Record "Student Service Plan" temporary;
-    begin
-        //Validar se os alunos já tem o serviço atribuido para o mês que selecionarm
-
-        StudentServPlanTEMP.Reset;
-        if varType = varType::"Serviço" then
-            StudentServPlanTEMP.SetRange(Type, StudentServPlanTEMP.Type::Service)
-        else
-            StudentServPlanTEMP.SetRange(Type, StudentServPlanTEMP.Type::Item);
-        StudentServPlanTEMP.SetFilter("Service Code", '%1', varServices);
-        if StudentServPlanTEMP.Find('-') then begin
-            Message(Text0001);
-            outInt := DIALOG.StrMenu(TextOptions);
-        end;
-    end;
-
-    //[Scope('OnPrem')]
-    procedure InsertServices(inAction: Integer; pInsert: Boolean)
+    local procedure InsertServices(inAction: Integer; pInsert: Boolean)
     var
         StudentServPlan: Record "Student Service Plan";
         StudentServPlanLine: Record "Student Service Plan";
-        rServicesET: Record "Services ET";
     begin
-        //O Parametro inAction serve para Incrementar/ Subtituir valores nos Plano Serviços Aluno
-        if not pInsert then begin
-            if inAction <> 3 then begin
-                if inAction = 1 then
-                    rStudentServPlan.Quantity := varQuant;
-                if inAction = 2 then
-                    rStudentServPlan.Quantity := rStudentServPlan.Quantity + varQuant;
-                if not rStudentServPlan.January then
-                    rStudentServPlan.January := varMonths[1];
-                if not rStudentServPlan.February then
-                    rStudentServPlan.February := varMonths[2];
-                if not rStudentServPlan.March then
-                    rStudentServPlan.March := varMonths[3];
-                if not rStudentServPlan.April then
-                    rStudentServPlan.April := varMonths[4];
-                if not rStudentServPlan.May then
-                    rStudentServPlan.May := varMonths[5];
-                if not rStudentServPlan.June then
-                    rStudentServPlan.June := varMonths[6];
-                if not rStudentServPlan.July then
-                    rStudentServPlan.July := varMonths[7];
-                if not rStudentServPlan.August then
-                    rStudentServPlan.August := varMonths[8];
-                if not rStudentServPlan.Setember then
-                    rStudentServPlan.Setember := varMonths[9];
-                if not rStudentServPlan.October then
-                    rStudentServPlan.October := varMonths[10];
-                if not rStudentServPlan.November then
-                    rStudentServPlan.November := varMonths[11];
-                if not rStudentServPlan.Dezember then
-                    rStudentServPlan.Dezember := varMonths[12];
-                if varPrice <> 0 then
-                    rStudentServPlan."Student Unit Price" := varPrice
-                else begin
-                    if rServicesET.Get(varServices) then
-                        rStudentServPlan."Student Unit Price" := rServicesET."Unit Price";
-                end;
-                rStudentServPlan.Selected := true;
-                rStudentServPlan.Modify(true);
-            end else begin
-                StudentServPlanLine.Reset;
-                StudentServPlanLine.SetRange("Student No.", rRegistration."Student Code No.");
-                StudentServPlanLine.SetRange("School Year", rRegistration."School Year");
-                StudentServPlanLine.SetRange("Schooling Year", rRegistration."Schooling Year");
-                StudentServPlanLine.SetRange("Service Code", varServices);
-                if StudentServPlanLine.FindLast then;
 
-                rStudentServPlan.Init;
+        //O Parametro inAction serve para Incrementar/ Subtituir valores nos Plano Serviços Aluno
+        IF NOT pInsert THEN BEGIN
+            IF inAction <> 3 THEN BEGIN
+                //IT001 - Park - sn
+                IF inAction = 1 THEN
+                    rStudentServPlan.Quantity := rServicosaAtribuir.Quantidade;
+                IF inAction = 2 THEN
+                    rStudentServPlan.Quantity := rStudentServPlan.Quantity + rServicosaAtribuir.Quantidade;
+                IF NOT rStudentServPlan.January THEN
+                    rStudentServPlan.January := rServicosaAtribuir.January;
+                IF NOT rStudentServPlan.February THEN
+                    rStudentServPlan.February := rServicosaAtribuir.February;
+                IF NOT rStudentServPlan.March THEN
+                    rStudentServPlan.March := rServicosaAtribuir.March;
+                IF NOT rStudentServPlan.April THEN
+                    rStudentServPlan.April := rServicosaAtribuir.April;
+                IF NOT rStudentServPlan.May THEN
+                    rStudentServPlan.May := rServicosaAtribuir.May;
+                IF NOT rStudentServPlan.June THEN
+                    rStudentServPlan.June := rServicosaAtribuir.June;
+                IF NOT rStudentServPlan.July THEN
+                    rStudentServPlan.July := rServicosaAtribuir.July;
+                IF NOT rStudentServPlan.August THEN
+                    rStudentServPlan.August := rServicosaAtribuir.August;
+                IF NOT rStudentServPlan.Setember THEN
+                    rStudentServPlan.Setember := rServicosaAtribuir.Setember;
+                IF NOT rStudentServPlan.October THEN
+                    rStudentServPlan.October := rServicosaAtribuir.October;
+                IF NOT rStudentServPlan.November THEN
+                    rStudentServPlan.November := rServicosaAtribuir.November;
+                IF NOT rStudentServPlan.Dezember THEN
+                    rStudentServPlan.Dezember := rServicosaAtribuir.Dezember;
+
+                IF rServicosaAtribuir."Novo Valor" <> 0 THEN
+                    rStudentServPlan."Student Unit Price" := rServicosaAtribuir."Novo Valor";
+                //IT001 - Park - en
+
+                rStudentServPlan.Selected := TRUE;
+                rStudentServPlan.MODIFY(TRUE);
+
+            END ELSE BEGIN
+                StudentServPlanLine.RESET;
+                StudentServPlanLine.SETRANGE("Student No.", rRegistration."Student Code No.");
+                StudentServPlanLine.SETRANGE("School Year", rRegistration."School Year");
+                StudentServPlanLine.SETRANGE("Schooling Year", rRegistration."Schooling Year");
+                //IT001 - Park - sn
+                //StudentServPlanLine.SETRANGE("Service Code",varServices);
+                StudentServPlanLine.SETRANGE("Service Code", rServicosaAtribuir."No.");
+                //IT001 - Park - en
+                IF StudentServPlanLine.FINDLAST THEN;
+
+                rStudentServPlan.INIT;
                 //rStudentServPlan.VALIDATE("Student No.", rRegistrationClass."Student Code No.");
-                rStudentServPlan.Validate("Student No.", rRegistration."Student Code No.");
+                rStudentServPlan.VALIDATE("Student No.", rRegistration."Student Code No.");
                 //rStudentServPlan."Schooling Year" := varSchoolingYear;
                 //rStudentServPlan."School Year" := rSchoolYear."School Year";
                 rStudentServPlan."Schooling Year" := rRegistration."Schooling Year";
                 rStudentServPlan."School Year" := rRegistration."School Year";
                 rStudentServPlan."Line No." := StudentServPlanLine."Line No." + 10000;
 
-                if varType = varType::"Serviço" then
+                IF rServicosaAtribuir.Tipo = rServicosaAtribuir.Tipo::Serviço THEN
                     rStudentServPlan.Type := rStudentServPlan.Type::Service
-                else
+                ELSE
                     rStudentServPlan.Type := rStudentServPlan.Type::Item;
-                rStudentServPlan.Validate("Service Code", varServices);
-                rStudentServPlan.Quantity := varQuant;
-                if varPrice <> 0 then
-                    rStudentServPlan."Student Unit Price" := varPrice
-                else begin
-                    if rServicesET.Get(varServices) then
-                        rStudentServPlan."Student Unit Price" := rServicesET."Unit Price";
-                end;
+
+                rStudentServPlan.VALIDATE("Service Code", rServicosaAtribuir."No.");
+                rStudentServPlan.Description := rServicosaAtribuir.Description;
+                rStudentServPlan."Variant Code" := rServicosaAtribuir."Variant Code";
+                rStudentServPlan.Quantity := rServicosaAtribuir.Quantidade;
+                rStudentServPlan."Student Unit Price" := rServicosaAtribuir."Novo Valor";
                 rStudentServPlan."Service Type" := rStudentServPlan."Service Type"::Ocasional;
                 rStudentServPlan."Responsibility Center" := varRespCenter;
-                rStudentServPlan.January := varMonths[1];
-                rStudentServPlan.February := varMonths[2];
-                rStudentServPlan.March := varMonths[3];
-                rStudentServPlan.April := varMonths[4];
-                rStudentServPlan.May := varMonths[5];
-                rStudentServPlan.June := varMonths[6];
-                rStudentServPlan.July := varMonths[7];
-                rStudentServPlan.August := varMonths[8];
-                rStudentServPlan.Setember := varMonths[9];
-                rStudentServPlan.October := varMonths[10];
-                rStudentServPlan.November := varMonths[11];
-                rStudentServPlan.Dezember := varMonths[12];
-                rStudentServPlan.Selected := true;
-                rStudentServPlan."Last Date Modified" := Today;
-                rStudentServPlan."User ID" := UserId;
-                rStudentServPlan.Insert;
-            end;
-        end;
+                rStudentServPlan.January := rServicosaAtribuir.January;
+                ;
+                rStudentServPlan.February := rServicosaAtribuir.February;
+                rStudentServPlan.March := rServicosaAtribuir.March;
+                rStudentServPlan.April := rServicosaAtribuir.April;
+                rStudentServPlan.May := rServicosaAtribuir.May;
+                rStudentServPlan.June := rServicosaAtribuir.June;
+                rStudentServPlan.July := rServicosaAtribuir.July;
+                rStudentServPlan.August := rServicosaAtribuir.August;
+                rStudentServPlan.Setember := rServicosaAtribuir.Setember;
+                rStudentServPlan.October := rServicosaAtribuir.October;
+                rStudentServPlan.November := rServicosaAtribuir.November;
+                rStudentServPlan.Dezember := rServicosaAtribuir.Dezember;
+                rStudentServPlan.Selected := TRUE;
+                rStudentServPlan."Last Date Modified" := TODAY;
+                rStudentServPlan."User ID" := USERID;
+                rStudentServPlan.INSERT;
 
+            END;
+        END;
+        IF pInsert THEN BEGIN
+            StudentServPlanLine.RESET;
+            StudentServPlanLine.SETRANGE("Student No.", rRegistration."Student Code No.");
+            StudentServPlanLine.SETRANGE("School Year", rRegistration."School Year");
+            StudentServPlanLine.SETRANGE("Schooling Year", rRegistration."Schooling Year");
+            //IT001 - Park - sn
+            //StudentServPlanLine.SETRANGE("Service Code",varServices);
+            StudentServPlanLine.SETRANGE("Service Code", rServicosaAtribuir."No.");
+            //IT001 - Park - en
+            IF StudentServPlanLine.FINDLAST THEN;
 
-        if pInsert then begin
-            StudentServPlanLine.Reset;
-            StudentServPlanLine.SetRange("Student No.", rRegistration."Student Code No.");
-            StudentServPlanLine.SetRange("School Year", rRegistration."School Year");
-            StudentServPlanLine.SetRange("Schooling Year", rRegistration."Schooling Year");
-            StudentServPlanLine.SetRange("Service Code", varServices);
-            if StudentServPlanLine.FindLast then;
-
-            rStudentServPlan.Init;
+            rStudentServPlan.INIT;
             //rStudentServPlan.VALIDATE("Student No.", rRegistrationClass."Student Code No.");
-            rStudentServPlan.Validate("Student No.", rRegistration."Student Code No.");
+            rStudentServPlan.VALIDATE("Student No.", rRegistration."Student Code No.");
             //rStudentServPlan."Schooling Year" := varSchoolingYear;
             //rStudentServPlan."School Year" := rSchoolYear."School Year";
             rStudentServPlan."Schooling Year" := rRegistration."Schooling Year";
             rStudentServPlan."School Year" := rRegistration."School Year";
             rStudentServPlan."Line No." := StudentServPlanLine."Line No." + 10000;
-
-            if varType = varType::"Serviço" then
+            //IT001 - Park - sn
+            IF rServicosaAtribuir.Tipo = rServicosaAtribuir.Tipo::Serviço THEN
                 rStudentServPlan.Type := rStudentServPlan.Type::Service
-            else
+            ELSE
                 rStudentServPlan.Type := rStudentServPlan.Type::Item;
-            rStudentServPlan.Validate("Service Code", varServices);
-            rStudentServPlan.Quantity := varQuant;
-            if varPrice <> 0 then
-                rStudentServPlan."Student Unit Price" := varPrice
-            else begin
-                if rServicesET.Get(varServices) then
-                    rStudentServPlan."Student Unit Price" := rServicesET."Unit Price";
-            end;
+            rStudentServPlan.VALIDATE("Service Code", rServicosaAtribuir."No.");
+            rStudentServPlan.Description := rServicosaAtribuir.Description;
+            rStudentServPlan."Variant Code" := rServicosaAtribuir."Variant Code";
+            rStudentServPlan.Quantity := rServicosaAtribuir.Quantidade;
+            rStudentServPlan."Student Unit Price" := rServicosaAtribuir."Novo Valor";
+            //IT001 - Park - en
             rStudentServPlan."Service Type" := rStudentServPlan."Service Type"::Ocasional;
             rStudentServPlan."Responsibility Center" := varRespCenter;
-            rStudentServPlan.January := varMonths[1];
-            rStudentServPlan.February := varMonths[2];
-            rStudentServPlan.March := varMonths[3];
-            rStudentServPlan.April := varMonths[4];
-            rStudentServPlan.May := varMonths[5];
-            rStudentServPlan.June := varMonths[6];
-            rStudentServPlan.July := varMonths[7];
-            rStudentServPlan.August := varMonths[8];
-            rStudentServPlan.Setember := varMonths[9];
-            rStudentServPlan.October := varMonths[10];
-            rStudentServPlan.November := varMonths[11];
-            rStudentServPlan.Dezember := varMonths[12];
-            rStudentServPlan.Selected := true;
-            rStudentServPlan."Last Date Modified" := Today;
-            rStudentServPlan."User ID" := UserId;
-            rStudentServPlan.Insert;
-        end;
+
+            rStudentServPlan.January := rServicosaAtribuir.January;
+            rStudentServPlan.February := rServicosaAtribuir.February;
+            rStudentServPlan.March := rServicosaAtribuir.March;
+            rStudentServPlan.April := rServicosaAtribuir.April;
+            rStudentServPlan.May := rServicosaAtribuir.May;
+            rStudentServPlan.June := rServicosaAtribuir.June;
+            rStudentServPlan.July := rServicosaAtribuir.July;
+            rStudentServPlan.August := rServicosaAtribuir.August;
+            rStudentServPlan.Setember := rServicosaAtribuir.Setember;
+            rStudentServPlan.October := rServicosaAtribuir.October;
+            rStudentServPlan.November := rServicosaAtribuir.November;
+            rStudentServPlan.Dezember := rServicosaAtribuir.Dezember;
+
+            rStudentServPlan.Selected := TRUE;
+            rStudentServPlan."Last Date Modified" := TODAY;
+            rStudentServPlan."User ID" := USERID;
+            rStudentServPlan.INSERT;
+        END;
     end;
 
-    //[Scope('OnPrem')]
-    procedure GetLastNo(pNo: Code[10])
-    begin
-        rStudentServPlan.Reset;
-        rStudentServPlan.SetRange("Student No.", pNo);
-        rStudentServPlan.SetRange("School Year", rSchoolYear."School Year");
-        rStudentServPlan.SetRange("Schooling Year", varSchoolingYear);
-        if rStudentServPlan.FindLast then
-            LineNo := rStudentServPlan."Line No."
-        else
-            LineNo := 10000;
-    end;
-
-    //[Scope('OnPrem')]
-    procedure "Filter"()
-    begin
-        if varClass <> '' then begin
-            Rec.SetRange(Class);
-            Rec.SetRange(Class, varClass);
-            Rec.SetRange(Level);
-        end else
-            Rec.SetRange(Class, '');
-
-        //IF varStudent <> '' THEN
-
-        Rec.SetFilter("Student Code No.", varStudent);
-        Rec.SetFilter("School Year", varSchoolYear);
-
-        if (varClass = '') and (varStudent = '') and (varSchoolYear = '') then
-            Rec.SetRange("Student Code No.", '');
-
-        if (varSchoolingYear2 <> '') and (varClass = '') and (varStudent = '') then
-            Rec.SetRange("Schooling Year", varSchoolingYear2);
-
-        if (varClass = '') and (varStudent = '') then begin
-            Rec.SetRange(Level, varLevel);
-            Rec.SetRange(Class);
-            Rec.SetRange("Student Code No.");
-
-            if (varSchoolingYear2 <> '') then
-                Rec.SetRange("Schooling Year", varSchoolingYear2);
-        end;
-
-        CurrPage.Update(true);
-    end;
-
-    //[Scope('OnPrem')]
-    procedure CleanRegisterClass()
+    local procedure ValidatePayingEntity(pStudentCode: Code[20]; pSchoolYear: Code[20])
     var
+        rUsersFamiliyStudents: Record "Users Family / Students";
+    begin
+
+        rUsersFamiliyStudents.RESET;
+        rUsersFamiliyStudents.SETRANGE("School Year", pSchoolYear);
+        rUsersFamiliyStudents.SETRANGE("Student Code No.", pStudentCode);
+        rUsersFamiliyStudents.SETRANGE("Paying Entity", TRUE);
+        IF rUsersFamiliyStudents.FINDFIRST THEN
+            cStudentServices.DistributionByEntity(rUsersFamiliyStudents);
+    end;
+
+    var
+        varClass: code[20];
+        varStudent: Code[20];
+        rSchoolYear: Record "School Year";
+        rClass: Record Class;
+        varSchoolingYear: Code[10];
+        varSchoolYear: Code[20];
+        varRespCenter: Code[10];
+        varSchoolingYear2: Code[50];
+        recStrutureEdu: Record "Structure Education Country";
+        varLevel: Option "Pré-Escolar","1º Ciclo","2º Ciclo","3º Ciclo","Secundário";
+        rStudentsTemP: record "Students" temporary;
         rRegistrationClass: Record "Registration Class";
-    begin
-        rRegistration.Reset;
-        rRegistration.SetRange(Selection, true);
-        if rRegistration.Find('-') then begin
-            //rRegistration.RESET;
-            rRegistration.ModifyAll("User Session", '');
-            rRegistration.ModifyAll(Selection, false);
-        end;
-    end;
-
-    //[Scope('OnPrem')]
-    procedure ValidateSelection()
-    var
-        rRegistrationClass: Record "Registration Class";
-    begin
-        rRegistration.Reset;
-        if varClass <> '' then
-            rRegistration.SetRange(Class, varClass);
-        rRegistration.SetRange(Selection, true);
-        rRegistration.SetRange("User Session", UpperCase(UserId));
-        if not rRegistration.Find('-') then
-            Error(Text0007);
-    end;
-
-    //[Scope('OnPrem')]
-    procedure ValidatePayingEntity(pStudentCode: Code[20]; pSchoolYear: Code[20])
-    var
-        rUsersFamilyStudents: Record "Users Family / Students";
-    begin
-        rUsersFamilyStudents.Reset;
-        rUsersFamilyStudents.SetRange("School Year", pSchoolYear);
-        rUsersFamilyStudents.SetRange("Student Code No.", pStudentCode);
-        rUsersFamilyStudents.SetRange("Paying Entity", true);
-        if rUsersFamilyStudents.FindFirst then
-            cStudentServices.DistributionByEntity(rUsersFamilyStudents);
-    end;
-
-    //[Scope('OnPrem')]
-    procedure ValidateServices()
-    begin
-        if varServices = '' then begin
-            varDescService := '';
-            varMonths[1] := false;
-            varMonths[2] := false;
-            varMonths[3] := false;
-            varMonths[4] := false;
-            varMonths[5] := false;
-            varMonths[6] := false;
-            varMonths[7] := false;
-            varMonths[8] := false;
-            varMonths[9] := false;
-            varMonths[10] := false;
-            varMonths[11] := false;
-            varMonths[12] := false;
-
-        end;
-    end;
-
-    //[Scope('OnPrem')]
-    procedure MarkAll(Mark: Boolean)
-    begin
-        rRegistration.Reset;
-        //IT002,so
-        //rRegistration.SETRANGE(Level,varLevel);
-        //IT002,eo
-
-        //Normatica tem de apanhar só os inscritos   2012.07.09
-        rRegistration.SetFilter(rRegistration.Status, '%1|%2', rRegistration.Status::Subscribed, 0);
-        //Fim
-
-        if varSchoolingYear2 <> '' then
-            rRegistration.SetRange("Schooling Year", varSchoolingYear2);
-        if varSchoolYear <> '' then
-            rRegistration.SetRange("School Year", varSchoolYear);
-        if varClass <> '' then
-            rRegistration.SetRange(Class, varClass);
-        if varStudent <> '' then
-            rRegistration.SetRange("Student Code No.", varStudent);
-
-        //IT005 - 2017.07.21 - Tem de Filtrar por ciclo e não estava
-        rRegistration.SetRange(rRegistration.Level, varLevel);
-        //IT005 - en
-
-        rRegistration.ModifyAll(Selection, Mark);
-        //2011.10.07
-        if Mark = true then
-            rRegistration.ModifyAll("User Session", UpperCase(UserId))
-        else
-            rRegistration.ModifyAll("User Session", '');
-        //2011.10.07 - fim
-
-        CurrPage.Update(true);
-    end;
+        rStudents: Record Students;
+        rRegistration: Record Registration;
+        rServicosaAtribuir: Record "Serviços a Atrbuir";
+        rStudentServPlan: Record "Student Service Plan";
+        cStudentServices: Codeunit "Student Services";
+        //rCarregaPlanoServ: Report "Carregar Plano Serv";
+        Text0011: Label 'É necessário escolher um serviço antes de o poder processar.';
+        Text0012: Label 'Falta selecionar o ano escolar';
+        Text50001: Label 'É necessário seleccionar um mês.';
+        Text0001: Label 'O Serviço já se encontra associado aos alunos.\Deve escolher uma das opções que se seguem de forma a prosseguir com o processo.';
+        Text0003: Label 'Tem de definir a quantidade a processar!';
+        Text0004: Label 'Processo Interrompido!';
+        Text0006: Label 'O processo de atribuição de serviços foi concluido com sucesso.';
+        Text0007: Label 'Não tem um aluno seleccionado para atribuir o serviço.';
+        Text0008: Label 'Confirma que deseja processar esses serviços?';
+        TextOptions: Label 'Substituir Quantidade, Incrementar Quantidade, Novo Serviço';
 }
 
-#pragma implicitwith restore
 

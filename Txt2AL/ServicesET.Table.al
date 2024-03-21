@@ -307,7 +307,7 @@ table 31009765 "Services ET"
             Error(Text0006);
 
         //C+ - Multi-Company invoicing
-        MultiCompanyInvoicing.Multi_Service(Rec, false, false, true);
+        //   MultiCompanyInvoicing.Multi_Service(Rec, false, false, true);
     end;
 
     trigger OnInsert()
@@ -327,7 +327,7 @@ table 31009765 "Services ET"
         "User ID" := UserId;
 
         //C+ - Multi-Company invoicing
-        MultiCompanyInvoicing.Multi_Service(Rec, true, false, false);
+        //  MultiCompanyInvoicing.Multi_Service(Rec, true, false, false);
     end;
 
     trigger OnModify()
@@ -336,7 +336,7 @@ table 31009765 "Services ET"
         "User ID" := UserId;
 
         //C+ - Multi-Company invoicing
-        MultiCompanyInvoicing.Multi_Service(Rec, false, true, false);
+        // MultiCompanyInvoicing.Multi_Service(Rec, false, true, false);
     end;
 
     var
@@ -360,13 +360,12 @@ table 31009765 "Services ET"
     var
         ServicesET: Record "Services ET";
     begin
-        ServicesET := Rec;
         rEduConf.Get;
         rEduConf.TestField("Service Nos.");
         if NoSeriesMgt.SelectSeries(rEduConf."Service Nos.", OldService."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries("No.");
-            Rec := ServicesET;
-            exit(true);
+            // Rec := ServicesET;
+            // exit(true);
         end;
     end;
 

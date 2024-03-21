@@ -7,7 +7,6 @@ page 31009781 "SubForm Student Services Plan"
     AutoSplitKey = true;
     Caption = 'Student Services Plan';
     DelayedInsert = true;
-    DeleteAllowed = false;
     InsertAllowed = false;
     PageType = ListPart;
     SourceTable = "Student Service Plan";

@@ -5438,6 +5438,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table iSAMS - Field Forename2 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1496745775 - Field 2938108582 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error ao Importar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table iSAMS - Field HasError - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1496745775 - Field 4024754059 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Localidade Mãe</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -10034,7 +10039,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table Serviços a Atrbuir - Field October - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3329551534 - Field 1205971270 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Unit of Measure Type</source>
+          <source>Quantity</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Serviços a Atrbuir - Field Quantidade - Property Caption</note>
         </trans-unit>
@@ -11957,6 +11962,16 @@
           <source>Internet</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Students - Field Internet - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 244912790 - Field 1120211493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Pagador JDE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Students - Field JDE Payer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 244912790 - Field 2553811200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Aluno JDE</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Students - Field JDE Pupil No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 244912790 - Field 4093990710 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Language</source>
@@ -18668,6 +18683,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Atribuir Multiplos Serviços - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4265750701 - Control 2629054487 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nº.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Atribuir Multiplos Serviços - Control NoAux - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1658766258 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attached Documents</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -20919,209 +20939,89 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page Gerar Ref. ADC - Action GenADC - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Giving Services</source>
+          <source>Atribuir Serviços</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 2344539320" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The Service is already associated with the student.\Choose one of the following options in order to continue with the process.</source>
+          <source>O Serviço já se encontra associado aos alunos.\Deve escolher uma das opções que se seguem de forma a prosseguir com o processo.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0001</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 2982235937" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Done</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0002</note>
-        </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 3619932554" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must define the quantity to be processed!</source>
+          <source>Tem de definir a quantidade a processar!</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0003</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 4257629171" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Canceled</source>
+          <source>Processo Interrompido!</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0004</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 600358492" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must choose at least one student to continue with the process!</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0005</note>
-        </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 1238055109" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The process of service allocation was completed successfully.</source>
+          <source>O processo de atribuição de serviços foi concluido com sucesso.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0006</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 1875751726" size-unit="char" translate="yes" xml:space="preserve">
-          <source>There is no selected student in order to assign the service.</source>
+          <source>Não tem um aluno seleccionado para atribuir o serviço.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0007</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 2513448343" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Confirm that you want to process these services?</source>
+          <source>Confirma que deseja processar esses serviços?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0008</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 3151144960" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Feld "Class" is mandatory.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0009</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 914830240" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service does not exist.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0010</note>
-        </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 277133623" size-unit="char" translate="yes" xml:space="preserve">
-          <source>You must choose a Service before being able to process it.</source>
+          <source>É necessário escolher um serviço antes de o poder processar.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0011</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 2190223474" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The User must select a School Year</source>
+          <source>Falta selecionar o ano escolar</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text0012</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 2503245190" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter Students:</source>
+        <trans-unit id="Page 2317060138 - NamedType 14768227" size-unit="char" translate="yes" xml:space="preserve">
+          <source>É necessário seleccionar um mês.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text1102059001</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - NamedType 590155339" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assign Services:</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text1102059002</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType Text50001</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - NamedType 3041174519" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Insert Quantity, Increment Quantity</source>
+          <source>Substituir Quantidade, Incrementar Quantidade, Novo Serviço</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - NamedType TextOptions</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3782597879 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Assign Services:</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control Assign Services: - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 1724481203 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service Description</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varDescService - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 1926864756 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>New Price</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varPrice - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 1289600118 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Quantity</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varQuant - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3490758877 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Service No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varServices - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3326826559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Type</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varType - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2317060138 - Control 2859910759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Filter Students:</source>
+          <source>Filtros Estudantes:</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control Geral - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - Control 981249005 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Class Code </source>
+          <source>Cód. Turma</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varClass - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 4018701853 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Level</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varLevel - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 2569654416 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Schooling Year</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varSchoolingYear2 - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 2317060138 - Control 2181058922 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>School Year</source>
+          <source>Ano Lectivo</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varSchoolYear - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - Control 2565026440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Student Code </source>
+          <source>Cód. Aluno</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varStudent - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3465500804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Month</source>
+        <trans-unit id="Page 2317060138 - Control 120115725 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source> </source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control Month - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control PagePartServiceList - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 4249783099 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>October</source>
+        <trans-unit id="Page 2317060138 - Action 2219021681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>&amp;Carregar Plano Serviços</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[10] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3635432780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>November</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[11] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3692726205 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>December</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[12] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3439444051 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>January</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[1] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 151735718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>February</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[2] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 2923963861 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>March</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[3] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 987527712 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>April</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[4] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3738967503 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>May</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[5] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 430470818 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>June</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[6] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 3181910609 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>July</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[7] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 1245474460 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>August</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[8] - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2317060138 - Control 4017702603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>September</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Control varMonths[9] - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Giving Services - Action Carregar Plano Serviços - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2317060138 - Action 4188761752 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Mark All</source>
@@ -22113,6 +22013,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Overall Aspects - Control Responsibility Center - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2532227491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page P50036 - Services List - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -22342,6 +22247,11 @@
           <source>&amp;Services Bill</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Processing Services - Action &amp;Services Bill - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2209456167 - Action 3888058268 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Alterar Ano Escolar</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Processing Services - Action Alterar Ano Escolar - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2209456167 - Action 666362245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>P&amp;rocessing Services</source>
@@ -24018,6 +23928,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service ET List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1490771912 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service List</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Service ET List 2 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1626032447 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Translations</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -25528,10 +25443,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Students List - NamedType Text006</note>
         </trans-unit>
+        <trans-unit id="Page 1137236692 - Control 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nº Cliente</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Students List - Control Customer No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1137236692 - Control 2722775878 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Class and Class No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Students List - Control vClassAndNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1137236692 - Action 1182422028 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DELETEALL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Students List - Action DELETEALL - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3957836838 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Students Non Lective Hours</source>
@@ -30443,10 +30368,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Processing Services - Control Options - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2209456167 - Control 3465500804 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Mês</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Processing Services - Control Month - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2209456167 - Control 3037438984 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posting Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Processing Services - Control PostingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2209456167 - Control 4165995697 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Centro de Responsabilidade</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Processing Services - Control ResCenter - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3690256623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Recover Test / Alert</source>

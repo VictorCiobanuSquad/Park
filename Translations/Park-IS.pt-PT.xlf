@@ -11597,7 +11597,7 @@
         </trans-unit>
         <trans-unit id="Table 3555018809 - Field 1997590753 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit of Measure Type</source>
-          <target>Tipo Unidade Medida</target>
+          <target>Quantidade</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table Services ET - Field Unit of Measure Type - Property Caption</note>
         </trans-unit>
@@ -36328,12 +36328,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Invoicing Services - Control getMontlhyPayment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2540642966 - Control 403442206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Incluir Guias de Remessa</source>
-          <target>Incluir Guias de Remessa</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Invoicing Services - Control getSalesShipLine - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 2540642966 - Control 3707400148 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Incluir Guias de Remessa</source>       anslate="yes" xml:space="preserve">
           <source>Month</source>
           <target>Mês</target>
           <note from="Developer" annotates="general" priority="2"/>

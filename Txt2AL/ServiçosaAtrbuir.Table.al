@@ -63,7 +63,7 @@ table 50019 "Serviços a Atrbuir"
         }
         field(5; Quantidade; Integer)
         {
-            Caption = 'Unit of Measure Type';
+            Caption = 'Quantity';
         }
         field(6; "Novo Valor"; Decimal)
         {

@@ -843,6 +843,24 @@ table 31009750 Students
             Caption = 'Nº Aluno iSAMS';
             Description = 'IT005';
         }
+
+        field(50021; "JDE Payer No."; Code[20])
+        {
+            caption = 'Pagador JDE';
+            FieldClass = FlowField;
+
+            CalcFormula = Lookup(Customer."JDE Payer No." WHERE("No." = FIELD("Customer No.")
+                                                           ));
+        }
+
+        field(50022; "JDE Pupil No."; Code[20])
+        {
+            caption = 'Aluno JDE';
+            FieldClass = FlowField;
+
+            CalcFormula = Lookup(Customer."JDE Pupil No." WHERE("No." = FIELD("Customer No.")
+                                                           ));
+        }
         field(73100; "Last Name"; Text[30])
         {
             Caption = 'First Family Name';
@@ -1062,22 +1080,23 @@ table 31009750 Students
         if rRegistration.FindFirst then
             Error(Text0005);
 
+
         rStudentLedgerEntry.Reset;
         rStudentLedgerEntry.SetRange("Student No.", "No.");
         if rStudentLedgerEntry.FindFirst then
             Error(Text0006);
 
-        if Confirm(Text0001, false, "No.") then begin
-            rSchoolYear.Reset;
-            rSchoolYear.SetRange(Status, rSchoolYear.Status::Active);
-            if rSchoolYear.FindFirst then begin
-                rUsersFamiliyStudents.Reset;
-                rUsersFamiliyStudents.SetRange("School Year", rSchoolYear."School Year");
-                rUsersFamiliyStudents.SetRange("Student Code No.", "No.");
-                rUsersFamiliyStudents.DeleteAll(true);
-            end;
-        end else
-            Error(Text0010);
+        //if Confirm(Text0001, false, "No.") then begin
+        rSchoolYear.Reset;
+        rSchoolYear.SetRange(Status, rSchoolYear.Status::Active);
+        if rSchoolYear.FindFirst then begin
+            rUsersFamiliyStudents.Reset;
+            rUsersFamiliyStudents.SetRange("School Year", rSchoolYear."School Year");
+            rUsersFamiliyStudents.SetRange("Student Code No.", "No.");
+            rUsersFamiliyStudents.DeleteAll(true);
+        end;
+        //  end else
+        //     Error(Text0010);
 
 
         rRegistrationClass.Reset;
@@ -1095,9 +1114,6 @@ table 31009750 Students
         rStudentServicePlan.Reset;
         rStudentServicePlan.SetRange("Student No.", "No.");
         rStudentServicePlan.DeleteAll(true);
-
-
-
         cMasterTableWEB.DeleteStudent(Rec, xRec);
     end;
 
@@ -1473,7 +1489,7 @@ table 31009750 Students
     end;
 
     //[Scope('OnPrem')]
-    procedure ValidateName()
+    procedure ValidateName(): Boolean
     begin
         rStudents.Reset;
         if Name <> '' then
@@ -1492,8 +1508,11 @@ table 31009750 Students
 
         rStudents.SetFilter("No.", '<>%1', "No.");
         rStudents.SetRange("Responsibility Center", "Responsibility Center");
-        if rStudents.FindFirst then
+        if rStudents.FindFirst then begin
             Message(Text0003, rStudents."No.");
+            exit(true);
+        end else
+            exit(false);
     end;
 
     //[Scope('OnPrem')]

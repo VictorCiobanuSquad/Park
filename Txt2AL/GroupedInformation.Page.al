@@ -18,7 +18,7 @@ page 31009780 "Grouped Information"
             part("Planos Serviços Aluno"; "SubForm Student Services Plan")
             {
                 Caption = 'Planos Serviços Aluno';
-                Editable = false;
+                //Editable = false;
                 SubPageLink = "Student No." = FIELD("Student Code No."),
                               "School Year" = FIELD("School Year");
             }
@@ -31,7 +31,7 @@ page 31009780 "Grouped Information"
             part("Mov. Aluno"; "SubForm Student Ledger Entry")
             {
                 Caption = 'Mov. Aluno';
-                Editable = false;
+                // Editable = false;
                 SubPageLink = "Student No." = FIELD("Student Code No."),
                               "School Year" = FIELD("School Year");
                 SubPageView = WHERE("Registed Invoice No." = FILTER(''));
@@ -39,7 +39,7 @@ page 31009780 "Grouped Information"
             part("SubForm Student Ledger Entry"; "SubForm Student Ledger Entry")
             {
                 Caption = 'Mov. Faturados Aluno';
-                Editable = false;
+                //Editable = false;
                 SubPageLink = "Student No." = FIELD("Student Code No."),
                               "School Year" = FIELD("School Year");
                 SubPageView = WHERE("Registed Invoice No." = FILTER(<> ''));

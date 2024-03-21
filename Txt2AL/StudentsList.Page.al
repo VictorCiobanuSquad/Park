@@ -47,6 +47,22 @@ page 31009751 "Students List"
                 {
                     ApplicationArea = Basic, Suite;
                 }
+
+                field("Customer No."; Rec."Customer No.")
+                {
+                    Caption = 'Nº Cliente';
+                    ApplicationArea = All;
+                }
+
+                field("JDE Payer No."; Rec."JDE Payer No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("JDE Pupil No."; Rec."JDE Pupil No.")
+                {
+                    ApplicationArea = All;
+                }
+
                 field("Date Validity"; Rec."Date Validity")
                 {
                     ApplicationArea = Basic, Suite;
@@ -158,6 +174,55 @@ page 31009751 "Students List"
 
     actions
     {
+        area(navigation)
+        {
+            action(DELETEALL)
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    Studentsass: Record 31009750;
+
+                    rRegistration: Record Registration;
+                    rRegistrationSubjectsServices: Record "Registration Subjects";
+                    rStudentServicePlan: Record "Student Service Plan";
+                    rRegistrationClass: Record "Registration Class";
+                    rStudentLedgerEntry: Record "Student Ledger Entry";
+                    rSchoolYear: Record "School Year";
+                    rUsersFamiliyStudents: Record "Users Family / Students";
+                    aapagar: boolean;
+                begin
+                    Studentsass.RESET;
+                    if Studentsass.findset then begin
+                        repeat
+                            aapagar := true;
+                            rRegistration.Reset;
+                            rRegistration.SetRange("Student Code No.", Studentsass."No.");
+                            rRegistration.SetFilter(Status, '<>%1', 0);
+                            if rRegistration.FindFirst then
+                                aapagar := false;
+
+
+                            rStudentLedgerEntry.Reset;
+                            rStudentLedgerEntry.SetRange("Student No.", Studentsass."No.");
+                            if rStudentLedgerEntry.FindFirst then
+                                aapagar := false;
+
+
+                            if aapagar then begin
+                                if Studentsass.Class = '' then begin
+                                    Studentsass.CalcFields("Estado da Matricula");
+                                    if Studentsass."Estado da Matricula" = Studentsass."Estado da Matricula"::" " then begin
+                                        Studentsass.Delete(true);
+                                    end;
+                                end;
+                            end;
+                        until Studentsass.next = 0;
+                    end
+                end;
+            }
+        }
     }
 
     trigger OnAfterGetRecord()
