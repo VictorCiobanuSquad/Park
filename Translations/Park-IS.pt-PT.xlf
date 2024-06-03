@@ -36328,7 +36328,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Invoicing Services - Control getMontlhyPayment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2540642966 - Control 403442206 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Incluir Guias de Remessa</source>       anslate="yes" xml:space="preserve">
+          <source>Incluir Guias de Remessa</source>       anslate="yes" xml:space="preserve"&gt;
           <source>Month</source>
           <target>Mês</target>
           <note from="Developer" annotates="general" priority="2"/>
