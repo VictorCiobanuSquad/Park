@@ -90,7 +90,7 @@ report 50060 EnviaEmailFaturaFardas
         recCustomerMail: Record Customer;
         recUsersFamilyStudents: Record "Users Family / Students";
         recUsersFamily: Record "Users Family";
-        Object: Record Object;
+        //Object: Record Object;
         rCompInfo: Record "Company Information";
         rSMTPFields: Record "SMTP Fields";
         rFaturas: Report "PTSS Sales - Invoice (PT)";
@@ -103,7 +103,7 @@ report 50060 EnviaEmailFaturaFardas
         ArrayBod: array[40] of Text[260];
         txtCRLF: Char;
         //SMTPMailSetup: Record "SMTP Mail Setup";
-        varMail: DotNet SmtpMessage;
+        // varMail: DotNet SmtpMessage;
         vCount: Integer;
         rCredMemo: Report "PTSS Sales - Credit Memo (PT)";
         CaminhoPDF: Text[250];

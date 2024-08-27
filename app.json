@@ -21,7 +21,7 @@
   "screenshots": [],
   "platform": "1.0.0.0",
   "application": "17.0.0.0",
-  "target": "OnPrem",
+  "target": "Cloud",
   "idRanges": [
     {
       "from": 31009750,
