@@ -232,17 +232,18 @@ report 50060 EnviaEmailFaturaFardas
     var
         Result: Text[1024];
     begin
-        WITH rSMTPFields DO
-            //BC_UPG START SQD RTV 20220907
-            /*Result :=
-              varMail.Send(
-                "SMTP Server Name", FALSE, '', '');*/
-            Result := varMail.Send("SMTP Server Name", "SMTP Server Port", false, '', '', true);
+        //BC_UPG START SQD RTV 20220907
+        /*Result :=
+          varMail.Send(
+            "SMTP Server Name", FALSE, '', '');*/
+        Result := varMail.Send(rSMTPFields."SMTP Server Name", rSMTPFields."SMTP Server Port", false, '', '', true);
         //BC_UPG STOP SQD RTV 20220907
 
         CLEAR(Mail);
+
         IF Result <> '' THEN
             ERROR(Text003, Result);
+
     end;
 
     procedure AddRecipients(Recipients: Text[1024])

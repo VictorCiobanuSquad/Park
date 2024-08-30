@@ -177,15 +177,14 @@ report 50026 CPAEnviaEmailNC
         Result: Text[1024];
     begin
         Result := '';
-        with rSMTPFields do
-            Result :=
-              varMail.Send(
-                "SMTP Server Name",
-                "SMTP Server Port",
-                false,
-                '',
-                '',
-                true);
+        Result :=
+          varMail.Send(
+            rSMTPFields."SMTP Server Name",
+            rSMTPFields."SMTP Server Port",
+            false,
+            '',
+            '',
+            true);
 
         varMail.Dispose;
         Clear(varMail);

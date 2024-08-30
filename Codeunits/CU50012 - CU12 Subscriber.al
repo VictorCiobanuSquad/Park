@@ -406,18 +406,16 @@ codeunit 50012 "Gen. Jnl.-Post Line Sub."
 
     local procedure StudentUpdateDebitCredit(Correction: Boolean; VAR DtldStudLedgEntry: Record "Detailed Stud. Ledg. Entry")
     begin
-        WITH DtldStudLedgEntry DO BEGIN
-            IF ((Amount > 0) OR ("Amount (LCY)" > 0)) AND NOT Correction OR ((Amount < 0) OR ("Amount (LCY)" < 0)) AND Correction THEN BEGIN
-                "Debit Amount" := Amount;
-                "Credit Amount" := 0;
-                "Debit Amount (LCY)" := "Amount (LCY)";
-                "Credit Amount (LCY)" := 0;
-            END ELSE BEGIN
-                "Debit Amount" := 0;
-                "Credit Amount" := -Amount;
-                "Debit Amount (LCY)" := 0;
-                "Credit Amount (LCY)" := -"Amount (LCY)";
-            END;
+        IF ((DtldStudLedgEntry.Amount > 0) OR (DtldStudLedgEntry."Amount (LCY)" > 0)) AND NOT Correction OR ((DtldStudLedgEntry.Amount < 0) OR (DtldStudLedgEntry."Amount (LCY)" < 0)) AND Correction THEN BEGIN
+            DtldStudLedgEntry."Debit Amount" := DtldStudLedgEntry.Amount;
+            DtldStudLedgEntry."Credit Amount" := 0;
+            DtldStudLedgEntry."Debit Amount (LCY)" := DtldStudLedgEntry."Amount (LCY)";
+            DtldStudLedgEntry."Credit Amount (LCY)" := 0;
+        END ELSE BEGIN
+            DtldStudLedgEntry."Debit Amount" := 0;
+            DtldStudLedgEntry."Credit Amount" := -DtldStudLedgEntry.Amount;
+            DtldStudLedgEntry."Debit Amount (LCY)" := 0;
+            DtldStudLedgEntry."Credit Amount (LCY)" := -DtldStudLedgEntry."Amount (LCY)";
         END;
     end;
 }

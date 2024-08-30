@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 50018 "Atribuir Multiplos Serviços"
 {
     /*
@@ -28,7 +29,7 @@ page 50018 "Atribuir Multiplos Serviços"
                     trigger OnValidate()
 
                     begin
-                        Validate("No.", NoAux);
+                        Rec.Validate("No.", NoAux);
                     end;
 
                     trigger OnLookup(var Text: Text): Boolean
@@ -36,7 +37,7 @@ page 50018 "Atribuir Multiplos Serviços"
                         l_PageServiceAT: page "Service ET List 2";
                     begin
                         IF varRespCenter <> '' THEN BEGIN
-                            IF Tipo = Tipo::Serviço THEN BEGIN
+                            IF Rec.Tipo = Rec.Tipo::Serviço THEN BEGIN
                                 ServicesET.RESET;
                                 ServicesET.SETRANGE(Blocked, FALSE);
                                 ServicesET.SETRANGE("Subject Code", '');
@@ -44,20 +45,20 @@ page 50018 "Atribuir Multiplos Serviços"
                                 IF ServicesET.FIND('-') THEN BEGIN
                                     IF PAGE.RUNMODAL(0, ServicesET) = ACTION::LookupOK THEN BEGIN
                                         NoAux := ServicesET."No.";
-                                        "No." := ServicesET."No.";
-                                        Description := ServicesET.Description;
-                                        January := ServicesET.January;
-                                        February := ServicesET.February;
-                                        March := ServicesET.March;
-                                        April := ServicesET.April;
-                                        May := ServicesET.May;
-                                        June := ServicesET.June;
-                                        July := ServicesET.July;
-                                        August := ServicesET.August;
-                                        Setember := ServicesET.Setember;
-                                        October := ServicesET.October;
-                                        November := ServicesET.November;
-                                        Dezember := ServicesET.December;
+                                        Rec."No." := ServicesET."No.";
+                                        Rec.Description := ServicesET.Description;
+                                        Rec.January := ServicesET.January;
+                                        Rec.February := ServicesET.February;
+                                        Rec.March := ServicesET.March;
+                                        Rec.April := ServicesET.April;
+                                        Rec.May := ServicesET.May;
+                                        Rec.June := ServicesET.June;
+                                        Rec.July := ServicesET.July;
+                                        Rec.August := ServicesET.August;
+                                        Rec.Setember := ServicesET.Setember;
+                                        Rec.October := ServicesET.October;
+                                        Rec.November := ServicesET.November;
+                                        Rec.Dezember := ServicesET.December;
 
                                     END;
                                 END;
@@ -68,33 +69,33 @@ page 50018 "Atribuir Multiplos Serviços"
                                 IF recItem.FIND('-') THEN BEGIN
                                     IF PAGE.RUNMODAL(0, recItem) = ACTION::LookupOK THEN BEGIN
                                         NoAux := ServicesET."No.";
-                                        "No." := recItem."No.";
-                                        Description := recItem.Description;
+                                        Rec."No." := recItem."No.";
+                                        Rec.Description := recItem.Description;
                                     END;
                                 END;
                             END;
                         END ELSE BEGIN
-                            IF Tipo = Tipo::Serviço THEN BEGIN
+                            IF Rec.Tipo = Rec.Tipo::Serviço THEN BEGIN
                                 ServicesET.RESET;
                                 ServicesET.SETRANGE(Blocked, FALSE);
                                 ServicesET.SETRANGE("Subject Code", '');
                                 IF ServicesET.FIND('-') THEN BEGIN
                                     IF Page.RUNMODAL(0, ServicesET) = ACTION::LookupOK THEN BEGIN
                                         NoAux := ServicesET."No.";
-                                        "No." := ServicesET."No.";
-                                        Description := ServicesET.Description;
-                                        January := ServicesET.January;
-                                        February := ServicesET.February;
-                                        March := ServicesET.March;
-                                        April := ServicesET.April;
-                                        May := ServicesET.May;
-                                        June := ServicesET.June;
-                                        July := ServicesET.July;
-                                        August := ServicesET.August;
-                                        Setember := ServicesET.Setember;
-                                        October := ServicesET.October;
-                                        November := ServicesET.November;
-                                        Dezember := ServicesET.December;
+                                        Rec."No." := ServicesET."No.";
+                                        Rec.Description := ServicesET.Description;
+                                        Rec.January := ServicesET.January;
+                                        Rec.February := ServicesET.February;
+                                        Rec.March := ServicesET.March;
+                                        Rec.April := ServicesET.April;
+                                        Rec.May := ServicesET.May;
+                                        Rec.June := ServicesET.June;
+                                        Rec.July := ServicesET.July;
+                                        Rec.August := ServicesET.August;
+                                        Rec.Setember := ServicesET.Setember;
+                                        Rec.October := ServicesET.October;
+                                        Rec.November := ServicesET.November;
+                                        Rec.Dezember := ServicesET.December;
 
                                     END;
                                 END;
@@ -104,8 +105,8 @@ page 50018 "Atribuir Multiplos Serviços"
                                 IF recItem.FIND('-') THEN BEGIN
                                     IF Page.RUNMODAL(0, recItem) = ACTION::LookupOK THEN BEGIN
                                         NoAux := ServicesET."No.";
-                                        "No." := recItem."No.";
-                                        Description := recItem.Description
+                                        Rec."No." := recItem."No.";
+                                        Rec.Description := recItem.Description
                                     END;
                                 END;
                             END;
@@ -175,8 +176,8 @@ page 50018 "Atribuir Multiplos Serviços"
 
     trigger OnAfterGetRecord()
     begin
-        if NoAux <> "No." then
-            NoAux := "No.";
+        if NoAux <> Rec."No." then
+            NoAux := Rec."No.";
     end;
 
     trigger OnInit()
@@ -186,13 +187,13 @@ page 50018 "Atribuir Multiplos Serviços"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        NoAux := "No.";
+        NoAux := Rec."No.";
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if "No." <> xRec."No." then
-            NoAux := "No.";
+        if Rec."No." <> xRec."No." then
+            NoAux := Rec."No.";
     end;
 
     procedure FiltraCentResp(p_RespCenter: Code[10])
@@ -208,3 +209,4 @@ page 50018 "Atribuir Multiplos Serviços"
         NoAux: Code[20];
 
 }
+#pragma implicitwith restore

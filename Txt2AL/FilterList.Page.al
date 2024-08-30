@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 31009861 "Filter List"
 {
     Caption = 'Filter List';
@@ -14,22 +15,22 @@ page 31009861 "Filter List"
             repeater(Control1110000)
             {
                 ShowCaption = false;
-                field("Filter Code"; "Filter Code")
+                field("Filter Code"; Rec."Filter Code")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field("User ID"; "User ID")
+                field("User ID"; Rec."User ID")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field("Created On"; "Created On")
+                field("Created On"; Rec."Created On")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -61,17 +62,19 @@ page 31009861 "Filter List"
     trigger OnOpenPage()
     begin
         if cUserEducation.GetEducationFilter(UserId) <> '' then begin
-            FilterGroup(2);
-            SetFilter("User ID", '%1|%2', UserId, '');
-            SetRange("Responsibility Center", cUserEducation.GetEducationFilter(UserId));
-            FilterGroup(0);
+            Rec.FilterGroup(2);
+            Rec.SetFilter("User ID", '%1|%2', UserId, '');
+            Rec.SetRange("Responsibility Center", cUserEducation.GetEducationFilter(UserId));
+            Rec.FilterGroup(0);
         end else begin
-            FilterGroup(2);
-            SetFilter("User ID", '%1|%2', UserId, '');
-            FilterGroup(0);
+            Rec.FilterGroup(2);
+            Rec.SetFilter("User ID", '%1|%2', UserId, '');
+            Rec.FilterGroup(0);
         end;
     end;
 
     var
         cUserEducation: Codeunit "User Education";
 }
+
+#pragma implicitwith restore
