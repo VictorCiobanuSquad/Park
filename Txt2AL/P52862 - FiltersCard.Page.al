@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 52862 "Filters Card"
 {
     Caption = 'Filters Card';
@@ -13,32 +14,32 @@ page 52862 "Filters Card"
             group("Filter")
             {
                 Caption = 'Filter';
-                field("Filter Code"; "Filter Code")
+                field("Filter Code"; Rec."Filter Code")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = Basic, Suite;
                 }
-                field("Table No."; "Table No.")
-                {
-                    ApplicationArea = Basic, Suite;
-                    Editable = false;
-                }
-                field("Table Name"; "Table Name")
+                field("Table No."; Rec."Table No.")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field("Created On"; "Created On")
+                field("Table Name"; Rec."Table Name")
+                {
+                    ApplicationArea = Basic, Suite;
+                    Editable = false;
+                }
+                field("Created On"; Rec."Created On")
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Created By/On';
                     Editable = false;
                 }
-                field("User ID"; "User ID")
+                field("User ID"; Rec."User ID")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
@@ -56,4 +57,6 @@ page 52862 "Filters Card"
     {
     }
 }
+
+#pragma implicitwith restore
 

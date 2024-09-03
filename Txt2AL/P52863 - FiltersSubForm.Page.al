@@ -1,3 +1,4 @@
+#pragma implicitwith disable
 page 52863 "Filters SubForm"
 {
     Caption = 'Filters SubForm';
@@ -14,17 +15,17 @@ page 52863 "Filters SubForm"
             repeater(Control1110000)
             {
                 ShowCaption = false;
-                field("Field No."; "Field No.")
+                field("Field No."; Rec."Field No.")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field("Field Caption"; "Field Caption")
+                field("Field Caption"; Rec."Field Caption")
                 {
                     ApplicationArea = Basic, Suite;
                     Editable = false;
                 }
-                field("Field Filter"; "Field Filter")
+                field("Field Filter"; Rec."Field Filter")
                 {
                     ApplicationArea = Basic, Suite;
                 }
@@ -36,4 +37,6 @@ page 52863 "Filters SubForm"
     {
     }
 }
+
+#pragma implicitwith restore
 

@@ -1425,15 +1425,13 @@ table 52750 Students
     var
         ReportSelection: Record "Report Selections";
     begin
-        with recStudentsPrint do begin
-            Copy(Rec);
-            ReportSelection.SetRange(Usage, ReportSelection.Usage::"P.Student");
-            ReportSelection.SetFilter("Report ID", '<>0');
-            ReportSelection.Find('-');
-            repeat
-                REPORT.RunModal(ReportSelection."Report ID", ShowRequestForm, false, recStudentsPrint);
-            until ReportSelection.Next = 0;
-        end;
+        recStudentsPrint.Copy(Rec);
+        ReportSelection.SetRange(Usage, ReportSelection.Usage::"P.Student");
+        ReportSelection.SetFilter("Report ID", '<>0');
+        ReportSelection.Find('-');
+        repeat
+            REPORT.RunModal(ReportSelection."Report ID", ShowRequestForm, false, recStudentsPrint);
+        until ReportSelection.Next = 0;
     end;
 
     //[Scope('OnPrem')]
