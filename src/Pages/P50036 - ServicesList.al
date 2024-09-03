@@ -1,4 +1,4 @@
-page 50036 "P50036 - Services List"
+page 50036 "Services List"
 {
     Caption = '';
     PageType = ListPart;
