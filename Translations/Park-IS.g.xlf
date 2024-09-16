@@ -22013,11 +22013,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Overall Aspects - Control Responsibility Center - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2532227491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source></source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page P50036 - Services List - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 3346365350 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -23488,11 +23483,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Secretaria Role Center - Action Observações - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1444743758 - Action 2676838140 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Permissions</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Secretaria Role Center - Action Permissões - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1444743758 - Action 3830570520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Class List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -23572,11 +23562,6 @@
           <source>Observations 2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Secretaria Role Center - Action Observações 2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 1444743758 - Action 3903057390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Permissions</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Secretaria Role Center - Action Permissões 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1444743758 - Action 1639967477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Registration Entry</source>
@@ -23828,10 +23813,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Select Previous Years - Control Enroled - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2513693407 - Action 4236135242 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>P&amp;ost</source>
+        <trans-unit id="Page 2513693407 - Action 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Select Previous Years - Action P&amp;ost - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Select Previous Years - Action Post - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4198308800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Service Discounts Group</source>
@@ -23937,6 +23922,11 @@
           <source>Service Translations</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Service Translations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4084694544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source></source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Services List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1910656163 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Services Plan Card</source>
@@ -24643,10 +24633,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Student Inc. Observation List - Action ObservationFuncion - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 818260237 - Action 2123807494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Card</source>
+        <trans-unit id="Page 818260237 - Action 4125097576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Card</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Student Inc. Observation List - Action &amp;Card - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Student Inc. Observation List - Action Card - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 66089060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Student Incid. Justify</source>
@@ -25413,15 +25403,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Students Assessment - Control ScholarshipSupport1 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1093361496 - Action 3663836400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>&amp;Global Remarks</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Students Assessment - Action &amp;Global Remarks - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1093361496 - Action 1311768721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Remarks</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Students Assessment - Action &amp;Remarks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1093361496 - Action 1215591534 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Global Remarks</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Students Assessment - Action Global Remarks - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1025549266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Students Entry</source>
@@ -29388,135 +29378,70 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Course Validation - Control vOption - Property OptionCaption</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enviar Fatura Email</source>
+        <trans-unit id="Report 3087931820 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enviar Fatura Email Temp</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 1445219937" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 1445219937" size-unit="char" translate="yes" xml:space="preserve">
           <source>.pdf</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType ExtensionFile</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType ExtensionFile</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 1422393694" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 1422393694" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cannot open the document because it is empty or cannot be created.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType ServerSaveAsPdfFailedErr</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType ServerSaveAsPdfFailedErr</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 600358492" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 600358492" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-mail Subject</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0005</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0005</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 1238055109" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 1238055109" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-mail Body</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0006</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0006</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 1875751726" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 1875751726" size-unit="char" translate="yes" xml:space="preserve">
           <source>MailBody.txt</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0007</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0007</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 2513448343" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 2513448343" size-unit="char" translate="yes" xml:space="preserve">
           <source>c:\Navision\</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0008</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0008</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 3151144960" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 3151144960" size-unit="char" translate="yes" xml:space="preserve">
           <source>Process Completed.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0009</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0009</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>The email address "%1" is invalid.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text001</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text001</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 914830240" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 914830240" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoice</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text0010</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text0010</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
           <source>Attachment %1 does not exist or can not be accessed from the program.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text002</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text002</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
           <source>The SMTP mail system returned the following error: %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - NamedType Text003</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - NamedType Text003</note>
         </trans-unit>
-        <trans-unit id="Report 245534333 - ReportDataItem 809936682 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3087931820 - ReportDataItem 809936682 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Faturas Registadas</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail - ReportDataItem Sales Invoice Header - Property RequestFilterHeading</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enviar Nota Crédito Email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 1445219937" size-unit="char" translate="yes" xml:space="preserve">
-          <source>.pdf</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType ExtensionFile</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 1422393694" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cannot open the document because it is empty or cannot be created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType ServerSaveAsPdfFailedErr</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 600358492" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-mail Subject</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0005</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 1238055109" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-mail Body</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0006</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 1875751726" size-unit="char" translate="yes" xml:space="preserve">
-          <source>MailBody.txt</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0007</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 2513448343" size-unit="char" translate="yes" xml:space="preserve">
-          <source>\\cparodc\data$\CPA Docs\</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0008</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 3151144960" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Process Completed.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0009</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email address "%1" is invalid.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 914830240" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text0010</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attachment %1 does not exist or can not be accessed from the program.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text002</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The SMTP mail system returned the following error: %1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - NamedType Text003</note>
-        </trans-unit>
-        <trans-unit id="Report 1554991786 - ReportDataItem 552782286 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Notas de Crédito Registadas</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmailNC - ReportDataItem Sales Cr.Memo Header - Property RequestFilterHeading</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report CPAEnviaEmail_TEMP - ReportDataItem Sales Invoice Header - Property RequestFilterHeading</note>
         </trans-unit>
         <trans-unit id="Report 1749883544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Customer Form Students</source>
@@ -29732,46 +29657,6 @@
           <source></source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Customer - Payment Receipt ET - ReportLabel SocialCapitalFooterLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Enviar Fatura Fardas Email</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 1422393694" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Cannot open the document because it is empty or cannot be created.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType ServerSaveAsPdfFailedErr</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 600358492" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-mail Subject</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text0005</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 1238055109" size-unit="char" translate="yes" xml:space="preserve">
-          <source>E-mail Body</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text0006</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 1875751726" size-unit="char" translate="yes" xml:space="preserve">
-          <source>MailBody.txt</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text0007</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The email address "%1" is invalid.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text001</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Attachment %1 does not exist or can not be accessed from the program.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text002</note>
-        </trans-unit>
-        <trans-unit id="Report 3084889289 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The SMTP mail system returned the following error: %1</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report EnviaEmailFaturaFardas - NamedType Text003</note>
         </trans-unit>
         <trans-unit id="Report 2038431322 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Equipment Entry</source>

@@ -124,7 +124,8 @@ page 50033 "Tesouraria Role Center"
                     action("Enviar Fatura Email")
                     {
                         ApplicationArea = All;
-                        RunObject = report EnviaEmailFaturaFardas;
+                        //RunObject = report EnviaEmailFaturaFardas;
+                        //TODO: to uncomment
                     }
                     action("Enviar Nota Credito Email")
                     {

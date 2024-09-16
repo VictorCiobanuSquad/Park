@@ -5,13 +5,6 @@ pageextension 50255 "Cash Receipt Journal Ext." extends "Cash Receipt Journal"
     */
     layout
     {
-        addafter("Document Type")
-        {
-            field("Payment Method Code"; Rec."Payment Method Code")
-            {
-                ApplicationArea = All;
-            }
-        }
         modify("Bal. Account No.")
         {
             trigger OnAfterValidate()

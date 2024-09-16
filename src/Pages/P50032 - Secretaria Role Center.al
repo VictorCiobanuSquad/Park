@@ -334,12 +334,6 @@ page 50032 "Secretaria Role Center"
                         Caption = 'Averbamento';
                         //RunObject=page missing
                     }
-                    action("Permissões")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Permissions';
-                        RunObject = page Permissions;
-                    }
                 }
                 group(Incidências)
                 {
@@ -361,12 +355,6 @@ page 50032 "Secretaria Role Center"
                         ApplicationArea = All;
                         Caption = 'Observations 2';
                         RunObject = page "Student Inc. Observation List";
-                    }
-                    action("Permissões 2")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Permissions';
-                        RunObject = page Permissions;
                     }
                 }
                 group("Saúde e Segurança")

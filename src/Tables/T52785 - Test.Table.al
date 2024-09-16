@@ -19,12 +19,12 @@ table 52785 Test
             trigger OnValidate()
             var
                 rEduConfiguration: Record "Edu. Configuration";
-                NoSeriesMgt: Codeunit NoSeriesManagement;
+                NoSeries: Codeunit "No. Series";
             begin
                 if "Line Type" = "Line Type"::Header then begin
                     if "Test No." <> xRec."Test No." then begin
                         rEduConfiguration.Get;
-                        NoSeriesMgt.TestManual(rEduConfiguration."Test Nos.");
+                        NoSeries.TestManual(rEduConfiguration."Test Nos.");
                         "No. Series" := '';
                     end;
 

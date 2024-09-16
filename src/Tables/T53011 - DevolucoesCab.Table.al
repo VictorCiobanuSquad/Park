@@ -113,7 +113,7 @@ table 53011 "Devolucoes Cab"
         SalesLine: Record "Sales Line";
         Customer: Record Customer;
         SalesReceivSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgm: Codeunit NoSeriesManagement;
+        NoSeriesMgm: Codeunit "No. Series";
         DevolucoesLinha: Record "Devolucoes Linhas";
         NoSeries: Record "No. Series";
         CustLedEntry: Record "Cust. Ledger Entry";

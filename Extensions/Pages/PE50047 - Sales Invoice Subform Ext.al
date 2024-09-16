@@ -13,12 +13,5 @@ pageextension 50047 "Sales Invoice Subform Ext." extends "Sales Invoice Subform"
                 ApplicationArea = All;
             }
         }
-        addafter("VAT Prod. Posting Group")
-        {
-            field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
-            {
-                ApplicationArea = All;
-            }
-        }
     }
 }

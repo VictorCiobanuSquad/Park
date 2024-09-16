@@ -679,9 +679,10 @@ table 52768 "Student Ledger Entry"
         case Type of
             Type::Item:
                 begin
-                    //PriceCalcMgt.FindSalesLineLineDisc(SalesHeader,Rec);
-                    //PriceCalcMgt.FindSalesLinePrice(SalesHeader,Rec,CalledByFieldNo);
-                    //guangai
+                    // PriceCalcMgt.FindSalesLineLineDisc(SalesHeader, Rec);
+                    // PriceCalcMgt.FindSalesLinePrice(SalesHeader, Rec, CalledByFieldNo);
+                    //guangai commented
+                    //TODO: to uncomment
                 end;
             Type::Service:
                 begin

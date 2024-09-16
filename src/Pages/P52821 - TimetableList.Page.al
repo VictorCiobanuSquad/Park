@@ -186,8 +186,8 @@ page 52821 "Timetable List"
     //     end;
     // end;
 
-    //[Scope('OnPrem')]
-    procedure TextReplace(SourceFileName: Text[250]; DestinationFileName: Text[250]; TextToFind: Text[250]; TextToReplace: Text[250]; TextToFind2: Text[250]; TextToReplace2: Text[250])
+    //[Scope('OnPrem')]]
+    /*procedure TextReplace(SourceFileName: Text[250]; DestinationFileName: Text[250]; TextToFind: Text[250]; TextToReplace: Text[250]; TextToFind2: Text[250]; TextToReplace2: Text[250])
     var
         TextFile: File;
         InStream: InStream;
@@ -204,6 +204,7 @@ page 52821 "Timetable List"
         TextFile.CreateInStream(InStream);
         InputText.Read(InStream);
         TextFile.Close;
+
 
         TextPosition := InputText.TextPos(TextToFind);
         while TextPosition <> 0 do begin
@@ -226,7 +227,8 @@ page 52821 "Timetable List"
         TextFile.CreateOutStream(OutStream);
         OutputText.Write(OutStream);
         TextFile.Close;
-    end;
+    end;*/
+    //NOTES: TextReplace function not in use, comment
 
     //[Scope('OnPrem')]
     procedure PlanitUnVisible(pUnVisible: Boolean)

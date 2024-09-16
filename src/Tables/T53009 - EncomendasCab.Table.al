@@ -121,7 +121,7 @@ table 53009 "Encomendas Cab"
         SalesLine: Record "Sales Line";
         Customer: Record Customer;
         SalesReceivSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgm: Codeunit NoSeriesManagement;
+        NoSeriesMgm: Codeunit "No. Series";
         EncomendasLinha: Record "Encomendas Linhas";
         NoSeries: Record "No. Series";
         ItemVariant: Record "Item Variant";

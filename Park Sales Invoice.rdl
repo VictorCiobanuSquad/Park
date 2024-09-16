@@ -15315,6 +15315,12 @@ End Function</Code>
         <Field Name="CompanyInfoPhoneNo">
           <DataField>CompanyInfoPhoneNo</DataField>
         </Field>
+        <Field Name="ExtDocLbl">
+          <DataField>ExtDocLbl</DataField>
+        </Field>
+        <Field Name="External_Document_No_">
+          <DataField>External_Document_No_</DataField>
+        </Field>
         <Field Name="CompanyInfoVATRegNo">
           <DataField>CompanyInfoVATRegNo</DataField>
         </Field>
@@ -15705,6 +15711,27 @@ End Function</Code>
         <Field Name="IbanInfo">
           <DataField>IbanInfo</DataField>
         </Field>
+        <Field Name="TotalInEURLbl">
+          <DataField>TotalInEURLbl</DataField>
+        </Field>
+        <Field Name="TotalAmountInEUR">
+          <DataField>TotalAmountInEUR</DataField>
+        </Field>
+        <Field Name="TotalAmountInEURFormat">
+          <DataField>TotalAmountInEURFormat</DataField>
+        </Field>
+        <Field Name="SecondHandLegalMention">
+          <DataField>SecondHandLegalMention</DataField>
+        </Field>
+        <Field Name="HasSecondHandAssets">
+          <DataField>HasSecondHandAssets</DataField>
+        </Field>
+        <Field Name="OnlySecondHandAssets">
+          <DataField>OnlySecondHandAssets</DataField>
+        </Field>
+        <Field Name="NullifiedDocument">
+          <DataField>NullifiedDocument</DataField>
+        </Field>
         <Field Name="OutputNo">
           <DataField>OutputNo</DataField>
         </Field>
@@ -15740,6 +15767,9 @@ End Function</Code>
         </Field>
         <Field Name="VATNoText">
           <DataField>VATNoText</DataField>
+        </Field>
+        <Field Name="VATNoLbl">
+          <DataField>VATNoLbl</DataField>
         </Field>
         <Field Name="VATRegNoSalesInvHdr">
           <DataField>VATRegNoSalesInvHdr</DataField>
@@ -15785,6 +15815,9 @@ End Function</Code>
         </Field>
         <Field Name="SalesInvLineNo">
           <DataField>SalesInvLineNo</DataField>
+        </Field>
+        <Field Name="SalesInvLineNo2">
+          <DataField>SalesInvLineNo2</DataField>
         </Field>
         <Field Name="QtySalesInvLine">
           <DataField>QtySalesInvLine</DataField>
@@ -15950,6 +15983,12 @@ End Function</Code>
         </Field>
         <Field Name="UsedOnWithholdingTaxCalc">
           <DataField>UsedOnWithholdingTaxCalc</DataField>
+        </Field>
+        <Field Name="ItemRefNo">
+          <DataField>ItemRefNo</DataField>
+        </Field>
+        <Field Name="PTSS_Second_Hand_VAT">
+          <DataField>PTSS_Second_Hand_VAT</DataField>
         </Field>
         <Field Name="DimTextDimLoop">
           <DataField>DimTextDimLoop</DataField>

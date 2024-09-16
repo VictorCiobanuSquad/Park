@@ -24,10 +24,25 @@ table 52794 "Save Filters"
         {
             Caption = 'Table No.';
 
+            // trigger OnValidate()
+            // begin
+            //     if Table.Get(CompanyName, "Table No.") then
+            //         "Table Name" := Table."Table Name";
+            // end;
             trigger OnValidate()
+            var
+                RecRef: RecordRef;
+                TableMetadata: Record "Table Metadata";
             begin
-                if Table.Get(CompanyName, "Table No.") then
-                    "Table Name" := Table."Table Name";
+                //TODO: to test
+                // Attempt to open the RecordRef
+                RecRef.Open("Table No.");
+
+                // Get the table metadata for the table number entered
+                if TableMetadata.Get(RecRef.Number) then
+                    "Table Name" := TableMetadata."Caption"
+                else
+                    Error('Table not found.');
             end;
         }
         field(5; "Table Name"; Text[30])
@@ -114,7 +129,8 @@ table 52794 "Save Filters"
     end;
 
     var
-        "Table": Record "Table Information";
+        //"Table": Record "Table Information";
+        //CGA SQD
         FilterLines: Record "Save Filters";
         FieldInfo: Record "Field";
         cUserEducation: Codeunit "User Education";

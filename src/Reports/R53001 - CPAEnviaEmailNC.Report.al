@@ -5,6 +5,8 @@ report 53001 CPAEnviaEmailNC
 
     Caption = 'Enviar Nota Crédito Email';
     ProcessingOnly = true;
+    ApplicationArea = All;
+    UsageCategory = Tasks;
 
     dataset
     {
@@ -47,23 +49,26 @@ report 53001 CPAEnviaEmailNC
 
     trigger OnPostReport()
     begin
-        SalesCredMemoTEMP.Reset;
-        if SalesCredMemoTEMP.FindSet then
-            repeat
-                if recCustomerMail.Get(SalesCredMemoTEMP."Sell-to Customer No.") then
-                    CheckValidEmailAddresses(recCustomerMail."E-Mail");
-                fEnviaEmail(SalesCredMemoTEMP."No.", SalesCredMemoTEMP."Sell-to Customer No.", SalesCredMemoTEMP."Invoice Path",
-                Text0010 + ' ' + SalesCredMemoTEMP."No." + ExtensionFile);
-            until SalesCredMemoTEMP.Next = 0;
+        if rEduConfiguration.Get then
+            if rEduConfiguration."Send E-Mail Invoice" then begin
+                SalesCredMemoTEMP.Reset;
+                SalesCredMemoTEMP.SetRange("No.", "Sales Cr.Memo Header"."No.");
+                if SalesCredMemoTEMP.FindSet then
+                    repeat
+                        if recCustomerMail.Get(SalesCredMemoTEMP."Sell-to Customer No.") then
+                            CheckValidEmailAddresses(recCustomerMail."E-Mail");
+                        CreateAttachPDF(SalesCredMemoTEMP."No.", SalesCredMemoTEMP."Sell-to Customer No.");
+                        fEnviaEmail(SalesCredMemoTEMP."No.", SalesCredMemoTEMP."Sell-to Customer No.", SalesCredMemoTEMP."Invoice Path",
+                        TxtCrMemo + ' ' + SalesCredMemoTEMP."No." + ExtensionFile);
+                    until SalesCredMemoTEMP.Next = 0;
 
-        Message(Text0009);
+                Message(Text0009);
+            end;
     end;
 
     trigger OnPreReport()
     begin
-        SalesCredMemoTEMP.DeleteAll;
 
-        ContMail := 0;
     end;
 
     var
@@ -72,9 +77,7 @@ report 53001 CPAEnviaEmailNC
         recCustomer: Record Customer;
         recCustomerMail: Record Customer;
         recUsersFamilyStudents: Record "Users Family / Students";
-        "Object": Record "Object";
         rCompInfo: Record "Company Information";
-        rSMTPFields: Record "SMTP Fields";
         cuPostServET: Codeunit "Post Services ET";
         Mail: Codeunit Mail;
         ErrorNo: Integer;
@@ -91,40 +94,42 @@ report 53001 CPAEnviaEmailNC
         Text0008: Label '\\cparodc\data$\CPA Docs\';
         //SMTPMailSetup: Record "SMTP Mail Setup";
         Text0009: Label 'Process Completed.';
-        varMail: DotNet SmtpMessage;
         ExtensionFile: Label '.pdf';
         ServerSaveAsPdfFailedErr: Label 'Cannot open the document because it is empty or cannot be created.';
-        Text0010: Label 'Credit Memo';
+        TxtCrMemo: Label 'Credit Memo';
         SalesCredMemoTEMP: Record "Sales Cr.Memo Header" temporary;
         ContMail: Integer;
+        IStream: InStream;
+        OStream: OutStream;
+        CU_EmailMessage: Codeunit "Email Message";
+        ToRecipients: List of [Text];
+        CCRecipients: List of [Text];
+        BCCRecipients: List of [Text];
+        MsgBody: Text;
+        FileN: Text[260];
+        RecRef: RecordRef;
+        CU_TempBlob: Codeunit "Temp Blob";
+
 
     //[Scope('OnPrem')]
     procedure fEnviaEmail(FactNo: Code[50]; FactCliente: Code[50]; FactPath: Text[260]; FileD: Text[260])
     var
-        l_recSalesInvHead: Record "Sales Invoice Header";
+        l_recSalesCreditHead: Record "Sales Cr.Memo Header";
     begin
         if recCustomerMail.Get(FactCliente) then
-            CreateMessage(rCompInfo.Name, '', recCustomerMail."E-Mail", '', '', false, FactPath, FileD);
+            CreateMessage('', recCustomerMail."E-Mail", '', '', false);
     end;
 
     //[Scope('OnPrem')]
-    procedure CreateMessage(SenderName: Text[100]; SenderAddress: Text[50]; Recipients: Text[1024]; Subject: Text[200]; Body: Text[1024]; HtmlFormatted: Boolean; FileN: Text[260]; FileDir: Text[260])
+    procedure CreateMessage(SenderAddress: Text[50]; Recipients: Text[1024]; Subject: Text[200]; Body: Text[1024]; HtmlFormatted: Boolean)
     var
+        CU_Email: Codeunit Email;
+        EmailSubject: Text;
         char10: Char;
         char13: Char;
     begin
-        rSMTPFields.Get;
-        rSMTPFields.TestField("SMTP Server Name");
-
-        if not IsNull(varMail) then begin
-            varMail.Dispose;
-            Clear(varMail);
-        end;
-
-        varMail := varMail.SmtpMessage;
-        varMail.FromAddress := rSMTPFields."E-Mail From";
-        varMail."To" := Recipients;
-        varMail.CC := rSMTPFields."E-Mail From Bcc";
+        ToRecipients.Add(Recipients);
+        Clear(MsgBody);
 
         rCommentLine.Reset;
         rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
@@ -135,14 +140,16 @@ report 53001 CPAEnviaEmailNC
 
             repeat
                 if int = 1 then
-                    varMail.Subject := rCommentLine.Comment
+                    EmailSubject := rCommentLine.Comment
                 else begin
-                    varMail.Subject := InsStr(varMail.Subject, ' ', StrLen(varMail.Subject) + 1);
-                    varMail.Subject := InsStr(varMail.Subject, rCommentLine.Comment, StrLen(varMail.Subject) + 1);
+                    EmailSubject := InsStr(EmailSubject, ' ', StrLen(EmailSubject) + 1);
+                    EmailSubject := InsStr(EmailSubject, rCommentLine.Comment, StrLen(EmailSubject) + 1);
                 end;
 
             until rCommentLine.Next = 0;
         end;
+        if EmailSubject = '' then
+            EmailSubject := CompanyName + '' + '-' + '' + TxtCrMemo + '' + "Sales Cr.Memo Header"."No.";
 
         rCommentLine.Reset;
         rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
@@ -154,99 +161,54 @@ report 53001 CPAEnviaEmailNC
             char13 := 13;
             repeat
                 if int = 1 then
-                    varMail.Body := rCommentLine.Comment
+                    MsgBody := rCommentLine.Comment
                 else begin
-                    AppendBody(Format(char13) + Format(char10) + rCommentLine.Comment);
+                    MsgBody += (Format(char13) + Format(char10) + rCommentLine.Comment);
                 end;
             until rCommentLine.Next = 0;
 
         end;
+        if MsgBody = '' then
+            MsgBody := 'Please find in attachment';
 
-        varMail.HtmlFormatted := HtmlFormatted;
-        varMail.AddAttachmentWithName(FileN, FileDir);
-        varMail.Timeout(20000);
+        CU_EmailMessage.Create(ToRecipients, EmailSubject, MsgBody, true, CCRecipients, BCCRecipients);
+        DownloadFromStream(IStream, 'Export', '', 'All Files (*.*)|*.*', FileN);
 
-        Send;
+        //if not CheckIfInStreamIsEmpty(IStream) then
+        CU_EmailMessage.AddAttachment(FileN, 'pdf', IStream);
 
-        Sleep(5000);
+        CU_Email.Send(CU_EmailMessage, Enum::"Email Scenario"::Default);
     end;
 
-    //[Scope('OnPrem')]
-    procedure Send()
-    var
-        Result: Text[1024];
-    begin
-        Result := '';
-        Result :=
-              varMail.Send(
-                rSMTPFields."SMTP Server Name",
-                rSMTPFields."SMTP Server Port",
-                false,
-                '',
-                '',
-                true);
-
-        varMail.Dispose;
-        Clear(varMail);
-        if Result <> '' then
-            Error(Text003, Result);
-    end;
-
-    //[Scope('OnPrem')]
     procedure AddRecipients(Recipients: Text[1024])
     var
         Result: Text[1024];
     begin
         CheckValidEmailAddresses(Recipients);
-        Result := varMail.AddRecipients(Recipients);
-        if Result <> '' then
-            Error(Text003, Result);
+        ToRecipients.Add(Recipients);
     end;
 
-    //[Scope('OnPrem')]
     procedure AddCC(Recipients: Text[1024])
     var
         Result: Text[1024];
     begin
         CheckValidEmailAddresses(Recipients);
-        Result := varMail.AddCC(Recipients);
-        if Result <> '' then
-            Error(Text003, Result);
+        CCRecipients.Add(Recipients);
     end;
 
-    //[Scope('OnPrem')]
     procedure AddBCC(Recipients: Text[1024])
     var
         Result: Text[1024];
     begin
         CheckValidEmailAddresses(Recipients);
-        Result := varMail.AddBCC(Recipients);
-        if Result <> '' then
-            Error(Text003, Result);
+        BCCRecipients.Add(Recipients);
     end;
 
-    //[Scope('OnPrem')]
     procedure AppendBody(BodyPart: Text[1024])
     var
         Result: Text[1024];
     begin
-        Result := varMail.AppendBody(BodyPart);
-        if Result <> '' then
-            Error(Text003, Result);
-    end;
-
-    //[Scope('OnPrem')]
-    procedure AddAttachment(Attachment: Text[260])
-    var
-        Result: Text[1024];
-    begin
-        if Attachment = '' then
-            exit;
-        if not Exists(Attachment) then
-            Error(Text002, Attachment);
-        Result := varMail.AddAttachments(Attachment);
-        if Result <> '' then
-            Error(Text003, Result);
+        MsgBody += BodyPart;
     end;
 
     local procedure CheckValidEmailAddresses(Recipients: Text[1024])
@@ -295,32 +257,21 @@ report 53001 CPAEnviaEmailNC
     procedure CreateAttachPDF(pCreditMemoNo: Code[50]; pCustomerCreditMemo: Code[50])
     var
         lSalesCredMemoHead: Record "Sales Cr.Memo Header";
-        FileManagement: Codeunit "File Management";
         ServerAttachmentFilePath: Text;
-        ReportCredMemo: Report "PTSS Sales - Credit Memo (PT)";
     begin
+        Clear(IStream);
+        Clear(OStream);
+
         lSalesCredMemoHead.Reset;
         lSalesCredMemoHead.SetRange("No.", pCreditMemoNo);
         if lSalesCredMemoHead.FindFirst then begin
-            ServerAttachmentFilePath := FileManagement.ServerTempFileName('pdf');
-            Clear(ReportCredMemo);
-            ReportCredMemo.UseRequestPage(false);
-            //ReportCredMemo.RecebeDados(true, true);
-            ReportCredMemo.SetTableView(lSalesCredMemoHead);
-            ReportCredMemo.SaveAsPdf(ServerAttachmentFilePath);
-
-            if not Exists(ServerAttachmentFilePath) then
-                Error(ServerSaveAsPdfFailedErr);
-
-            SalesCredMemoTEMP.Reset;
-            SalesCredMemoTEMP.SetRange("No.", pCreditMemoNo);
-            if SalesCredMemoTEMP.IsEmpty then begin
-                SalesCredMemoTEMP.Init;
-                SalesCredMemoTEMP."No." := pCreditMemoNo;
-                SalesCredMemoTEMP."Sell-to Customer No." := pCustomerCreditMemo;
-                SalesCredMemoTEMP."Invoice Path" := ServerAttachmentFilePath;
-                SalesCredMemoTEMP.Insert;
-            end;
+            FileN := TxtCrMemo + lSalesCredMemoHead."No." + '.pdf';
+            Clear(RecRef);
+            RecRef.GetTable(lSalesCredMemoHead);
+            CU_TempBlob.CreateOutStream(OStream);
+            CU_TempBlob.CreateInStream(IStream);
+            Report.SaveAs(Report::"PTSS Sales - Credit Memo (PT)", '', ReportFormat::Pdf, OStream, RecRef);
+            Sleep(2000);
         end;
     end;
 }

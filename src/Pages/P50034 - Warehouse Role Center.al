@@ -350,7 +350,8 @@ page 50034 "Warehouse Role Center"
                 action("Enviar Fatura Fardas Email")
                 {
                     ApplicationArea = All;
-                    RunObject = report EnviaEmailFaturaFardas;
+                    //RunObject = report EnviaEmailFaturaFardas;
+                    //TODO: to uncomment
                 }
                 action("Enviar Nota Crédito Fardas EMail")
                 {

@@ -20,7 +20,7 @@ tableextension 50113 "Sales Invoice Line Ext." extends "Sales Invoice Line"
             else
             if (Type = const(Service)) "Services ET";
         }
-        field(50002; "JDE Integrated"; Option)
+        field(50000; "JDE Integrated"; Option)
         {
             DataClassification = ToBeClassified;
             OptionMembers = Old,"Not Integrated",Integrated;
@@ -32,7 +32,7 @@ tableextension 50113 "Sales Invoice Line Ext." extends "Sales Invoice Line"
     }
     keys
     {
-        key(Key10; "No.")
+        key(Key12; "No.")
         { }
         Key(Key11; "PTSS Not in VAT Report")
         { }

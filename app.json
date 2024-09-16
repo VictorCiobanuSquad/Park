@@ -1,8 +1,8 @@
 {
   "id": "d6e03c4f-1c80-40fa-afda-1cfcbc602513",
   "name": "Park-IS",
-  "publisher": "Default publisher2",
-  "version": "1.0.0.1",
+  "publisher": "SQUAD",
+  "version": "1.0.0.5",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -13,20 +13,16 @@
   "dependencies": [
     {
       "id": "0b0a0933-50d9-4352-8803-7bf91e6c5491",
-      "version": "21.4.1905.1",
+      "name": "SOFTSTORE Localization Pack for Portugal",
       "publisher": "Softstore SA",
-      "name": "SOFTSTORE Localization Pack for Portugal"
+      "version": "24.3.2400.2402"
     }
   ],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "17.0.0.0",
+  "application": "24.0.0.0",
   "target": "Cloud",
   "idRanges": [
-    {
-      "from": 31009750,
-      "to": 31009999
-    },
     {
       "from": 50000,
       "to": 99999
@@ -34,7 +30,6 @@
   ],
   "resourceExposurePolicy": {
     "allowDebugging": true,
-    "allowDownloadingSource": true,
     "includeSourceInSymbolFile": false
   },
   "runtime": "9.0",

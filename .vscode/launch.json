@@ -6,18 +6,18 @@
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
-            "server": "http://localhost:8080/BC200",
-            "serverInstance": "BC200",
+            "server": "http://localhost",
+            "serverInstance": "BC240_PARK",
             "authentication": "Windows",
-            "startupObjectId": 31009750,
-            "startupObjectType": "Report",
+            "startupObjectId": 22,
+            "startupObjectType": "Page",
             "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "default",
             "usePublicURLFromServer": true,
-            "port": 7049,
+            "port": 4003,
             "schemaUpdateMode": "ForceSync"
         }
     ]
