@@ -30,11 +30,4 @@ tableextension 50113 "Sales Invoice Line Ext." extends "Sales Invoice Line"
             InitValue = "Not Integrated";
         }
     }
-    keys
-    {
-        key(Key12; "No.")
-        { }
-        Key(Key11; "PTSS Not in VAT Report")
-        { }
-    }
 }
