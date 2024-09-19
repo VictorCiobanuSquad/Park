@@ -14,7 +14,9 @@ table 52787 Timetable
             begin
                 if "Timetable Code" <> xRec."Timetable Code" then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Timetable Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Timetable Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Timetable Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -291,7 +293,10 @@ table 52787 Timetable
         if "Timetable Code" = '' then begin
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Timetable Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Timetable Nos.", xRec."No. Series", 0D, "Timetable Code", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Timetable Nos.", xRec."No. Series", 0D, "Timetable Code", "No. Series");
+            if CU_NoSeries.AreRelated(rEduConfiguration."Timetable Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "Timetable Code" := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if "End Period" < "Start Period" then
@@ -314,7 +319,8 @@ table 52787 Timetable
         Text004: Label 'Period start and end must be completed.';
         rCourseHeader: Record "Course Header";
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         cUserEducation: Codeunit "User Education";
         RespCenter: Record "Responsibility Center";
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
@@ -331,8 +337,11 @@ table 52787 Timetable
         rTimetable := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Timetable Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Timetable Nos.", OldTimetable."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("Timetable Code");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Timetable Nos.", OldTimetable."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("Timetable Code");
+        if CU_NoSeries.LookupRelatedNoSeries(OldTimetable."No. Series", rEduConfiguration."Timetable Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("Timetable Code");
+            //TODO: to test NoSeries
             Rec := rTimetable;
             exit(true);
         end;

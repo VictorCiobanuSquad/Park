@@ -1,355 +1,298 @@
-// report 53000 CPAEnviaEmail
-// {
-//     // IT001 - CPA - Upgrade Report - MF - 2016-04-13
-//     //       - New Version
-//     // 
-//     // IT002 - Alteração Parâmetro Timeout
-//     // 
-//     // IT003 - 206.11.10 - Alteração para poder enviar faturas por email, para qualquer tipo de cliente (alunos, candidatos, outros)
-//     // 
-//     // Nota: Futuros Clientes ver se o email da fatura deve ser para o sellto ou bill-to
-//     // 
-//     // SQD004 - 2021.11.22 - #NAV202100711
-//     //   Sleep and Timeout increased
+report 53000 EnviaEmailInvoice
+{//Victor version
+    // IT001 - CPA - Upgrade Report - MF - 2016-04-13
+    //       - New Version
+    // 
+    // IT002 - Alteração Parâmetro Timeout
+    // 
+    // IT003 - 206.11.10 - Alteração para poder enviar faturas por email, para qualquer tipo de cliente (alunos, candidatos, outros)
+    // 
+    // Nota: Futuros Clientes ver se o email da fatura deve ser para o sellto ou bill-to
+    // 
+    // SQD004 - 2021.11.22 - #NAV202100711
+    //   Sleep and Timeout increased
 
-//     Caption = 'Enviar Fatura Email';
-//     ProcessingOnly = true;
+    Caption = 'Enviar Fatura Email Invoice';
+    ProcessingOnly = true;
+    ApplicationArea = All;//guangai added application area and usage category
+    UsageCategory = Tasks;
 
-//     dataset
-//     {
-//         dataitem("Sales Invoice Header"; "Sales Invoice Header")
-//         {
-//             DataItemTableView = SORTING("No.");
-//             RequestFilterFields = "No.", "Posting Date", "Sell-to Customer No.";
-//             RequestFilterHeading = 'Faturas Registadas';
+    dataset
+    {
+        dataitem("Sales Invoice Header"; "Sales Invoice Header")
+        {
+            DataItemTableView = SORTING("No.");
+            RequestFilterFields = "No.", "Posting Date", "Sell-to Customer No.";
+            RequestFilterHeading = 'Faturas Registadas';
 
-//             trigger OnAfterGetRecord()
-//             begin
-//                 //IT003 - 206.11.10 - Alteração para poder enviar faturas por email, para qualquer tipo de cliente (alunos, candidatos, outros)
-//                 //IF rEduConfiguration.GET THEN
-//                 //  IF rEduConfiguration."Send E-Mail Invoice" THEN
-//                 //    IF recCustomer.GET("Sales Invoice Header"."Sell-to Customer No.") THEN BEGIN
-//                 //      recUsersFamilyStudents.RESET;
-//                 //      recUsersFamilyStudents.SETRANGE("No.",recCustomer."Student No.");
-//                 //      recUsersFamilyStudents.SETRANGE("Paying Entity",TRUE);
-//                 //      IF recUsersFamilyStudents.FINDLAST THEN
-//                 //        CreateAttachPDF("Sales Invoice Header"."No.","Sales Invoice Header"."Sell-to Customer No.");
-//                 //    END;
+            // trigger OnAfterGetRecord()
+            // begin
+            //     if rEduConfiguration.Get then
+            //         if rEduConfiguration."Send E-Mail Invoice" then
+            //             if recCustomer.Get("Sales Invoice Header"."Sell-to Customer No.") then
+            //                 CreateAttachPDF("Sales Invoice Header"."No.", "Sales Invoice Header"."Sell-to Customer No.");
+            // end;
+        }
+    }
+
+    requestpage
+    {
+
+        layout
+        {
+        }
+
+        actions
+        {
+        }
+    }
+
+    labels
+    {
+    }
+
+    trigger OnPostReport()
+    begin
+        if rEduConfiguration.Get then
+            if rEduConfiguration."Send E-Mail Invoice" then
+                rSalesInvoiceHeader.Reset;
+        rSalesInvoiceHeader.SetRange("No.", "Sales Invoice Header"."No.");
+        rSalesInvoiceHeader.SetRange("Posting Date", "Sales Invoice Header"."Posting Date");
+        rSalesInvoiceHeader.SetRange("Sell-to Customer No.", "Sales Invoice Header"."Sell-to Customer No.");
+        if rSalesInvoiceHeader.FindSet then begin
+            repeat
+                if recCustomerMail.Get(rSalesInvoiceHeader."Sell-to Customer No.") then
+                    CheckValidEmailAddresses(recCustomerMail."E-Mail");
+                CreateAttachPDF(rSalesInvoiceHeader."No.", rSalesInvoiceHeader."Sell-to Customer No.");
+                fEnviaEmail(rSalesInvoiceHeader."No.", rSalesInvoiceHeader."Sell-to Customer No.",
+                            rSalesInvoiceHeader."Invoice Path", TxtInvoice + ' ' +
+                            rSalesInvoiceHeader."No." + ExtensionFile);
+            until rSalesInvoiceHeader.Next = 0;
+            Message(Text0009);
+        end;
+
+    end;
+
+    trigger OnPreReport()
+    begin
+        //rSalesInvoiceHeader.DeleteAll;
+    end;
+
+    var
+        rEduConfiguration: Record "Edu. Configuration";
+        rSalesInvoiceHeader: Record "Sales Invoice Header";
+        recCustomer: Record Customer;
+        recCustomerMail: Record Customer;
+        Mail: Codeunit Mail;
+        Text001: Label 'The email address "%1" is invalid.';
+        EmailSubjectTxt: Label 'E-mail Subject';
+        Text0006: Label 'E-mail Body';
+        rCommentLine: Record "Comment Line";
+        int: Integer;
+        ArrayBod: array[40] of Text[260];
+        txtCRLF: Char;
+        Text0007: Label 'MailBody.txt';
+        Text0008: Label 'c:\Navision\';
+        Text0009: Label 'Process Completed.';
+        TxtInvoice: Label 'Invoice';
+        ExtensionFile: Label '.pdf';
+        ServerSaveAsPdfFailedErr: Label 'Cannot open the document because it is empty or cannot be created.';
+        ContMail: Integer;
+        IStream: InStream;
+        OStream: OutStream;
+        CU_EmailMessage: Codeunit "Email Message";
+        ToRecipients: List of [Text];
+        CCRecipients: List of [Text];
+        BCCRecipients: List of [Text];
+        MsgBody: Text;
+        FileN: Text[260];
+        RecRef: RecordRef;
+        CU_TempBlob: Codeunit "Temp Blob";
 
 
-//                 if rEduConfiguration.Get then
-//                     if rEduConfiguration."Send E-Mail Invoice" then
-//                         if recCustomer.Get("Sales Invoice Header"."Sell-to Customer No.") then
-//                             CreateAttachPDF("Sales Invoice Header"."No.", "Sales Invoice Header"."Sell-to Customer No.");
+    procedure fEnviaEmail(FactNo: Code[50]; FactCliente: Code[50]; FactPath: Text[260]; FileD: Text[260])
+    var
+        l_recSalesInvHead: Record "Sales Invoice Header";
+    begin
+        //ENVIO DO EMAIL
+        if recCustomerMail.Get(FactCliente) then
+            CreateMessage('', recCustomerMail."E-Mail", '', '', false);
+    end;
+
+    procedure CreateMessage(SenderAddress: Text[50]; Recipients: Text[1024]; Subject: Text[200]; Body: Text[1024]; HtmlFormatted: Boolean)
+    var
+        CU_Email: Codeunit Email;
+        EmailSubject: Text;
+        char10: Char;
+        char13: Char;
+    begin
+
+        ToRecipients.Add(Recipients);
+        Clear(MsgBody);
 
 
-//                 //IT003 - 206.11.10 - en
-//             end;
-//         }
-//     }
+        rCommentLine.Reset;
+        rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
+        rCommentLine.SetRange("No.", EmailSubjectTxt);
+        rCommentLine.SetRange("Document Type", rCommentLine."Document Type"::Invoice);
+        if rCommentLine.FindSet then begin
+            int := rCommentLine.Count;
+            repeat
+                if int = 1 then
+                    EmailSubject := rCommentLine.Comment
+                else begin
+                    EmailSubject := InsStr(EmailSubject, ' ', StrLen(EmailSubject) + 1);
+                    EmailSubject := InsStr(EmailSubject, rCommentLine.Comment, StrLen(EmailSubject) + 1);
+                end;
+            until rCommentLine.Next = 0;
 
-//     requestpage
-//     {
 
-//         layout
-//         {
-//         }
+        end;
+        if EmailSubject = '' then
+            EmailSubject := CompanyName + '' + '-' + '' + TxtInvoice + '' + "Sales Invoice Header"."No.";
 
-//         actions
-//         {
-//         }
-//     }
+        rCommentLine.Reset;
+        rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
+        rCommentLine.SetRange("No.", Text0006);
+        rCommentLine.SetRange("Document Type", rCommentLine."Document Type"::Invoice);
+        if rCommentLine.FindSet then begin
+            int := rCommentLine.Count;
+            char10 := 10;
+            char13 := 13;
+            repeat
+                if int = 1 then
+                    MsgBody := rCommentLine.Comment
+                else begin
+                    MsgBody += Format(char13) + Format(char10) + rCommentLine.Comment;
+                end;
+            until rCommentLine.Next = 0;
+        end;
 
-//     labels
-//     {
-//     }
+        if MsgBody = '' then
+            MsgBody := 'Please find in attachment';
 
-//     trigger OnPostReport()
-//     begin
-//         rSalesInvoiceHeaderTEMP.Reset;
-//         if rSalesInvoiceHeaderTEMP.FindSet then
-//             repeat
-//                 if recCustomerMail.Get(rSalesInvoiceHeaderTEMP."Sell-to Customer No.") then
-//                     CheckValidEmailAddresses(recCustomerMail."E-Mail");
-//                 fEnviaEmail(rSalesInvoiceHeaderTEMP."No.", rSalesInvoiceHeaderTEMP."Sell-to Customer No.",
-//                             rSalesInvoiceHeaderTEMP."Invoice Path", Text0010 + ' ' +
-//                             rSalesInvoiceHeaderTEMP."No." + ExtensionFile);
-//             until rSalesInvoiceHeaderTEMP.Next = 0;
+        CU_EmailMessage.Create(ToRecipients, EmailSubject, MsgBody, true, CCRecipients, BCCRecipients);
+        DownloadFromStream(IStream, 'Export', '', 'All Files (*.*)|*.*', FileN);
 
-//         Message(Text0009);
-//     end;
+        //if not CheckIfInStreamIsEmpty(IStream) then
+        CU_EmailMessage.AddAttachment(FileN, 'pdf', IStream);
 
-//     trigger OnPreReport()
-//     begin
-//         rSalesInvoiceHeaderTEMP.DeleteAll;
-//     end;
+        CU_Email.Send(CU_EmailMessage, Enum::"Email Scenario"::Default);
+    end;
 
-//     var
-//         rEduConfiguration: Record "Edu. Configuration";
-//         rSalesInvoiceHeader: Record "Sales Invoice Header";
-//         rSalesInvoiceHeaderTEMP: Record "Sales Invoice Header" temporary;
-//         recCustomer: Record Customer;
-//         recCustomerMail: Record Customer;
-//         recUsersFamilyStudents: Record "Users Family / Students";
-//         //"Object": Record "Object";
-//         rCompInfo: Record "Company Information";
-//         rSMTPFields: Record "SMTP Fields";
-//         ReportInvoice: Report "PTSS Sales - Invoice (PT)";
-//         cuPostServET: Codeunit "Post Services ET";
-//         Mail: Codeunit Mail;
-//         ErrorNo: Integer;
-//         Text001: Label 'The email address "%1" is invalid.';
-//         Text002: Label 'Attachment %1 does not exist or can not be accessed from the program.';
-//         Text003: Label 'The SMTP mail system returned the following error: %1';
-//         Text0005: Label 'E-mail Subject';
-//         Text0006: Label 'E-mail Body';
-//         rCommentLine: Record "Comment Line";
-//         int: Integer;
-//         ArrayBod: array[40] of Text[260];
-//         txtCRLF: Char;
-//         Text0007: Label 'MailBody.txt';
-//         Text0008: Label 'c:\Navision\';
-//         //SMTPMailSetup: Record "SMTP Mail Setup";
-//         //varMail: DotNet SmtpMessage;
-//         Text0009: Label 'Process Completed.';
-//         Text0010: Label 'Invoice';
-//         ExtensionFile: Label '.pdf';
-//         ServerSaveAsPdfFailedErr: Label 'Cannot open the document because it is empty or cannot be created.';
-//         ContMail: Integer;
+    // procedure CheckIfInStreamIsEmpty(var InStr: InStream) Result: Boolean;
+    // var
+    //     TempText: Text[1024];
+    //     BytesRead: Integer;
+    // begin
+    //     Result := TRUE; // Assume the stream is empty
 
-//     //[Scope('OnPrem')]
-//     procedure fEnviaEmail(FactNo: Code[50]; FactCliente: Code[50]; FactPath: Text[260]; FileD: Text[260])
-//     var
-//         l_recSalesInvHead: Record "Sales Invoice Header";
-//     begin
-//         //ENVIO DO EMAIL
-//         if recCustomerMail.Get(FactCliente) then
-//             CreateMessage(rCompInfo.Name, '', recCustomerMail."E-Mail", '', '', false, FactPath, FileD);
-//     end;
+    //     // Try to read from the InStream
+    //     BytesRead := InStr.READ(TempText);
 
-//     //[Scope('OnPrem')]
-//     procedure CreateMessage(SenderName: Text[100]; SenderAddress: Text[50]; Recipients: Text[1024]; Subject: Text[200]; Body: Text[1024]; HtmlFormatted: Boolean; FileN: Text[260]; FileDir: Text[260])
-//     var
-//         char10: Char;
-//         char13: Char;
-//     begin
-//         rSMTPFields.Get;
-//         rSMTPFields.TestField("SMTP Server Name");
+    //     // If BytesRead is greater than 0, the stream is not empty
+    //     if BytesRead > 0 then
+    //         Result := FALSE;
+    // end;
 
-//         //CheckValidEmailAddresses(rSMTPFields."E-Mail From");
+    procedure AddRecipients(Recipients: Text[1024])
+    var
+        Result: Text[1024];
+    begin
+        CheckValidEmailAddresses(Recipients);
+        ToRecipients.Add(Recipients);
+    end;
 
-//         if not IsNull(varMail) then begin
-//             varMail.Dispose;
-//             Clear(varMail);
-//         end;
+    procedure AddCC(Recipients: Text[1024])
+    var
+        Result: Text[1024];
+    begin
+        CheckValidEmailAddresses(Recipients);
+        CCRecipients.Add(Recipients);
+    end;
 
-//         varMail := varMail.SmtpMessage;
-//         varMail.FromAddress := rSMTPFields."E-Mail From";
-//         varMail."To" := Recipients;
-//         varMail.CC := rSMTPFields."E-Mail From Bcc";
+    procedure AddBCC(Recipients: Text[1024])
+    var
+        Result: Text[1024];
+    begin
+        CheckValidEmailAddresses(Recipients);
+        BCCRecipients.Add(Recipients);
+    end;
 
-//         rCommentLine.Reset;
-//         rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
-//         rCommentLine.SetRange("No.", Text0005);
-//         rCommentLine.SetRange("Document Type", rCommentLine."Document Type"::Invoice);
-//         if rCommentLine.FindSet then begin
-//             int := rCommentLine.Count;
-//             repeat
-//                 if int = 1 then
-//                     varMail.Subject := rCommentLine.Comment
-//                 else begin
-//                     varMail.Subject := InsStr(varMail.Subject, ' ', StrLen(varMail.Subject) + 1);
-//                     varMail.Subject := InsStr(varMail.Subject, rCommentLine.Comment, StrLen(varMail.Subject) + 1);
-//                 end;
+    procedure AppendBody(BodyPart: Text[1024])
+    var
+        Result: Text[1024];
+    begin
+        MsgBody += BodyPart;
+    end;
 
-//             until rCommentLine.Next = 0;
-//         end;
 
-//         rCommentLine.Reset;
-//         rCommentLine.SetRange("Table Name", rCommentLine."Table Name"::"E-mail");
-//         rCommentLine.SetRange("No.", Text0006);
-//         rCommentLine.SetRange("Document Type", rCommentLine."Document Type"::Invoice);
-//         if rCommentLine.FindSet then begin
-//             int := rCommentLine.Count;
-//             char10 := 10;
-//             char13 := 13;
-//             repeat
-//                 if int = 1 then
-//                     varMail.Body := rCommentLine.Comment
-//                 else begin
-//                     AppendBody(Format(char13) + Format(char10) + rCommentLine.Comment);
-//                 end;
-//             until rCommentLine.Next = 0;
+    local procedure CheckValidEmailAddresses(Recipients: Text[1024])
+    var
+        s: Text[1024];
+    begin
+        if Recipients = '' then
+            Error(Text001, Recipients);
 
-//         end;
+        s := Recipients;
+        while StrPos(s, ';') > 1 do begin
+            CheckValidEmailAddress(CopyStr(s, 1, StrPos(s, ';') - 1));
+            s := CopyStr(s, StrPos(s, ';') + 1);
+        end;
+        CheckValidEmailAddress(s);
+    end;
 
-//         varMail.HtmlFormatted := HtmlFormatted;
-//         varMail.AddAttachmentWithName(FileN, FileDir);
-//         //IT002,o varMail.Timeout(20000);
-//         //SQD004 - 2021.11.22 - #NAV202100711
-//         //varMail.Timeout(50000); //IT002,n
-//         varMail.Timeout(90000); //IT002,n
+    local procedure CheckValidEmailAddress(EmailAddress: Text[250])
+    var
+        i: Integer;
+        NoOfAtSigns: Integer;
+    begin
+        if EmailAddress = '' then
+            Error(Text001, EmailAddress);
 
-//         Send;
+        if (EmailAddress[1] = '@') or (EmailAddress[StrLen(EmailAddress)] = '@') then
+            Error(Text001, EmailAddress);
 
-//         //IT002,o SLEEP(5000);
-//     end;
+        for i := 1 to StrLen(EmailAddress) do begin
+            if EmailAddress[i] = '@' then
+                NoOfAtSigns := NoOfAtSigns + 1;
+            if not (
+              ((EmailAddress[i] >= 'a') and (EmailAddress[i] <= 'z')) or
+              ((EmailAddress[i] >= 'A') and (EmailAddress[i] <= 'Z')) or
+              ((EmailAddress[i] >= '0') and (EmailAddress[i] <= '9')) or
+              (EmailAddress[i] in ['@', '.', '-', '_']))
+            then
+                Error(Text001, EmailAddress);
+        end;
 
-//     //[Scope('OnPrem')]
-//     procedure Send()
-//     var
-//         Result: Text[1024];
-//     begin
-//         Result := '';
-//         Result :=
-//               varMail.Send(
-//                 rSMTPFields."SMTP Server Name",
-//                 rSMTPFields."SMTP Server Port",
-//                 false,
-//                 '',
-//                 '',
-//                 true);
+        if NoOfAtSigns <> 1 then
+            Error(Text001, EmailAddress);
+    end;
 
-//         varMail.Dispose;
-//         Clear(varMail);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
+    procedure CreateAttachPDF(pInvoiceNo: Code[50]; pCustomerInvoice: Code[50])
+    var
+        lSalesInvHead: Record "Sales Invoice Header";
+        ServerAttachmentFilePath: Text;
+    //CU_TempBlob: Codeunit "Temp Blob";
+    begin
+        //new Create AttachMent
+        Clear(IStream);
+        Clear(OStream);
 
-//     //[Scope('OnPrem')]
-//     procedure AddRecipients(Recipients: Text[1024])
-//     var
-//         Result: Text[1024];
-//     begin
-//         CheckValidEmailAddresses(Recipients);
-//         Result := varMail.AddRecipients(Recipients);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
 
-//     //[Scope('OnPrem')]
-//     procedure AddCC(Recipients: Text[1024])
-//     var
-//         Result: Text[1024];
-//     begin
-//         CheckValidEmailAddresses(Recipients);
-//         Result := varMail.AddCC(Recipients);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
 
-//     //[Scope('OnPrem')]
-//     procedure AddBCC(Recipients: Text[1024])
-//     var
-//         Result: Text[1024];
-//     begin
-//         CheckValidEmailAddresses(Recipients);
-//         Result := varMail.AddBCC(Recipients);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
+        lSalesInvHead.Reset;
+        lSalesInvHead.SetRange("No.", pInvoiceNo);
+        if lSalesInvHead.FindFirst then begin
+            FileN := 'Invoice_' + lSalesInvHead."No." + '.pdf';
+            Clear(RecRef);
+            RecRef.GetTable(lSalesInvHead);
+            CU_TempBlob.CreateOutStream(OStream);
+            CU_TempBlob.CreateInStream(IStream);
+            Report.SaveAs(Report::"PTSS Sales - Invoice (PT)", '', ReportFormat::Pdf, OStream, RecRef);
+            Sleep(2000);
+        end;
 
-//     //[Scope('OnPrem')]
-//     procedure AppendBody(BodyPart: Text[1024])
-//     var
-//         Result: Text[1024];
-//     begin
-//         Result := varMail.AppendBody(BodyPart);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
+    end;
 
-//     //[Scope('OnPrem')]
-//     procedure AddAttachment(Attachment: Text[260])
-//     var
-//         Result: Text[1024];
-//     begin
-//         if Attachment = '' then
-//             exit;
-//         if not Exists(Attachment) then
-//             Error(Text002, Attachment);
-//         Result := varMail.AddAttachments(Attachment);
-//         if Result <> '' then
-//             Error(Text003, Result);
-//     end;
-
-//     local procedure CheckValidEmailAddresses(Recipients: Text[1024])
-//     var
-//         s: Text[1024];
-//     begin
-//         if Recipients = '' then
-//             Error(Text001, Recipients);
-
-//         s := Recipients;
-//         while StrPos(s, ';') > 1 do begin
-//             CheckValidEmailAddress(CopyStr(s, 1, StrPos(s, ';') - 1));
-//             s := CopyStr(s, StrPos(s, ';') + 1);
-//         end;
-//         CheckValidEmailAddress(s);
-//     end;
-
-//     local procedure CheckValidEmailAddress(EmailAddress: Text[250])
-//     var
-//         i: Integer;
-//         NoOfAtSigns: Integer;
-//     begin
-//         if EmailAddress = '' then
-//             Error(Text001, EmailAddress);
-
-//         if (EmailAddress[1] = '@') or (EmailAddress[StrLen(EmailAddress)] = '@') then
-//             Error(Text001, EmailAddress);
-
-//         for i := 1 to StrLen(EmailAddress) do begin
-//             if EmailAddress[i] = '@' then
-//                 NoOfAtSigns := NoOfAtSigns + 1;
-//             if not (
-//               ((EmailAddress[i] >= 'a') and (EmailAddress[i] <= 'z')) or
-//               ((EmailAddress[i] >= 'A') and (EmailAddress[i] <= 'Z')) or
-//               ((EmailAddress[i] >= '0') and (EmailAddress[i] <= '9')) or
-//               (EmailAddress[i] in ['@', '.', '-', '_']))
-//             then
-//                 Error(Text001, EmailAddress);
-//         end;
-
-//         if NoOfAtSigns <> 1 then
-//             Error(Text001, EmailAddress);
-//     end;
-
-//     //[Scope('OnPrem')]
-//     procedure CreateAttachPDF(pInvoiceNo: Code[50]; pCustomerInvoice: Code[50])
-//     var
-//         lSalesInvHead: Record "Sales Invoice Header";
-//         FileManagement: Codeunit "File Management";
-//         ServerAttachmentFilePath: Text;
-//     begin
-//         lSalesInvHead.Reset;
-//         lSalesInvHead.SetRange("No.", pInvoiceNo);
-//         if lSalesInvHead.FindFirst then begin
-//             ServerAttachmentFilePath := FileManagement.ServerTempFileName('pdf');
-//             Clear(ReportInvoice);
-//             ReportInvoice.UseRequestPage(false);
-//             //ReportInvoice.RecebeDados(true, true);
-//             ReportInvoice.SetTableView(lSalesInvHead);
-//             ReportInvoice.SaveAsPdf(ServerAttachmentFilePath);
-
-//             //SQD004 - 2021.11.22 - #NAV202100711
-//             //SLEEP(1000);
-//             Sleep(2000);
-
-//             if not Exists(ServerAttachmentFilePath) then
-//                 Error(ServerSaveAsPdfFailedErr);
-
-//             rSalesInvoiceHeaderTEMP.Reset;
-//             rSalesInvoiceHeaderTEMP.SetRange("No.", pInvoiceNo);
-//             if rSalesInvoiceHeaderTEMP.IsEmpty then begin
-//                 rSalesInvoiceHeaderTEMP.Init;
-//                 rSalesInvoiceHeaderTEMP."No." := pInvoiceNo;
-//                 rSalesInvoiceHeaderTEMP."Sell-to Customer No." := pCustomerInvoice;
-//                 rSalesInvoiceHeaderTEMP."Invoice Path" := ServerAttachmentFilePath;
-//                 rSalesInvoiceHeaderTEMP.Insert;
-//             end;
-//         end;
-//     end;
-// }
-//guangai commented
-//TODO: to fix
+}

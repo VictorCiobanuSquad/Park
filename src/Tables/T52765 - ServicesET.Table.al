@@ -15,7 +15,9 @@ table 52765 "Services ET"
             begin
                 if "No." <> xRec."No." then begin
                     rEduConf.Get;
-                    NoSeriesMgt.TestManual(rEduConf."Service Nos.");
+                    //NoSeriesMgt.TestManual(rEduConf."Service Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConf."Service Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -315,7 +317,11 @@ table 52765 "Services ET"
         if "No." = '' then begin
             rEduConf.Get;
             rEduConf.TestField("Service Nos.");
-            NoSeriesMgt.InitSeries(rEduConf."Service Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConf."Service Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConf."Service Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := CU_NoSeries.GetNextNo("No. Series");
         end;
 
 
@@ -341,7 +347,7 @@ table 52765 "Services ET"
 
     var
         rEduConf: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         GenProdPostingGrp: Record "Gen. Product Posting Group";
         cUserEducation: Codeunit "User Education";
         RespCenter: Record "Responsibility Center";
@@ -354,6 +360,7 @@ table 52765 "Services ET"
         DimMgt: Codeunit DimensionManagement;
         MultiCompanyInvoicing: Codeunit "Multi-Company Invoicing";
         rLegalCodes: Record "Legal Codes";
+        CU_NoSeries: Codeunit "No. Series";
 
     //[Scope('OnPrem')]
     procedure AssistEdit(OldService: Record "Services ET"): Boolean
@@ -362,8 +369,11 @@ table 52765 "Services ET"
     begin
         rEduConf.Get;
         rEduConf.TestField("Service Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConf."Service Nos.", OldService."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("No.");
+        //if NoSeriesMgt.SelectSeries(rEduConf."Service Nos.", OldService."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldService."No. Series", rEduConf."Service Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("No.");
+            //TODO: to test NoSeries
             // Rec := ServicesET;
             // exit(true);
         end;

@@ -99,7 +99,11 @@ table 52798 Room
         if "Room Code" = '' then begin
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Room Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Room Nos.", xRec."No. Series", 0D, "Room Code", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Room Nos.", xRec."No. Series", 0D, "Room Code", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Room Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "Room Code" := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if rUserSetup.Get(UserId) then
@@ -108,7 +112,8 @@ table 52798 Room
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         cUserEducation: Codeunit "User Education";
         RespCenter: Record "Responsibility Center";
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
@@ -125,8 +130,13 @@ table 52798 Room
     begin
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Room Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Room Nos.", OldRoom."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("Room Code");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Room Nos.", OldRoom."No. Series", "No. Series") then begin
+        //procedure SelectSeries(DefaultNoSeriesCode: Code[20], OldNoSeriesCode: Code[20], var NewNoSeriesCode: Code[20]): Boolean
+        //NoSeriesMgt.SetSeries("Room Code");
+        //TODO: to test NoSeries
+        //procedure LookupRelatedNoSeries(OriginalNoSeriesCode: Code[20], DefaultHighlightedNoSeriesCode: Code[20], var NewNoSeriesCode: Code[20]): Boolean
+        if CU_NoSeries.LookupRelatedNoSeries(OldRoom."No. Series", rEduConfiguration."Room Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("Room Code");
             Rec := Room;
             exit(true);
         end;

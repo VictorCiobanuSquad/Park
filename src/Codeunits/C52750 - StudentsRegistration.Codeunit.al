@@ -721,7 +721,8 @@ codeunit 52750 "Students Registration"
         rRegisClass: Record "Registration Class";
         rRegisSubjects: Record "Registration Subjects";
         rEduConfiguration: Record "Edu. Configuration";
-        cNoSeriesManage: Codeunit NoSeriesManagement;
+        //cNoSeriesManage: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         vNewDoc: Code[20];
         vShowForm: Boolean;
         fRecoverHeader: Page "Recover Header";
@@ -736,7 +737,9 @@ codeunit 52750 "Students Registration"
                 Clear(vNewDoc);
                 rTest.Reset;
                 rTest.Init;
-                rTest."Test No." := cNoSeriesManage.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
+                //rTest."Test No." := cNoSeriesManage.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
+                //TODO: to delete
+                rTest."Test No." := CU_NoSeries.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
                 vNewDoc := rTest."Test No.";
                 rTest."Line Type" := rTest."Line Type"::Header;
                 rTest."School Year" := rRegisClass."School Year";
@@ -767,7 +770,9 @@ codeunit 52750 "Students Registration"
                 Clear(vNewDoc);
                 rTest.Reset;
                 rTest.Init;
-                rTest."Test No." := cNoSeriesManage.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
+                //rTest."Test No." := cNoSeriesManage.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
+                //TODO: to delete
+                rTest."Test No." := CU_NoSeries.GetNextNo(rEduConfiguration."Test Nos.", WorkDate, true);
                 vNewDoc := rTest."Test No.";
                 rTest."Line Type" := rTest."Line Type"::Header;
                 rTest."Type of Test" := rTest."Type of Test"::"Recover Test";

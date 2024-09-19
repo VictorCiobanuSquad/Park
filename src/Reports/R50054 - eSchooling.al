@@ -246,7 +246,8 @@ report 50054 eSchooling
                         //Criar o associado Mãe
                         IF encontrou = FALSE THEN BEGIN
                             rUsersFamily.INIT;
-                            rUsersFamily."No." := cNoSeriesMgt.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
+                            //rUsersFamily."No." := cNoSeriesMgt.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
+                            rUsersFamily."No." := CU_NoSeries.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
                             rUsersFamily.VALIDATE(rUsersFamily.Name, NomeMae);
                             rUsersFamily."Phone No. 2" := TelefoneEmpMae;
                             rUsersFamily."Mobile Phone" := TelemovelMae;
@@ -346,7 +347,9 @@ report 50054 eSchooling
                         //Criar o associado Pai
                         IF encontrou = FALSE THEN BEGIN
                             rUsersFamily.INIT;
-                            rUsersFamily."No." := cNoSeriesMgt.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
+                            //rUsersFamily."No." := cNoSeriesMgt.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
+                            //TODO: to test
+                            rUsersFamily."No." := CU_NoSeries.GetNextNo(rEduConf."Users Family Nos.", 0D, TRUE);
                             rUsersFamily.VALIDATE(rUsersFamily.Name, NomePai);
                             rUsersFamily."Phone No. 2" := TelefoneEmpPai;
                             rUsersFamily."Mobile Phone" := TelemovelPai;
@@ -426,7 +429,8 @@ report 50054 eSchooling
         rUsersFamilyStudents: Record "Users Family / Students";
         cStudentsRegistration: Codeunit "Students Registration";
         rEduConf: Record "Edu. Configuration";
-        cNoSeriesMgt: Codeunit NoSeriesManagement;
+        //cNoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         Morada: Text[100];
         Aux: Text[65];
         moradaComp: Text[100];

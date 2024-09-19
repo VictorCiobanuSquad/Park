@@ -73,7 +73,8 @@ report 52802 "Create Customer Form Students"
         Text002: Label 'You must select one Paying entity';
         recCustomer: Record Customer;
         rSalesReceivablesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         Text001: Label 'The Candidate %1 already has a customer %2';
         Text004: Label 'The Paying entity "%1 - %2" does not created as customer.\ Do you whant create as customer?';
         rUsersFamily: Record "Users Family";
@@ -84,7 +85,8 @@ report 52802 "Create Customer Form Students"
         rSalesReceivablesSetup.TestField(rSalesReceivablesSetup."Customer Nos.");
 
         recCustomer.Init;
-        recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+        //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+        recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
         recCustomer.Validate(Name, rstudents."Short Name");
         recCustomer.Validate("Post Code", rstudents."Post Code");
         recCustomer.Validate("Gen. Bus. Posting Group", rstudents."Gen. Bus. Posting Group");
@@ -106,7 +108,8 @@ report 52802 "Create Customer Form Students"
         Text002: Label 'You must select one Paying entity';
         recCustomer: Record Customer;
         rSalesReceivablesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         Text001: Label 'The Candidate %1 already has a customer %2';
         Text004: Label 'Paying entity "%1 - %2" is not created as a customer.\ Do you want to create this customer?';
         rStudents: Record Students;
@@ -124,7 +127,9 @@ report 52802 "Create Customer Form Students"
             if rStudents.Get(pUsersFamilyStudents."No.") then;
             if rStudents."Customer No." = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //TODO: to test
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rStudents."Short Name");
                 recCustomer.Validate("Post Code", rStudents."Post Code");
                 recCustomer.Validate("Gen. Bus. Posting Group", rStudents."Gen. Bus. Posting Group");
@@ -149,7 +154,8 @@ report 52802 "Create Customer Form Students"
             if rUsersFamily.Get(pUsersFamilyStudents."No.") then;
             if rUsersFamily."Customer No." = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rUsersFamily."Short Name");
                 recCustomer.Validate("Post Code", rUsersFamily."Post Code");
                 recCustomer.Validate("Gen. Bus. Posting Group", rUsersFamily."Gen. Bus. Posting Group");
@@ -177,7 +183,8 @@ report 52802 "Create Customer Form Students"
         if rStudents.Get(pUsersFamilyStudents."Student Code No.") then begin
             if rStudents."Customer No." = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rStudents."Short Name");
                 recCustomer.Validate("Post Code", rStudents."Post Code");
                 recCustomer.Validate("Gen. Bus. Posting Group", rStudents."Gen. Bus. Posting Group");

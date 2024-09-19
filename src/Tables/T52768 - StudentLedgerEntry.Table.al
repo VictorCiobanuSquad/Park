@@ -639,7 +639,6 @@ table 52768 "Student Ledger Entry"
     end;
 
     var
-        NoSeriesMgt: Codeunit NoSeriesManagement;
         ServicesET: Record "Services ET";
         rStudents: Record Students;
         UsersFamily: Record "Users Family";

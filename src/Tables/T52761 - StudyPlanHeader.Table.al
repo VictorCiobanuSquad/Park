@@ -15,7 +15,9 @@ table 52761 "Study Plan Header"
             begin
                 if Code <> xRec.Code then begin
                     if rEduConfiguration.Get then;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Study Plan Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Study Plan Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Study Plan Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -336,7 +338,11 @@ table 52761 "Study Plan Header"
         if Code = '' then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Study Plan Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Study Plan Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Study Plan Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            Code := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         "Country/Region Code" := cStudentsRegistration.GetCountry;
@@ -351,7 +357,7 @@ table 52761 "Study Plan Header"
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         rStudyPlanLines: Record "Study Plan Lines";
         cStudentsRegistration: Codeunit "Students Registration";
         rUserSetup: Record "User Setup";
@@ -369,6 +375,7 @@ table 52761 "Study Plan Header"
         Text0013: Label 'The field %1 must be higher than the field %2.';
         Text0009: Label 'There are no settings.';
         rTableMISI: Record "Table MISI";
+        CU_NoSeries: Codeunit "No. Series";
 
     //[Scope('OnPrem')]
     procedure AssistEdit(OldStudyPlanHeader: Record "Study Plan Header"): Boolean
@@ -378,8 +385,11 @@ table 52761 "Study Plan Header"
         StudyPlanHeader := Rec;
         if rEduConfiguration.Get then;
         rEduConfiguration.TestField("Study Plan Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Study Plan Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries(Code);
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Study Plan Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries(Code);
+        if CU_NoSeries.LookupRelatedNoSeries(OldStudyPlanHeader."No. Series", rEduConfiguration."Study Plan Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo(Code);
+            //TODO: to test NoSeries
             Rec := StudyPlanHeader;
             exit(true);
         end;

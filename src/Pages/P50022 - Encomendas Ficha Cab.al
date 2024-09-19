@@ -78,7 +78,8 @@ page 50022 "Encomendas Ficha Cab"
                     SalesLine: Record "Sales Line";
                     Customer: Record Customer;
                     SalesReceivSetup: Record "Sales & Receivables Setup";
-                    NoSeriesMgm: Codeunit NoSeriesManagement;
+                    //NoSeriesMgm: Codeunit NoSeriesManagement;
+                    CU_NoSeries: Codeunit "No. Series";
                     EncomendasLinha: Record "Encomendas Linhas";
                     NoSeries: Record "No. Series";
                     ItemVariant: Record "Item Variant";
@@ -177,7 +178,9 @@ page 50022 "Encomendas Ficha Cab"
                     SalesHeader.INIT;
                     SalesHeader."Origem Portal Fardas" := TRUE;
                     SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
-                    SalesHeader."No." := NoSeriesMgm.GetNextNo(SalesReceivSetup."Order Nos.", WORKDATE, TRUE);
+                    //SalesHeader."No." := NoSeriesMgm.GetNextNo(SalesReceivSetup."Order Nos.", WORKDATE, TRUE);
+                    //TODO: to delete
+                    SalesHeader."No." := CU_NoSeries.GetNextNo(SalesReceivSetup."Order Nos.", WORKDATE, TRUE);
                     SalesHeader."Order Date" := Rec."Order Date";
                     SalesHeader.VALIDATE(SalesHeader."Posting Date", WORKDATE);
                     SalesHeader.VALIDATE(SalesHeader."Sell-to Customer No.", Rec."Sell-to Customer No.");

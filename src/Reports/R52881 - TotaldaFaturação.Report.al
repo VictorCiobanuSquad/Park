@@ -9,7 +9,7 @@ report 52881 "Total da Faturação"
     {
         dataitem("Sales Invoice Line"; "Sales Invoice Line")
         {
-            DataItemTableView = SORTING("Document No.", "Line No.", "PTSS Not in VAT Report");
+            DataItemTableView = SORTING("Document No.", "Line No.");
             RequestFilterFields = "Posting Date";
             column(FiltroData; FiltroData)
             {

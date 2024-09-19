@@ -17,7 +17,9 @@ table 52763 Class
             begin
                 if Class <> xRec.Class then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Class Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Class Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Class Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -145,10 +147,11 @@ table 52763 Class
                         end;
 
 
-                        Clear(NoSeriesMgt);
+                        Clear(CU_NoSeries);
                         rEduConfiguration.Get;
                         rEduConfiguration.TestField("Class Nos.");
-                        NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
+                        //NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
+                        CU_NoSeries.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
                         if (Class <> '') and ("School Year" <> '') and ("Schooling Year" <> '') then
                             InsertPermission(xRec."Class Director No.", xRec."Class Secretary No.", "Class Director No.", "Class Secretary No.");
 
@@ -452,7 +455,11 @@ table 52763 Class
         if Class = '' then begin
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Class Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Class Nos.", xRec."No. Series", 0D, Class, "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Class Nos.", xRec."No. Series", 0D, Class, "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            Class := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if rUserSetup.Get(UserId) then
@@ -489,7 +496,7 @@ table 52763 Class
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         Text001: Label 'Automatic Numbering already was processed.';
         rRegistrationClass: Record "Registration Class";
         cStudentsRegistration: Codeunit "Students Registration";
@@ -523,6 +530,7 @@ table 52763 Class
         rCompanyInformation: Record "Company Information";
         Text0013: Label 'The Class cannot be deleted.';
         Text0014: Label 'The student %1, was not subscribed because he does not have a course associated in the registration Form.';
+        CU_NoSeries: Codeunit "No. Series";
 
     //[Scope('OnPrem')]
     procedure AssistEdit(OldClass: Record Class): Boolean
@@ -532,8 +540,12 @@ table 52763 Class
         //rClass := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Class Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Class Nos.", OldClass."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries(Class);
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Class Nos.", OldClass."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries(Class);
+        if CU_NoSeries.LookupRelatedNoSeries(OldClass."No. Series", rEduConfiguration."Class Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo(Class);
+            //TODO: to test NoSeries
+
             //Rec := rClass;
             // exit(true);
         end;
@@ -1025,10 +1037,12 @@ table 52763 Class
                 end else
                     Error(l_text0001, "Study Plan Code", l_SchoolYear."School Year");
             end;
-            Clear(NoSeriesMgt);
+            Clear(CU_NoSeries);
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Class Nos.");
-            NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
+            //NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
+            CU_NoSeries.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, true);
+
         end;
     end;
 

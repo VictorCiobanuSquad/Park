@@ -13,7 +13,8 @@ table 52781 Candidate
             begin
                 if "No." <> xRec."No." then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Candidate Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Candidate Nos.");
+                    CU_NoSeries.TestManual(rEduConfiguration."Candidate Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -563,7 +564,11 @@ table 52781 Candidate
 
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Candidate Nos.");
-        NoSeriesMgt.InitSeries(rEduConfiguration."Candidate Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        //NoSeriesMgt.InitSeries(rEduConfiguration."Candidate Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        //TODO: to test NoSeries
+        if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+            "No. Series" := xRec."No. Series";
+        "No." := CU_NoSeries.GetNextNo("No. Series");
         if rUserSetup.Get(UserId) then
             "Responsibility Center" := rUserSetup."Education Resp. Ctr. Filter";
 
@@ -604,7 +609,7 @@ table 52781 Candidate
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         PostCode: Record "Post Code";
         rUsersFamilyCandidate: Record "Users Family / Candidate";
         Text0001: Label 'Are You Sure to Delete the Candidate?';
@@ -629,6 +634,7 @@ table 52781 Candidate
         cStudentsRegistration: Codeunit "Students Registration";
         Text0006: Label 'The Candidate doesn''t have a Paying Entity.';
         UpdateCand: Codeunit "Validate User ID";
+        CU_NoSeries: Codeunit "No. Series";
 
     //[Scope('OnPrem')]
     procedure AssistEdit(OldCandidate: Record Candidate): Boolean
@@ -638,8 +644,11 @@ table 52781 Candidate
         Candidate := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Candidate Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Candidate Nos.", OldCandidate."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Candidate Nos.", OldCandidate."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldCandidate."No. Series", rEduConfiguration."Candidate Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("No.");
+            //TODO: to test NoSeries
             Rec := Candidate;
             exit(true);
         end;
@@ -983,7 +992,7 @@ table 52781 Candidate
         l_rServices: Record "Services ET";
         l_rCandidate: Record Candidate;
         l_rStudent: Record Students;
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        //NoSeriesManagement: Codeunit NoSeriesManagement;
         vCustomer: Code[20];
     begin
         //Faturar a reserva vaga
@@ -1031,7 +1040,7 @@ table 52781 Candidate
         l_rSalesRecSetup.Reset;
         l_rSalesHeader.Reset;
 
-        Clear(NoSeriesManagement);
+        Clear(CU_NoSeries);
 
         if l_rSalesRecSetup.Get then;
         if l_rEduConfig.Get then
@@ -1040,7 +1049,9 @@ table 52781 Candidate
 
         l_rSalesHeader.Init;
         l_rSalesHeader.SetHideValidationDialog(true);
-        l_rSalesHeader."No." := NoSeriesManagement.GetNextNo(l_rSalesRecSetup."Invoice Nos.", WorkDate, true);
+        //l_rSalesHeader."No." := NoSeriesManagement.GetNextNo(l_rSalesRecSetup."Invoice Nos.", WorkDate, true);
+        //TODO: to test
+        l_rSalesHeader."No." := CU_NoSeries.GetNextNo(l_rSalesRecSetup."Invoice Nos.", WorkDate, true);
         l_rSalesHeader."Document Type" := l_rSalesHeader."Document Type"::Invoice;
         l_rSalesHeader."Order Date" := WorkDate;
         l_rSalesHeader."Posting Date" := WorkDate;

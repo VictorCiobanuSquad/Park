@@ -14,7 +14,9 @@ table 52756 Teacher
             begin
                 if "No." <> xRec."No." then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Teacher Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Teacher Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Teacher Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -449,7 +451,11 @@ table 52756 Teacher
         if "No." = '' then begin
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Teacher Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Teacher Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Teacher Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Teacher Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := CU_NoSeries.GetNextNo("No. Series");
             if rUserSetup.Get(UserId) then
                 "Responsibility Center" := rUserSetup."Education Resp. Ctr. Filter";
         end;
@@ -490,7 +496,7 @@ table 52756 Teacher
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         rTeacher: Record Teacher;
         Text0002: Label 'There already is a Users Family %1 with the same Document ID.';
         PostCode: Record "Post Code";
@@ -512,6 +518,7 @@ table 52756 Teacher
         rTableMSI: Record "Table MISI";
         Text0012: Label 'You cannot rename a %1.';
         rCompanyInformation: Record "Company Information";
+        CU_NoSeries: codeunit "No. Series";
 
     //[Scope('OnPrem')]
     procedure AssistEdit(OldTeacher: Record Teacher): Boolean
@@ -521,8 +528,11 @@ table 52756 Teacher
         //Teacher := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Teacher Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Teacher Nos.", OldTeacher."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Teacher Nos.", OldTeacher."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldTeacher."No. Series", rEduConfiguration."Teacher Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("No.");
+            //TODO: to test NoSeries
             //  Rec := Teacher;
             exit(true);
         end;

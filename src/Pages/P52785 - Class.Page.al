@@ -1113,26 +1113,27 @@ page 52785 Class
         "Study Plan CodeEditable" := true;
     end;
 
-    //GCUI SQD
-    // trigger OnNewRecord(BelowxRec: Boolean)
-    // begin
-    //     "Study Plan CodeEditable" := true;
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        "Study Plan CodeEditable" := true;
 
-    //     if Class = '' then begin
-    //         Clear(NoSeriesMgt);
-    //         rEduConfiguration.Get;
-    //         rEduConfiguration.TestField("Class Nos.");
-    //         Class := NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, false);
-    //     end;
-    // end;
-    //GCUI SQD 
+        if REc.Class = '' then begin
+            rEduConfiguration.Get;
+            rEduConfiguration.TestField("Class Nos.");
+            //Rec.Class := NoSeriesMgt.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, false);
+            //TODO：to test
+            Rec.Class := CU_NoSeries.GetNextNo(rEduConfiguration."Class Nos.", WorkDate, false);
+
+        end;
+    end;
 
     var
         rRegistrationClass: Record "Registration Class";
         rStudyPlanLines: Record "Study Plan Lines";
         rCourseLines: Record "Course Lines";
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         rCourseHeader: Record "Course Header";
         rRegistration: Record Registration;
         cUserEducation: Codeunit "User Education";

@@ -13,7 +13,9 @@ table 52766 "Services Plan Head"
             begin
                 if Code <> xRec.Code then begin
                     if rEduConfiguration.Get then;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Service Plan Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Service Plan Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Service Plan Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -164,7 +166,11 @@ table 52766 "Services Plan Head"
         if Code = '' then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Service Plan Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Service Plan Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Service Plan Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Service Plan Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            Code := CU_NoSeries.GetNextNo("No. Series");
         end;
 
 
@@ -187,7 +193,7 @@ table 52766 "Services Plan Head"
     end;
 
     var
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         ServicesET: Record "Services ET";
         rServPlanLine: Record "Services Plan Line";
         cUserEducation: Codeunit "User Education";
@@ -203,6 +209,7 @@ table 52766 "Services Plan Head"
         Text0005: Label 'Cannot modify the School year.';
         Text0001: Label 'Cannot modify the Schooling Year.';
         Text0002: Label 'Cannot modify the Schooling  Year while lines are not put out manually.';
+        CU_NoSeries: Codeunit "No. Series";
 
     local procedure GetService()
     begin
@@ -220,8 +227,12 @@ table 52766 "Services Plan Head"
         ServicesPlanHead := Rec;
         if rEduConfiguration.Get then;
         rEduConfiguration.TestField("Service Plan Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Service Plan Nos.", OldServicesPlanHeader."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries(Code);
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Service Plan Nos.", OldServicesPlanHeader."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries(Code);
+        if CU_NoSeries.LookupRelatedNoSeries(OldServicesPlanHeader."No. Series", rEduConfiguration."Service Plan Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo(Code);
+            //TODO: to test NoSeries
+
             Rec := ServicesPlanHead;
             exit(true);
         end;

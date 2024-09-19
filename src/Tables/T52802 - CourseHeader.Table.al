@@ -14,7 +14,9 @@ table 52802 "Course Header"
             begin
                 if Code <> xRec.Code then begin
                     if rEduConfiguration.Get then;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Course Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Course Nos.");
+                    //TODO: to test NoSeries
+                    CU_NoSeries.TestManual(rEduConfiguration."Course Nos.");
                     Description := '';
                 end;
             end;
@@ -295,7 +297,11 @@ table 52802 "Course Header"
         if Code = '' then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Course Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Course Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Course Nos.", xRec."No. Series", 0D, Code, "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            Code := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         "Country/Region Code" := cStudentsRegistration.GetCountry;
@@ -310,7 +316,8 @@ table 52802 "Course Header"
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         rCourseLines: Record "Course Lines";
         cStudentsRegistration: Codeunit "Students Registration";
         rUserSetup: Record "User Setup";
@@ -336,8 +343,11 @@ table 52802 "Course Header"
         CourseHeader := Rec;
         if rEduConfiguration.Get then;
         rEduConfiguration.TestField("Study Plan Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Course Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries(Code);
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Course Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries(Code);
+        if CU_NoSeries.LookupRelatedNoSeries(OldStudyPlanHeader."No. Series", rEduConfiguration."Course Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo(Code);
+            //TODO: to test NoSeries
             Rec := CourseHeader;
             exit(true);
         end;

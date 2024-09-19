@@ -27,7 +27,8 @@ table 52750 Students
             begin
                 if "No." <> xRec."No." then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Student Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Student Nos.");
+                    CU_NoSeries.TestManual(rEduConfiguration."Student Nos.");
                     "No. Series" := '';
                 end;
             end;
@@ -153,7 +154,7 @@ table 52750 Students
         {
             Caption = 'Date of Issue';
         }
-        field(18; "Home Page"; Text[80])
+        field(18; "Home Page"; Text[255])
         {
             Caption = 'Home Page';
         }
@@ -1123,7 +1124,11 @@ table 52750 Students
         if "No." = '' then begin
             //IT003,o rEduConfiguration.GET;
             rEduConfiguration.TestField("Student Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Student Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Student Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Student Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := CU_NoSeries.GetNextNo("No. Series");
             InsertUsersStudent;
             if rUserSetup.Get(UserId) then
                 "Responsibility Center" := rUserSetup."Education Resp. Ctr. Filter";
@@ -1203,7 +1208,8 @@ table 52750 Students
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         PostCode: Record "Post Code";
         rSchoolYear: Record "School Year";
         rUsersFamiliyStudents: Record "Users Family / Students";
@@ -1253,8 +1259,11 @@ table 52750 Students
         // Students := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Student Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Student Nos.", OldStudent."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Student Nos.", OldStudent."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldStudent."No. Series", rEduConfiguration."Student Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("No.");
+            //TODO: to test NoSeries
             //Rec := Students;
             //exit(true);
         end;

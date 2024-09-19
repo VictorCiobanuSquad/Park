@@ -182,7 +182,11 @@ table 52806 Transport
         if "Transport No." = '' then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Transport Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Transport Nos.", xRec."No. Series", 0D, "Transport No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Transport Nos.", xRec."No. Series", 0D, "Transport No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "Transport No." := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if rUserSetup.Get(UserId) then
@@ -194,7 +198,8 @@ table 52806 Transport
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         cUserEducation: Codeunit "User Education";
         RespCenter: Record "Responsibility Center";
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
@@ -212,8 +217,11 @@ table 52806 Transport
         Vehicle := Rec;
         if rEduConfiguration.Get then;
         rEduConfiguration.TestField("Transport Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Transport Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("Transport No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Transport Nos.", OldStudyPlanHeader."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("Transport No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldStudyPlanHeader."No. Series", rEduConfiguration."Transport Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("Transport No.");
+            //TODO: to test NoSeries
             Rec := Vehicle;
             exit(true);
         end;

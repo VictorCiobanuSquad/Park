@@ -208,7 +208,8 @@ codeunit 52755 "Student Services"
         Text002: Label 'You must select one Paying entity';
         recCustomer: Record Customer;
         rSalesReceivablesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         Text001: Label 'The Candidate %1 already has a customer %2';
         Text004: Label 'Paying entity "%1 - %2" is not created as a customer.\ Do you want to create this customer?';
         rStudents: Record Students;
@@ -245,7 +246,9 @@ codeunit 52755 "Student Services"
                     Error(Text003)
                 else begin
                     recCustomer.Init;
-                    recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                    //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                    //TODO: to test NoSeries
+                    recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                     recCustomer.Validate(Name, rStudents."Short Name");
                     recCustomer.Validate("Post Code", rStudents."Post Code");
                     recCustomer.Validate("Gen. Bus. Posting Group", rStudents."Gen. Bus. Posting Group");
@@ -337,7 +340,9 @@ codeunit 52755 "Student Services"
                     Error(Text003)
                 else begin
                     recCustomer.Init;
-                    recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                    //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                    recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+
                     recCustomer.Validate(Name, rUsersFamily."Short Name");
                     recCustomer.Validate("Post Code", rUsersFamily."Post Code");
                     recCustomer.Validate("Gen. Bus. Posting Group", rUsersFamily."Gen. Bus. Posting Group");
@@ -583,7 +588,8 @@ codeunit 52755 "Student Services"
         Text002: Label 'You must select one Paying entity';
         recCustomer: Record Customer;
         rSalesReceivablesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         Text001: Label 'The Candidate %1 already has a customer %2';
         Text004: Label 'The Paying entity "%1" is not created as a customer.\Do you want to create it as a customer?';
         rCandidate: Record Candidate;
@@ -622,7 +628,9 @@ codeunit 52755 "Student Services"
 
             if vCustomer = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //TODO：to test
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rCandidate."Short Name");
                 recCustomer.Validate(Address, rCandidate.Address);
                 recCustomer.Validate("Address 2", rCandidate."Address 2");
@@ -643,7 +651,8 @@ codeunit 52755 "Student Services"
             if rUsersFamily.Get(pUsersFamilyCandidate."No.") then;
             if rUsersFamily."Customer No." = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rUsersFamily."Short Name");
                 recCustomer.Validate(Address, rUsersFamily.Address);
                 recCustomer.Validate("Post Code", rUsersFamily."Post Code");
@@ -666,7 +675,8 @@ codeunit 52755 "Student Services"
         if rCandidate.Get(pUsersFamilyCandidate."Candidate Code No.") then begin
             if rCandidate."Customer No." = '' then begin
                 recCustomer.Init;
-                recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                //recCustomer."No." := NoSeriesMgt.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
+                recCustomer."No." := CU_NoSeries.GetNextNo(rSalesReceivablesSetup."Customer Nos.", 0D, true);
                 recCustomer.Validate(Name, rCandidate."Short Name");
                 recCustomer.Validate(Address, rCandidate.Address);
                 recCustomer.Validate("Address 2", rCandidate."Address 2");
@@ -829,7 +839,8 @@ codeunit 52755 "Student Services"
     var
         CustBankAcc: Record "Customer Bank Account";
         SalesSetup: Record "Sales & Receivables Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+
         NewNo: Code[20];
     begin
         /*CustBankAcc.RESET;

@@ -625,13 +625,18 @@ table 52785 Test
     trigger OnInsert()
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
     begin
         if ("Line Type" = "Line Type"::Header) and ("Test Type" = "Test Type"::Candidate) then begin
             if "Test No." = '' then begin
                 rEduConfiguration.Get;
                 rEduConfiguration.TestField("Test Nos.");
-                NoSeriesMgt.InitSeries(rEduConfiguration."Test Nos.", xRec."No. Series", 0D, "Test No.", "No. Series");
+                //NoSeriesMgt.InitSeries(rEduConfiguration."Test Nos.", xRec."No. Series", 0D, "Test No.", "No. Series");
+                //TODO: to test NoSeries
+                if CU_NoSeries.AreRelated(rEduConfiguration."Test Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "Test No." := CU_NoSeries.GetNextNo("No. Series");
             end;
         end;
 
@@ -639,7 +644,11 @@ table 52785 Test
             if "Test No." = '' then begin
                 rEduConfiguration.Get;
                 rEduConfiguration.TestField("Recover Test Nos.");
-                NoSeriesMgt.InitSeries(rEduConfiguration."Recover Test Nos.", xRec."No. Series", 0D, "Test No.", "No. Series");
+                //NoSeriesMgt.InitSeries(rEduConfiguration."Recover Test Nos.", xRec."No. Series", 0D, "Test No.", "No. Series");
+                //TODO: to test NoSeries
+                if CU_NoSeries.AreRelated(rEduConfiguration."Recover Test Nos.", xRec."No. Series") then
+                    "No. Series" := xRec."No. Series";
+                "Test No." := CU_NoSeries.GetNextNo("No. Series");
             end;
         end;
 
@@ -800,13 +809,17 @@ table 52785 Test
     var
         Test: Record Test;
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
     begin
         Test := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Test Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Test Nos.", OldTest."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("Test No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Test Nos.", OldTest."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("Test No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldTest."No. Series", rEduConfiguration."Test Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("Test No.");
+            //TODO: to test NoSeries
             Rec := Test;
             exit(true);
         end;

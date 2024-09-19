@@ -57,7 +57,7 @@ xmlport 50046 "Export JDE Int. Posted Files"
             }
             tableelement(SalesInvLine; "Sales Invoice Line")
             {
-                SourceTableView = SORTING("Document No.", "Line No.", "PTSS Not in VAT Report") WHERE("JDE Integrated" = CONST("Not Integrated"), Type = FILTER(<> ' '), Quantity = FILTER(<> 0));
+                SourceTableView = SORTING("Document No.", "Line No.") WHERE("JDE Integrated" = CONST("Not Integrated"), Type = FILTER(<> ' '), Quantity = FILTER(<> 0));
 
                 fieldelement(DocNo; SalesInvLine."Document No.") { }
                 textelement(doctype) { }
@@ -183,7 +183,7 @@ xmlport 50046 "Export JDE Int. Posted Files"
             }
             tableelement(SalesCrMemoLine; "Sales Cr.Memo Line")
             {
-                SourceTableView = SORTING("Document No.", "Line No.", "PTSS Not in VAT Report") WHERE("JDE Integrated" = CONST("Not Integrated"), Type = FILTER(<> ' '), Quantity = FILTER(<> 0));
+                SourceTableView = SORTING("Document No.", "Line No.") WHERE("JDE Integrated" = CONST("Not Integrated"), Type = FILTER(<> ' '), Quantity = FILTER(<> 0));
 
                 fieldelement(DocNo; SalesCrMemoLine."Document No.") { }
                 textelement(doctype2) { }

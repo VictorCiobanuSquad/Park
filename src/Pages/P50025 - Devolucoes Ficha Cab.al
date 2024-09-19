@@ -74,7 +74,8 @@ page 50025 "Devolucoes Ficha Cab"
                     SalesLine: Record "Sales Line";
                     Customer: Record Customer;
                     SalesReceivSetup: Record "Sales & Receivables Setup";
-                    NoSeriesMgm: Codeunit NoSeriesManagement;
+                    //NoSeriesMgm: Codeunit NoSeriesManagement;
+                    Cu_NoSeries: Codeunit "No. Series";
                     DevolucoesLinha: Record "Devolucoes Linhas";
                     NoSeries: Record "No. Series";
                     CustLedEntry: Record "Cust. Ledger Entry";
@@ -104,7 +105,10 @@ page 50025 "Devolucoes Ficha Cab"
                     SalesHeader.INIT;
                     SalesHeader."Origem Portal Fardas" := TRUE;
                     SalesHeader."Document Type" := SalesHeader."Document Type"::"Credit Memo";
-                    SalesHeader."No." := NoSeriesMgm.GetNextNo(SalesReceivSetup."Credit Memo Nos.", WORKDATE, TRUE);
+                    //SalesHeader."No." := NoSeriesMgm.GetNextNo(SalesReceivSetup."Credit Memo Nos.", WORKDATE, TRUE);
+                    //TODO: to test NoSeries
+                    SalesHeader."No." := Cu_NoSeries.GetNextNo(SalesReceivSetup."Credit Memo Nos.", WORKDATE, TRUE);
+
                     SalesHeader.VALIDATE(SalesHeader."Posting Date", WORKDATE);
                     SalesHeader.VALIDATE(SalesHeader."Sell-to Customer No.", Rec."Sell-to Customer No.");
                     SalesHeader."Portal Created by" := Rec."Created by";  //IT010 - Park - Novo campo 	Portal Created by	 - 2018.01.30 - pedido 1093

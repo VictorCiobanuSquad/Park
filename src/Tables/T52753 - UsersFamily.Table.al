@@ -28,7 +28,9 @@ table 52753 "Users Family"
             begin
                 if "No." <> xRec."No." then begin
                     rEduConfiguration.Get;
-                    NoSeriesMgt.TestManual(rEduConfiguration."Users Family Nos.");
+                    //NoSeriesMgt.TestManual(rEduConfiguration."Users Family Nos.");
+                    CU_NoSeries.TestManual(rEduConfiguration."Users Family Nos.");
+                    //guangai edit
                     "No. Series" := '';
                 end;
             end;
@@ -282,7 +284,7 @@ table 52753 "Users Family"
             Editable = false;
             TableRelation = "No. Series";
         }
-        field(28; "Home Page"; Text[80])
+        field(28; "Home Page"; Text[255])
         {
             Caption = 'Home Page';
         }
@@ -678,7 +680,12 @@ table 52753 "Users Family"
         if "No." = '' then begin
             rEduConfiguration.Get;
             rEduConfiguration.TestField("Users Family Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Users Family Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Users Family Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Users Family Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "No." := CU_NoSeries.GetNextNo("No. Series");
+
             if rUserSetup.Get(UserId) then
                 "Responsibility Center" := rUserSetup."Education Resp. Ctr. Filter";
 
@@ -741,7 +748,8 @@ table 52753 "Users Family"
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         rSchoolYear: Record "School Year";
         rUsersFamily: Record "Users Family";
         Text0002: Label 'There already is a Users Family %1 with the same Name.';
@@ -780,8 +788,11 @@ table 52753 "Users Family"
         //  UserFamily := Rec;
         rEduConfiguration.Get;
         rEduConfiguration.TestField("Users Family Nos.");
-        if NoSeriesMgt.SelectSeries(rEduConfiguration."Users Family Nos.", OldUserFamily."No. Series", "No. Series") then begin
-            NoSeriesMgt.SetSeries("No.");
+        //if NoSeriesMgt.SelectSeries(rEduConfiguration."Users Family Nos.", OldUserFamily."No. Series", "No. Series") then begin
+        //NoSeriesMgt.SetSeries("No.");
+        if CU_NoSeries.LookupRelatedNoSeries(OldUserFamily."No. Series", rEduConfiguration."Users Family Nos.", "No. Series") then begin
+            CU_NoSeries.GetNextNo("No.");
+            //TODO: to test NoSeries
             //   Rec := UserFamily;
             //exit(true);
         end;

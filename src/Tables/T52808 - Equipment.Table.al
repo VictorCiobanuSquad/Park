@@ -180,13 +180,21 @@ table 52808 Equipment
         if ("Equipment No." = '') and (Type = Type::Single) then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Equipment Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Equipment Nos.", xRec."No. Series", 0D, "Equipment No.", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Equipment Nos.", xRec."No. Series", 0D, "Equipment No.", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Equipment Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "Equipment No." := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if ("Equipment No." = '') and (Type = Type::Group) then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Group Equipment Nos.");
-            NoSeriesMgt.InitSeries(rEduConfiguration."Group Equipment Nos.", xRec."No. Series", 0D, "Equipment Group", "No. Series");
+            //NoSeriesMgt.InitSeries(rEduConfiguration."Group Equipment Nos.", xRec."No. Series", 0D, "Equipment Group", "No. Series");
+            //TODO: to test NoSeries
+            if CU_NoSeries.AreRelated(rEduConfiguration."Equipment Nos.", xRec."No. Series") then
+                "No. Series" := xRec."No. Series";
+            "Equipment No." := CU_NoSeries.GetNextNo("No. Series");
         end;
 
         if rUserSetup.Get(UserId) then
@@ -262,7 +270,8 @@ table 52808 Equipment
 
     var
         rEduConfiguration: Record "Edu. Configuration";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        CU_NoSeries: Codeunit "No. Series";
         cUserEducation: Codeunit "User Education";
         RespCenter: Record "Responsibility Center";
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
@@ -286,17 +295,22 @@ table 52808 Equipment
         if Type = Type::Single then begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Equipment Nos.");
-            if NoSeriesMgt.SelectSeries(rEduConfiguration."Equipment Nos.", pEquipment."No. Series", "No. Series") then begin
-                NoSeriesMgt.SetSeries("Equipment No.");
+            //if NoSeriesMgt.SelectSeries(rEduConfiguration."Equipment Nos.", pEquipment."No. Series", "No. Series") then begin
+            //NoSeriesMgt.SetSeries("Equipment No.");
+            if CU_NoSeries.LookupRelatedNoSeries(pEquipment."No. Series", rEduConfiguration."Equipment Nos.", "No. Series") then begin
+                CU_NoSeries.GetNextNo("Equipment No.");
+                //TODO: to test NoSeries
                 Rec := Equipment;
                 exit(true);
             end;
         end else begin
             if rEduConfiguration.Get then;
             rEduConfiguration.TestField("Group Equipment Nos.");
-            if NoSeriesMgt.SelectSeries(rEduConfiguration."Group Equipment Nos.", pEquipment."No. Series",
-                                        "No. Series") then begin
-                NoSeriesMgt.SetSeries("Equipment Group");
+            //if NoSeriesMgt.SelectSeries(rEduConfiguration."Group Equipment Nos.", pEquipment."No. Series","No. Series") then begin
+            //NoSeriesMgt.SetSeries("Equipment Group");
+            if CU_NoSeries.LookupRelatedNoSeries(pEquipment."No. Series", rEduConfiguration."Group Equipment Nos.", "No. Series") then begin
+                CU_NoSeries.GetNextNo("Equipment Group");
+                //TODO: to test NoSeries
                 Rec := Equipment;
                 exit(true);
             end;
