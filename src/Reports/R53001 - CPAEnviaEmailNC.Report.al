@@ -172,6 +172,7 @@ report 53001 EnviaEmailCrMemo
 
         CU_EmailMessage.Create(ToRecipients, EmailSubject, MsgBody, true, CCRecipients, BCCRecipients);
         DownloadFromStream(IStream, 'Export', '', 'All Files (*.*)|*.*', FileN);
+        //test if the pdf file is ok
 
         //if not CheckIfInStreamIsEmpty(IStream) then
         CU_EmailMessage.AddAttachment(FileN, 'pdf', IStream);

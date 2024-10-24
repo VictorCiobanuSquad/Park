@@ -6,6 +6,7 @@ page 50033 "Tesouraria Role Center"
     PageType = RoleCenter;
     actions
     {
+        //TODO:to check missing pages
         area(Sections)
         {
             group(Tesouraria)
