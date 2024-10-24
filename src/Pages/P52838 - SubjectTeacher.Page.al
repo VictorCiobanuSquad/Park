@@ -170,13 +170,13 @@ page 52838 "Subject Teacher"
         [InDataSet]
         SubSubjectTeacherEnable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure funClass(parClass: Record Class)
     begin
         varClass := parClass;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure funFillTeacherClass()
     var
         rTeacherClass: Record "Teacher Class";

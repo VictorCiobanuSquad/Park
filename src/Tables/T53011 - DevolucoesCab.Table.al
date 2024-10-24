@@ -86,19 +86,19 @@ table 53011 "Devolucoes Cab"
         Text006: Label 'NC refrente à FT ';
         Text007: Label 'Credit Note for Invoice ';
 
-    //[Scope('OnPrem')]
+
     procedure SelectAll()
     begin
         MODIFYALL(Pick, TRUE);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UnSelectAll()
     begin
         MODIFYALL(Pick, FALSE);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CountMarkReturns(): Integer
     begin
         ReturnHeader2.RESET;
@@ -106,7 +106,7 @@ table 53011 "Devolucoes Cab"
         EXIT(ReturnHeader2.COUNT);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PickReturnCreate()
     var
         SalesHeader: Record "Sales Header";

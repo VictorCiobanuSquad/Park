@@ -322,7 +322,7 @@ table 52755 "Edu. Configuration"
         Text0001: Label 'Replace this value in all forms of Teachers?';
         Text0002: Label 'Completed process.';
 
-    //[Scope('OnPrem')]
+
     procedure UpdateInvoiceData()
     var
         l_Students: Record Students;

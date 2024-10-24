@@ -8,7 +8,7 @@ codeunit 52773 Permissions
     var
         cStudentsRegistration: Codeunit "Students Registration";
 
-    //[Scope('OnPrem')]
+
     procedure StudyPlanFilter(var rRegistrationClassTEMP: Record "Registration Class" temporary)
     var
         rStudyPlanHeader: Record "Study Plan Header";
@@ -97,7 +97,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ClassFilter(var tempClass: Record Class temporary; pEvalIncid: Integer)
     var
         rTeacherClass: Record "Teacher Class";
@@ -165,7 +165,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectFilter(pType: Option Simple,Multi; pSchoolYear: Code[9]; pClass: Code[20]; pStudyPlanCode: Code[20]; pSchoolingYear: Code[10]; var TempStudyPlanLines: Record "Study Plan Lines" temporary; var TempCourseLines: Record "Course Lines" temporary; pEvalIncid: Integer)
     var
         rTeacherClass: Record "Teacher Class";
@@ -428,7 +428,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AllowGlobalObs(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10]): Boolean
     var
         rTeacherClass: Record "Teacher Class";
@@ -448,7 +448,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -468,7 +468,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AllowSummary(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pSubjectCode: Code[10]; pTurn: Code[20]) Summary: Boolean
     var
         rTeacherClass: Record "Teacher Class";
@@ -500,7 +500,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AllowIncidences(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pSubjectCode: Code[10]; pTurn: Code[20]) Incidence: Boolean
     var
         rTeacherClass: Record "Teacher Class";
@@ -531,7 +531,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AllowIncidencesAllDay(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pSubjectCode: Code[10]; pTurn: Code[20]) Incidence: Boolean
     var
         rTeacherClass: Record "Teacher Class";
@@ -555,7 +555,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectFilterIncidence(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]; var TempCalendar: Record Calendar temporary; pDataIni: Date; pDataFim: Date; pTurn: Code[20])
     var
         rTeacherClass: Record "Teacher Class";
@@ -648,7 +648,7 @@ codeunit 52773 Permissions
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AllowJustifyIncidence(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]): Boolean
     var
         rTeacherClass: Record "Teacher Class";

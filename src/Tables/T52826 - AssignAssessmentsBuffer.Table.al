@@ -86,7 +86,7 @@ table 52826 "Assign Assessments Buffer"
     var
         Text0001: Label 'You must fill the Class and Subject fields.';
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAssessignStudents(varClass: Code[20]; varSubject: Code[10]; varRespCenter: Code[10]; varSchoolYear: Code[9]; varSchoolingYear: Code[10]; varStudyPlanCode: Code[20]; varStudent: Code[20]; varMoment: Code[10]; varSubSubject: Code[20])
     var
         lAssessingStudents: Record "Assessing Students";

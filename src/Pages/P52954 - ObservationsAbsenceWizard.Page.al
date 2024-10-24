@@ -413,14 +413,14 @@ page 52954 "Observations Absence Wizard"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Caption(): Text[260]
     var
         CaptionStr: Text[260];
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInformation(pAbsence: Record Absence; pSchoolingYear: Code[10]; pEditButton: Boolean)
     begin
         varStudentCodeNo := pAbsence."Student/Teacher Code No.";
@@ -446,7 +446,7 @@ page 52954 "Observations Absence Wizard"
         varLineno := pAbsence."Line No.";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetObservationCode()
     var
         rIncidenceTpe: Record "Incidence Type";
@@ -469,7 +469,7 @@ page 52954 "Observations Absence Wizard"
             VarObservationCode := rIncidenceTpe.Observations;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertLines()
     var
         l_Observation: Record Observation;
@@ -557,7 +557,7 @@ page 52954 "Observations Absence Wizard"
             until l_Observation.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteLines()
     var
         lRemarks: Record Remarks;
@@ -571,7 +571,7 @@ page 52954 "Observations Absence Wizard"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateAbsence()
     var
         rAbsence: Record Absence;
@@ -614,7 +614,7 @@ page 52954 "Observations Absence Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNo(): Integer
     var
         l_Remarks: Record Remarks;
@@ -626,7 +626,7 @@ page 52954 "Observations Absence Wizard"
             exit(1);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStatusJustified(pStatusJustified: Option " ",Unjustified,Justified)
     begin
         varPeditButton := true;
@@ -635,7 +635,7 @@ page 52954 "Observations Absence Wizard"
             varPeditButton := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetEditable(pEditButton: Boolean)
     begin
         varPeditButton := pEditButton;

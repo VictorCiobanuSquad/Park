@@ -520,7 +520,7 @@ table 52756 Teacher
         rCompanyInformation: Record "Company Information";
         CU_NoSeries: codeunit "No. Series";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldTeacher: Record Teacher): Boolean
     var
         Teacher: Record Teacher;
@@ -538,7 +538,7 @@ table 52756 Teacher
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;
@@ -566,7 +566,7 @@ table 52756 Teacher
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateName()
     begin
         rTeacher.Reset;
@@ -590,7 +590,7 @@ table 52756 Teacher
             Message(Text0003, rTeacher."No.");
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure OpenFile(WindowTitle: Text[50]; DefaultFileName: Text[250]; DefaultFileType: Option " ",Text,Excel,Word,Custom; FilterString: Text[250]; "Action": Option Open,Save; var FileNameImport: Text[250]; var Extension: Code[50]; var Path: Text[250]) returnText: Text[260]
     var
         Text0031: Label '.txt';

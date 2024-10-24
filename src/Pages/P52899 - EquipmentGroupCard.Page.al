@@ -117,7 +117,7 @@ page 52899 "Equipment Group Card"
         "Equipment No.Visible": Boolean;
         GeneralHeight: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure Filters(pfilter: Option " ",Single,Group)
     begin
 

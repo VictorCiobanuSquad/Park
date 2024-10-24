@@ -44,13 +44,13 @@ page 52779 "SubForm Giving Services"
     {
     }
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SelectRecords(inBoolean: Boolean)
     begin
     end;

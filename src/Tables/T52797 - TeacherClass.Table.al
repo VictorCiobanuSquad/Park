@@ -784,7 +784,7 @@ table 52797 "Teacher Class"
         rSubjectsGroup: Record "Subjects Group";
         rCompanyInformation: Record "Company Information";
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -804,7 +804,7 @@ table 52797 "Teacher Class"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSchoolYear(): Code[9]
     var
         l_SchoolYear: Record "School Year";
@@ -815,7 +815,7 @@ table 52797 "Teacher Class"
             exit(l_SchoolYear."School Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFullName()
     var
         rEduConfiguration: Record "Edu. Configuration";

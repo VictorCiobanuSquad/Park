@@ -149,7 +149,7 @@ page 52884 "Absences Counter"
         cEvaluationsIncide: Codeunit "Evaluations-Incidences";
         vSubject: Code[22];
 
-    //[Scope('OnPrem')]
+
     procedure AbsencesCounter()
     var
         rStructureEducCountry: Record "Structure Education Country";
@@ -365,7 +365,7 @@ page 52884 "Absences Counter"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);

@@ -126,7 +126,7 @@ report 52762 "Evaluation Posting First Cycle"
         varFI: Integer;
         varLFI: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure fApproval(pTransitionRules: Record "Transition Rules")
     begin
         if pTransitionRules."Not Approved" then begin

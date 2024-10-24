@@ -114,7 +114,7 @@ table 52829 "Absence ET-RH"
         rAbsenceETRH: Record "Absence ET-RH";
         nMov: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure SendAbsencesToHR()
     begin
         /*

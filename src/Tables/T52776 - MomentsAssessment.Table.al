@@ -240,7 +240,7 @@ table 52776 "Moments Assessment"
         Text006: Label 'Not allowed, there are sub-Subjects setting ratings for this moment';
         Text007: Label 'You cannot rename a %1.';
 
-    //[Scope('OnPrem')]
+
     procedure InsertMoment(pMomentsAssessment: Record "Moments Assessment")
     var
         rStudyPlanLines: Record "Study Plan Lines";
@@ -255,7 +255,7 @@ table 52776 "Moments Assessment"
             until rStudyPlanLines.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyMoment()
     var
         Text99901: Label 'Change the %1?';
@@ -296,7 +296,7 @@ table 52776 "Moments Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteMoment()
     var
         Text99901: Label 'Want to delete the %1?';
@@ -328,7 +328,7 @@ table 52776 "Moments Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenCreateAssessmentConf(pStudyPlanLines: Record "Study Plan Lines")
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -396,7 +396,7 @@ table 52776 "Moments Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMomentDate(pdate: Date; pResponsabilityCenter: Code[20]; pSchoolYear: Code[20]; pSchoolingYear: Code[20]) Out_MomentCode: Code[20]
     var
         l_rMoments: Record "Moments Assessment";

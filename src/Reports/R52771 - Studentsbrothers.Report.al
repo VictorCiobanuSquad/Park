@@ -228,7 +228,7 @@ report 52771 "Students brothers"
         "Núm__codi_estudiantCaption_Control1102065022Lbl": Label 'Student Code No.';
         vClassStu: Text[30];
 
-    //[Scope('OnPrem')]
+
     procedure RecebeDados(inSchoolYear: Code[50])
     begin
         varSchoolYear := inSchoolYear;

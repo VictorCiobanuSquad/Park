@@ -154,7 +154,7 @@ page 52979 "Meeting Calendar"
         vEndDate: Date;
         cUserEducation: Codeunit "User Education";
 
-    //[Scope('OnPrem')]
+
     procedure InsertFormLines()
     var
         l_TimetableTeacher: Record "Timetable-Teacher";

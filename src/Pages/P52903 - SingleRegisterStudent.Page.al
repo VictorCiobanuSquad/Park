@@ -341,7 +341,7 @@ page 52903 "Single Register Student"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentSubjects(pRegSubjects: Record "Registration Subjects")
     begin
         rRegSubjects := pRegSubjects;

@@ -30,14 +30,14 @@ page 52965 "Annotation Subform"
     {
     }
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters(pCode: Code[20]; pSchoolYear: Code[20]; pObservationType: Integer)
     begin
         Rec.SetRange(Code, pCode);
         Rec.SetRange("School Year", pSchoolYear);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetFormRecord(var pAnnotation: Record Annotation)
     var
         lAnnotation: Record Annotation;
@@ -49,7 +49,7 @@ page 52965 "Annotation Subform"
         Rec.Copy(lAnnotation);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Updateform()
     begin
         CurrPage.Update(false);

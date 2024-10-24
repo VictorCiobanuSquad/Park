@@ -388,7 +388,7 @@ page 52768 Registration
         SchoolingYearEditable: Boolean;
         Text0015: Label 'Confirma que deseja alterar o Estado Actual do Aluno?';
 
-    //[Scope('OnPrem')]
+
     procedure feditavel()
     begin
 

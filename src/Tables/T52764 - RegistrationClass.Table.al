@@ -355,7 +355,7 @@ table 52764 "Registration Class"
         rCompanyInformation: Record "Company Information";
         Text0020: Label 'You cannot rename a %1.';
 
-    //[Scope('OnPrem')]
+
     procedure TransferStudent(pTransferDate: Date; pTransferClass: Code[20]; pSchoolName: Text[128]; pStudyPlanCode: Code[20]; pDestination: Option " ","Public School","Private School",Foreign)
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -419,7 +419,7 @@ table 52764 "Registration Class"
             Error(Text0010);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NewClass(pNewClass: Code[20]; pStudyPlanCode: Code[20]; pRespCenter: Code[10])
     var
         LastNoClass: Integer;
@@ -458,7 +458,7 @@ table 52764 "Registration Class"
         rRegistrationClass.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects()
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -479,7 +479,7 @@ table 52764 "Registration Class"
         PAGE.RunModal(PAGE::Aspects, rAspects);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateClassNo()
     var
         l_rRegistrationClass: Record "Registration Class";
@@ -554,7 +554,7 @@ table 52764 "Registration Class"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentClass(pTransferClass: Code[20])
     var
         l_RegistrationClass: Record "Registration Class";
@@ -570,7 +570,7 @@ table 52764 "Registration Class"
             Error(l_Text0001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudentSchoolName(pSchoolCode: Code[10])
     var
         l_StudentsTransfersSchool: Record "Students Transfers School";

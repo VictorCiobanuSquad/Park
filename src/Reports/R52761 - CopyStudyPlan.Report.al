@@ -94,7 +94,7 @@ report 52761 "Copy Study Plan"
         varRespCenter: Code[10];
         Window: Dialog;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudyPlan()
     var
         l_rStudyPlanHeader: Record "Study Plan Header";
@@ -172,7 +172,7 @@ report 52761 "Copy Study Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudyPlanNo(pStudyPlanCode: Code[20]; pRespCenter: Code[10])
     begin
 
@@ -181,7 +181,7 @@ report 52761 "Copy Study Plan"
         varRespCenter := pRespCenter;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopySubSubject(pStudyPlanLines: Record "Study Plan Lines")
     var
         rStudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines";
@@ -214,7 +214,7 @@ report 52761 "Copy Study Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspects()
     var
         rAspects: Record Aspects;
@@ -258,7 +258,7 @@ report 52761 "Copy Study Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspectsSubSubjects()
     var
         rSettingRatingsSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -302,7 +302,7 @@ report 52761 "Copy Study Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRatingsSubSubjects(pStudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines")
     var
         rSettingRatingsSubSubjects: Record "Setting Ratings Sub-Subjects";

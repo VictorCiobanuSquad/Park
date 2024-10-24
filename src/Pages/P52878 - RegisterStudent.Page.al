@@ -470,7 +470,7 @@ page 52878 "Register Student"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentSubjects(pRegSubjects: Record "Registration Subjects")
     begin
         rRegSubjects := pRegSubjects;
@@ -478,7 +478,7 @@ page 52878 "Register Student"
         if rStudents.Get(Rec."Student Code No.") then;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetClassStudents()
     var
         rRegistrationClass: Record "Registration Class";

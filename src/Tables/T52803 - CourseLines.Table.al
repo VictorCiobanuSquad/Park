@@ -917,7 +917,7 @@ table 52803 "Course Lines"
         Text0020: Label 'You cannot rename a %1.';
         rCompanyInformation: Record "Company Information";
 
-    //[Scope('OnPrem')]
+
     procedure OpenCreateAssessmentConf()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -1098,7 +1098,7 @@ table 52803 "Course Lines"
             Error(Text0011);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects(pMomentCode: Code[10]; pSchoolingYear: Code[10])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -1123,7 +1123,7 @@ table 52803 "Course Lines"
         //FORM.RUNMODAL(FORM::Aspects,rAspects);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateWeighting()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -1207,7 +1207,7 @@ table 52803 "Course Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects2(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -1288,7 +1288,7 @@ table 52803 "Course Lines"
         PAGE.RunModal(PAGE::Aspects, rAspects);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateAssessmentConfAll()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -1485,7 +1485,7 @@ table 52803 "Course Lines"
             Error(Text0011);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspectsAll(pMomentCode: Code[10]; pSchoolingYear: Code[10]; pSubject: Code[20]; pSubSubject: Code[20])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -1506,7 +1506,7 @@ table 52803 "Course Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubject()
     var
         l_SchoolYear: Record "School Year";
@@ -1605,7 +1605,7 @@ table 52803 "Course Lines"
             cStudentsRegistration.UpdateSubjectsCourse(Rec, varSchoolYear, l_StruEducCountry."Schooling Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSubject()
     begin
         rRegistrationSubjects.Reset;
@@ -1618,7 +1618,7 @@ table 52803 "Course Lines"
             Error(Text0016);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubjects(pSchoolYear: Code[9]; pCode: Code[20]; pSubjectsCode: Code[10]; pAssessmentCode: Code[20]; pEvaluationType: Integer)
     var
         StudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines";
@@ -1649,7 +1649,7 @@ table 52803 "Course Lines"
         SettingRatings.ModifyAll("Assessment Code", pAssessmentCode);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VerificarFaltas(Courses: Code[20]; SubjectCode: Code[20])
     var
         Absence: Record Absence;

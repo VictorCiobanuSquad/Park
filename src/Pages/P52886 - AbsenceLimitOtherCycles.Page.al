@@ -121,7 +121,7 @@ page 52886 "Absence Limit Other Cycles"
         cUserEducation: Codeunit "User Education";
         vStudentName: Text[191];
 
-    //[Scope('OnPrem')]
+
     procedure "Filter"()
     var
         Absence: Record Absence;

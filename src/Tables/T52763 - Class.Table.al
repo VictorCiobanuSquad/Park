@@ -532,7 +532,7 @@ table 52763 Class
         Text0014: Label 'The student %1, was not subscribed because he does not have a course associated in the registration Form.';
         CU_NoSeries: Codeunit "No. Series";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldClass: Record Class): Boolean
     var
         rClass: Record Class;
@@ -551,7 +551,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AssignNumbers()
     var
         VarNumber: Integer;
@@ -673,7 +673,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure fWindow() pData: Date
     var
         Window: Dialog;
@@ -701,7 +701,7 @@ table 52763 Class
             exit(VarData);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CancelRegistrationClass(pRegistrationClass: Record "Registration Class")
     var
         cTimetableCalendarMgt: Codeunit "Timetable Calendar Mgt";
@@ -738,7 +738,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CorrectRegistrationClass(pRegistrationClass: Record "Registration Class")
     var
         cTimetableCalendarMgt: Codeunit "Timetable Calendar Mgt";
@@ -804,7 +804,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubscribedRegistrationClass()
     var
         cTimetableCalendarMgt: Codeunit "Timetable Calendar Mgt";
@@ -932,7 +932,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentSubscribed(pRegClass: Record "Registration Class")
     var
         rRegClass: Record "Registration Class";
@@ -948,7 +948,7 @@ table 52763 Class
             Error(Text006, rRegClass."Student Code No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetType(pSchoolingYear: Code[10]): Integer
     var
         l_StructureEducationCountry: Record "Structure Education Country";
@@ -960,7 +960,7 @@ table 52763 Class
             exit(l_StructureEducationCountry.Type);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudyPlan()
     var
         l_SchoolYear: Record "School Year";
@@ -1046,7 +1046,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertPermission(pDirectorOld: Code[20]; pSecretaryOld: Code[20]; pDirectorNew: Code[20]; pSecretaryNew: Code[20])
     var
         rTeacherClass: Record "Teacher Class";
@@ -1113,7 +1113,7 @@ table 52763 Class
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
@@ -1122,7 +1122,7 @@ table 52763 Class
         Modify;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteStudentSchoolTransfer(pStudentCode: Code[20])
     var
         l_StudentsTransfersSchool: Record "Students Transfers School";
@@ -1135,7 +1135,7 @@ table 52763 Class
         l_StudentsTransfersSchool.DeleteAll;
     end;
     /*
-        //[Scope('OnPrem')]
+         
         procedure OpenFile(WindowTitle: Text[50]; DefaultFileName: Text[250]; DefaultFileType: Option " ",Text,Excel,Word,Custom; FilterString: Text[250]; "Action": Option Open,Save; var FileNameImport: Text[250]; var Extension: Code[50]; var Path: Text[250]) returnText: Text[260]
         var
             Text0031: Label '.txt';

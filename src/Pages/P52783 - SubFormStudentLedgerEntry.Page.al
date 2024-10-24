@@ -180,7 +180,7 @@ page 52783 "SubForm Student Ledger Entry"
         Text001: Label 'This record can not be deleted.';
         rStudent: Record Students;
 
-    //[Scope('OnPrem')]
+
     procedure GetRecord() InvoiceNo: Code[20]
     begin
         exit(Rec."Registed Invoice No.");

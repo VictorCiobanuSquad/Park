@@ -546,7 +546,7 @@ page 52808 "Candidate Card"
         CandidateEntryEditable: Boolean;
         FileMgt: Codeunit "File Management";
 
-    //[Scope('OnPrem')]
+
     procedure feditable()
     begin
         /*

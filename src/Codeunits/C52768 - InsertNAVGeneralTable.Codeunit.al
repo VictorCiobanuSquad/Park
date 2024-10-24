@@ -14,7 +14,7 @@ codeunit 52768 InsertNAVGeneralTable
         rCompanyInformation: Record "Company Information";
         rStructureEducationCountry: Record "Structure Education Country";
 
-    //[Scope('OnPrem')]
+
     procedure InsertGTStudent(pRegistrationSubjects: Record "Registration Subjects")
     var
         rGeneralTable: Record GeneralTable;
@@ -154,7 +154,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertGenTableSubSubjetc(pRegistrationSubjects: Record "Registration Subjects"; pMomentCode: Code[20])
     var
         rStudentSubSubjectsPlan: Record "Student Sub-Subjects Plan ";
@@ -335,7 +335,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsGenTableSubSubjetcAddiciona(pRegistrationSubjects: Record "Registration Subjects"; pStudentSubSubjectsPlan: Record "Student Sub-Subjects Plan ")
     var
         rSettingRatingsSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -500,7 +500,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModDelGTSubjectAssessemetSP(pStudyPlanLines: Record "Study Plan Lines"; "pDelete?": Boolean)
     var
         rGeneralTable: Record GeneralTable;
@@ -576,7 +576,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModDelGTSubjectAssessemetCL(pCourseLines: Record "Course Lines"; "pDelete?": Boolean)
     var
         rGeneralTable: Record GeneralTable;
@@ -659,7 +659,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelGTStudent(pRegistrationSubjects: Record "Registration Subjects")
     var
         rGeneralTable: Record GeneralTable;
@@ -706,7 +706,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAspects(pRegistrationSubjects: Record "Registration Subjects"; pGeneralTable: Record GeneralTable; pSubSubjects: Code[20])
     var
         rAspects: Record Aspects;
@@ -813,7 +813,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAspectsStudent(pSubSubjects: Code[20]; pSubjects: Code[20]; pStudent: Code[20]; pAspects: Record Aspects)
     var
         rGeneralTable: Record GeneralTable;
@@ -884,7 +884,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAspectsStudent(pSubSubjects: Code[20]; pSubjects: Code[20]; pStudent: Code[20]; pAspects: Record Aspects)
     var
         rGeneralTable: Record GeneralTable;
@@ -937,7 +937,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModDelAspects(pAspects: Record Aspects; pOldAspects: Record Aspects; "pDelete?": Boolean)
     var
         rGeneralTableAspects: Record GeneralTableAspects;
@@ -1958,14 +1958,14 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateWeb(): Integer
     begin
         //if rCompanyInformation.Get then
         //exit(rCompanyInformation."Connection Type")
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AnunulGTStudent(pRegistrationSubjects: Record "Registration Subjects")
     var
         rGeneralTable: Record GeneralTable;
@@ -2009,7 +2009,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspects(pType: Integer; pTypeNo: Code[20]; pSchoolYear: Code[10]; pSchoolingYear: Code[10]; pMomentCode: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pAspectCode: Code[20]; pRCenter: Code[20]; var pAspects: Record Aspects; pGeneralTableAspects: Record GeneralTableAspects; pDelete: Boolean) NextLevel: Boolean
     var
         RegistrationClass: Record "Registration Class";
@@ -2482,7 +2482,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelAspects(pAspects: Record Aspects; pOldAspects: Record Aspects; "pDelete?": Boolean)
     var
         rGeneralTableAspects: Record GeneralTableAspects;
@@ -2994,7 +2994,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(var l_GeneralTable: Record GeneralTable)
     var
         l_AssessingStudents: Record "Assessing Students";
@@ -3045,7 +3045,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateAssessment(p_AssessingStudents: Record "Assessing Students")
     var
         l_GeneralTable: Record GeneralTable;
@@ -3106,7 +3106,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAssessment(p_AssessingStudents: Record "Assessing Students")
     var
         l_GeneralTable: Record GeneralTable;
@@ -3139,7 +3139,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelSubjetsSettingRatings(p_SettingRatings: Record "Setting Ratings")
     var
         l_GeneralTable: Record GeneralTable;
@@ -3170,7 +3170,7 @@ codeunit 52768 InsertNAVGeneralTable
             until l_Class.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelSubSubjetsSettingRatings(p_SettingRatingsSS: Record "Setting Ratings Sub-Subjects")
     var
         l_GeneralTable: Record GeneralTable;
@@ -3201,7 +3201,7 @@ codeunit 52768 InsertNAVGeneralTable
             until l_Class.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRatings(p_SettingRatings: Record "Setting Ratings")
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -3358,7 +3358,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRatingsSS(p_SettingRatingsSS: Record "Setting Ratings Sub-Subjects")
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -3520,7 +3520,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ChangeSubSubjAspects(pAspects: Record Aspects; pGeneralTable: Record GeneralTable)
     var
         rGeneralTable: Record GeneralTable;
@@ -3570,7 +3570,7 @@ codeunit 52768 InsertNAVGeneralTable
             until rGeneralTable.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelInsCourseSubjects(pAspects: Record Aspects)
     var
         lRegistrationSubjects: Record "Registration Subjects";
@@ -3615,7 +3615,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertUpdateFinalAssessment(lAssessingStudentsFinal: Record "Assessing Students Final")
     var
         rGeneralTable: Record GeneralTable;
@@ -3761,7 +3761,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteFinalAssessment(lAssessingStudentsFinal: Record "Assessing Students Final")
     var
         rGeneralTable: Record GeneralTable;
@@ -3804,7 +3804,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModStructureEducationCountry(pStructureEducationCountry: Record "Structure Education Country")
     var
         rMasterTableWEB: Record MasterTableWEB;
@@ -3840,7 +3840,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertRemarks(pNewRec: Record Remarks)
     var
         lWEBRemarks: Record "WEB Remarks";
@@ -3873,7 +3873,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteRemarks(pNewRec: Record Remarks)
     var
         lWEBRemarks: Record "WEB Remarks";
@@ -3899,7 +3899,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspectsAssessment(var pGeneralTableAspects: Record GeneralTableAspects)
     var
         rAssessingStudentsAspects: Record "Assessing Students Aspects";
@@ -3939,7 +3939,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateStudentsSubjectsTurn(pRegistrationSubjects: Record "Registration Subjects")
     var
         rGeneralTable: Record GeneralTable;
@@ -3962,7 +3962,7 @@ codeunit 52768 InsertNAVGeneralTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateStudentsSubSubjectsTurn(pStudentSubSubjects: Record "Student Sub-Subjects Plan ")
     var
         rGeneralTable: Record GeneralTable;

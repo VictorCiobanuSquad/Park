@@ -107,14 +107,14 @@ page 52971 "Calendar Base Line"
         WeekNo: Integer;
         TimetableCalendarMgt: Codeunit "Timetable Calendar Mgt";
 
-    //[Scope('OnPrem')]
+
     procedure SetCalendarCode(CalendarCode: Code[10])
     begin
         CurrentCalendarCode := CalendarCode;
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateBaseCalendarChanges()
     begin
         BaseCalendarChangeEDU.Reset;
@@ -134,7 +134,7 @@ page 52971 "Calendar Base Line"
         BaseCalendarChangeEDU.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCurrentDate(): Date
     begin
         exit(Rec."Period Start");

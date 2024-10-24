@@ -843,7 +843,7 @@ table 52788 "Timetable Lines"
         Text0008: Label 'Please insert subject.';
         varLine: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure fJoinSubjects(var parTimetableLines: Record "Timetable Lines")
     var
         rTimetableLines: Record "Timetable Lines";
@@ -973,7 +973,7 @@ table 52788 "Timetable Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -993,7 +993,7 @@ table 52788 "Timetable Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LoadTeachers(var parTimetableLines: Record "Timetable Lines")
     var
         rTimetableLines: Record "Timetable Lines";
@@ -1092,7 +1092,7 @@ table 52788 "Timetable Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FullName(pTeacher: Code[20]) rName: Text[191]
     var
         rEduConfiguration: Record "Edu. Configuration";

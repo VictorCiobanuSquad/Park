@@ -31,7 +31,7 @@ codeunit 52779 "Sales-Post + Print EDUSOL"
         Commit;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetReport(var SalesHeader: Record "Sales Header")
     begin
 

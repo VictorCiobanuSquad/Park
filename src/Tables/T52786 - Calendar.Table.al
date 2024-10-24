@@ -462,7 +462,7 @@ table 52786 Calendar
         cStudentsRegistration: Codeunit "Students Registration";
         rHorario: Record Timetable;
 
-    //[Scope('OnPrem')]
+
     procedure CreateAbsences(pCalendar: Record Calendar; pStudentTeacher: Integer; pInicialDate: Date; pEndDate: Date)
     var
         rClass: Record Class;
@@ -478,7 +478,7 @@ table 52786 Calendar
         fAbsencesWizard.Run;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -498,7 +498,7 @@ table 52786 Calendar
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSubjects(pCalendar: Record Calendar): Boolean
     var
         l_rStruEduCountry: Record "Structure Education Country";

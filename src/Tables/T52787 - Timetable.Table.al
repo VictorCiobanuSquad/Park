@@ -329,7 +329,7 @@ table 52787 Timetable
         Text008: Label 'You can not change %1 while there are lines.';
         Text009: Label 'You can not change %1 there are other timetables for the class.';
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldTimetable: Record Timetable): Boolean
     var
         rTimetable: Record Timetable;
@@ -347,7 +347,7 @@ table 52787 Timetable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Validacoes(): Boolean
     begin
 
@@ -375,7 +375,7 @@ table 52787 Timetable
         exit(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenCalendar()
     var
         rCalendar: Record Calendar;
@@ -404,7 +404,7 @@ table 52787 Timetable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyTimeTable(var parTimeTable: Record Timetable)
     var
         varHeader: Boolean;
@@ -466,7 +466,7 @@ table 52787 Timetable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyTimeTableTotal(var parTimeTable: Record Timetable)
     var
         varHeader: Boolean;

@@ -105,7 +105,7 @@ page 52885 "Absence Limit 1º Cycle"
         Text0002: Label 'There are students with active recovery tests.';
         cUserEducation: Codeunit "User Education";
 
-    //[Scope('OnPrem')]
+
     procedure "Filter"()
     var
         Absence: Record Absence;

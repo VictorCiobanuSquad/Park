@@ -98,7 +98,7 @@ page 52922 "Observation Header"
         [InDataSet]
         SubFormEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateEditable()
     var
         l_SchoolYear: Record "School Year";

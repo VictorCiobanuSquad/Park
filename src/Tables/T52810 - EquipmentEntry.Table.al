@@ -274,7 +274,7 @@ table 52810 "Equipment Entry"
         rUserSetup: Record "User Setup";
         varExit: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetAvaiableQuant(pRec: Record "Equipment Entry") AvailableQuant: Integer
     var
         l_rEquipmentEntry: Record "Equipment Entry";
@@ -320,7 +320,7 @@ table 52810 "Equipment Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyAvaiableQuant(pTimetableCode: Code[20]; pTimetableLineno: Integer): Integer
     var
         l_Calendar: Record Calendar;
@@ -408,7 +408,7 @@ table 52810 "Equipment Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Post()
     var
         l_rEquipmentEntry: Record "Equipment Entry";
@@ -493,7 +493,7 @@ table 52810 "Equipment Entry"
         Window.Close;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateObs()
     begin
         rRemarks.Reset;
@@ -506,7 +506,7 @@ table 52810 "Equipment Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateHours(pTimetableCode: Code[20]; pTimetableLineno: Integer; pStudentTeacherOpt: Option " ",Student,Teacher): Boolean
     var
         l_Calendar: Record Calendar;

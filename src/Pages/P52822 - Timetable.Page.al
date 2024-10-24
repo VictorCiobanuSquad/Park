@@ -451,7 +451,7 @@ page 52822 Timetable
         DescriptionEditable: Boolean;
         OptionPartialTotal: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure SetEditableControl()
     begin
         if Rec."Timetable Type" = Rec."Timetable Type"::Teacher then begin
@@ -471,7 +471,7 @@ page 52822 Timetable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateFields()
     begin
         Rec.CalcFields("Blocked Teacher", Blocked);

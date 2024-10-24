@@ -106,19 +106,19 @@ page 52937 "Aspects Sub"
         [InDataSet]
         "Not to WEBVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetType(pType: Option Simple,Multi)
     begin
         VarType := pType;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleNotWEB()
     begin
         if Rec."Sub Subjects" <> '' then

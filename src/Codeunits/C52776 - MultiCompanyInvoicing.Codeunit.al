@@ -5,7 +5,7 @@ codeunit 52776 "Multi-Company Invoicing"
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_GLAccount(pGLAccount: Record "G/L Account"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -43,7 +43,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_Customer(pCustomer: Record Customer; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -81,7 +81,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_Service(pService: Record "Services ET"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -120,7 +120,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_Bank(pBankAccount: Record "Bank Account"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -158,7 +158,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_PaymentTerms(pPaymentTerms: Record "Payment Terms"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -194,7 +194,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_PaymentMethod(pPaymentMethod: Record "Payment Method"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -230,7 +230,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_ServiceDiscountGroup(pServiceDiscountGroup: Record "Service Discount Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -266,7 +266,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_CustomerDiscountGroup(pCustomerDiscountGroup: Record "Customer Discount Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -302,7 +302,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_CustomerPostingGroup(pCustomerPostingGroup: Record "Customer Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -338,7 +338,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_GenBusinessPostingGroup(pGenBusinessPostingGroup: Record "Gen. Business Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -374,7 +374,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_GenProductPostingGroup(pGenProductPostingGroup: Record "Gen. Product Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -410,7 +410,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_GeneralPostingSetup(pGeneralPostingSetup: Record "General Posting Setup"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -446,7 +446,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_VATBusinessPostingGroup(pVATBusinessPostingGroup: Record "VAT Business Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -482,7 +482,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_VATProductPostingGroup(pVATProductPostingGroup: Record "VAT Product Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -518,7 +518,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_VATGeneralPostingSetup(pVATPostingSetup: Record "VAT Posting Setup"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -555,7 +555,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_BankPostingGroup(pBankAccountPostingGroup: Record "Bank Account Posting Group"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -591,7 +591,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_SalesLineDiscountET(pSalesLineDiscountET: Record "Sales Line Discount ET"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -630,7 +630,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Multi_CustomerBanck(pCustomerBankAccount: Record "Customer Bank Account"; IsInsert: Boolean; IsModify: Boolean; IsDelete: Boolean)
     var
         lCompany: Record Company;
@@ -666,7 +666,7 @@ codeunit 52776 "Multi-Company Invoicing"
             until lCompany.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateNewCompany()
     var
         lCompany: Record Company;

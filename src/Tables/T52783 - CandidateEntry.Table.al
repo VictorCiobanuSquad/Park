@@ -284,7 +284,7 @@ table 52783 "Candidate Entry"
         rTest: Record Test;
         Text0007: Label 'Não pode alterar o %1, pois já existem provas marcadas para este candidato.';
 
-    //[Scope('OnPrem')]
+
     procedure CreateTest(pCandidateEntry: Record "Candidate Entry")
     var
         rTestHeader: Record Test;
@@ -302,7 +302,7 @@ table 52783 "Candidate Entry"
         PAGE.Run(PAGE::"Test Wizard", pCandidateEntry);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenTest(pCandidateEntry: Record "Candidate Entry")
     var
         Text0001: Label 'You must define a %1  for the candidate %2.';
@@ -330,7 +330,7 @@ table 52783 "Candidate Entry"
         PAGE.Run(PAGE::"Test List", rTestHeader);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateStudent()
     var
         rCadidateEntry: Record "Candidate Entry";
@@ -363,7 +363,7 @@ table 52783 "Candidate Entry"
             Message(Text0001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenCandidate()
     var
         rCandidate: Record Candidate;

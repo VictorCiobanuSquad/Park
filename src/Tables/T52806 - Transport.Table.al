@@ -209,7 +209,7 @@ table 52806 Transport
         PostCode: Record "Post Code";
         rVehicle: Record Transport;
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldStudyPlanHeader: Record Transport): Boolean
     var
         Vehicle: Record Transport;

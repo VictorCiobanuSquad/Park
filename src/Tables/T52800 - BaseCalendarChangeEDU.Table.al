@@ -106,7 +106,7 @@ table 52800 "Base Calendar ChangeEDU"
         CheckEntryLine;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateDayName()
     var
         DateTable: Record Date;
@@ -128,7 +128,7 @@ table 52800 "Base Calendar ChangeEDU"
             TestField(Day, Day::" ");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckEntryLine()
     begin
         if Type = Type::Lines then begin

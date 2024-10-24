@@ -86,20 +86,20 @@ page 52840 "Teacher Timetable"
         Text0009: Label 'O horário encontra-se bloqueado. Não pode fazer alterações.';
         rTimetable: Record Timetable;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         CurrPage.Update(false); // Update this form. Its not necessary to update the complete form, updating the second subform is enough.
     end;
 
-    //[Scope('OnPrem')]
+
     procedure IsSelectedLineChanged() UpdateNeeded: Boolean
     begin
         UpdateNeeded := SelectedLineChanged; // Return if a active line changed has occur...
         Clear(SelectedLineChanged); // := FALSE; // ...and clear the variable.
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLinesCalendar(pTimetableLines: Record "Timetable Lines")
     begin
         rTimetableLines := pTimetableLines;

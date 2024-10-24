@@ -77,7 +77,7 @@ page 52774 "Reg.Family/Students"
         Text001: Label 'Cannot change or eliminate the active fields %1 and %2.\Please remove the marks on those fields and proceed to their change or removal.';
         cStudentServices: Codeunit "Student Services";
 
-    //[Scope('OnPrem')]
+
     procedure ModifyBooleans()
     begin
         if ((xRec.Kinship <> Rec.Kinship) or (Rec."No." <> xRec."No.")) then
@@ -93,7 +93,7 @@ page 52774 "Reg.Family/Students"
                 Error(Text001, Rec.FieldCaption("Education Head"), Rec.FieldCaption("Paying Entity"));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBooleans()
     begin
         if (Rec."Education Head") or (Rec."Paying Entity") then

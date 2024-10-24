@@ -1250,7 +1250,7 @@ table 52750 Students
         SalesSetup: Record "Sales & Receivables Setup";
         Text50003: Label 'PTG';
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldStudent: Record Students): Boolean
     var
         Students: Record Students;
@@ -1269,7 +1269,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateProfile()
     begin
         rSchoolYear.Reset;
@@ -1295,7 +1295,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertUsersStudent()
     begin
 
@@ -1315,7 +1315,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure RegisterStudent(pType: Integer)
     var
         rRegistration: Record Registration;
@@ -1345,7 +1345,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCustomer()
     var
         rCustomer: Record Customer;
@@ -1429,7 +1429,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PrintRecords(ShowRequestForm: Boolean)
     var
         ReportSelection: Record "Report Selections";
@@ -1443,7 +1443,7 @@ table 52750 Students
         until ReportSelection.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;
@@ -1471,7 +1471,7 @@ table 52750 Students
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentsAddress(pSchoolYear: Code[9])
     var
         l_Students: Record Students;
@@ -1495,7 +1495,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateName(): Boolean
     begin
         rStudents.Reset;
@@ -1522,7 +1522,7 @@ table 52750 Students
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFullName()
     begin
         if rEduConfiguration.Get then begin
@@ -1583,7 +1583,7 @@ table 52750 Students
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
@@ -1591,7 +1591,7 @@ table 52750 Students
         Modify;
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure OpenFile(WindowTitle: Text[50]; DefaultFileName: Text[250]; DefaultFileType: Option " ",Text,Excel,Word,Custom; FilterString: Text[250]; "Action": Option Open,Save; var FileNameImport: Text[250]; var Extension: Code[50]; var Path: Text[250]) returnText: Text[260]
     var
         Text0031: Label '.txt';
@@ -1651,7 +1651,7 @@ table 52750 Students
 
     end;*/
 
-    //[Scope('OnPrem')]
+
     procedure GetOpenCreditNotes(): Boolean
     var
         rCompany: Record Company;
@@ -1707,7 +1707,7 @@ table 52750 Students
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckCustomerNIBAdmin()
     var
         "rUser Setup": Record "User Setup";
@@ -1716,7 +1716,7 @@ table 52750 Students
         "rUser Setup".TestField("Customer NIB Admin");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateNIF()
     begin
         if ("VAT Registration No." = '') then

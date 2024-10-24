@@ -433,12 +433,12 @@ page 52832 "Students Registration Turns"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -458,7 +458,7 @@ page 52832 "Students Registration Turns"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBuffer()
     begin
         BufferAssignAssessments.Reset;
@@ -467,7 +467,7 @@ page 52832 "Students Registration Turns"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents()
     var
         l_Students: Record Students;
@@ -658,7 +658,7 @@ page 52832 "Students Registration Turns"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTurn(pInsert: Boolean)
     var
         l_rRegistrationSubjects: Record "Registration Subjects";
@@ -748,7 +748,7 @@ page 52832 "Students Registration Turns"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FillFunction()
     begin
         DeleteBuffer;

@@ -182,7 +182,7 @@ page 52818 "Candidate Selection"
         vTotalCandidaturas: Integer;
         vTotalAceites: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure ClearSelections()
     begin
         Rec.SetRange("Selection User ID", UserId);
@@ -195,7 +195,7 @@ page 52818 "Candidate Selection"
         Rec.SetRange("Selection User ID");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcTotals()
     begin
         vTotalCandidaturas := Rec.Count;

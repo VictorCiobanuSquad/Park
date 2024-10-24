@@ -678,8 +678,8 @@ table 52768 "Student Ledger Entry"
         case Type of
             Type::Item:
                 begin
-                    // PriceCalcMgt.FindSalesLineLineDisc(SalesHeader, Rec);
-                    // PriceCalcMgt.FindSalesLinePrice(SalesHeader, Rec, CalledByFieldNo);
+                    //PriceCalcMgt.FindSalesLineLineDisc(SalesHeader, Rec);
+                    //PriceCalcMgt.FindSalesLinePrice(SalesHeader, Rec, CalledByFieldNo);
                     //guangai commented
                     //TODO: to uncomment
                 end;
@@ -691,7 +691,7 @@ table 52768 "Student Ledger Entry"
         Validate("Unit Price");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetUsersFamily()
     begin
         TestField("Entity ID");
@@ -704,7 +704,7 @@ table 52768 "Student Ledger Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCurrencyCode()
     begin
         TestField("Currency Code");
@@ -906,7 +906,7 @@ table 52768 "Student Ledger Entry"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ApplyAllEntries(pField: Integer)
     var
         l_rStudentLedgerEntry: Record "Student Ledger Entry";
@@ -980,7 +980,7 @@ table 52768 "Student Ledger Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DistValueForEntries(pField: Integer; pRec: Record "Student Ledger Entry"; CurrentLine: Boolean)
     var
         l_ClearTempPayment: Boolean;
@@ -1142,7 +1142,7 @@ table 52768 "Student Ledger Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFields(pRec: Record "Student Ledger Entry")
     var
         l_rStudentLedgerEntry: Record "Student Ledger Entry";
@@ -1225,7 +1225,7 @@ table 52768 "Student Ledger Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure RefreshTable()
     var
         l_rStudentLedgerEntry: Record "Student Ledger Entry";

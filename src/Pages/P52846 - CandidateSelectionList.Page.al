@@ -91,7 +91,7 @@ page 52846 "Candidate Selection List"
         cUserEducation: Codeunit "User Education";
         cStudentsRegistration: Codeunit "Students Registration";
 
-    //[Scope('OnPrem')]
+
     procedure ClearSelections()
     begin
         Rec.SetRange("Selection User ID", UserId);

@@ -12,21 +12,21 @@ codeunit 52758 "Ansi Ascii"
         AsciiNormal: Text[350];
         Ascii7Bits: Text[350];
 
-    //[Scope('OnPrem')]
+
     procedure Ansi2Ascii(_Text: Text[350]): Text[350]
     begin
         MakeVars;
         exit(ConvertStr(_Text, AnsiStr, AsciiStr));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Ascii2Ansi(_Text: Text[350]): Text[350]
     begin
         MakeVars;
         exit(ConvertStr(_Text, AsciiStr, AnsiStr));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure MakeVars()
     begin
         AsciiStr := ' ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúñÑªº¿®¬½¼¡«»¦¦¦¦¦ÁÂÀ©¦¦++¢¥++--+-+ãÃ++--¦-+';
@@ -75,7 +75,7 @@ codeunit 52758 "Ansi Ascii"
         AnsiStr := AnsiStr + '¿À' + Format(CharVar[30]) + Format(CharVar[31]) + Format(CharVar[32]) + '_ ';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Ascii2Ascii7bit(_Text: Text[350]): Text[350]
     begin
         //**************************************************************************

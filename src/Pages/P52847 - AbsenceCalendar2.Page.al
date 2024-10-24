@@ -162,7 +162,7 @@ page 52847 "Absence Calendar 2"
         [InDataSet]
         "Sub-Subject CodeVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pCalendar: Record Calendar)
     begin
         // This saves the header record in a global variable in the subform

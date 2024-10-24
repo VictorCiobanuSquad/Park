@@ -174,7 +174,7 @@ table 52795 "Template Timetable"
         rUserSetup: Record "User Setup";
         Text0005: Label 'Copy only be available if there are only day''s for monday.';
 
-    //[Scope('OnPrem')]
+
     procedure CopyDays()
     var
         rTemplateTimetable: Record "Template Timetable";

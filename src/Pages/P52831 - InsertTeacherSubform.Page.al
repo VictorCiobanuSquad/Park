@@ -40,7 +40,7 @@ page 52831 "Insert Teacher Subform"
         InsertRespCenter;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertRespCenter()
     var
         rClass: Record Class;

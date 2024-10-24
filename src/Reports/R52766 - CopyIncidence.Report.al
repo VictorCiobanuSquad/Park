@@ -117,7 +117,7 @@ report 52766 "Copy Incidence"
         Text0005: Label 'Mandatory New Schoolling Year.';
         Text0006: Label 'Mandatory New Schooll Year.';
 
-    //[Scope('OnPrem')]
+
     procedure CopyIncidence()
     var
         rIncidenceTypeNew: Record "Incidence Type";
@@ -135,7 +135,7 @@ report 52766 "Copy Incidence"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateNewIncidence(): Boolean
     begin
         rIncidenceType.Reset;
@@ -147,7 +147,7 @@ report 52766 "Copy Incidence"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteIncidence()
     begin
         rIncidenceType.Reset;
@@ -157,7 +157,7 @@ report 52766 "Copy Incidence"
             rIncidenceType.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetIncidence(pSchoolingYear: Code[10]; pSchoolYear: Code[9])
     begin
 

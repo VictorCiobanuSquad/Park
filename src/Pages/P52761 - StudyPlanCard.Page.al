@@ -221,7 +221,7 @@ page 52761 "Study Plan Card"
         [InDataSet]
         SubFormEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFields()
     var
         rStructureEducationCountry: Record "Structure Education Country";
@@ -244,7 +244,7 @@ page 52761 "Study Plan Card"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableSchoolYear()
     var
         l_SchoolYear: Record "School Year";

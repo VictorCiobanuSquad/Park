@@ -135,14 +135,14 @@ page 52906 "Sub-Equipment-Entry"
         [InDataSet]
         QuantityEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pCalendar: Record Calendar)
     begin
         rCalendar := pCalendar;
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SendFilters(pStudentTeacher: Option; pStudentTeacherNo: Code[20]; pRegistered: Boolean)
     begin
         varStudentTeacher := pStudentTeacher;
@@ -151,7 +151,7 @@ page 52906 "Sub-Equipment-Entry"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFunc(pStatus: Boolean)
     begin
         if pStatus then begin

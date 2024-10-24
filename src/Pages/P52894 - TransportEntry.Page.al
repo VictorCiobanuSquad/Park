@@ -214,7 +214,7 @@ page 52894 "Transport Entry"
         [InDataSet]
         "New DriverVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure "Filter"()
     begin
 

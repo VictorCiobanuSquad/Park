@@ -330,13 +330,13 @@ page 52869 Reversed
         rStudentLedgerEntry: Record "Student Ledger Entry";
         varPaymentDocNo: Code[20];
 
-    //[Scope('OnPrem')]
+
     procedure FilterSubform()
     begin
         Rec.SetRange("Entry No.", 0);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubForm()
     var
         lCustLedgerEntry: Record "Cust. Ledger Entry";
@@ -382,7 +382,7 @@ page 52869 Reversed
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ShowReverse()
     var
         lCustLedgerEntry: Record "Cust. Ledger Entry";

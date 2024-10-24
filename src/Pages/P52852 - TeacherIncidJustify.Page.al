@@ -383,7 +383,7 @@ page 52852 "Teacher Incid. Justify"
         cUserEducation: Codeunit "User Education";
         fJustAbsencesWizard: Page "Justify Absences Wizard";
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters()
     begin
         if vSchoolYear <> '' then

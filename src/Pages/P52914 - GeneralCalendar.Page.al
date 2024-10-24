@@ -134,7 +134,7 @@ page 52914 "General Calendar"
         rIncidenceType: Record "Incidence Type";
         rClass: Record Class;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pCalendar: Record Calendar)
     begin
         // This saves the header record in a global variable in the subform

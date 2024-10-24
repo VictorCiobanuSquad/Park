@@ -25,7 +25,7 @@ codeunit 52760 "Calc. Evaluations"
         Text0002: Label 'On table %1 there are no configurations for the %2 moment, regarding subject %3 of %4.';
         Text0003: Label 'There is no %1 code on table %2';
 
-    //[Scope('OnPrem')]
+
     procedure Calc(pAssessingStudents: Record "Assessing Students")
     var
         rCourseLines: Record "Course Lines";
@@ -361,7 +361,7 @@ codeunit 52760 "Calc. Evaluations"
         InsertGrade;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertGradeTemp(pAssessingStudents: Record "Assessing Students"; pValor: Decimal; pOptValor: Option " ",CIF,CFD,C10,C11,C12,CE)
     var
         rMomentsAssessment: Record "Moments Assessment";
@@ -447,7 +447,7 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertValor(pRulesEvaluations: Record "Rules of Evaluations"; pAssessingStudents: Record "Assessing Students")
     begin
         if (pRulesEvaluations."Value 1" = pRulesEvaluations."Value 1"::"Moment code") or
@@ -477,7 +477,7 @@ codeunit 52760 "Calc. Evaluations"
             InsertGradeTemp(pAssessingStudents, cParser.CalcDecimalExpr(Formula), pRulesEvaluations."Value 6");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertGrade()
     var
         rAssessingStudents: Record "Assessing Students";
@@ -506,7 +506,7 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateExam(pAssessingStudents: Record "Assessing Students"): Integer
     var
         rAssessingStudents: Record "Assessing Students";
@@ -526,7 +526,7 @@ codeunit 52760 "Calc. Evaluations"
             exit(2);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetGradeExam(pAssessingStudents: Record "Assessing Students"): Decimal
     var
         rAssessingStudents: Record "Assessing Students";
@@ -560,7 +560,7 @@ codeunit 52760 "Calc. Evaluations"
             exit(Exam2);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetGradeCIF(pAssessingStudents: Record "Assessing Students"): Decimal
     var
         rAssessingStudents: Record "Assessing Students";
@@ -577,7 +577,7 @@ codeunit 52760 "Calc. Evaluations"
             exit(rAssessingStudents.Grade)
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastYearGrade(pAssessingStudents: Record "Assessing Students"): Decimal
     var
         rAssessingStudents: Record "Assessing Students";
@@ -618,7 +618,7 @@ codeunit 52760 "Calc. Evaluations"
         exit(VarGrade);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLast2YearGrade(pAssessingStudents: Record "Assessing Students"): Decimal
     var
         rAssessingStudents: Record "Assessing Students";
@@ -659,7 +659,7 @@ codeunit 52760 "Calc. Evaluations"
         exit(VarGrade);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcAprove(pRulesEvaluations: Record "Rules of Evaluations"; pAssessingStudents: Record "Assessing Students")
     var
         rStruEducationCountry: Record "Structure Education Country";
@@ -806,7 +806,7 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SchoolingYearOption(pOption: Option " ",CIF,CFD,C10,C11,C12,CE): Code[10]
     var
         rStruEducationCountry: Record "Structure Education Country";
@@ -840,12 +840,12 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure "*******SPAIN****************"()
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcSubSubject(pAssessingStudents: Record "Assessing Students"; pClassificationGroupCode: Code[20])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -954,7 +954,7 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSubSettingRatting(pAssessingStudents: Record "Assessing Students")
     var
         rSRSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -976,7 +976,7 @@ codeunit 52760 "Calc. Evaluations"
             Error(Text001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSettingRatting(pAssessingStudents: Record "Assessing Students")
     var
         rSettingRatings: Record "Setting Ratings";
@@ -997,7 +997,7 @@ codeunit 52760 "Calc. Evaluations"
             Error(Text001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(pClassificationGroupCode: Code[20]; pGrade: Decimal) out: Code[20]
     var
         varLocalClasification: Decimal;
@@ -1053,7 +1053,7 @@ codeunit 52760 "Calc. Evaluations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubSettingRattingPonder(pAssessingStudents: Record "Assessing Students") Mponder: Integer
     var
         rSRSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -1072,7 +1072,7 @@ codeunit 52760 "Calc. Evaluations"
             exit(rSRSubSubjects."Moment Ponder");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSettingRatting(pAssessingStudents: Record "Assessing Students"): Integer
     var
         rSettingRatings: Record "Setting Ratings";

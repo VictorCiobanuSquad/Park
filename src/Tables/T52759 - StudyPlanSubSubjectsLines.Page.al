@@ -131,7 +131,7 @@ page 52925 "Study Plan Sub-Subjects Lines"
         varLineNo: Integer;
         Text001: Label 'This option is not available. Subject evaluation type: None Qualification. ';
 
-    //[Scope('OnPrem')]
+
     procedure GetLineNo(pLineNo: Integer)
     begin
         varLineNo := pLineNo;

@@ -636,7 +636,7 @@ table 52781 Candidate
         UpdateCand: Codeunit "Validate User ID";
         CU_NoSeries: Codeunit "No. Series";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldCandidate: Record Candidate): Boolean
     var
         Candidate: Record Candidate;
@@ -654,7 +654,7 @@ table 52781 Candidate
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateProfile()
     begin
         rUsersFamilyCandidate.Reset;
@@ -673,7 +673,7 @@ table 52781 Candidate
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateStudent(var pCandidate: Record Candidate; var pCandidateEntry: Record "Candidate Entry")
     var
         rStudent: Record Students;
@@ -762,7 +762,7 @@ table 52781 Candidate
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertUsersCanidate()
     begin
 
@@ -773,7 +773,7 @@ table 52781 Candidate
         rUsersFamilyCandidate.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCustomer()
     var
         rCustomer: Record Customer;
@@ -844,7 +844,7 @@ table 52781 Candidate
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;
@@ -872,7 +872,7 @@ table 52781 Candidate
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateCandidateAddress()
     var
         l_Candidate: Record Candidate;
@@ -896,7 +896,7 @@ table 52781 Candidate
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateName()
     begin
         rCandidate.Reset;
@@ -918,7 +918,7 @@ table 52781 Candidate
             Message(Text0003, rCandidate."No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFullName()
     begin
 
@@ -979,7 +979,7 @@ table 52781 Candidate
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InvoicingServices() Invoice: Code[20]
     var
         l_rUsersFamilyCand: Record "Users Family / Candidate";
@@ -1098,7 +1098,7 @@ table 52781 Candidate
         exit(l_rSalesHeader."No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCustomerStudent(varStudentNo: Code[20])
     var
         rCustomer: Record Customer;
@@ -1122,7 +1122,7 @@ table 52781 Candidate
         end;
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure OpenFile(WindowTitle: Text[50]; DefaultFileName: Text[250]; DefaultFileType: Option " ",Text,Excel,Word,Custom; FilterString: Text[250]; "Action": Option Open,Save; var FileNameImport: Text[250]; var Extension: Code[50]; var Path: Text[250]) returnText: Text[260]
     var
         Text0031: Label '.txt';

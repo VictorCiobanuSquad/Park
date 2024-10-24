@@ -191,7 +191,7 @@ table 52848 "Assessement Students"
         RespCenter: Record "Responsibility Center";
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(pLookUp: Boolean) Out: Code[20]
     begin
         if rRankGroup.Get("Assessment Code") then begin
@@ -220,7 +220,7 @@ table 52848 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment()
     var
         rAssessingStudents: Record "Assessing Students";
@@ -273,7 +273,7 @@ table 52848 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCodeAssessment(InGrade: Decimal)
     var
         varLocalClasification: Decimal;

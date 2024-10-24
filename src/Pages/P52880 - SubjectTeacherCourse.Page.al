@@ -141,13 +141,13 @@ page 52880 "Subject Teacher Course"
         SubSubjectTeacherEnable: Boolean;
         fTemplates: Page Templates;
 
-    //[Scope('OnPrem')]
+
     procedure funClass(parClass: Record Class)
     begin
         varClass := parClass;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure funFillTeacherClass()
     var
         rTeacherClass: Record "Teacher Class";

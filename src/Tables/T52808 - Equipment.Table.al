@@ -286,7 +286,7 @@ table 52808 Equipment
         text0005: Label 'This equipment cannot be eliminated since it belongs to an equipment group.';
         text0006: Label 'There already exists an order for a quantity higher than %1.';
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(pEquipment: Record Equipment): Boolean
     var
         Equipment: Record Equipment;

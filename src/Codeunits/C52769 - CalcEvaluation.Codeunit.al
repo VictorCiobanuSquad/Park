@@ -28,7 +28,7 @@ codeunit 52769 "Calc. Evaluation"
     /*var
         cInsertWEBMasterTable: Codeunit InsertWEB_MasterTable;
     
-        //[Scope('OnPrem')]
+         
         procedure CalcWEBSubjectClass()
         var
             Text0001: Label '''%1''';
@@ -332,7 +332,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVFinalAssessment()
         var
             Text0001: Label '''%1''';
@@ -634,7 +634,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVAspects()
         var
             Text0001: Label '''%1''';
@@ -779,7 +779,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidences()
         var
             Text0001: Label '''%1''';
@@ -1105,7 +1105,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidencesDaily()
         var
             Text0001: Label '''%1''';
@@ -1393,7 +1393,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVClassObservation()
         var
             Text0001: Label '''%1''';
@@ -1732,7 +1732,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVSubjObservation()
         var
             Text0001: Label '''%1''';
@@ -2081,7 +2081,7 @@ codeunit 52769 "Calc. Evaluation"
 
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidenceObservation1()
         var
             Text0001: Label '''%1''';
@@ -2341,7 +2341,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidenceObservation2()
         var
             Text0001: Label '''%1''';
@@ -2606,7 +2606,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidenceObservation3()
         var
             Text0001: Label '''%1''';
@@ -2865,7 +2865,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;
 
-        //[Scope('OnPrem')]
+         
         procedure WEBtoNAVIncidenceObservation4()
         var
             Text0001: Label '''%1''';
@@ -3116,7 +3116,7 @@ codeunit 52769 "Calc. Evaluation"
             end;
         end;*/
 
-    //[Scope('OnPrem')]
+
     procedure WEBtoNAVClassifications()
     var
         rGeneralTable: Record GeneralTable;
@@ -3791,7 +3791,7 @@ codeunit 52769 "Calc. Evaluation"
         InsertAspects;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcFinalMoment(pClass: Code[20]; pSchoolYear: Code[20]; pMoment: Code[20]; pStudent: Code[20])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -4527,7 +4527,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertFinalClassification(pClass: Code[20]; pSchoolYear: Code[20]; pSchoolingYear: Code[20]; pSubject: Code[20]; pSubSubject: Code[20]; pStudyPlan: Code[20]; pStudent: Code[20]; pEvaluationMoment: Integer; pMoment: Code[20]; pGrade: Decimal; pTypeEducation: Integer; pOptionGroup: Code[20]; pCountryRegionCode: Code[20]; pEvaluationType: Integer; pRulesEntryNo: Integer)
     var
         AssessingStudentsFinal: Record "Assessing Students Final";
@@ -4610,7 +4610,7 @@ codeunit 52769 "Calc. Evaluation"
             AssessingStudentsFinal.Modify(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertClassification(pClass: Code[20]; pSchoolYear: Code[20]; pSchoolingYear: Code[20]; pSubject: Code[20]; pSubSubject: Code[20]; pStudyPlan: Code[20]; pStudent: Code[20]; pEvaluationMoment: Integer; pMoment: Code[20]; pGrade: Decimal; pTypeEducation: Integer; pCountryRegionCode: Code[20]; pEvaluationType: Integer; pAssessmentCode: Code[20])
     var
         AssessingStudents: Record "Assessing Students";
@@ -4727,7 +4727,7 @@ codeunit 52769 "Calc. Evaluation"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAspects()
     var
         rGeneralTableAspects: Record GeneralTableAspects;
@@ -4917,7 +4917,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InClassification: Decimal; pAssessmentCode: Code[20]) Out: Text[50]
     var
         varLocalClasification: Decimal;
@@ -4964,7 +4964,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessmentEvaluation(pAssessingStudentsFinal: Record "Assessing Students Final") out: Text[50]
     var
         l_AssessConf: Record "Assessment Configuration";
@@ -4987,7 +4987,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcFinalYear(pClass: Code[20]; pSchoolYear: Code[20]; pMoment: Code[20]; pStudent: Code[20]; pEvaluationMoment: Integer)
     var
         rAssessingStudents: Record "Assessing Students";
@@ -7231,7 +7231,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ConvertOptionString(lGeneralTable: Record GeneralTable; pCodeType: Integer) ExitValue: Text[100]
     var
         rRefvar: RecordRef;
@@ -7252,7 +7252,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertFinalStage(pClass: Record Class; pStudentcode: Code[20]; pRulesEvaluations: Record "Rules of Evaluations")
     var
         l_AssessingStudents: Record "Assessing Students";
@@ -7308,7 +7308,7 @@ codeunit 52769 "Calc. Evaluation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertFinalCycle(pClass: Record Class; pStudentcode: Code[20]; pRulesEvaluations: Record "Rules of Evaluations")
     var
         l_AssessingStudents: Record "Assessing Students";

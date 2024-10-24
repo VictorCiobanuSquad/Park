@@ -233,7 +233,7 @@ page 52829 "Rules of Evaluation Subform"
         "Round MethodVisible": Boolean;
         TableBoxHeight: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         CurrPage.Update;

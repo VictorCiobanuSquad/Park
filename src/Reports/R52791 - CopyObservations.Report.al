@@ -96,7 +96,7 @@ report 52791 "Copy Observations"
         vNewSchoolYear: Code[9];
         Text0005: Label 'There is no New School Year selected.';
 
-    //[Scope('OnPrem')]
+
     procedure CopyObservation()
     var
         l_rObservationHead: Record Observation;
@@ -157,7 +157,7 @@ report 52791 "Copy Observations"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GETObservation(pObservationCode: Code[20]; pSchoolYear: Code[9])
     begin
         vOldObsCode := pObservationCode;

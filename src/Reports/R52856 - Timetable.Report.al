@@ -569,7 +569,7 @@ report 52856 Timetable
         Teacher_Class__Teacher_Class___Full_Name_CaptionLbl: Label 'Teacher Name';
         Teacher_Class__Teacher_Class___Subject_Description_CaptionLbl: Label 'Subject';
 
-    //[Scope('OnPrem')]
+
     procedure GetSubject(pStartHour: Time; pInt: Integer) pSubject: Text[64]
     begin
         rCalendar.Reset;
@@ -589,7 +589,7 @@ report 52856 Timetable
             pSubject := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubjectTeacher(pStartHour: Time; pInt: Integer) pSubject: Text[50]
     var
         vOldSub: Code[40];
@@ -641,7 +641,7 @@ report 52856 Timetable
             pSubject := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRoom(pStartHour: Time; pInt: Integer) pRoom: Text[50]
     begin
         rCalendar.Reset;
@@ -661,7 +661,7 @@ report 52856 Timetable
             pRoom := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRoomTeacher(pStartHour: Time; pInt: Integer) pRoom: Text[50]
     begin
         rTimetableTeacher.Reset;

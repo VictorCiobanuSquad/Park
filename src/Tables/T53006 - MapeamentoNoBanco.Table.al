@@ -29,7 +29,7 @@ table 53006 "Mapeamento No Banco"
     {
     }
 
-    //[Scope('OnPrem')]
+
     procedure NextNoMov(): Integer
     var
         MapNoBanco: Record "Mapeamento No Banco";

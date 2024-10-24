@@ -184,7 +184,7 @@ table 52847 "Assessing Students"
         cCalcEvaluations: Codeunit "Calc. Evaluations";
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateContAss()
     var
         l_RegistrationSubjects: Record "Registration Subjects";

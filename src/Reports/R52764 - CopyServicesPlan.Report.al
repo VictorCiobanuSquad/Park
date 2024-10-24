@@ -220,7 +220,7 @@ report 52764 "Copy Services Plan"
         Text0007: Label 'The field new plan or course of study must be completed';
         rStructureEducationCountry: Record "Structure Education Country";
 
-    //[Scope('OnPrem')]
+
     procedure InsertServicePlan()
     var
         l_rServicesPlanHead: Record "Services Plan Head";
@@ -277,7 +277,7 @@ report 52764 "Copy Services Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetServicePlanNo(pServicePlanCode: Code[20])
     begin
         varNewPlanService := pServicePlanCode;

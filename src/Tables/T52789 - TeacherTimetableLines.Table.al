@@ -99,7 +99,7 @@ table 52789 "Teacher Timetable Lines"
         rTeacher: Record Teacher;
         Text0001: Label 'You cannot insert a teacher after you have chosen a subject.';
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFullName(pTeacher: Code[20])
     var
         rEduConfiguration: Record "Edu. Configuration";

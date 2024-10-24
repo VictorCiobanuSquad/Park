@@ -95,13 +95,13 @@ page 52804 "Assessement Students"
         [InDataSet]
         cvarGradeEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetGrade()
     begin
         rAssessementStudents.Reset;
@@ -129,13 +129,13 @@ page 52804 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure MixedGrade(pMixed: Boolean)
     begin
         varMixed := pMixed;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure fLookupFunction() Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -176,7 +176,7 @@ page 52804 "Assessement Students"
         exit(varGrade);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InClassification: Text[20]) Out: Decimal
     var
         varClasificationLocal: Decimal;
@@ -202,7 +202,7 @@ page 52804 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(inText: Text[20]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -222,7 +222,7 @@ page 52804 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InClassification: Text[20]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -302,7 +302,7 @@ page 52804 "Assessement Students"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertGrade(inText: Text[20])
     begin
 
@@ -337,7 +337,7 @@ page 52804 "Assessement Students"
             Rec.InsertAssessment;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure fEditable()
     begin
         rMomentsAssessment.Reset;

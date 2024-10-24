@@ -5,7 +5,7 @@ codeunit 52762 "Validate User ID"
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateUser(p_UserName: Text[30])
     var
         rStudents: Record Students;

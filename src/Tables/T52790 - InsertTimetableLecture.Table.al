@@ -470,7 +470,7 @@ table 52790 "Insert Timetable Lecture"
         Text0004: Label 'Your identification is set up to process from %1 %2 only.';
         recSubject: Record Subjects;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTeacher()
     var
         recSubjects: Record Subjects;
@@ -517,7 +517,7 @@ table 52790 "Insert Timetable Lecture"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[10]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";

@@ -653,7 +653,7 @@ page 52844 "Absences Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilter(pTimetableCode: Code[20]; pStudentTeacher: Integer; pInicialDate: Date; pEndDate: Date; pTeacherNonSchedule: Boolean; pSchoolYear: Code[9])
     begin
 
@@ -671,7 +671,7 @@ page 52844 "Absences Wizard"
         Rec.SetRange("School Year", pSchoolYear);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAbsence1()
     begin
         rStructureEducationCountry.Reset;
@@ -716,7 +716,7 @@ page 52844 "Absences Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAbsence2(pAbsenceType: Option Lecture,Daily)
     var
         l_Students: Record Students;
@@ -820,7 +820,7 @@ page 52844 "Absences Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAbsenceTeacherValidation()
     var
         l_Teacher: Record Teacher;
@@ -837,7 +837,7 @@ page 52844 "Absences Wizard"
             InsertAbsenceTeacher;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAbsenceTeacher()
     var
         l_Teacher: Record Teacher;

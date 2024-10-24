@@ -218,7 +218,7 @@ table 52766 "Services Plan Head"
             ServicesET.Get("Schooling Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldServicesPlanHeader: Record "Services Plan Head"): Boolean
     var
         ServicesPlanHead: Record "Services Plan Head";

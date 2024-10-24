@@ -11,7 +11,7 @@ codeunit 52753 "User Education"
         HasGotSalesUserSetup: Boolean;
         UserRespCenter: Code[10];
 
-    //[Scope('OnPrem')]
+
     procedure GetEducationFilter(UserCode: Code[20]): Code[10]
     begin
 
@@ -24,13 +24,13 @@ codeunit 52753 "User Education"
         exit(EducationUserRespCenter);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckRespCenterEducation(AccRespCenter: Code[10]): Boolean
     begin
         exit(CheckRespCenterEducation2(AccRespCenter, UserId));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckRespCenterEducation2(AccRespCenter: Code[20]; UserCode: Code[20]): Boolean
     begin
         UserRespCenter := GetEducationFilter(UserCode);

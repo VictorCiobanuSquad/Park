@@ -401,14 +401,14 @@ page 52802 "Remarks Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Caption(): Text[260]
     var
         CaptionStr: Text[260];
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInformation(pStudentCodeNo: Code[20]; pSchoolYear: Code[9]; pClass: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pClassNumber: Integer; pTypeEducation: Option Simple,Multi; pEditButton: Boolean)
     var
         l_StudyPlanLines: Record "Study Plan Lines";
@@ -447,19 +447,19 @@ page 52802 "Remarks Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMomentInformation(pMomentCode: Code[10])
     begin
         varMomentCode := pMomentCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetObservationCode(pObservationCode: Code[20])
     begin
         VarObservationCode := pObservationCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertLines()
     var
         l_Observation: Record Observation;
@@ -529,7 +529,7 @@ page 52802 "Remarks Wizard"
             until l_Observation.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteLines()
     var
         lRemarks: Record Remarks;
@@ -542,7 +542,7 @@ page 52802 "Remarks Wizard"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNo(): Integer
     var
         l_Remarks: Record Remarks;

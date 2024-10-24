@@ -386,14 +386,14 @@ page 52964 "Annotation Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Caption(): Text[260]
     var
         CaptionStr: Text[260];
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInformation(pStudentCodeNo: Code[20]; pSchoolYear: Code[9]; pClass: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pClassNumber: Integer; pTypeEducation: Option Simple,Multi; pEditButton: Boolean)
     begin
         varStudentCodeNo := pStudentCodeNo;
@@ -408,19 +408,19 @@ page 52964 "Annotation Wizard"
         varSubSubjects := pSubSubjects;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMomentInformation(pMomentCode: Code[10])
     begin
         varMomentCode := pMomentCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAnnotationCode(pAnnotationCode: Code[20])
     begin
         VarAnnotationCode := pAnnotationCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertLines()
     var
         l_Annotation: Record Annotation;
@@ -487,7 +487,7 @@ page 52964 "Annotation Wizard"
             until l_Annotation.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteLines()
     var
         lRemarks: Record Remarks;
@@ -500,7 +500,7 @@ page 52964 "Annotation Wizard"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNo(): Integer
     var
         l_Remarks: Record Remarks;

@@ -64,7 +64,7 @@ page 52826 Summary
         //cRemarks: Codeunit Codeunit52751;
         varEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pCalendar: Record Calendar)
     begin
         // This saves the header record in a global variable in the subform

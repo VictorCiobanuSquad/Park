@@ -121,7 +121,7 @@ page 52787 "Registration Entry"
         FilterType: Option Active,Planning;
         cUserEducation: Codeunit "User Education";
 
-    //[Scope('OnPrem')]
+
     procedure FilterForm()
     var
         rSchoolYear: Record "School Year";
@@ -140,7 +140,7 @@ page 52787 "Registration Entry"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentName(): Text[200]
     var
         rStudent: Record Students;

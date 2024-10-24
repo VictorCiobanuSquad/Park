@@ -277,7 +277,7 @@ page 52786 "Registration Class"
         rRegistration: Record Registration;
         Text0010: Label 'The student belongs to another level of education / study plan, to access this feature, please use the functions of the student''s study plan.';
 
-    //[Scope('OnPrem')]
+
     procedure Aspects()
     begin
         Rec.SubjectsAspects;

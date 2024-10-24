@@ -827,7 +827,7 @@ page 52920 Templates
         Text666: Label '%1 is not a valid selection.';
         Text19048410: Label 'Type of Template';
 
-    //[Scope('OnPrem')]
+
     procedure SetFormRegistration(var pRegistration: Record Registration; pTemplatecode: Option; pbuttonPrint: Boolean)
     begin
         varSchoolYear := pRegistration."School Year";
@@ -839,7 +839,7 @@ page 52920 Templates
         varButtonPrint := pbuttonPrint;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormStudents(pStudentNo: Code[50]; pSchoolYear: Code[50]; pcode: Code[50]; pSchoolingYear: Code[50]; pclass: Code[50]; pPageBreak: Boolean; pTeacherCode: Code[20]; pSubjectCode: Code[20]; pTemplateType: Option; pResponsibilityCenter: Code[20]; pStudyPlanCode: Code[20]; pbuttonPrint: Boolean)
     var
         varTemplates: Record Templates;
@@ -911,7 +911,7 @@ page 52920 Templates
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PrintButton()
     var
         varmomentCode: Code[20];
@@ -1690,7 +1690,7 @@ page 52920 Templates
         CurrPage.Close;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Updatetemplates()
     begin
         case varOptionTypeReport of
@@ -1952,7 +1952,7 @@ page 52920 Templates
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSections()
     begin
         if "Legal ReportsVisible" then begin
@@ -1968,7 +1968,7 @@ page 52920 Templates
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSize()
     var
         l_TableHeight: Integer;
@@ -2001,7 +2001,7 @@ page 52920 Templates
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetOptionsGroups(var pCurricularSubjects: Code[20]; var pPersonalAspects: Code[20]; var pBasicSkills: Code[20])
     begin
         pCurricularSubjects := varCurricularSubjects;
@@ -2009,14 +2009,14 @@ page 52920 Templates
         pBasicSkills := varBasicSkills;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormMinutes(pTimetableTeacher: Record "Timetable-Teacher")
     begin
         rTimetableTeacher := pTimetableTeacher;
         varButtonPrint := true;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormCandidates(pCandidates: Record Candidate)
     begin
         rCandidates := pCandidates;

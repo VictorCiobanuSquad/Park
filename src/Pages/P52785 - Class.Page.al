@@ -1162,7 +1162,7 @@ page 52785 Class
         ftemplates: Page Templates;
         fTeacherSubject: Page "Subject Teacher";
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";

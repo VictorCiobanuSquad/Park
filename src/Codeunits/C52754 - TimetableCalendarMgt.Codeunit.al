@@ -11,7 +11,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         BaseCalendarChangeEDU: Record "Base Calendar ChangeEDU";
         AccountingPeriod: Record "Accounting Period";
 
-    //[Scope('OnPrem')]
+
     procedure Start(pTimetableCode: Code[20]; pSchoolCalendar: Code[20]; pStartingDate: Date; pEndDate: Date)
     var
         rDate: Record Date;
@@ -65,7 +65,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         Message(Text009, pTimetableCode);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PercorrerDias(pTimetableCode: Code[20]; pSchoolCalendar: Code[20]; var pDate: Record Date; AgregarGlobal: Integer; var pTimetableLinesTEMP: Record "Timetable Lines" temporary)
     var
         l_Timetable: Record Timetable;
@@ -118,7 +118,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         until pDate.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PercorrerLinhasDiario(TabelaHorario: Record Timetable; var TabelaHorarioLinhasTEMP: Record "Timetable Lines" temporary; var TabelaData: Record Date; var AgregarGlobal: Integer)
     var
         Text001: Label 'Class';
@@ -138,7 +138,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         until TabelaHorarioLinhasTEMP.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InserirCalendario(pTimetable: Record Timetable; var pTimetableLines: Record "Timetable Lines" temporary; var pDate: Record Date; var AgregarGlobal: Integer)
     var
         rCalendar: Record Calendar;
@@ -255,7 +255,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTeacherCalendar(pTimetable: Record Timetable; var pTimetableLinesTEMP: Record "Timetable Lines" temporary; var pDate: Record Date; var AgregarGlobal: Integer)
     var
         rClass: Record Class;
@@ -306,7 +306,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuscarAgregarDisciplina(): Integer
     var
         l_Calendar: Record Calendar;
@@ -320,7 +320,7 @@ codeunit 52754 "Timetable Calendar Mgt"
             exit(0);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ApagarAlunosFaltas(pSchoolYear: Code[9]; pStudyPlan: Code[20]; pClass: Code[20]; pStartPeriod: Date; pEndPeriod: Date; pFilterDate: Date)
     var
         l_Calendar: Record Calendar;
@@ -393,7 +393,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LancarAlunosFaltas(pSchoolYear: Code[9]; pStudyPlan: Code[20]; pClass: Code[20]; pStartPeriod: Date; pEndPeriod: Date; pFilterDate: Date)
     var
         TabCalendario: Record Calendar;
@@ -501,7 +501,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         WindowDialog.Close;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InserirCalendarioProf(pCalendarTEMP: Record Calendar temporary; pStartPeriod: Date; pStartHour: Time; pEndHour: Time; PLineNo: Integer)
     var
         l_Calendar: Record Calendar;
@@ -585,7 +585,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         end
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckDateStatus(CalendarCode: Code[10]; TargetDate: Date; var Description: Text[50]): Boolean
     begin
         BaseCalendarChangeEDU.Reset;
@@ -616,7 +616,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         Description := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindDate(SearchString: Text[3]; var Calendar: Record Date; PeriodType: Option Day,Week,Month,Quarter,Year,"Accounting Period"): Boolean
     var
         Found: Boolean;
@@ -640,7 +640,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         exit(Found);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NextDate(NextStep: Integer; var Calendar: Record Date; PeriodType: Option Day,Week,Month,Quarter,Year,"Accounting Period"): Integer
     begin
         Calendar.SetRange("Period Type", PeriodType);
@@ -676,7 +676,7 @@ codeunit 52754 "Timetable Calendar Mgt"
             Calendar."Period End" := AccountingPeriod."Starting Date" - 1;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateCalendarAndValidation(pTimetable: Record Timetable; var l_rTimetableLines: Record "Timetable Lines"; var l_TeacherTimetableLines: Record "Teacher Timetable Lines"; var ErrorMessage: Text[250]): Boolean
     var
         l_Text01: Label 'There are absences for this timetable period. ';
@@ -807,7 +807,7 @@ codeunit 52754 "Timetable Calendar Mgt"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateLines(var pTimetableLines: Record "Timetable Lines")
     var
         l_rTimetableLines: Record "Timetable Lines";

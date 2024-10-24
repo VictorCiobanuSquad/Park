@@ -238,7 +238,7 @@ page 52757 Teacher
         FileMgt: Codeunit "File Management";
         Link: Text;
 
-    //[Scope('OnPrem')]
+
     procedure setSubformAbsence()
     begin
         rSchoolYear.Reset;

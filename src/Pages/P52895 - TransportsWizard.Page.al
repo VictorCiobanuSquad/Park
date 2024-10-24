@@ -438,13 +438,13 @@ page 52895 "Transports Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilter(pTimetableCode: Code[20])
     begin
         //vTimetableCode := pTimetableCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditFields()
     begin
         case vTransType of
@@ -510,7 +510,7 @@ page 52895 "Transports Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AbsenceStudent()
     var
         rVehicleEntry: Record "Transport & Lunch Entry ";
@@ -633,7 +633,7 @@ page 52895 "Transports Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AbsenceDriver()
     var
         rVehicleEntry: Record "Transport & Lunch Entry ";
@@ -688,7 +688,7 @@ page 52895 "Transports Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AbsenceVehicle()
     var
         rVehicleEntry: Record "Transport & Lunch Entry ";
@@ -737,7 +737,7 @@ page 52895 "Transports Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AbsenceStudentLunch()
     var
         rVehicleEntry: Record "Transport & Lunch Entry ";

@@ -252,13 +252,13 @@ page 52819 "Insert Lessons"
         [InDataSet]
         RespCenterVisible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure FilterType(pStudent: Boolean)
     begin
         varStudent := pStudent;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTimeOnCalendar()
     var
         recDate: Record Date;
@@ -378,7 +378,7 @@ page 52819 "Insert Lessons"
         Message(Text011);
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure GetNoStructureCountry(pClass: Code[10]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -398,7 +398,7 @@ page 52819 "Insert Lessons"
         end;
     end;*/
 
-    //[Scope('OnPrem')]
+
     procedure InsertTime()
     begin
         TabCalendarTEMP.Init;
@@ -423,14 +423,14 @@ page 52819 "Insert Lessons"
         TabCalendarTEMP.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertRespCenter()
     begin
         if rClass.Get(Rec.Class, Rec."School Year") then
             Rec."Responsibility Center" := rClass."Responsibility Center";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateFields()
     begin
         if varStudent then begin

@@ -84,7 +84,7 @@ page 52841 "Timetable Lines"
         [InDataSet]
         CategoryEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetLineNo(pLineNo: Integer; pRespCenter: Code[20])
     begin
         varLineNo := pLineNo;

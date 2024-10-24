@@ -21,12 +21,12 @@
             "schemaUpdateMode": "ForceSync"
         },
         {
-            "name": "Publish: Squad RH SandBox",
+            "name": "Publish: Squad Park SandBox",
             "type": "al",
             "request": "launch",
             "environmentType": "Sandbox",
-            "environmentName": "SQUAD_SNDBX_RH",
-            "startupObjectId": 60000,
+            "environmentName": "SNDBX_Park",
+            "startupObjectId": 52751,
             "startupObjectType": "Page",
             "schemaUpdateMode":"ForceSync",
             "breakOnError": "All",

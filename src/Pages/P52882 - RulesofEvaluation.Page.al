@@ -112,14 +112,14 @@ page 52882 "Rules of Evaluation"
         varType: Option Simple,Multi;
         varStudyPlan: Code[20];
 
-    //[Scope('OnPrem')]
+
     procedure GetInfo(pType: Option Simple,Multi; pStudyPlan: Code[20])
     begin
         varType := pType;
         varStudyPlan := pStudyPlan;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFieds()
     begin
         /*

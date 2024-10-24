@@ -437,14 +437,14 @@ page 52788 "Transfer Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Caption(): Text[260]
     var
         CaptionStr: Text[260];
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRegistrationClass(pRegistrationClass: Record "Registration Class")
     begin
         VarSchoolYear := pRegistrationClass."School Year";

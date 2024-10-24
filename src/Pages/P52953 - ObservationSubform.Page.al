@@ -63,7 +63,7 @@ page 52953 "Observation Subform"
         [InDataSet]
         "Description MaleVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SetSex(IsMale: Boolean)
     begin
         if IsMale then begin
@@ -75,7 +75,7 @@ page 52953 "Observation Subform"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters(pCode: Code[20]; pSchoolYear: Code[20]; pObservationType: Integer)
     begin
         Rec.SetRange(Code, pCode);
@@ -83,7 +83,7 @@ page 52953 "Observation Subform"
         Rec.SetRange("Observation Type", pObservationType);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetFormRecord(var pObservation: Record Observation)
     var
         lObservation: Record Observation;
@@ -95,7 +95,7 @@ page 52953 "Observation Subform"
         Rec.Copy(lObservation);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Updateform()
     begin
         CurrPage.Update(false);

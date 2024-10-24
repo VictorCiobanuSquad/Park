@@ -142,7 +142,7 @@ page 52828 "Absence Calendar"
         rIncidenceType: Record "Incidence Type";
         rClass: Record Class;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pCalendar: Record Calendar)
     begin
         // This saves the header record in a global variable in the subform

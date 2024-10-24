@@ -377,7 +377,7 @@ table 52761 "Study Plan Header"
         rTableMISI: Record "Table MISI";
         CU_NoSeries: Codeunit "No. Series";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldStudyPlanHeader: Record "Study Plan Header"): Boolean
     var
         StudyPlanHeader: Record "Study Plan Header";
@@ -395,7 +395,7 @@ table 52761 "Study Plan Header"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VerificarFaltas(StudyPlan: Code[20]; SchoolYear: Code[20])
     var
         Absence: Record Absence;

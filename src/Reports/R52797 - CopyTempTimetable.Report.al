@@ -79,7 +79,7 @@ report 52797 "Copy Temp Timetable"
         vTemplateCodeOld: Code[20];
         vTemplateCodeNew: Code[20];
 
-    //[Scope('OnPrem')]
+
     procedure CopyTempTimetable()
     var
         l_rTemplateTimetable: Record "Template Timetable";
@@ -131,7 +131,7 @@ report 52797 "Copy Temp Timetable"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GETTempTimetable(pSchoolYear: Code[9]; pTempTimetable: Code[20])
     begin
         vSchoolYearOld := pSchoolYear;

@@ -436,7 +436,7 @@ report 52841 "Course Validation"
         varAspects_Control1102065051CaptionLbl: Label 'Aspects';
         varSettingRatings_Control1102065050CaptionLbl: Label 'Setting Ratings';
 
-    //[Scope('OnPrem')]
+
     procedure getSubjectsCourse()
     var
         l_rStruEduCountry: Record "Structure Education Country";
@@ -541,7 +541,7 @@ report 52841 "Course Validation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getSettingRatings(varSubject: Code[20]; varSubSubject: Code[20])
     begin
         Clear(varSettingRatings);
@@ -568,7 +568,7 @@ report 52841 "Course Validation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspects(varSubject: Code[20]; varSubSubject: Code[20])
     var
         LastMoment: Code[20];

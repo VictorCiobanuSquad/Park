@@ -106,7 +106,7 @@ page 52753 "Users Family / Students"
         VarSchoolYear: Code[9];
         varStudentCode: Code[20];
 
-    //[Scope('OnPrem')]
+
     procedure ModifyBooleans()
     begin
         if ((xRec.Kinship <> Rec.Kinship) or (Rec."No." <> xRec."No.")) then
@@ -122,26 +122,26 @@ page 52753 "Users Family / Students"
                 Error(Text001, Rec.FieldCaption("Education Head"), Rec.FieldCaption("Paying Entity"));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBooleans()
     begin
         if (Rec."Education Head") or (Rec."Paying Entity") then
             Error(Text001, Rec.FieldCaption("Education Head"), Rec.FieldCaption("Paying Entity"));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetOldSchoolYear(pSchoolYear: Code[9])
     begin
         VarSchoolYear := pSchoolYear
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentCode(pStudentCode: Code[20])
     begin
         varStudentCode := pStudentCode;

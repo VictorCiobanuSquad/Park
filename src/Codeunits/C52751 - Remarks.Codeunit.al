@@ -27,7 +27,7 @@ codeunit 52751 Remarks
         text005: Label 'Equipment Remarks';
         text006: Label 'Email';
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure EditContactText(pStudentCodeNo: Code[20]; pSchoolYear: Code[9]; pClass: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pMomentCode: Code[10]; pClassNumber: Integer)
     begin
         CLEAR(WaldoNavPad);
@@ -180,7 +180,7 @@ codeunit 52751 Remarks
         END;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure EditContactTextAbsence(pStudentCodeNo: Code[20]; pSchoolYear: Code[9]; pClass: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pDay: Date; pCalendarLine: Integer; pStatusJustified: Option " ",Unjustified,Justified; "pStudent/Teacher": Option Student,Teacher; pTimeTableCode: Code[20]; pEditable: Boolean; pIncidenceType: Option Default,Absence; pVarLineNo: Integer)
     begin
         CLEAR(WaldoNavPad);
@@ -333,7 +333,7 @@ codeunit 52751 Remarks
         END;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure EditContactTextSummary(pSchoolYear: Code[9]; pClass: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pDay: Date; pCalendarLine: Integer; pTimeTableCode: Code[20]; pEditable: Boolean)
     begin
         CLEAR(WaldoNavPad);
@@ -490,7 +490,7 @@ codeunit 52751 Remarks
         END;
     end;*/
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNo(): Integer
     var
         rRemarks: Record Remarks;
@@ -502,7 +502,7 @@ codeunit 52751 Remarks
             EXIT(1);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRespCenter(pClass: Code[20]; pSchoolYear: Code[9]): Code[10]
     var
         l_Class: Record Class;
@@ -516,7 +516,7 @@ codeunit 52751 Remarks
             EXIT('');
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure EditContactTextGClass(pSchoolYear: Code[9]; pClass: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pMomentCode: Code[10]; pEditable: Boolean)
     begin
         CLEAR(WaldoNavPad);
@@ -654,7 +654,7 @@ codeunit 52751 Remarks
         END;
     end;*/
 
-    //[Scope('OnPrem')]
+
     procedure EditCommentLineText(pTableName: Enum "Comment Line Table Name"; pSection: Code[20]; pType: Option IRS,Email; pDocType: Option " ",Invoice,"Issue Reminder","Credit Memo",Receipt,InvoiceItem,"Finance Charge Memo")
     var
         TextInput: Page "Comment Line Edit";
@@ -710,7 +710,7 @@ codeunit 52751 Remarks
         TextInput.RunModal();
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure GetCommentLineTexts(pTableName: Option; pSection: Code[20]; pDocType: Option " ",Invoice,"Issue Reminder","Credit Memo",Receipt,InvoiceItem)
     var
         l_rCommentline: Record "Comment Line";
@@ -745,7 +745,7 @@ codeunit 52751 Remarks
         END;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure DeleteCommentLineTexts(pTableName: Option; pSection: Code[20]; pDocType: Option " ",Invoice,"Issue Reminder","Credit Memo",Receipt,InvoiceItem)
     var
         l_rCommentline: Record "Comment Line";
@@ -763,7 +763,7 @@ codeunit 52751 Remarks
         l_rCommentline.DELETEALL(TRUE);
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure SaveCommentLineTexts(pTableName: Option; pSection: Code[20]; pDocType: Option " ",Invoice,"Issue Reminder","Credit Memo",Receipt,InvoiceItem)
     var
         l_rCommentline: Record "Comment Line";
@@ -803,7 +803,7 @@ codeunit 52751 Remarks
         END;
     end;*/
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure EditEquipmentLineText(pEquipmentEntryNo: Integer)
     begin
         CLEAR(WaldoNavPad);
@@ -843,7 +843,7 @@ codeunit 52751 Remarks
         CLEAR(WaldoNavPad);
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure GetEquipmentLineTexts(pEquipmentEntryNo: Integer)
     var
         lrecRemarks: Record Remarks;
@@ -873,7 +873,7 @@ codeunit 52751 Remarks
         END;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure DeleteEquipmentLineTexts(pEquipmentEntryNo: Integer)
     var
         lrecRemarks: Record Remarks;
@@ -885,7 +885,7 @@ codeunit 52751 Remarks
         lrecRemarks.DELETEALL(TRUE);
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure SaveEquipmentLineTexts(pEquipmentEntryNo: Integer)
     var
         lrecRemarks: Record Remarks;

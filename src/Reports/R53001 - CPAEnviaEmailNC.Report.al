@@ -111,7 +111,6 @@ report 53001 EnviaEmailCrMemo
         CU_TempBlob: Codeunit "Temp Blob";
 
 
-    //[Scope('OnPrem')]
     procedure fEnviaEmail(FactNo: Code[50]; FactCliente: Code[50]; FactPath: Text[260]; FileD: Text[260])
     var
         l_recSalesCreditHead: Record "Sales Cr.Memo Header";
@@ -120,7 +119,7 @@ report 53001 EnviaEmailCrMemo
             CreateMessage('', recCustomerMail."E-Mail", '', '', false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateMessage(SenderAddress: Text[50]; Recipients: Text[1024]; Subject: Text[200]; Body: Text[1024]; HtmlFormatted: Boolean)
     var
         CU_Email: Codeunit Email;
@@ -253,7 +252,7 @@ report 53001 EnviaEmailCrMemo
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateAttachPDF(pCreditMemoNo: Code[50]; pCustomerCreditMemo: Code[50])
     var
         lSalesCredMemoHead: Record "Sales Cr.Memo Header";

@@ -826,7 +826,7 @@ table 52762 Registration
         Text0011: Label 'The Student %1 got a line in the class %2.';
         rSchool: Record School;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentStudyPlan()
     begin
         rStudentStudyPlan.Reset;
@@ -841,7 +841,7 @@ table 52762 Registration
             varLineNo := 10000;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteStudentStudyPlan()
     begin
         rStudentStudyPlan.Reset;
@@ -853,7 +853,7 @@ table 52762 Registration
             rStudentStudyPlan.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(): Integer
     begin
 
@@ -869,7 +869,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjects(pCourseLines: Record "Course Lines")
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -958,7 +958,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssementCourse()
     begin
         rCourseLines.Reset;
@@ -971,7 +971,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRattingsCourse()
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -989,7 +989,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRatings(pRegistrationSubjects: Record "Registration Subjects")
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -1043,7 +1043,7 @@ table 52762 Registration
             Error(Text0003, "School Year", "Schooling Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects2(pRegistrationSubjects: Record "Registration Subjects")
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -1126,7 +1126,7 @@ table 52762 Registration
         PAGE.RunModal(PAGE::Aspects, rAspects);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DisplayMap()
     var
         rStudents: Record Students;
@@ -1139,7 +1139,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubSubjects()
     var
         rStudentSubSubjectsPlan: Record "Student Sub-Subjects Plan ";
@@ -1156,7 +1156,7 @@ table 52762 Registration
             rStudentSubSubjectsPlan.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetUserFamilyActiveYear()
     var
         rUsersFamilyStudents: Record "Users Family / Students";
@@ -1194,7 +1194,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateNextSchoolYear()
     var
         l_SchoolYear: Record "School Year";
@@ -1237,7 +1237,7 @@ table 52762 Registration
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ChekIfInvoice(): Boolean
     var
         lStudentLedgerEntry: Record "Student Ledger Entry";
@@ -1252,7 +1252,7 @@ table 52762 Registration
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents(pRegistration: Record Registration)
     var
         l_rRegistration: Record Registration;

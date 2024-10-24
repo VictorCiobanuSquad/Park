@@ -315,7 +315,7 @@ table 52767 "Student Service Plan"
         if "Service Code" <> ServicesET."No." then;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateDist()
     var
         varTotal: Decimal;

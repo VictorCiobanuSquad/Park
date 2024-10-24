@@ -123,7 +123,7 @@ table 52798 Room
         Text0006: Label 'There already are Timetables with the selected room.';
         rTimetableLines: Record "Timetable Lines";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldRoom: Record Room): Boolean
     var
         Room: Record Room;

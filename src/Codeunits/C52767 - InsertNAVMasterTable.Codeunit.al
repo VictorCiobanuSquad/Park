@@ -11,7 +11,7 @@ codeunit 52767 InsertNAVMasterTable
     var
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
 
-    //[Scope('OnPrem')]
+
     procedure InsertEntity(pType: Integer; pCode: Code[20]; pDescription: Text[1024]; pUserID: Text[30]; pPassword: Text[250]; pRCenter: Code[10]; pLanguage: Integer)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -99,7 +99,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyEntityUsersFamily(pType: Integer; pNewRec: Record "Users Family / Students"; pOldRec: Record "Users Family / Students")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -264,7 +264,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyEntityTeacher(pType: Integer; pNewRec: Record "Teacher Class"; pOldRec: Record "Teacher Class")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -359,7 +359,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteEntityUsersFamily(pType: Integer; pNewRec: Record "Users Family / Students"; pOldRec: Record "Users Family / Students")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -384,7 +384,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteEntityTeacher(pType: Integer; pNewRec: Record "Teacher Class"; pOldRec: Record "Teacher Class")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -408,7 +408,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAspects(pNewRec: Record Aspects; pOldRec: Record Aspects)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -474,7 +474,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyAspects(pNewRec: Record Aspects; pOldRec: Record Aspects)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -534,7 +534,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAspects(pNewRec: Record Aspects; pOldRec: Record Aspects)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -562,7 +562,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertClassificationLevel(pNewRec: Record "Classification Level"; pOldRec: Record "Classification Level")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -615,7 +615,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyClassificationLevel(pNewRec: Record "Classification Level"; pOldRec: Record "Classification Level")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -648,7 +648,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteClassificationLevel(pNewRec: Record "Classification Level"; pOldRec: Record "Classification Level")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -672,7 +672,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertGenSettingsAsse(pNewRec: Record "Edu. Configuration"; pOldRec: Record "Edu. Configuration")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -718,7 +718,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyGenSettingsAsse(pNewRec: Record "Edu. Configuration"; pOldRec: Record "Edu. Configuration")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -749,7 +749,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteGenSettingsAsse(pNewRec: Record "Edu. Configuration"; pOldRec: Record "Edu. Configuration")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -771,7 +771,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudent(pNewRec: Record Students; pOldRec: Record Students)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -834,7 +834,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyStudent(pNewRec: Record Students; pOldRec: Record Students)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -875,7 +875,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteStudent(pNewRec: Record Students; pOldRec: Record Students)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -898,7 +898,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertMoments(pNewRec: Record "Moments Assessment"; pOldRec: Record "Moments Assessment")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -938,7 +938,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyMoments(pNewRec: Record "Moments Assessment"; pOldRec: Record "Moments Assessment")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -974,7 +974,7 @@ codeunit 52767 InsertNAVMasterTable
             InsertMoments(pNewRec, pOldRec);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteMoments(pNewRec: Record "Moments Assessment"; pOldRec: Record "Moments Assessment")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -998,7 +998,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertObservation(pNewRec: Record Observation; pOldRec: Record Observation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1052,7 +1052,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyObservation(pNewRec: Record Observation; pOldRec: Record Observation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1087,7 +1087,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteObservation(pNewRec: Record Observation; pOldRec: Record Observation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1113,7 +1113,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertIncidence(pNewRec: Record "Incidence Type"; pOldRec: Record "Incidence Type")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1183,7 +1183,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyIncidence(pNewRec: Record "Incidence Type"; pOldRec: Record "Incidence Type")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1227,7 +1227,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteIncidence(pNewRec: Record "Incidence Type"; pOldRec: Record "Incidence Type")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1275,7 +1275,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjectGroup(pNewRec: Record "Group Subjects"; pOldRec: Record "Group Subjects")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1311,7 +1311,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifySubjectGroup(pNewRec: Record "Group Subjects"; pOldRec: Record "Group Subjects")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1348,7 +1348,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubjectGroup(pNewRec: Record "Group Subjects"; pOldRec: Record "Group Subjects")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1375,7 +1375,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjectGroupPLClass(pNewRec: Record "Study Plan Lines"; pOldRec: Record "Study Plan Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1438,7 +1438,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubjectGroupPLClass(pNewRec: Record "Study Plan Lines"; pOldRec: Record "Study Plan Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1472,7 +1472,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjectGroupCClass(pNewRec: Record "Course Lines"; pOldRec: Record "Course Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1533,7 +1533,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubjectGroupCClass(pNewRec: Record "Course Lines"; pOldRec: Record "Course Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1566,7 +1566,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertClass(pNewRec: Record Class; pOldRec: Record Class)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -1780,7 +1780,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyClass(pNewRec: Record Class; pOldRec: Record Class)
     var
         l_StructureEducationCountry: Record "Structure Education Country";
@@ -2149,7 +2149,7 @@ codeunit 52767 InsertNAVMasterTable
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteClass(pNewRec: Record Class; pOldRec: Record Class)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2486,7 +2486,7 @@ codeunit 52767 InsertNAVMasterTable
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTeacherClass(pNewRec: Record "Teacher Class"; pOldRec: Record "Teacher Class")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2537,7 +2537,7 @@ codeunit 52767 InsertNAVMasterTable
             ModifyTeacherClass(pNewRec, pOldRec);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyTeacherClass(pNewRec: Record "Teacher Class"; pOldRec: Record "Teacher Class")
     var
         l_StructureEducationCountry: Record "Structure Education Country";
@@ -2590,7 +2590,7 @@ codeunit 52767 InsertNAVMasterTable
             InsertTeacherClass(pNewRec, pOldRec);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteTeacherClass(pNewRec: Record "Teacher Class"; pOldRec: Record "Teacher Class")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2615,7 +2615,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyEntityStudent(pNewRec: Record "Users Family / Students"; pOldRec: Record "Users Family / Students")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2698,7 +2698,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteEntityStudent(pNewRec: Record "Users Family / Students"; pOldRec: Record "Users Family / Students")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2721,7 +2721,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjectPLClass(pNewRec: Record "Study Plan Lines"; pOldRec: Record "Study Plan Lines"; pSubSubjects: Boolean)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2793,7 +2793,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubjectPLClass(pNewRec: Record "Study Plan Lines"; pOldRec: Record "Study Plan Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2823,7 +2823,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjectCClass(pNewRec: Record "Course Lines"; pOldRec: Record "Course Lines"; pSubSubjects: Boolean)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2897,7 +2897,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubjectCClass(pNewRec: Record "Course Lines"; pOldRec: Record "Course Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -2928,7 +2928,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubSubjectCClass(pNewRec: Record "Study Plan Sub-Subjects Lines"; pOldRec: Record "Study Plan Sub-Subjects Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3005,7 +3005,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteSubSubjectCClass(pNewRec: Record "Study Plan Sub-Subjects Lines"; pOldRec: Record "Study Plan Sub-Subjects Lines")
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3037,7 +3037,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTurn(pNewRec: Record Turn)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3084,7 +3084,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyTurn(pNewRec: Record Turn)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3114,7 +3114,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteTurn(pNewRec: Record Turn)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3139,7 +3139,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAnnotations(pNewRec: Record Annotation; pOldRec: Record Annotation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3195,7 +3195,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyAnnotations(pNewRec: Record Annotation; pOldRec: Record Annotation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3233,7 +3233,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAnnotations(pNewRec: Record Annotation; pOldRec: Record Annotation)
     var
         l_rMasterTableWEB: Record MasterTableWEB;
@@ -3263,7 +3263,7 @@ codeunit 52767 InsertNAVMasterTable
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyAnnotationsConf(pNewRec: Record "Assessment Configuration"; pOldRec: Record "Assessment Configuration")
     var
         l_StructureEducationCountry: Record "Structure Education Country";

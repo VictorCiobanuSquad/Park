@@ -177,7 +177,7 @@ page 52952 "Processing Services"
         cStudentsRegistration: Codeunit "Students Registration";
         reportInvoicingServices: Report "Invoicing Services";
 
-    //[Scope('OnPrem')]
+
     procedure GetSchoolYear()
     var
         tLectiveYear: Text[1024];

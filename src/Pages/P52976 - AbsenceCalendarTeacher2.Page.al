@@ -127,7 +127,7 @@ page 52976 "Absence Calendar Teacher2"
         rIncidenceType: Record "Incidence Type";
         rClass: Record Class;
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pTimetableTeacher: Record "Timetable-Teacher")
     begin
         // This saves the header record in a global variable in the subform

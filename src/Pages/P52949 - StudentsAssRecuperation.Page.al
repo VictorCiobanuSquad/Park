@@ -1172,14 +1172,14 @@ page 52949 "Students Ass. Recuperation"
         [InDataSet]
         Txt15Editable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArrayMomento[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     begin
 
@@ -1210,7 +1210,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1283,7 +1283,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1339,7 +1339,7 @@ page 52949 "Students Ass. Recuperation"
             exit('');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -1353,14 +1353,14 @@ page 52949 "Students Ass. Recuperation"
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTypeAssessment(pMomentsAssessment: Record "Moments Assessment"; inIndex: Integer)
     var
         l_rSettingRatingsSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -1411,7 +1411,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1427,7 +1427,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(InIndex: Integer) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1465,7 +1465,7 @@ page 52949 "Students Ass. Recuperation"
         exit(vText[InIndex]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InIndex: Integer; InClassification: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -1490,7 +1490,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSettingRatingsLines(pMoment: Code[20])
     var
         recLAssessementStudents: Record "Assessement Students";
@@ -1556,7 +1556,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InIndex: Integer; InClassification: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -1642,7 +1642,7 @@ page 52949 "Students Ass. Recuperation"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
         if (vArrayMomento[1] <> '') and (vArrayRecupMoment[1] = true) then
@@ -1721,7 +1721,7 @@ page 52949 "Students Ass. Recuperation"
             Txt15Editable := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean) ExitValue: Boolean
     var
         l_rMomentsAssessment: Record "Moments Assessment";
@@ -1756,7 +1756,7 @@ page 52949 "Students Ass. Recuperation"
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure IfRecuperation(inIndex: Integer): Boolean
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1781,7 +1781,7 @@ page 52949 "Students Ass. Recuperation"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";

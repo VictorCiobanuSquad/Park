@@ -235,7 +235,7 @@ page 52867 "Course Lines"
         [InDataSet]
         "Schooling Year BeginEditable": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SchoolingYearEditable()
     var
         rEduConfiguration: Record "Edu. Configuration";
@@ -258,7 +258,7 @@ page 52867 "Course Lines"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenConfiguration()
     begin
         if Rec."Evaluation Type" = Rec."Evaluation Type"::"None Qualification" then
@@ -267,7 +267,7 @@ page 52867 "Course Lines"
             Rec.OpenCreateAssessmentConf;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenConfigurationAll()
     begin
         if Rec."Evaluation Type" = Rec."Evaluation Type"::"None Qualification" then
@@ -276,13 +276,13 @@ page 52867 "Course Lines"
             Rec.CreateAssessmentConfAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubject2()
     begin
         Rec.UpdateSubject
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFields()
     var
         rStructureEducCountry: Record "Structure Education Country";

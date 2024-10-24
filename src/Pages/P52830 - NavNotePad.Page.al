@@ -68,7 +68,7 @@ page 52830 "Nav NotePad"
         lineNum: Integer;
         rClass: Record Class;
 
-    //[Scope('OnPrem')]
+
     procedure GetCommentLine() returnvalue: Text
     var
         CommentLine: Record "Comment Line";
@@ -81,7 +81,7 @@ page 52830 "Nav NotePad"
             until CommentLine.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetCommentLine()
     var
         TempLargeText: Text;
@@ -105,7 +105,7 @@ page 52830 "Nav NotePad"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SendObservation(StudentCodeNo: Code[20]; SchoolYear: Code[9]; Class: Code[20]; SchoolingYear: Code[10]; StudyPlanCode: Code[20]; SubjectCode: Code[10]; SubSubjectCode: Code[10]; ClassNo: Integer; Type: Option; MomentCode: Code[10])
     var
         loc_MomentCode: Code[10];
@@ -153,7 +153,7 @@ page 52830 "Nav NotePad"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure RegisterObservation()
     var
         DescriptionSplit: Text;
@@ -226,7 +226,7 @@ page 52830 "Nav NotePad"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRespCenter(pClass: Code[20]; pSchoolYear: Code[9]): Code[10]
     var
         l_Class: Record Class;
@@ -240,7 +240,7 @@ page 52830 "Nav NotePad"
             exit('');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastEntryNo(): Integer
     var
         rRemarks: Record Remarks;

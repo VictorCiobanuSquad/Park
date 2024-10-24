@@ -191,7 +191,7 @@ page 52881 "Subform Correct Invoices"
         CashPaymentVisible: Boolean;
         TransferPaymentVisible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure EditablePayment()
     begin
         if (Rec.Payment = false) and (Rec."Credit Note" = false) then begin
@@ -241,13 +241,13 @@ page 52881 "Subform Correct Invoices"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetDocAndDate(var PostingDate: Date; var DocNo: Code[20])
     begin
         PostingDate := Rec."Posting Date";

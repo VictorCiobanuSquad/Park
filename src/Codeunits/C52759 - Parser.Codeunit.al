@@ -305,7 +305,7 @@ codeunit 52759 Parser
         ParseSkipBlanks(AParsePos, AMacro);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalcDecimalExpr(p_txtExpr: Text[1024]) decResult: Decimal
     var
         intPos: Integer;

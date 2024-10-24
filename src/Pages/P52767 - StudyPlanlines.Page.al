@@ -219,7 +219,7 @@ page 52767 "Study Plan lines"
         [InDataSet]
         "Maximum Total AbsenceVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure OpenConfiguration()
     begin
         if Rec."Evaluation Type" = Rec."Evaluation Type"::"None Qualification" then
@@ -228,7 +228,7 @@ page 52767 "Study Plan lines"
             Rec.OpenCreateAssessmentConf();
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenConfigurationAll()
     begin
         if Rec."Evaluation Type" = Rec."Evaluation Type"::"None Qualification" then
@@ -237,7 +237,7 @@ page 52767 "Study Plan lines"
             rec.CreateAssessmentConfAll();
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFields()
     var
         rStructureEducCountry: Record "Structure Education Country";
@@ -257,7 +257,7 @@ page 52767 "Study Plan lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenConfigurationSP()
     begin
         Rec.CreateAssessmentConfStudyPlan;

@@ -470,7 +470,7 @@ page 52858 Payment
         CashPaymentVisible: Boolean;
         TransferPaymentVisible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubForm()
     var
         lStudentLedgerEntry: Record "Student Ledger Entry";
@@ -510,7 +510,7 @@ page 52858 Payment
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCorrectInvoice()
     begin
         if vCorrectInvoices then begin
@@ -525,7 +525,7 @@ page 52858 Payment
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetPaymentMethod(): Boolean
     var
         l_rSalesInvoiceHeader: Record "Sales Invoice Header";
@@ -560,7 +560,7 @@ page 52858 Payment
     end;*/
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditablePayment()
     begin
         if GetPaymentMethod or vCorrectInvoices then begin
@@ -630,7 +630,7 @@ page 52858 Payment
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleRemaningAmount()
     begin
         if (Rec.Company = '') and (not vCorrectInvoices) then begin

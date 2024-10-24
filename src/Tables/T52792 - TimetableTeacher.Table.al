@@ -271,7 +271,7 @@ table 52792 "Timetable-Teacher"
         Text002: Label 'Cannot delete the line,there are already teachers with absences for the day %1.';
         Text003: Label 'Cannot delete the line, use the calendar to the class %1.';
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFullName(pTeacher: Code[20])
     var
         rEduConfiguration: Record "Edu. Configuration";

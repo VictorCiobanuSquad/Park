@@ -720,7 +720,7 @@ page 52825 Calendar
         RoomEditable: Boolean;
         FormInserirAula: Page "Insert Lessons";
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters(pSchoolYear: Code[9]; pStudyPlan: Code[20]; pClass: Code[20]; pTimetable: Code[20]; pType: Option Simple,Multi)
     begin
         varSchoolYear := pSchoolYear;
@@ -730,7 +730,7 @@ page 52825 Calendar
         varType := pType;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetEditableSubform()
     begin
         subAbsenceDailyEditable := true;
@@ -765,7 +765,7 @@ page 52825 Calendar
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FilterSubform()
     begin
         SubSummaryEditable := false;
@@ -774,7 +774,7 @@ page 52825 Calendar
         SubGeneralAbsenceEditable := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertFormLines()
     var
         lRegistrationSubjects: Record "Registration Subjects";
@@ -881,7 +881,7 @@ page 52825 Calendar
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFormClass()
     var
         tempClass: Record Class temporary;

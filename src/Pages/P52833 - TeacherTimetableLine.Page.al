@@ -34,7 +34,7 @@ page 52833 "Teacher Timetable Line"
         recProfessor: Record Teacher;
         varFiltro: Text[30];
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         CurrPage.Update;

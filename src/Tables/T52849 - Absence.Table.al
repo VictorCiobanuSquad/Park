@@ -783,7 +783,7 @@ table 52849 Absence
         Text0012: Label 'The student does not belong to this class %1 or any sub-subject of the subject %2.';
         Text0013: Label 'This field cannot be removed because the absence type is Unjustified.';
 
-    //[Scope('OnPrem')]
+
     procedure CreateAbsences(pSchoolYear: Code[10]; pStudyPlan: Code[20]; pClass: Code[20])
     var
         rClass: Record Class;
@@ -801,7 +801,7 @@ table 52849 Absence
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentAbsences(pInsertModifyDelete: Integer)
     var
         rStudyPlanHeader: Record "Study Plan Header";
@@ -977,7 +977,7 @@ table 52849 Absence
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentNo()
     var
         l_text00001: Label 'Active';
@@ -1258,7 +1258,7 @@ table 52849 Absence
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure validateIncidenceCode()
     begin
         rAbsence.Reset;
@@ -1305,7 +1305,7 @@ table 52849 Absence
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalFaltas(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]; pStudent: Code[20]; pSubject: Code[10]; pDataEnd: Date; pTotInj: Option Totais,Injustificadas; pDataIni: Date; pAbsence: Record Absence; pInsModDel: Integer) TotalFaltas: Integer
     var
         l_rIncidenceType: Record "Incidence Type";
@@ -1427,7 +1427,7 @@ table 52849 Absence
         exit(TotalFaltas);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateWEB()
     var
         l_Students: Record Students;
@@ -1510,7 +1510,7 @@ table 52849 Absence
             Observations := l_Remarks.Textline;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateLastLineNoWEB(): Integer
     var
         l_StruEdu: Record "Structure Education Country";

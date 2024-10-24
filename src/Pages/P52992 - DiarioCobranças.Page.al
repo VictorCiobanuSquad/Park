@@ -387,7 +387,7 @@ page 52992 "Diario Cobranças"
         TotalBalanceVisible := ShowTotalBalance;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateValorPendente()
     var
         GenJournalLineTEMP: Record "Gen. Journal Line";

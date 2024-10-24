@@ -541,7 +541,7 @@ page 52854 "Teacher Calendar"
         fAbsencesWizard: Page "Absences Wizard";
         fInsertLessons: Page "Insert Lessons";
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters()
     begin
         if vSchoolYear <> '' then
@@ -580,7 +580,7 @@ page 52854 "Teacher Calendar"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetOnOperFormFilters(pSchoolYear: Code[9]; pStartDate: Date; pEndDate: Date; pTimetableCode: Code[20])
     begin
         vSchoolYear := pSchoolYear;
@@ -589,7 +589,7 @@ page 52854 "Teacher Calendar"
         vTimetableCode := pTimetableCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetEditableSubform()
     begin
         if Rec."Type Subject" = Rec."Type Subject"::Subject then begin
@@ -602,14 +602,14 @@ page 52854 "Teacher Calendar"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FilterSubform()
     begin
         SubAbsenceLectureEditable := false;
         SubGeneralAbsenceEditable := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FilterDate()
     begin
         if (vStartDate <> 0D) and (vEndDate <> 0D) then

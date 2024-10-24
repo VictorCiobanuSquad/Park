@@ -87,7 +87,7 @@ table 52759 Subjects
         Text0012: Label 'You cannot rename a %1.';
         rCompanyInformation: Record "Company Information";
 
-    //[Scope('OnPrem')]
+
     procedure ValidateDeleteSubject()
     begin
         if Type = Type::Subject then begin

@@ -472,7 +472,7 @@ page 52900 "Equipment Entry Card"
         [InDataSet]
         EquipmentEntryEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters(pSchoolYear: Code[9]; pStudyPlan: Code[20]; pClass: Code[20]; pTimetable: Code[20]; pType: Option Simple,Multi)
     begin
         varSchoolYear := pSchoolYear;
@@ -482,13 +482,13 @@ page 52900 "Equipment Entry Card"
         varType := pType;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetEditableSubform()
     begin
         EquipmentEntryEditable := true;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertFormLines()
     var
         lRegistrationSubjects: Record "Registration Subjects";
@@ -548,14 +548,14 @@ page 52900 "Equipment Entry Card"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCurrentRec(var pTimetableCode: Code[20]; var PTimetableLineNo: Integer)
     begin
         pTimetableCode := Rec."Timetable Code";
         PTimetableLineNo := Rec."Line No.";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubForm()
     begin
 

@@ -95,7 +95,7 @@ page 52777 "General Calendar Teacher"
         rClass: Record Class;
         rTimetableTeacher: Record "Timetable-Teacher";
 
-    //[Scope('OnPrem')]
+
     procedure SendHeader(pTimetableTeacher: Record "Timetable-Teacher")
     begin
         // This saves the header record in a global variable in the subform

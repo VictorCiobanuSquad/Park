@@ -129,7 +129,7 @@ table 52801 "Legal Codes"
         PostCode: Record "Post Code";
         Text001: Label 'The email address "%1" is invalid.';
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;

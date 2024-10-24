@@ -52,7 +52,7 @@ table 52830 "Attached Documents"
         Path: Text[250];
         PathFile: Text[250];
 
-    //[Scope('OnPrem')]
+
     procedure ExportAttachment(ExportToFile: Record "Attached Documents"): Boolean
     var
         InStrm: InStream;
@@ -75,7 +75,7 @@ table 52830 "Attached Documents"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ImportAttachment(ImportFromFile: Text[260]; IsTemporary: Boolean): Boolean
     var
         InStrm: InStream;

@@ -1336,7 +1336,7 @@ page 52960 "Assign Assessments"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     begin
 
@@ -1366,20 +1366,20 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArrayMomento[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTypeAssessment(inIndex: Integer)
     begin
         if Rec.Level = 1 then begin
@@ -1427,7 +1427,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(InIndex: Integer) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1475,7 +1475,7 @@ page 52960 "Assign Assessments"
         exit(vText[InIndex]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1558,7 +1558,7 @@ page 52960 "Assign Assessments"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1613,7 +1613,7 @@ page 52960 "Assign Assessments"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -1627,7 +1627,7 @@ page 52960 "Assign Assessments"
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1643,7 +1643,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InIndex: Integer; InClassification: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -1668,7 +1668,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InIndex: Integer; InClassification: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -1755,7 +1755,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -1776,7 +1776,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAverbamentos(InMomentCode: Code[10]; InSubject: Code[10])
     var
         l_rRemarks: Record Remarks;
@@ -1799,7 +1799,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean; l_CodMoment: Code[10]) ExitValue: Boolean
     var
         l_rRemarks: Record Remarks;
@@ -1824,7 +1824,7 @@ page 52960 "Assign Assessments"
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure TestMoments()
     begin
         rMomentsAssessment.Reset;
@@ -1845,7 +1845,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure TestSettingRatings()
     var
         lSettingRatings: Record "Setting Ratings";
@@ -1864,7 +1864,7 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ApplyFilter(varClass: Code[20]; varSubject: Code[10]; varRespCenter: Code[10]; varSchoolYear: Code[9]; varSchoolingYear: Code[10]; varStudyPlanCode: Code[20])
     var
         rRegistrationSubject: Record "Registration Subjects";
@@ -1975,14 +1975,14 @@ page 52960 "Assign Assessments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBuffer()
     begin
         BufferAssignAssessments.Reset;
         BufferAssignAssessments.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ImputAssessment(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";

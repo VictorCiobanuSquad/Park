@@ -408,7 +408,7 @@ page 52775 "Student Study Plan"
         MasterCourse: Code[20];
         Text0005: Label 'You can only open the Sub Subjects if the Student is enroled on a Subject having Sub Subjects.';
 
-    //[Scope('OnPrem')]
+
     procedure FieldsVisible()
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -449,7 +449,7 @@ page 52775 "Student Study Plan"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetCourse(Course: Code[20])
     begin
         MasterCourse := Course;

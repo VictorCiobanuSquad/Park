@@ -99,7 +99,7 @@ page 52897 "Equipment List"
         varType: Option;
         fEquipmentCard: Page "Equipment Group Card";
 
-    //[Scope('OnPrem')]
+
     procedure updateForm(pType: Option)
     begin
         varType := pType;

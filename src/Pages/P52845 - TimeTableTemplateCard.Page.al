@@ -125,7 +125,7 @@ page 52845 "TimeTable Template Card"
         [InDataSet]
         SubFormLinesEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateTimetableCode()
     var
         l_TemplateTimetable: Record "Template Timetable";
@@ -140,7 +140,7 @@ page 52845 "TimeTable Template Card"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableSchoolYear()
     var
         l_SchoolYear: Record "School Year";

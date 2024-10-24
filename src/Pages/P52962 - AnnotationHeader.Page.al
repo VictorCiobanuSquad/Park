@@ -99,7 +99,7 @@ page 52962 "Annotation Header"
         [InDataSet]
         SubFormEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateEditable()
     var
         l_SchoolYear: Record "School Year";

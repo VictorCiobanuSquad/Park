@@ -628,7 +628,7 @@ table 52752 School
         Text003: Label 'Select a moment.';
         FileMgt: Codeunit "File Management";
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;

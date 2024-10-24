@@ -404,7 +404,7 @@ table 52812 Aspects
         Text0007: Label 'Not allowed to change the % Evaluation.';
         Text0008: Label 'Not allowed to change the Evaluation Type.';
 
-    //[Scope('OnPrem')]
+
     procedure "Count%"()
     begin
         Clear(varCount);
@@ -433,7 +433,7 @@ table 52812 Aspects
             Error(Text001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertDefaultAspects(var pAspects: Record Aspects; pType: Integer; pSchoolYear: Code[9]; pTypeNo: Code[20]; pRespCenter: Code[10])
     var
         l_rAspects: Record Aspects;
@@ -462,7 +462,7 @@ table 52812 Aspects
         pAspects.Copy(l_rAspectsINSERT);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertDefaultAspects2(var pAspects: Record Aspects; pType: Integer; pSchoolYear: Code[9]; pTypeNo: Code[20]; pMomentCode: Code[10]; pSchoolingYear: Code[10]; pSubjectCode: Code[10]; pSubSubjectCode: Code[20]; pEvaluationType: Option; pAssessmentCode: Code[20]; pRespCenter: Code[10])
     var
         l_rAspects: Record Aspects;
@@ -852,7 +852,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure fInsert(var pAspects: Record Aspects; pType: Integer; pSchoolYear: Code[9]; pTypeNo: Code[20]; pMomentCode: Code[10]; pSchoolingYear: Code[10]; pSubjectCode: Code[10]; pSubSubjectCode: Code[20]; pEvaluationType: Option; pAssessmentCode: Code[20]; pRespCenter: Code[10])
     var
         l_rAspectsINSERT: Record Aspects;
@@ -920,7 +920,7 @@ table 52812 Aspects
         //   l_InsertNAVGeneralTable.InsertAspectsStudent(pSubSubjectCode,pSubjectCode,pTypeNo,l_rAspectsINSERT);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyAspects()
     var
         Text000001: Label 'Update table #1##################';
@@ -942,7 +942,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyStudentAspects(pAspects: Record Aspects; pStudentCode: Code[20]; pSubject: Code[20]; pSubSubject: Code[20]; IsModify: Boolean)
     var
         lAspects: Record Aspects;
@@ -1140,7 +1140,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyClassAspects(pAspects: Record Aspects; pClass: Code[20]; pSubject: Code[20]; pSubSubject: Code[20]; IsModify: Boolean)
     var
         lAspects: Record Aspects;
@@ -1399,7 +1399,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyCourseAspects(pAspects: Record Aspects; pStudyPlanCode: Code[20]; pEducationType: Integer; pSubject: Code[20]; pSubSubject: Code[20]; IsModify: Boolean)
     var
         lAspects: Record Aspects;
@@ -1601,7 +1601,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyOverallAspects(pAspects: Record Aspects)
     var
         lStudyPlanLines: Record "Study Plan Lines";
@@ -1665,7 +1665,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAspects()
     var
         Text000001: Label 'Update table #1##################';
@@ -1707,7 +1707,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspects(pType: Integer; pTypeNo: Code[20]; pSchoolYear: Code[10]; pMomentCode: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pAspectCode: Code[20]; pResponsibilityCenter: Code[20]; var pAspects: Record Aspects; pDelete: Boolean) NextLevel: Boolean
     var
         RegistrationClass: Record "Registration Class";
@@ -2168,7 +2168,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteOverAll()
     var
         lAspects: Record Aspects;
@@ -2182,7 +2182,7 @@ table 52812 Aspects
             lAspects.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsOverallAsp()
     var
         lClass: Record Class;
@@ -2253,7 +2253,7 @@ table 52812 Aspects
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCourseNotWeb(pType: Integer; pSchoolYear: Code[9]; pSchoolingYear: Code[20]; pTypeNo: Code[20]; pRespCenter: Code[10]; pCode: Code[20]): Boolean
     var
         lAspects: Record Aspects;
@@ -2271,7 +2271,7 @@ table 52812 Aspects
             exit(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudyPlanAspects()
     var
         l_RegistrationSubjects: Record "Registration Subjects";

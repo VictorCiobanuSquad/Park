@@ -5,7 +5,7 @@ codeunit 52752 "Evaluations-Incidences"
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalFaltasLegalReports(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]; pStudent: Code[20]; pSubject: Code[10]; pDataEnd: Date; pTotInj: Option Totais,Injustificadas; pDataIni: Date) TotalFaltas: Integer
     var
         rIncidenceType: Record "Incidence Type";
@@ -92,7 +92,7 @@ codeunit 52752 "Evaluations-Incidences"
         exit(TotalFaltas);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalNotesLegalReports(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]; pStudent: Code[20]; pSubject: Code[10]; pMoment: Code[10]) Nota: Text[30]
     var
         rAsseStudent: Record "Assessing Students";
@@ -115,7 +115,7 @@ codeunit 52752 "Evaluations-Incidences"
         exit(Nota);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CalNotesSubDisc(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20]; pStudent: Code[20]; pSubject: Code[10]; pSubSubject: Code[10]; pMoment: Code[10]) Nota: Text[30]
     var
         rAsseStudent: Record "Assessing Students";

@@ -785,7 +785,7 @@ page 52750 "Student Card"
         FileMgt: Codeunit "File Management";
         Link: Text;
 
-    //[Scope('OnPrem')]
+
     procedure NotEditable()
     begin
         CurrPage.Editable(false);
@@ -794,7 +794,7 @@ page 52750 "Student Card"
         Aluno2Visible := true;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetSubformFilter()
     var
         rUsersFamilyStudents: Record "Users Family / Students";
@@ -833,13 +833,13 @@ page 52750 "Student Card"
         CurrPage.SubFormUsersFamily.PAGE.GetStudentCode(Rec."No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetSchoolYear(pSchoolYear: Code[9])
     begin
         gSchoolYear := pSchoolYear;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRegistrationsYears() SchoolYear: Code[20]
     var
         l_rRegistration: Record Registration;
@@ -866,7 +866,7 @@ page 52750 "Student Card"
             exit(rSchoolYearTemp."School Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSchoolingYears()
     begin
         rRegistrationClassEntry.Reset;

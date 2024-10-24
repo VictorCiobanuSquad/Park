@@ -780,7 +780,7 @@ table 52753 "Users Family"
         SalesSetup: Record "Sales & Receivables Setup";
         Text50000: Label 'EN';
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldUserFamily: Record "Users Family"): Boolean
     var
         UserFamily: Record "Users Family";
@@ -798,7 +798,7 @@ table 52753 "Users Family"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateProfile()
     var
         rUsersFamilyStudents: Record "Users Family / Students";
@@ -840,7 +840,7 @@ table 52753 "Users Family"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCustomer()
     var
         rCustomer: Record Customer;
@@ -907,7 +907,7 @@ table 52753 "Users Family"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;
@@ -935,7 +935,7 @@ table 52753 "Users Family"
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStudentsAddress(pSchoolYear: Code[9])
     var
         l_Students: Record Students;
@@ -981,7 +981,7 @@ table 52753 "Users Family"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateName()
     begin
         rUsersFamily.Reset;
@@ -1010,7 +1010,7 @@ table 52753 "Users Family"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
@@ -1018,7 +1018,7 @@ table 52753 "Users Family"
         Modify;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateShortName()
     begin
         if rEduConfiguration.Get then begin
@@ -1079,7 +1079,7 @@ table 52753 "Users Family"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure OpenFile(WindowTitle: Text[50]; DefaultFileName: Text[250]; DefaultFileType: Option " ",Text,Excel,Word,Custom; FilterString: Text[250]; "Action": Option Open,Save; var FileNameImport: Text[250]; var Extension: Code[50]; var Path: Text[250]) returnText: Text[260]
     var
         Text0031: Label '.txt';

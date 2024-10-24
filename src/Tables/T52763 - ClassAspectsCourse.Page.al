@@ -89,7 +89,7 @@ page 52939 "Class Aspects Course"
         vSchoolingYear: Code[10];
         rClass: Record Class;
 
-    //[Scope('OnPrem')]
+
     procedure GetClass(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10])
     begin
         vClass := pClass;

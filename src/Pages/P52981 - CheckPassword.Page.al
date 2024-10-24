@@ -27,7 +27,7 @@ page 52981 CheckPassword
     var
         Password: Text[30];
 
-    //[Scope('OnPrem')]
+
     procedure CheckPassword() ePassword: Text[30]
     begin
         exit(Password);

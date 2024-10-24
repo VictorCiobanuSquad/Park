@@ -467,7 +467,7 @@ page 52877 "Cancel Subjects Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentSubjects(pRegSubjects: Record "Registration Subjects"; pOption: Option Correct,,Transfer,Annul,Finished)
     begin
         rRegSubjects := pRegSubjects;

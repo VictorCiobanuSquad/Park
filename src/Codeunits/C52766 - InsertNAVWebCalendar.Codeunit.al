@@ -15,7 +15,7 @@ codeunit 52766 InsertNAVWebCalendar
     var
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
 
-    //[Scope('OnPrem')]
+
     procedure InsertCalendar(pCalendar: Record Calendar; var pID: Integer)
     var
         rCalendar: Record Calendar;
@@ -68,7 +68,7 @@ codeunit 52766 InsertNAVWebCalendar
         pID := rWebCalendar.ID;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteCalendar(pCalendar: Record Calendar)
     var
         rWebCalendar: Record "Web Calendar";
@@ -99,7 +99,7 @@ codeunit 52766 InsertNAVWebCalendar
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudentCalendar(pWebCalendar: Record "Web Calendar")
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -140,7 +140,7 @@ codeunit 52766 InsertNAVWebCalendar
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteStudentCalendar(pWebCalendar: Record "Web Calendar")
     var
         WebCalendarStudents: Record "Web Calendar Students";
@@ -154,7 +154,7 @@ codeunit 52766 InsertNAVWebCalendar
             WebCalendarStudents.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSC(pIDCalendar: Integer; pStudentCode: Code[20])
     var
         rWCalendarStudents: Record "Web Calendar Students";
@@ -169,7 +169,7 @@ codeunit 52766 InsertNAVWebCalendar
         rWCalendarStudents.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastID(): Integer
     var
         rWebCalendar: Record "Web Calendar";
@@ -181,7 +181,7 @@ codeunit 52766 InsertNAVWebCalendar
             exit(1);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetWeek(pDate: Date): Integer
     var
         rDate: Record Date;
@@ -194,7 +194,7 @@ codeunit 52766 InsertNAVWebCalendar
             exit(rDate."Period No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastIDStudent(): Integer
     var
         rWCalendarStudents: Record "Web Calendar Students";
@@ -206,7 +206,7 @@ codeunit 52766 InsertNAVWebCalendar
             exit(1);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubSubjectDescription(pCalendar: Record Calendar; pScholingYear: Code[10]): Text[100]
     var
         StudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines";
@@ -223,7 +223,7 @@ codeunit 52766 InsertNAVWebCalendar
             exit(StudyPlanSubSubjectsLines."Sub-Subject Description");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertModAbsence(pNewAbsence: Record Absence; poldAbsence: Record Absence)
     var
         WEBAbsence: Record "WEB Absence";
@@ -268,7 +268,7 @@ codeunit 52766 InsertNAVWebCalendar
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAbsence(pNewAbsence: Record Absence; poldAbsence: Record Absence)
     var
         WEBAbsence: Record "WEB Absence";

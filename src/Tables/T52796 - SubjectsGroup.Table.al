@@ -76,7 +76,7 @@ table 52796 "Subjects Group"
         rSubjectsGroup: Record "Subjects Group";
         rTeacher: Record Teacher;
 
-    //[Scope('OnPrem')]
+
     procedure FullName(pTeacher: Code[20]) rName: Text[191]
     var
         rEduConfiguration: Record "Edu. Configuration";

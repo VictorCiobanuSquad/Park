@@ -118,7 +118,7 @@ page 52821 "Timetable List"
         [InDataSet]
         TimeTableEnable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetSelectionFilter(): Code[80]
     var
         TabHorario: Record Timetable;
@@ -165,7 +165,7 @@ page 52821 "Timetable List"
         exit(SelectionFilter);
     end;
 
-    //[Scope('OnPrem')]
+
     // procedure CleanEmptyTags(XMLNode: Automation)
     // var
     //     XMLChildNode: Automation;
@@ -186,7 +186,7 @@ page 52821 "Timetable List"
     //     end;
     // end;
 
-    //[Scope('OnPrem')]]
+
     /*procedure TextReplace(SourceFileName: Text[250]; DestinationFileName: Text[250]; TextToFind: Text[250]; TextToReplace: Text[250]; TextToFind2: Text[250]; TextToReplace2: Text[250])
     var
         TextFile: File;
@@ -230,7 +230,7 @@ page 52821 "Timetable List"
     end;*/
     //NOTES: TextReplace function not in use, comment
 
-    //[Scope('OnPrem')]
+
     procedure PlanitUnVisible(pUnVisible: Boolean)
     begin
         visible := pUnVisible;

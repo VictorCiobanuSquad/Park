@@ -79,7 +79,7 @@ page 52850 Absences
     {
     }
 
-    //[Scope('OnPrem')]
+
     procedure FormUpdate()
     begin
         CurrPage.Update(false);

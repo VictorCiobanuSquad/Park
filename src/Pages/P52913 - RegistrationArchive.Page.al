@@ -253,7 +253,7 @@ page 52913 "Registration Archive"
         [InDataSet]
         CourseEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure feditavel()
     begin
         if Rec.Status <> Rec.Status::" " then begin

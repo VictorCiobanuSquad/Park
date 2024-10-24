@@ -152,7 +152,7 @@ page 52927 "Sub Subjects Setting Ratings"
         [InDataSet]
         "Moment PonderEditable": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure SetSubformFilter()
     var
         l_Aspects: Record Aspects;
@@ -177,7 +177,7 @@ page 52927 "Sub Subjects Setting Ratings"
         CurrPage.SubformAspects.PAGE.FormUpdate;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetPonderEditable()
     begin
         rMomentAssements.Reset;

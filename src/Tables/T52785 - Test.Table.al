@@ -701,7 +701,7 @@ table 52785 Test
         Text0014: Label 'You can not change this field.';
         Text0015: Label 'Are you sure you want to Exclud the student 1%?';
 
-    //[Scope('OnPrem')]
+
     procedure CreateTest(pCandidate: Code[20]; pDescription: Text[30]; pTypeOfTest: Integer; pDate: Date; pTime: Time; pDuration: Decimal; pRoom: Code[20]; pTeacher: Code[20]; pSchoolYear: Code[20]; pSchoolingYear: Code[20]): Code[20]
     var
         rTestLine: Record Test;
@@ -735,7 +735,7 @@ table 52785 Test
         exit(rTestHeader."Test No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ChangeTest(pCandidate: Code[20]; pTestNo: Code[20]; pSchoolYear: Code[20]; pSchoolingYear: Code[20]): Code[20]
     var
         rTestLine: Record Test;
@@ -755,7 +755,7 @@ table 52785 Test
         exit(rTestHeader."Test No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSchoolYear(pTest: Record Test)
     var
         rTest: Record Test;
@@ -804,7 +804,7 @@ table 52785 Test
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldTest: Record Test): Boolean
     var
         Test: Record Test;
@@ -824,7 +824,7 @@ table 52785 Test
             exit(true);
         end;
     end;
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(GroupCode: Code[20]; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -838,7 +838,7 @@ table 52785 Test
             Error(Text0010);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(GroupCode: Code[20]; InText: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -860,7 +860,7 @@ table 52785 Test
             exit(0);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(GroupCode: Code[20]; InText: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;

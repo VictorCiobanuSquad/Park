@@ -195,7 +195,7 @@ page 52864 "FregConDist Codes"
         [InDataSet]
         CodeVisible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure ShowCoumns(p_Value: Boolean)
     begin
         ParishCouncilDistrictCodeVisib := p_Value;

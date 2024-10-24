@@ -110,7 +110,7 @@ report 52765 "Copy Course Plan"
         text0012: Label 'Copy Aspects  \@3@@@@@@@@@@@@@@@@@@@@@\';
         text0013: Label 'Copy Sub-Aspects  \@4@@@@@@@@@@@@@@@@@@@@@\';
 
-    //[Scope('OnPrem')]
+
     procedure InsertCoursePlan()
     var
         l_rCourseHeader: Record "Course Header";
@@ -165,13 +165,13 @@ report 52765 "Copy Course Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCoursePlanNo(pCoursePlanCode: Code[20])
     begin
         varNewCoursePlan := pCoursePlanCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopySubSubject(pCourseLines: Record "Course Lines")
     var
         rStudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines";
@@ -200,7 +200,7 @@ report 52765 "Copy Course Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopySettingRattings()
     var
         OldSettingRatings: Record "Setting Ratings";
@@ -228,7 +228,7 @@ report 52765 "Copy Course Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopySubSubjectsSettingRattings()
     var
         OldSRSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -253,7 +253,7 @@ report 52765 "Copy Course Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspects()
     var
         rAspects: Record Aspects;
@@ -294,7 +294,7 @@ report 52765 "Copy Course Plan"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAspectsSubSubjects()
     var
         rSettingRatingsSubSubjects: Record "Setting Ratings Sub-Subjects";

@@ -49,7 +49,7 @@ codeunit 52757 "Post Services ET"
         int: Integer;
         Text0007: Label 'Nº Fatura';
 
-    //[Scope('OnPrem')]
+
     procedure PaymentServices(pNo: Code[20]; pUserID: Code[20]; pPostPrint: Boolean)
     var
         rStudentLedgerEntry: Record "Student Ledger Entry";
@@ -442,7 +442,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertDtlStudent(pStudentLedgerEntry: Record "Student Ledger Entry"; pAmount: Decimal)
     var
         DetailedStudLedgEntry: Record "Detailed Stud. Ledg. Entry";
@@ -498,7 +498,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PaymetRegisto(pStudentLedgerEntry: Record "Student Ledger Entry"; pAmount: Decimal; pBallAccountNo: Code[20]; pAccountType: enum "Payment Balance Account Type"; pPaymentMethod: Code[50])
     var
         rGenJournalTemplate: Record "Gen. Journal Template";
@@ -553,7 +553,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateMemoCredit(pVarNo: Code[20]; pUserID: Code[20]; pPostPrint: Boolean)
     var
         rStudentLedgerEntry: Record "Student Ledger Entry";
@@ -772,7 +772,7 @@ codeunit 52757 "Post Services ET"
             until rStudentLedgerEntry.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure RegistCreditMemo(pOldDocNo: Code[20]; pPostPrint: Boolean)
     var
         rSalesHeaderRegis: Record "Sales Header";
@@ -792,7 +792,7 @@ codeunit 52757 "Post Services ET"
                     CODEUNIT.Run(CODEUNIT::"Sales-Post + Print EDUSOL", rSalesHeaderRegis);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertServices(pServicesPlanLine: Record "Services Plan Line")
     var
         l_StudentServicePlan: Record "Student Service Plan";
@@ -870,7 +870,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure MailFilter(pSalesInvoiceCode: Code[20])
     var
         l_Customer: Record Customer;
@@ -946,7 +946,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;*/
 
-    /*//[Scope('OnPrem')]
+    /* 
     procedure SendMail(pFilePath: Text[250]; pCustomer: Code[20])
     begin
         if rCustomer.Get(pCustomer) then begin
@@ -959,7 +959,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure OutlookSend()
     var
         File: File;
@@ -971,13 +971,13 @@ codeunit 52757 "Post Services ET"
         NameSpace.Logoff;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure MutipleAttachments(pFilePath: Text[250])
     begin
         Mailintem.Attachments.Add(pFilePath, 6, 1);
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure CreateMail(pEmail: Text[250])
     begin
         if IsClear(OutlookApp) then
@@ -995,7 +995,7 @@ codeunit 52757 "Post Services ET"
         GetBodyText;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure GetSubject()
     begin
         rCommentLine.Reset;
@@ -1014,7 +1014,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+     
     procedure GetBodyText()
     begin
         rCommentLine.Reset;
@@ -1033,7 +1033,7 @@ codeunit 52757 "Post Services ET"
         end;
     end;*/
 
-    //[Scope('OnPrem')]
+
     procedure GetDimen(inCR: Code[50]): Code[30]
     begin
         case inCR of

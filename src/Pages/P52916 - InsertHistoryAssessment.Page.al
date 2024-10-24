@@ -1603,7 +1603,7 @@ page 52916 "Insert History Assessment"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     var
         varMomentCode: Code[20];
@@ -1656,13 +1656,13 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
 
@@ -1742,13 +1742,13 @@ page 52916 "Insert History Assessment"
             Txt15Visible := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
         exit(vArrayMomento[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTypeAssessment(inIndex: Integer)
     var
         l_AssessmentConfiguration: Record "Assessment Configuration";
@@ -1857,7 +1857,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(InIndex: Integer) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1892,7 +1892,7 @@ page 52916 "Insert History Assessment"
         exit(vText[InIndex]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -2128,7 +2128,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -2248,7 +2248,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -2262,7 +2262,7 @@ page 52916 "Insert History Assessment"
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -2278,7 +2278,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InIndex: Integer; InClassification: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -2302,7 +2302,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InIndex: Integer; InClassification: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -2382,7 +2382,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed2(InCode: Text[250]; InClassification: Decimal) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -2447,7 +2447,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pSchoolingYear: Code[20]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -2465,7 +2465,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAverbamentos(InMomentCode: Code[10]; InSubject: Code[10])
     var
         l_rRemarks: Record Remarks;
@@ -2488,7 +2488,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean; l_CodMoment: Code[10]) ExitValue: Boolean
     var
         l_rRemarks: Record Remarks;
@@ -2529,7 +2529,7 @@ page 52916 "Insert History Assessment"
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure TestMoments()
     begin
         rMomentsAssessment.Reset;
@@ -2550,7 +2550,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure TestSettingRatings()
     var
         lSettingRatings: Record "Setting Ratings";
@@ -2569,7 +2569,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ApplyFilter(varClass: Code[20]; varSubject: Code[10]; varRespCenter: Code[10]; varSchoolYear: Code[9]; varSchoolingYear: Code[10]; varStudyPlanCode: Code[10])
     var
         rRegistrationSubject: Record "Registration Subjects";
@@ -2675,14 +2675,14 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBuffer()
     begin
         BufferAssignAssessments.Reset;
         BufferAssignAssessments.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents()
     var
         l_Students: Record Students;
@@ -2953,7 +2953,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRegistrationAproved(pInsert: Boolean)
     var
         l_Registration: Record Registration;
@@ -2987,7 +2987,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateActualStatus()
     var
         lMomentsAssessment: Record "Moments Assessment";
@@ -3014,14 +3014,14 @@ page 52916 "Insert History Assessment"
             ActualStatusVisible := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInfo(pSchoolYear: Code[9]; pStudentCode: Code[20])
     begin
         varSchoolYear := pSchoolYear;
         varStudent := pStudentCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInfo2(pSchoolingYear: Code[20]; pCourseCode: Code[20])
     begin
         varSchoolingYear := pSchoolingYear;
@@ -3029,7 +3029,7 @@ page 52916 "Insert History Assessment"
         GetType;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTerms(pBook: Text[10]; pSheet: Text[10])
     var
         l_AssessingStudents: Record "Assessing Students";
@@ -3058,7 +3058,7 @@ page 52916 "Insert History Assessment"
             Error(Text0018);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTerms(var pBookTerms: Text[10]; var pSheetTerms: Text[10])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -3094,7 +3094,7 @@ page 52916 "Insert History Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetType()
     begin
         rStruEduCountry.Reset;
@@ -3103,7 +3103,7 @@ page 52916 "Insert History Assessment"
             VarType := rStruEduCountry.Type;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessmentEvaluation(pAssessingStudentsFinal: Record "Assessing Students Final") out: Text[50]
     var
         l_AssessConf: Record "Assessment Configuration";

@@ -318,7 +318,7 @@ report 52750 "Processing Services"
         rStudentServicePlan: Record "Student Service Plan";
         ResCenter: Text[250];
 
-    //[Scope('OnPrem')]
+
     procedure FilterStudentServPlan()
     begin
         Evaluate(optionMes, Format(PostingDate, 0, '<Month>'));
@@ -349,7 +349,7 @@ report 52750 "Processing Services"
             "Student Service Plan".SetRange(Dezember, true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateService() stopProcess: Boolean
     var
         l_StudLedgerEntry: Record "Student Ledger Entry";
@@ -440,7 +440,7 @@ report 52750 "Processing Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateProcessService(pStudentServicePlan: Record "Student Service Plan"): Boolean
     var
         rStudentLedgerEntry: Record "Student Ledger Entry";
@@ -487,7 +487,7 @@ report 52750 "Processing Services"
         exit(Status);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CheckMonthForDepending(pServicesEt: Record "Services ET"): Boolean
     begin
         Evaluate(optionMes, Format(PostingDate, 0, '<Month>'));

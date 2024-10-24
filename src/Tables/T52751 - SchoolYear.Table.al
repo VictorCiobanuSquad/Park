@@ -52,7 +52,7 @@ table 52751 "School Year"
         varStatusInt: Integer;
         varpStatusInt: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateStatus(pStatus: Option " ",Planning,Active,Closing,Closed)
     begin
         rSchoolYear.Reset;
@@ -61,7 +61,7 @@ table 52751 "School Year"
             Error(Text001, rSchoolYear."School Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ChangeStatus(pStatus: Option " ",Planning,Active,Closing,Closed)
     var
         TempSchoolYear: Record "School Year" temporary;

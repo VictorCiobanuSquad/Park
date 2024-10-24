@@ -191,7 +191,7 @@ table 52807 "Students Transfers School"
         Text001: Label 'The email address "%1" is invalid.';
         rLegalCodes: Record "Legal Codes";
 
-    //[Scope('OnPrem')]
+
     procedure CheckValidEmailAddress(EmailAddress: Text[250])
     var
         i: Integer;
@@ -219,7 +219,7 @@ table 52807 "Students Transfers School"
             Error(Text001, EmailAddress);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertRegistration()
     var
         l_Registration: Record Registration;
@@ -242,7 +242,7 @@ table 52807 "Students Transfers School"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateRegistration()
     var
         l_Registration: Record Registration;
@@ -264,7 +264,7 @@ table 52807 "Students Transfers School"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteRecord()
     var
         Text0001: Label 'Confirm you want to delete the record?\Deleting this record will delete all evaluations for this school Year!';

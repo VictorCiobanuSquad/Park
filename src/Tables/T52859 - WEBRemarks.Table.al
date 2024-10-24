@@ -183,7 +183,7 @@ table 52859 "WEB Remarks"
         rCalendar: Record Calendar;
         Text0005: Label 'Could not delete, the lecture status is Summary.';
 
-    //[Scope('OnPrem')]
+
     procedure GetMotherLanguage(pObservationCode: Code[20]; pSchoolYear: Code[9]; pSex: Option " ",Male,Female; pLineNo: Integer; pLanguage: Option " ",Castilian,English,Euskara,Galego,Deutsch,"Français",Italian,"Portuguese (BR)"): Text[250]
     var
         l_MultiLanguageObservation: Record "Multi language observation";

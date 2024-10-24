@@ -79,7 +79,7 @@ page 52792 "Classification Level"
         [InDataSet]
         ValueEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFields()
     var
         l_RankGroup: Record "Rank Group";

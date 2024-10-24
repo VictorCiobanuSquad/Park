@@ -31,7 +31,7 @@ page 52951 "Previous Observations"
         i: Integer;
         vEnter: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure MostraObs(pStudentCodeNo: Code[20]; pSchoolYear: Code[9]; pClass: Code[20]; pSubjects: Code[20]; pSubSubjects: Code[20]; pSchoolingYear: Code[10]; pStudyPlanCode: Code[20]; pMomentCode: Code[10]; pClassNumber: Integer)
     begin
 

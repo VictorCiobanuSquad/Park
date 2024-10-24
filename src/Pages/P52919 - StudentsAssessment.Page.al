@@ -1103,14 +1103,14 @@ page 52919 "Students Assessment"
         Txt1Editable: Boolean;
         fRemarksWizard: Page "Remarks Wizard";
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArraySubject[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     var
         rStudySubSubjects: Record "Study Plan Sub-Subjects Lines";
@@ -1233,7 +1233,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1406,7 +1406,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertIndividualPlan(inStudentCode: Code[20]; inValue: Boolean; InType: Integer)
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1430,7 +1430,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1504,7 +1504,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSpecialPlan(inStudentCode: Code[20]; InType: Integer): Boolean
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1528,7 +1528,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -1546,13 +1546,13 @@ page 52919 "Students Assessment"
         until i = 15;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1568,7 +1568,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(InIndex: Integer) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1606,7 +1606,7 @@ page 52919 "Students Assessment"
         exit(vText[InIndex]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InIndex: Integer; InClassification: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -1630,7 +1630,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InIndex: Integer; InClassification: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -1714,7 +1714,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
         if (vArrayAssessmentType[1] <> vArrayAssessmentType[1] ::Qualitative) then begin
@@ -1817,7 +1817,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean) ExitValue: Boolean
     var
         l_rMomentsAssessment: Record "Moments Assessment";
@@ -1858,7 +1858,7 @@ page 52919 "Students Assessment"
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -1879,7 +1879,7 @@ page 52919 "Students Assessment"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure HasClassification(): Boolean
     var
         rAssessingStudents: Record "Assessing Students";

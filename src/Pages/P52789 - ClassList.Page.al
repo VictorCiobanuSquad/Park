@@ -69,7 +69,7 @@ page 52789 "Class List"
         cUserEducation: Codeunit "User Education";
         SchoolYear: Record "School Year";
 
-    //[Scope('OnPrem')]
+
     procedure GetSelectionFilter(): Code[80]
     var
         Class: Record Class;

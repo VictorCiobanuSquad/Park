@@ -456,7 +456,7 @@ page 52977 "Student Incid. Justify2"
         SubjectEditable: Boolean;
         fJustAbsencesWizard: Page "Justify Absences Wizard";
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilters()
     begin
 
@@ -508,7 +508,7 @@ page 52977 "Student Incid. Justify2"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditSubject()
     begin
         rStudyPlanHeader.Reset;
@@ -524,7 +524,7 @@ page 52977 "Student Incid. Justify2"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetType(pSchoolingYear: Code[10]): Integer
     var
         l_StructureEducationCountry: Record "Structure Education Country";
@@ -536,7 +536,7 @@ page 52977 "Student Incid. Justify2"
             exit(l_StructureEducationCountry.Type);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";

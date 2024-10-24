@@ -102,19 +102,19 @@ table 53009 "Encomendas Cab"
         Flag: Boolean;
         Text006: Label 'O campo %1 está em falta na encomenda %2. Deseja continuar?';
 
-    //[Scope('OnPrem')]
+
     procedure SelectAll()
     begin
         MODIFYALL(Pick, TRUE);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UnSelectAll()
     begin
         MODIFYALL(Pick, FALSE);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PickOrderCreate(pPostingDate: Date)
     var
         SalesHeader: Record "Sales Header";
@@ -299,7 +299,7 @@ table 53009 "Encomendas Cab"
             MESSAGE(STRSUBSTNO(Text001, CopyText));
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CountMarkOrders(): Integer
     begin
         EncHeader2.RESET;

@@ -288,7 +288,7 @@ table 52817 "Student Sub-Subjects Plan "
         Text0006: Label 'To use this option please configure the Study Plan Setting Ratings for the subject %1.';
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
 
-    //[Scope('OnPrem')]
+
     procedure OpenCreateAssessmentConf()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -357,7 +357,7 @@ table 52817 "Student Sub-Subjects Plan "
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRatings()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -398,7 +398,7 @@ table 52817 "Student Sub-Subjects Plan "
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects2()
     var
         rRegistrationSubjects: Record "Registration Subjects";

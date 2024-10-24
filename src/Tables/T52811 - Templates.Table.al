@@ -71,7 +71,7 @@ table 52811 Templates
         InStr: InStream;
         OutStr: OutStream;
 
-    //[Scope('OnPrem')]
+
     procedure Import()
     var
         _varText: Text[255];
@@ -354,7 +354,7 @@ table 52811 Templates
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Export()
     var
         Text011: Label 'Selecionar o Caminho do Documento';
@@ -377,7 +377,7 @@ table 52811 Templates
             Error(Text001);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Print(pStudentNo: Code[50]; pSchoolYear: Code[50]; pTemplateCode: Code[50]; pSchoolingYear: Code[50]; pPageBreak: Boolean; pPageBreakNo: Integer; pCount: Integer; pMomentCode: Code[20]; pclass: Code[20]; pSubjectCode: Code[20]; pteacherCode: Code[20]; pTemplateType: Option " ",Word,Excel; pCurricularSubjects: Code[20]; pPersonalAspects: Code[20]; pBasicSkills: Code[20])
     var
         //repTemplateBulletin1: Report "Bulletin Lower Secondary";
@@ -1336,7 +1336,7 @@ table 52811 Templates
         end;*/
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetRegistration(var pRegistration: Record Registration)
     begin
         if varStudentno <> '' then begin
@@ -1345,13 +1345,13 @@ table 52811 Templates
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetAssessingStudents(pAssessingStudents: Record "Assessing Students")
     begin
         rAssessingStudents := pAssessingStudents;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetStudents(pStudentNo: Code[50]; pClass: Code[50]; pSchoolYear: Code[50]; pTemplateCode: Code[50])
     begin
         varStudentno := pStudentNo;
@@ -1359,7 +1359,7 @@ table 52811 Templates
         varTemplatecode := pTemplateCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMoment(pSchoolingYear: Code[20]; pSchoolYear: Code[20]; pResponsibilityCenter: Code[20]): Code[20]
     var
         l_rMoments: Record "Moments Assessment";
@@ -1400,7 +1400,7 @@ table 52811 Templates
             exit(l_rMoments."Moment Code");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FileExtension(FileName: Text[260]) Extension: Text[260]
     var
         I: Integer;
@@ -1411,7 +1411,7 @@ table 52811 Templates
         Extension := CopyStr(FileName, I + 1, StrLen(FileName) - I);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PrintMeeting(pTimetableTeacher: Record "Timetable-Teacher")
     var
         lTimetableTeacher: Record "Timetable-Teacher";
@@ -1431,7 +1431,7 @@ table 52811 Templates
         repMinutes.RunModal;*/
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PrintCandidate(pCandidate: Record Candidate)
     var
         lCandidate: Record Candidate;

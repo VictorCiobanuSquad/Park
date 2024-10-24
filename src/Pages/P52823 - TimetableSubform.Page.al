@@ -237,21 +237,21 @@ page 52823 "Timetable Subform"
         [InDataSet]
         "Sub-Subject CodeEditable": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure Activar()
     begin
         CurrPage.Activate;
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure IsSelectedLineChanged() UpdateNeeded: Boolean
     begin
         UpdateNeeded := SelectedLineChanged; // Return if a active line changed has occur...
         Clear(SelectedLineChanged); // := FALSE; // ...and clear the variable.
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetVisibleControls()
     begin
         if Rec.Class = '' then
@@ -260,7 +260,7 @@ page 52823 "Timetable Subform"
             SubjectVisible := true;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetTypeVisible(pTimetableType: Option Class,Teacher; pStudyPlanCode: Code[20]; pType: Option Simple,Multi)
     var
         l_StudyPlanHeader: Record "Study Plan Header";
@@ -292,7 +292,7 @@ page 52823 "Timetable Subform"
         vTimetable := pTimetableType;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Validatefields()
     begin
         if (Rec.Type = Rec.Type::"Non scholar hours") or (Rec.Type = Rec.Type::"Non scholar component") then
@@ -301,7 +301,7 @@ page 52823 "Timetable Subform"
             "Sub-Subject CodeEditable" := true;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ShowFields(p_Show: Boolean)
     begin
         MeetingVisible := p_Show;

@@ -252,7 +252,7 @@ report 52752 "Invoicing Services"
         StudLedgEntry: Record "Student Ledger Entry";
         rStudents2: Record Students;
 
-    //[Scope('OnPrem')]
+
     procedure CreateSalesHeader()
     var
         TabCliente: Record Customer;
@@ -335,7 +335,7 @@ report 52752 "Invoicing Services"
         //END;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateSalesLine()
     begin
         Clear(i);
@@ -430,7 +430,7 @@ report 52752 "Invoicing Services"
         //END;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetOpenCreditMemos()
     var
         l_rSalesCrMemoHeader: Record "Sales Cr.Memo Header";

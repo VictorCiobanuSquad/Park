@@ -450,7 +450,7 @@ table 52823 "Assessment Configuration"
         Text0002: Label 'The value must be between %1 and %2.';
         cInsertNAVMasterTable: Codeunit InsertNAVMasterTable;
 
-    //[Scope('OnPrem')]
+
     procedure InsertRules()
     var
         l_CourseHeader: Record "Course Header";
@@ -517,7 +517,7 @@ table 52823 "Assessment Configuration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteRules()
     var
         l_RulesEvaluations: Record "Rules of Evaluations";
@@ -529,7 +529,7 @@ table 52823 "Assessment Configuration"
         l_RulesEvaluations.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNo(): Integer
     var
         l_RulesEvaluations: Record "Rules of Evaluations";

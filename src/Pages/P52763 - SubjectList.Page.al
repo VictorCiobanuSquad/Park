@@ -32,7 +32,7 @@ page 52763 "Subject List"
     {
     }
 
-    //[Scope('OnPrem')]
+
     procedure GetSelectionFilter(): Code[80]
     var
         Subject: Record Subjects;

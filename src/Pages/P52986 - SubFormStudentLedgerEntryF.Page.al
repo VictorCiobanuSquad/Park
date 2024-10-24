@@ -157,7 +157,7 @@ page 52986 "SubForm Student Ledger Entry F"
         cUserEducation: Codeunit "User Education";
         Text001: Label 'This record can not be deleted.';
 
-    //[Scope('OnPrem')]
+
     procedure GetRecord() InvoiceNo: Code[20]
     begin
         exit(Rec."Registed Invoice No.");

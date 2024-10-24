@@ -46,7 +46,7 @@ page 52806 "Service Discounts Group"
         }
     }
 
-    //[Scope('OnPrem')]
+
     procedure GetSelectionFilter(): Code[80]
     var
         ItemDiscGr: Record "Service Discount Group";

@@ -295,7 +295,7 @@ page 52860 "Students Registration"
         [InDataSet]
         "Services Plan CodeVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentName(): Text[250]
     var
         rStudents: Record Students;
@@ -306,7 +306,7 @@ page 52860 "Students Registration"
             exit('');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFilters()
     var
         l_rSchoolYear: Record "School Year";
@@ -333,7 +333,7 @@ page 52860 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer; IsTextOrCode: Boolean) out: Text[100]
     begin
         if IsTextOrCode then
@@ -342,14 +342,14 @@ page 52860 "Students Registration"
             exit(CaptionCode[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
     begin
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentRegister(p_StudentCode: Code[20]; p_SubjectCode: Code[20]): Boolean
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -372,7 +372,7 @@ page 52860 "Students Registration"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyStudentRegister(p_StudentCode: Code[20]; p_SubjectCode: Code[20]; p_Status: Boolean): Boolean
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -407,7 +407,7 @@ page 52860 "Students Registration"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
     end;

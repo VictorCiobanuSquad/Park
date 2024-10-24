@@ -560,7 +560,7 @@ page 52874 "Student Transition"
         Text0012: Label 'There is a error in the Subjects for the %1 Student %2.';
         varStudentName: Text[200];
 
-    //[Scope('OnPrem')]
+
     procedure GetLines()
     begin
         Rec.DeleteAll;
@@ -605,7 +605,7 @@ page 52874 "Student Transition"
         Rec.SetCurrentKey(Class, "Class No.");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNextSchoolYear()
     var
         l_SchoolYear: Record "School Year";
@@ -625,7 +625,7 @@ page 52874 "Student Transition"
             varSchoolYear2 := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNextSchoolingYear()
     var
         l_StructureEducationCountry: Record "Structure Education Country";
@@ -649,7 +649,7 @@ page 52874 "Student Transition"
             varSchoolingYear2 := '';
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentName(): Text[200]
     var
         rStudent: Record Students;
@@ -658,7 +658,7 @@ page 52874 "Student Transition"
         exit(rStudent.Name);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetType()
     begin
         rStruEduCountry.Reset;
@@ -667,7 +667,7 @@ page 52874 "Student Transition"
             VarType := rStruEduCountry.Type;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Process()
     var
         l_Registration: Record Registration;
@@ -778,7 +778,7 @@ page 52874 "Student Transition"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ChangeRec()
     begin
         rRegistration.Reset;
@@ -793,7 +793,7 @@ page 52874 "Student Transition"
         rRegistration.Modify;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateClass(): Boolean
     var
         l_Class: Record Class;
@@ -811,7 +811,7 @@ page 52874 "Student Transition"
             exit(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateClass()
     var
         l_Class: Record Class;
@@ -843,7 +843,7 @@ page 52874 "Student Transition"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateRegistrationClass()
     var
         l_RegistrationClass: Record "Registration Class";
@@ -876,7 +876,7 @@ page 52874 "Student Transition"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastLineNo(): Integer
     var
         l_RegistrationClass: Record "Registration Class";
@@ -893,7 +893,7 @@ page 52874 "Student Transition"
             exit(10000);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubjects(): Code[20]
     var
         l_rStruEduCountry: Record "Structure Education Country";
@@ -1009,7 +1009,7 @@ page 52874 "Student Transition"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTEMPStudyPlan(pCourseLines: Record "Course Lines")
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -1024,7 +1024,7 @@ page 52874 "Student Transition"
         rCourseLinesTEMP.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountryNext(): Integer
     begin
 
@@ -1039,7 +1039,7 @@ page 52874 "Student Transition"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PutSelection(pMark: Boolean)
     begin
         Rec.Reset;
@@ -1050,7 +1050,7 @@ page 52874 "Student Transition"
             until Rec.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudyPlan()
     var
         l_SchoolYear: Record "School Year";
@@ -1128,7 +1128,7 @@ page 52874 "Student Transition"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateRegistrationSubject()
     var
         l_RegistrationSubjects: Record "Registration Subjects";

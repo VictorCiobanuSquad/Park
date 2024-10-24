@@ -383,14 +383,14 @@ page 52917 "Select Previous Years"
         [InDataSet]
         Txt15Visible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArraySchoolYear[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     var
         rAssessingStudents: Record "Assessing Students";
@@ -421,7 +421,7 @@ page 52917 "Select Previous Years"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inIndex: Integer; inText: Text[250]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -466,7 +466,7 @@ page 52917 "Select Previous Years"
             exit('');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -480,13 +480,13 @@ page 52917 "Select Previous Years"
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInfo(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pStudentCode: Code[20]; pStudyPlanCode: Code[20])
     begin
         VarSchoolYear := pSchoolYear;
@@ -500,7 +500,7 @@ page 52917 "Select Previous Years"
         if rStudents.Get(VarStudentCode) then;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSubjects()
     var
         l_rStruEduCountry: Record "Structure Education Country";
@@ -607,7 +607,7 @@ page 52917 "Select Previous Years"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjects(pCourseLines: Record "Course Lines")
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -646,7 +646,7 @@ page 52917 "Select Previous Years"
         Rec.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(): Integer
     begin
 
@@ -661,7 +661,7 @@ page 52917 "Select Previous Years"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Register()
     var
         rRegSubjects: Record "Registration Subjects";
@@ -736,7 +736,7 @@ page 52917 "Select Previous Years"
             Message(text011);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastLineNo(): Integer
     var
         rRegSubjects: Record "Registration Subjects";
@@ -752,7 +752,7 @@ page 52917 "Select Previous Years"
             exit(10000);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFuction()
     begin
         if (vArraySchoolYear[1] = '') and (vArraySchoolYear[2] = '') then

@@ -209,7 +209,7 @@ table 52778 Remarks
         Text0005: Label 'Could not delete, the lecture status is Summary.';
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
 
-    //[Scope('OnPrem')]
+
     procedure GetMotherLanguage(pObservationCode: Code[20]; pSchoolYear: Code[9]; pSex: Option " ",Male,Female; pLineNo: Integer; pLanguage: Option " ",Castilian,English,Euskara,Galego,Deutsch,"Français",Italian,"Portuguese (BR)"): Text[250]
     var
         l_MultiLanguageObservation: Record "Multi language observation";
@@ -228,7 +228,7 @@ table 52778 Remarks
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTickText()
     var
         l_rIncidenceType: Record "Incidence Type";

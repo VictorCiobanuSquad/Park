@@ -118,7 +118,7 @@ report 52759 "Copy Moments"
         NewRCenter: Code[20];
         NewSchoolingYear: Code[10];
 
-    //[Scope('OnPrem')]
+
     procedure CopyMoments()
     var
         rMomentsAssessmentNew: Record "Moments Assessment";
@@ -144,7 +144,7 @@ report 52759 "Copy Moments"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateNewMoments(): Boolean
     begin
         rMomentsAssessment.Reset;
@@ -159,7 +159,7 @@ report 52759 "Copy Moments"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteMoments()
     begin
         rMomentsAssessment.Reset;
@@ -171,7 +171,7 @@ report 52759 "Copy Moments"
         rMomentsAssessment.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMoments(pSchoolingYear: Code[10]; pSchoolYear: Code[9]; pRespCenter: Code[10])
     begin
 

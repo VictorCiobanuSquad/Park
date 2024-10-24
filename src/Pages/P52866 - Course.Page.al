@@ -157,7 +157,7 @@ page 52866 Course
         [InDataSet]
         "Maximum Total AbsenceVisible": Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure VisibleFields()
     var
         rStructureEducationCountry: Record "Structure Education Country";

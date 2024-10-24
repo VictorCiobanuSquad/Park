@@ -272,7 +272,7 @@ page 52805 "Sales Line Discounts ET"
         [InDataSet]
         CodeFilterCtrlEnable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetRecFilters()
     begin
         if Rec.GetFilters <> '' then begin
@@ -293,7 +293,7 @@ page 52805 "Sales Line Discounts ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetRecFilters()
     begin
         SalesCodeFilterCtrlEnable := true;
@@ -344,7 +344,7 @@ page 52805 "Sales Line Discounts ET"
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCaption(): Text[250]
     var
         ObjTransl: Record "Object Translation";

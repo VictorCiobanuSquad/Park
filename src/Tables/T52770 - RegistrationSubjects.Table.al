@@ -423,7 +423,7 @@ table 52770 "Registration Subjects"
         cInsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
         rStudentSubjectEntry: Record "Student Subjects Entry";
 
-    //[Scope('OnPrem')]
+
     procedure ValidateServicePlan(pRegisSubjectsServices: Record "Registration Subjects")
     var
         rServicesET: Record "Services ET";
@@ -501,7 +501,7 @@ table 52770 "Registration Subjects"
             until rServicesET.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteServicePlan(pRegisSubjectsServices: Record "Registration Subjects")
     var
         rServicesET: Record "Services ET";

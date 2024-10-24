@@ -255,7 +255,7 @@ table 52777 "Setting Ratings"
         InsertNAVGeneralTable: Codeunit InsertNAVGeneralTable;
         Text0002: Label 'Do you confirm you wish to erase the Aspects line for the %1 Subject and Sub-subjects (if any) for the %2 Moment?';
 
-    //[Scope('OnPrem')]
+
     procedure CopyAssessmentConf()
     var
         l_rSettingRatings: Record "Setting Ratings";
@@ -350,7 +350,7 @@ table 52777 "Setting Ratings"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteAspects(var pAspects: Record Aspects; pSettingRatings: Record "Setting Ratings")
     var
         lAspects: Record Aspects;

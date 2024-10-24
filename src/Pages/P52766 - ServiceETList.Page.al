@@ -103,7 +103,7 @@ page 52766 "Service ET List"
     var
         cUserEducation: Codeunit "User Education";
 
-    //[Scope('OnPrem')]
+
     procedure GetSelectionFilter(): Code[80]
     var
         Item: Record "Services ET";

@@ -575,7 +575,7 @@ page 52870 "Students Optional Services"
         [InDataSet]
         Txt30Visible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentName(): Text[250]
     var
         rStudents: Record Students;
@@ -586,7 +586,7 @@ page 52870 "Students Optional Services"
             exit('');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateFilters()
     var
         l_rSchoolYear: Record "School Year";
@@ -638,7 +638,7 @@ page 52870 "Students Optional Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer; IsTextOrCode: Boolean) out: Text[100]
     begin
         if IsTextOrCode then
@@ -647,7 +647,7 @@ page 52870 "Students Optional Services"
             exit(CaptionCode[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -660,7 +660,7 @@ page 52870 "Students Optional Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudentRegister(p_StudentCode: Code[20]; p_ServiceCode: Code[20]): Boolean
     begin
         if (p_StudentCode <> '') and (p_ServiceCode <> '') then begin
@@ -677,7 +677,7 @@ page 52870 "Students Optional Services"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ModifyStudentRegister(p_StudentCode: Code[20]; p_ServiceCode: Code[20]; p_Status: Boolean): Boolean
     begin
         if (p_StudentCode <> '') and (p_ServiceCode <> '') then begin
@@ -697,7 +697,7 @@ page 52870 "Students Optional Services"
         InsertColunm;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
         if (CaptionCode[1] <> '') then

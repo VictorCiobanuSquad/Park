@@ -18,7 +18,7 @@ codeunit 52755 "Student Services"
         LineNo: Integer;
         Text50003: Label 'PTG';
 
-    //[Scope('OnPrem')]
+
     procedure DistributionByEntity(pUsersFamilyStudents: Record "Users Family / Students") retValue: Boolean
     var
         UsersFamilyStud: Record "Users Family / Students";
@@ -202,7 +202,7 @@ codeunit 52755 "Student Services"
         PercentValidate(pUsersFamilyStudents);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CustomerCreate(var pUsersFamilyStudents: Record "Users Family / Students")
     var
         Text002: Label 'You must select one Paying entity';
@@ -582,7 +582,7 @@ codeunit 52755 "Student Services"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CandidateCustomerCreate(var pUsersFamilyCandidate: Record "Users Family / Candidate")
     var
         Text002: Label 'You must select one Paying entity';
@@ -698,7 +698,7 @@ codeunit 52755 "Student Services"
         // Fim -
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FilterDate(pPostingDate: Date; var pBeginDate: Date; var pEndDate: Date)
     var
         rDate: Record Date;
@@ -721,7 +721,7 @@ codeunit 52755 "Student Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DistributionByEntityRegis(var pStudentServPlan: Record "Student Service Plan")
     var
         UsersFamilyStud: Record "Users Family / Students";
@@ -781,7 +781,7 @@ codeunit 52755 "Student Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DelDistributionByEntity(var pStudentServPlan: Record "Student Service Plan")
     var
         UsersFamilyStud: Record "Users Family / Students";
@@ -797,7 +797,7 @@ codeunit 52755 "Student Services"
             ServDistribEntity.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure PercentValidate(pUsersFamilyStudents: Record "Users Family / Students")
     var
         UsersFamilyStud: Record "Users Family / Students";
@@ -834,7 +834,7 @@ codeunit 52755 "Student Services"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CriaAutorizacao(CustNo: Code[20]; CustNIB: Text[50])
     var
         CustBankAcc: Record "Customer Bank Account";

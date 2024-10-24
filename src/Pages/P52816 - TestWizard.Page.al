@@ -532,7 +532,7 @@ page 52816 "Test Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure Caption(): Text[260]
     var
         CaptionStr: Text[260];

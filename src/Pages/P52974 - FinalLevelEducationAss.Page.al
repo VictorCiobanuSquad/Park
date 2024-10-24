@@ -1323,7 +1323,7 @@ page 52974 "Final Level Education Ass."
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     begin
 
@@ -1383,13 +1383,13 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
         if (vArrayCodMomento[1] <> '') then
@@ -1468,14 +1468,14 @@ page 52974 "Final Level Education Ass."
             Txt15Visible := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArrayMomento[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTypeAssessment(inIndex: Integer)
     var
         rRulesEvaluations: Record "Rules of Evaluations";
@@ -1500,7 +1500,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure LookupFunction(InIndex: Integer) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1543,7 +1543,7 @@ page 52974 "Final Level Education Ass."
         exit(vText[InIndex]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20])
     var
         rAssessingStudentsFinal: Record "Assessing Students Final";
@@ -1640,7 +1640,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1717,7 +1717,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -1731,7 +1731,7 @@ page 52974 "Final Level Education Ass."
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQualitative(InIndex: Integer; inText: Text[250]) Out: Code[20]
     var
         rClassificationLevel: Record "Classification Level";
@@ -1747,7 +1747,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentQuant(InIndex: Integer; InClassification: Text[250]) Out: Decimal
     var
         varClasification: Decimal;
@@ -1771,7 +1771,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessmentMixed(InIndex: Integer; InClassification: Text[250]) Out: Text[30]
     var
         varLocalClasification: Decimal;
@@ -1855,7 +1855,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pClass: Code[20]; pSchoolYear: Code[9]): Integer
     var
         rStruEduCountry: Record "Structure Education Country";
@@ -1875,7 +1875,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAverbamentos(InMomentCode: Code[10]; InSubject: Code[10])
     var
         l_rRemarks: Record Remarks;
@@ -1898,7 +1898,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean; l_CodMoment: Code[10]) ExitValue: Boolean
     var
         l_rRemarks: Record Remarks;
@@ -1926,7 +1926,7 @@ page 52974 "Final Level Education Ass."
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure TestSettingRatings()
     var
         lSettingRatings: Record "Setting Ratings";
@@ -1945,14 +1945,14 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBuffer()
     begin
         BufferAssignAssessments.Reset;
         BufferAssignAssessments.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents()
     var
         l_Students: Record Students;
@@ -2195,7 +2195,7 @@ page 52974 "Final Level Education Ass."
         Window.Close;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRegistrationAproved(pInsert: Boolean)
     var
         l_Registration: Record Registration;
@@ -2229,7 +2229,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMultiplePE(pStudentCode: Code[20]; pSchoolingYear: Code[10])
     var
         i: Integer;
@@ -2256,7 +2256,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudyPlan(pClassNo: Integer; pStudentCode: Code[20])
     var
         l_StudyPlanLines: Record "Study Plan Lines";
@@ -2502,7 +2502,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateCourse(pAssessingStudents: Record "Assessing Students")
     var
         l_VarLineNo: Integer;
@@ -2599,7 +2599,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry2(pSchoolingYear: Code[10]): Integer
     begin
 
@@ -2614,7 +2614,7 @@ page 52974 "Final Level Education Ass."
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjects(pCourseLines: Record "Course Lines")
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -2630,7 +2630,7 @@ page 52974 "Final Level Education Ass."
         rCourseLinesTEMP2.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure HasGrade(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pStudentCode: Code[20]; pSubjectCode: Code[10]; pStudyPlanCode: Code[20]): Boolean
     var
         l_pAssessingStudents: Record "Assessing Students";

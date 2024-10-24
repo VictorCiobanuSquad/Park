@@ -101,20 +101,20 @@ page 52839 "Teacher Class"
         rTeacherClass: Record "Teacher Class";
         vOpcao: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure funcTeacherClass(parTeachClass: Record "Teacher Class")
     begin
         varTeachClass := parTeachClass;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure funcUpdate()
     begin
         if Rec.Find('-') then;
         CurrPage.Update(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTeacher() Teacher: Code[20]
     begin
         exit(Rec.User);

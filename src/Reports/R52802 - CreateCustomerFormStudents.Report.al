@@ -67,7 +67,7 @@ report 52802 "Create Customer Form Students"
         rCustomer: Record Customer;
         Text001: Label 'Done.';
 
-    //[Scope('OnPrem')]
+
     procedure CustomerCreate(var rstudents: Record Students)
     var
         Text002: Label 'You must select one Paying entity';
@@ -102,7 +102,7 @@ report 52802 "Create Customer Form Students"
         rstudents.Modify;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CustomerCreate2(var pUsersFamilyStudents: Record "Users Family / Students")
     var
         Text002: Label 'You must select one Paying entity';

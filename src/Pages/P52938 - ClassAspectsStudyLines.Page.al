@@ -83,7 +83,7 @@ page 52938 "Class Aspects Study Lines"
         vSchoolYear: Code[9];
         vSchoolingYear: Code[10];
 
-    //[Scope('OnPrem')]
+
     procedure GetClass(pClass: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10])
     begin
         vClass := pClass;

@@ -335,7 +335,7 @@ table 52802 "Course Header"
         ENESENEBCodes: Record "Legal Codes";
         Text0013: Label 'The field %1 must be higher than the field %2.';
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldStudyPlanHeader: Record "Course Header"): Boolean
     var
         CourseHeader: Record "Course Header";

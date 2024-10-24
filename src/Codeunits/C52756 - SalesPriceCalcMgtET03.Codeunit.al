@@ -37,7 +37,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         DateCaption: Text[30];
         ServicesET: Record "Services ET";
 
-    //[Scope('OnPrem')]
+
     procedure FindSalesLinePrice(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; CalledByFieldNo: Integer)
     begin
         SetCurrency(
@@ -71,7 +71,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindItemJnlLinePrice(var ItemJnlLine: Record "Item Journal Line"; CalledByFieldNo: Integer)
     begin
         SetCurrency('', 0, 0D);
@@ -91,7 +91,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
             ItemJnlLine.Validate("Unit Amount", TempSalesPrice."Unit Price");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindServLinePrice(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; CalledByFieldNo: Integer)
     var
         ServCost: Record "Service Cost";
@@ -133,7 +133,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindSalesLineLineDisc(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
     begin
         SetCurrency(SalesHeader."Currency Code", 0, 0D);
@@ -149,7 +149,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindServLineDisc(ServHeader: Record "Service Header"; var ServInvLine: Record "Service Line")
     begin
         SetCurrency(ServHeader."Currency Code", 0, 0D);
@@ -177,7 +177,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindStdItemJnlLinePrice(var StdItemJnlLine: Record "Standard Item Journal Line"; CalledByFieldNo: Integer)
     begin
         SetCurrency('', 0, 0D);
@@ -197,7 +197,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
             StdItemJnlLine.Validate("Unit Amount", TempSalesPrice."Unit Price");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindAnalysisReportPrice(ItemNo: Code[20]; Date: Date): Decimal
     begin
         SetCurrency('', 0, 0D);
@@ -279,7 +279,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         SalesLineDisc := BestSalesLineDisc;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindSalesPrice(var ToSalesPrice: Record "Sales Price"; CustNo: Code[20]; ContNo: Code[20]; CustPriceGrCode: Code[10]; CampaignNo: Code[20]; ItemNo: Code[20]; VariantCode: Code[10]; UOM: Code[10]; CurrencyCode: Code[10]; StartingDate: Date; ShowAll: Boolean)
     var
         FromSalesPrice: Record "Sales Price";
@@ -324,7 +324,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindSalesLineDisc(var ToSalesLineDisc: Record "Sales Line Discount ET"; CustNo: Code[20]; ContNo: Code[20]; CustDiscGrCode: Code[10]; CampaignNo: Code[20]; ItemNo: Code[20]; ItemDiscGrCode: Code[10]; VariantCode: Code[10]; UOM: Code[10]; CurrencyCode: Code[10]; StartingDate: Date; ShowAll: Boolean)
     var
         FromSalesLineDisc: Record "Sales Line Discount ET";
@@ -385,7 +385,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
             end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopySalesPrice(var SalesPrice: Record "Sales Price")
     begin
         SalesPrice.DeleteAll;
@@ -414,7 +414,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
             until FromSalesLineDisc.Next = 0;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetResPrice(JobNo: Code[20]; Code2: Code[20]; WorkTypeCode: Code[10]; CurrencyCode: Code[10])
     begin
         ResPrice.Init;
@@ -535,7 +535,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         exit(SalesPrice."Unit Price");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSalesLinePrice(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
     begin
         SalesLinePriceExists(SalesHeader, SalesLine, true);
@@ -587,7 +587,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetSalesLineLineDisc(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line")
     begin
         SalesLineLineDiscExists(SalesHeader, SalesLine, true);
@@ -626,7 +626,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SalesLinePriceExists(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowAll: Boolean): Boolean
     begin
         if (SalesLine.Type = SalesLine.Type::Service) and ServicesET.Get(SalesLine."No.") then begin
@@ -639,7 +639,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SalesLineLineDiscExists(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowAll: Boolean): Boolean
     begin
         if (SalesLine.Type = SalesLine.Type::Service) and ServicesET.Get(SalesLine."No.") then begin
@@ -652,7 +652,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetServLinePrice(ServHeader: Record "Service Header"; var ServLine: Record "Service Line")
     begin
         ServLinePriceExists(ServHeader, ServLine, true);
@@ -705,7 +705,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetServLineLineDisc(ServHeader: Record "Service Header"; var ServLine: Record "Service Line")
     begin
         ServLineLineDiscExists(ServHeader, ServLine, true);
@@ -746,7 +746,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ServLinePriceExists(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; ShowAll: Boolean): Boolean
     begin
         if (ServLine.Type = ServLine.Type::Item) and Item.Get(ServLine."No.") then begin
@@ -759,7 +759,7 @@ codeunit 52756 "Sales Price Calc. Mgt.ET03"
         exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ServLineLineDiscExists(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; ShowAll: Boolean): Boolean
     begin
         if (ServLine.Type = ServLine.Type::Item) and Item.Get(ServLine."No.") then begin
@@ -846,35 +846,35 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NoOfSalesLinePrice(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowAll: Boolean): Integer
     begin
         if SalesLinePriceExists(SalesHeader, SalesLine, ShowAll) then
             exit(TempSalesPrice.Count);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NoOfSalesLineLineDisc(SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; ShowAll: Boolean): Integer
     begin
         if SalesLineLineDiscExists(SalesHeader, SalesLine, ShowAll) then
             exit(TempSalesLineDisc.Count);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NoOfServLinePrice(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; ShowAll: Boolean): Integer
     begin
         if ServLinePriceExists(ServHeader, ServLine, ShowAll) then
             exit(TempSalesPrice.Count);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure NoOfServLineLineDisc(ServHeader: Record "Service Header"; var ServLine: Record "Service Line"; ShowAll: Boolean): Integer
     begin
         if ServLineLineDiscExists(ServHeader, ServLine, ShowAll) then
             exit(TempSalesLineDisc.Count);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindJobPlanningLinePrice(var JobPlanningLine: Record "Job Planning Line"; CalledByFieldNo: Integer)
     var
         Job: Record Job;
@@ -913,7 +913,7 @@ then
         JobPlanningLineFindJTPrice(JobPlanningLine);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobPlanningLineFindJTPrice(var JobPlanningLine: Record "Job Planning Line")
     var
         JobItemPrice: Record "Job Item Price";
@@ -980,7 +980,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobItemPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobItemPrice: Record "Job Item Price")
     begin
         if JobItemPrice."Apply Job Price" then begin
@@ -991,7 +991,7 @@ then
             JobPlanningLine."Line Discount %" := JobItemPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobResPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobResPrice: Record "Job Resource Price")
     begin
         if JobResPrice."Apply Job Price" then begin
@@ -1002,7 +1002,7 @@ then
             JobPlanningLine."Line Discount %" := JobResPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobPlanningLineFindJobResPrice(var JobPlanningLine: Record "Job Planning Line"; var JobResPrice: Record "Job Resource Price"; PriceType: Option Resource,"Group(Resource)",All): Boolean
     var
         ResUOM: Record "Resource Unit of Measure";
@@ -1029,7 +1029,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobGLAccPriceToJobPlanLine(var JobPlanningLine: Record "Job Planning Line"; JobGLAccPrice: Record "Job G/L Account Price")
     begin
         JobPlanningLine."Unit Cost" := JobGLAccPrice."Unit Cost";
@@ -1038,7 +1038,7 @@ then
         JobPlanningLine."Line Discount %" := JobGLAccPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindJobJnlLinePrice(var JobJnlLine: Record "Job Journal Line"; CalledByFieldNo: Integer)
     var
         Job: Record Job;
@@ -1078,7 +1078,7 @@ then
         JobJnlLineFindJTPrice(JobJnlLine);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobJnlLineFindJobResPrice(var JobJnlLine: Record "Job Journal Line"; var JobResPrice: Record "Job Resource Price"; PriceType: Option Resource,"Group(Resource)",All): Boolean
     var
         ResUOM: Record "Resource Unit of Measure";
@@ -1105,7 +1105,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobResPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobResPrice: Record "Job Resource Price")
     begin
         if JobResPrice."Apply Job Price" then begin
@@ -1116,7 +1116,7 @@ then
             JobJnlLine."Line Discount %" := JobResPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobGLAccPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobGLAccPrice: Record "Job G/L Account Price")
     begin
         JobJnlLine."Unit Cost" := JobGLAccPrice."Unit Cost";
@@ -1125,7 +1125,7 @@ then
         JobJnlLine."Line Discount %" := JobGLAccPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobJnlLineFindJTPrice(var JobJnlLine: Record "Job Journal Line")
     var
         JobItemPrice: Record "Job Item Price";
@@ -1192,7 +1192,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyJobItemPriceToJobJnlLine(var JobJnlLine: Record "Job Journal Line"; JobItemPrice: Record "Job Item Price")
     begin
         if JobItemPrice."Apply Job Price" then begin
@@ -1203,7 +1203,7 @@ then
             JobJnlLine."Line Discount %" := JobItemPrice."Line Discount %";
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindJobPlanningLineLineDisc(Job: Record Job; var JobPlanningLine: Record "Job Planning Line")
     begin
         SetCurrency(JobPlanningLine."Currency Code", JobPlanningLine."Currency Factor", JobPlanningLine."Planning Date");
@@ -1219,7 +1219,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobPlanningLineLineDiscExists(Job: Record Job; var JobPlanningLine: Record "Job Planning Line"; ShowAll: Boolean): Boolean
     var
         Cust: Record Customer;
@@ -1241,7 +1241,7 @@ then
         exit(JobPlanningLine."Planning Date");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindJobJnlLineLineDisc(Job: Record Job; var JobJnlLine: Record "Job Journal Line")
     begin
         SetCurrency(JobJnlLine."Currency Code", JobJnlLine."Currency Factor", JobJnlLine."Posting Date");
@@ -1256,7 +1256,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JobJnlLineLineDiscExists(Job: Record Job; var JobJnlLine: Record "Job Journal Line"; ShowAll: Boolean): Boolean
     begin
         if (JobJnlLine.Type = JobJnlLine.Type::Item) and Item.Get(JobJnlLine."No.") then begin
@@ -1276,7 +1276,7 @@ then
         exit(JobJnlLine."Posting Date");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindServiceLineLineDisc(UsersFamily: Record "Users Family"; var StudentLedgerEntry: Record "Student Ledger Entry")
     begin
 
@@ -1292,7 +1292,7 @@ then
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ServiceLineDiscExists(UsersFamily: Record "Users Family"; var StudentLedgerEntry: Record "Student Ledger Entry"; ShowAll: Boolean): Boolean
     var
         l_Customer: Record Customer;
@@ -1350,7 +1350,7 @@ then
         SalesLineDisc := BestSalesLineDisc;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FindServiceLineDisc(var ToSalesLineDisc: Record "Sales Line Discount ET"; CustNo: Code[20]; ContNo: Code[20]; CustDiscGrCode: Code[10]; CampaignNo: Code[20]; ItemNo: Code[20]; ItemDiscGrCode: Code[10]; VariantCode: Code[10]; UOM: Code[10]; CurrencyCode: Code[10]; StartingDate: Date; ShowAll: Boolean)
     var
         FromSalesLineDisc: Record "Sales Line Discount ET";

@@ -124,7 +124,7 @@ page 52942 "Class Sub-Subjects Lines"
         vSchoolingYear: Code[10];
         vSchoolYear: Code[9];
 
-    //[Scope('OnPrem')]
+
     procedure GetClass(pClass: Code[20]; pSchoolingYear: Code[10]; pSchoolYear: Code[9])
     begin
         vClass := pClass;

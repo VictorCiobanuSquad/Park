@@ -443,7 +443,7 @@ page 52760 School
         CantinaNumofMealsEchelonBEdita: Boolean;
         Text003: Label '5.1';
 
-    //[Scope('OnPrem')]
+
     procedure CantineEditable()
     begin
         if Rec.Cantina = Rec.Cantina::Concessionada then begin

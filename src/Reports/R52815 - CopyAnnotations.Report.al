@@ -78,7 +78,7 @@ report 52815 "Copy Annotations"
         vNewSchoolYear: Code[9];
         Text0005: Label 'There is no New School Year selected.';
 
-    //[Scope('OnPrem')]
+
     procedure CopyAnnotation()
     var
         l_rAnnotationHead: Record Annotation;
@@ -123,7 +123,7 @@ report 52815 "Copy Annotations"
         //
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GETAnnotation(pAnnotationCode: Code[20]; pSchoolYear: Code[9])
     begin
 

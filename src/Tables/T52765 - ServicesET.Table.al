@@ -362,7 +362,7 @@ table 52765 "Services ET"
         rLegalCodes: Record "Legal Codes";
         CU_NoSeries: Codeunit "No. Series";
 
-    //[Scope('OnPrem')]
+
     procedure AssistEdit(OldService: Record "Services ET"): Boolean
     var
         ServicesET: Record "Services ET";
@@ -379,7 +379,7 @@ table 52765 "Services ET"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);

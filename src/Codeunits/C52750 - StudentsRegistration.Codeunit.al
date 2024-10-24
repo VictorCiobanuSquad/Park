@@ -16,7 +16,7 @@ codeunit 52750 "Students Registration"
         Nreg: Integer;
         countReg: Integer;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents(pRegistrationClass: Record "Registration Class")
     begin
         rRegistrationClassEntry.Reset;
@@ -53,7 +53,7 @@ codeunit 52750 "Students Registration"
         rRegistrationClassEntry.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastMovNumber() LastMov: Integer
     begin
         rRegistrationClassEntry.Reset;
@@ -63,7 +63,7 @@ codeunit 52750 "Students Registration"
             exit(1);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentSubjectsRegister(pRegistrationClass: Record "Registration Class")
     var
         rRegSubsServ: Record "Registration Subjects";
@@ -90,7 +90,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentSubjectsCorrect(pRegistrationClass: Record "Registration Class")
     var
         rAspects: Record Aspects;
@@ -130,7 +130,7 @@ codeunit 52750 "Students Registration"
             rAspects.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentSubjectsCancel(pRegistrationClass: Record "Registration Class")
     var
         rAspects: Record Aspects;
@@ -165,7 +165,7 @@ codeunit 52750 "Students Registration"
             rAspects.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetShoolYear(): Code[1000]
     var
         rSchoolYear: Record "School Year";
@@ -186,7 +186,7 @@ codeunit 52750 "Students Registration"
         exit(SchoolYearAll);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetShoolYearActive(): Code[1000]
     var
         rSchoolYear: Record "School Year";
@@ -205,7 +205,7 @@ codeunit 52750 "Students Registration"
         exit(SchoolYearAll);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetShoolYearPreActiveClosing(): Code[1000]
     var
         rSchoolYear: Record "School Year";
@@ -229,7 +229,7 @@ codeunit 52750 "Students Registration"
         exit(' ');
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetShoolYearActiveClosing(): Code[1000]
     var
         rSchoolYear: Record "School Year";
@@ -250,7 +250,7 @@ codeunit 52750 "Students Registration"
         exit(SchoolYearAll);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetCountry(): Code[10]
     var
         rCompanyInformation: Record "Company Information";
@@ -261,7 +261,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CancelStudentSubject(pRegSubjects: Record "Registration Subjects"; pDate: Date; pVarStatus: Option " ",Subscribed,Transfer,Annuled,Completed; pVarNewClass: Code[20])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -428,7 +428,7 @@ codeunit 52750 "Students Registration"
 
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentSingleSubReg(pSubjects: Code[10]; pRegistration: Record Registration; pNewClass: Code[20]; pDate: Date; pSchoolingYear: Code[10])
     var
         rRegistrationClass: Record "Registration Class";
@@ -714,7 +714,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CreateRecoverTest(pType: Integer)
     var
         rTest: Record Test;
@@ -805,7 +805,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentRegSubject(pRegistrationSubjects: Record "Registration Subjects"; pRegistration: Record Registration; pNewClass: Code[20]; pDate: Date)
     var
         rRegistrationClass: Record "Registration Class";
@@ -918,7 +918,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ReNumberClassNo(pClass: Record Class; pRegistrationClass: Record "Registration Class")
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -990,7 +990,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRespCenter(pRegistration: Record Registration): Text[100]
     var
         rStudent: Record Students;
@@ -999,7 +999,7 @@ codeunit 52750 "Students Registration"
         exit(rStudent."Responsibility Center");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastClassLineNo(pRegistrationSubjects: Record "Registration Subjects"; var pLineNo: Integer; var pClassNo: Integer)
     var
         rRegistrationClass: Record "Registration Class";
@@ -1020,7 +1020,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure StudentsSubjectsEntry(pRegistrationSubjects: Record "Registration Subjects")
     var
         l_StudentSubjectsEntry: Record "Student Subjects Entry";
@@ -1032,7 +1032,7 @@ codeunit 52750 "Students Registration"
         l_StudentSubjectsEntry.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastNoEntry(): Integer
     var
         l_StudentSubjectsEntry: Record "Student Subjects Entry";
@@ -1044,7 +1044,7 @@ codeunit 52750 "Students Registration"
             exit(0);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubjectStudyPlan(pStudyPlanLines: Record "Study Plan Lines")
     var
         rStudentStudyPlan: Record "Registration Subjects";
@@ -1150,7 +1150,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetLastStudentLine(pStudentCode: Code[20]; pCode: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pSubject: Code[10]; pRespCenter: Code[10]): Integer
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -1174,7 +1174,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubjectsCourse(pCourseLines: Record "Course Lines"; pSchoolYear: Code[9]; pSchoolingYear: Code[10])
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -1300,7 +1300,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubSubjectsCourse(pStudyPlanSubSubjectsLines: Record "Study Plan Sub-Subjects Lines"; pSchoolYear: Code[9]; pSchoolingYear: Code[10])
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -1380,7 +1380,7 @@ codeunit 52750 "Students Registration"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EncyptPassword(InText: Text[250])
     var
         EncryptMgt: Codeunit "Cryptography Management";

@@ -114,13 +114,13 @@ page 52810 "Candidate Entry"
         Text0001: Label 'The Candidate already has a candidature for this schooling year.';
         rCandidate: Record Candidate;
 
-    //[Scope('OnPrem')]
+
     procedure FormCreateTest()
     begin
         Rec.CreateTest(Rec);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure FormOpenTest()
     begin
         Rec.OpenTest(Rec);

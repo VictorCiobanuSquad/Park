@@ -165,7 +165,7 @@ report 52788 "Copy Incidences"
         [InDataSet]
         NewCenterEditable: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateNewIncidence(): Boolean
     begin
 
@@ -182,7 +182,7 @@ report 52788 "Copy Incidences"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteIncidences()
     begin
 
@@ -196,7 +196,7 @@ report 52788 "Copy Incidences"
         rIncidenceType.DeleteAll(true);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetIncidences(pSchoolingYear: Code[10]; pSchoolYear: Code[9]; pRespCenter: Code[10])
     begin
 
@@ -206,7 +206,7 @@ report 52788 "Copy Incidences"
         NewRCenter := pRespCenter;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure CopyIncidences()
     var
         l_IncidenceType: Record "Incidence Type";

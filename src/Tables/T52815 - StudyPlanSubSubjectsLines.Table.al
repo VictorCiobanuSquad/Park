@@ -586,7 +586,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
         rCompanyInformation: Record "Company Information";
         Text0021: Label 'The Assessement Code cannot be changed.';
 
-    //[Scope('OnPrem')]
+
     procedure OpenCreateAssessmentConf()
     var
         l_rMoments: Record "Moments Assessment";
@@ -800,7 +800,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSettingRatings()
     var
         l_SRSubSubjects: Record "Setting Ratings Sub-Subjects";
@@ -857,7 +857,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
             Error(Text0003, Code, "School Year");
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects(pMomentCode: Code[10]; pSchoolYear: Code[9])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -908,7 +908,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
         //FORM.RUNMODAL(FORM::Aspects,rAspects);;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SubjectsAspects2(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pClass: Code[20])
     var
         rRegistrationSubjects: Record "Registration Subjects";
@@ -993,7 +993,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
         PAGE.RunModal(PAGE::Aspects, rAspects);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateAssessment()
     begin
         if Type = Type::"Study Plan" then begin
@@ -1018,7 +1018,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateSubjectSetRatting(pMoment: Code[20]; pSchoolYear: Code[9]; pSchoolingYear: Code[20]; pStudyPlan: Code[20]; pSubject: Code[20]; pType: Integer; pRespCenter: Code[20])
     var
         rSettingRatings: Record "Setting Ratings";
@@ -1035,7 +1035,7 @@ table 52815 "Study Plan Sub-Subjects Lines"
             Error(Text0007);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateSubSubject()
     var
         cStudentsRegistration: Codeunit "Students Registration";

@@ -234,7 +234,7 @@ report 52881 "Total da Faturação"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         TOTAIS__CaptionLbl: Label 'TOTAIS: ';
 
-    //[Scope('OnPrem')]
+
     procedure FindApplnEntriesDtldtLedgEntry()
     var
         DtldCustLedgEntry1: Record "Detailed Cust. Ledg. Entry";

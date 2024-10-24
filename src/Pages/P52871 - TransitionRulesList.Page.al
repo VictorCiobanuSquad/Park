@@ -69,7 +69,7 @@ page 52871 "Transition Rules List"
         [InDataSet]
         OkVisible: Boolean;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         CurrPage.Update;

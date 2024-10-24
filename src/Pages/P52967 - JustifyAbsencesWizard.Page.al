@@ -525,7 +525,7 @@ page 52967 "Justify Absences Wizard"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure SetFormFilter(pTimetableCode: Code[20]; pStudentTeacher: Integer; pInicialDate: Date; pEndDate: Date; pSchoolYear: Code[9]; pClass: Code[20])
     begin
         vTimetableCode := pTimetableCode;
@@ -542,7 +542,7 @@ page 52967 "Justify Absences Wizard"
         vSchoolYear := pSchoolYear;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure JustifyAbsence()
     begin
         rAbsenceJustify.Reset;

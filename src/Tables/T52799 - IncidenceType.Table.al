@@ -356,7 +356,7 @@ table 52799 "Incidence Type"
         Text0012: Label 'Not allowed for the category class and teacher.';
         Text0013: Label 'The Absence Status cannot be change for the Incidence Type Absence.';
 
-    //[Scope('OnPrem')]
+
     procedure GetSchoolYear(): Code[9]
     var
         l_SchoolYear: Record "School Year";

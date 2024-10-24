@@ -895,7 +895,7 @@ page 52975 "Student Classification"
         CurrPage.Update;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure BuildMoments()
     var
         varMomentCode: Code[20];
@@ -962,13 +962,13 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateForm()
     begin
         BuildMoments;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure EditableFuction()
     begin
 
@@ -1048,14 +1048,14 @@ page 52975 "Student Classification"
             Txt15Visible := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure getCaptionLabel(label: Integer) out: Text[30]
     begin
 
         exit(vArrayMomento[label]);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAssessment(inStudentCode: Code[20]; inClassNo: Integer; inIndex: Integer; inText: Text[250]; inSubSubjCode: Code[20]) Out: Text[100]
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1191,7 +1191,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertColunm()
     var
         i: Integer;
@@ -1205,7 +1205,7 @@ page 52975 "Student Classification"
         until i = 15
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetAverbamentos(InMomentCode: Code[10]; InSubject: Code[10])
     var
         l_rRemarks: Record Remarks;
@@ -1228,7 +1228,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure UpdateCommentsVAR(IsGlobal: Boolean; l_CodMoment: Code[10]) ExitValue: Boolean
     var
         l_rRemarks: Record Remarks;
@@ -1272,14 +1272,14 @@ page 52975 "Student Classification"
         exit(ExitValue);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure DeleteBuffer()
     begin
         BufferAssignAssessments.Reset;
         BufferAssignAssessments.DeleteAll;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertStudents()
     var
         l_Students: Record Students;
@@ -1580,7 +1580,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetRegistrationAproved(pInsert: Boolean)
     var
         l_Registration: Record Registration;
@@ -1614,7 +1614,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateActualStatus()
     var
         lMomentsAssessment: Record "Moments Assessment";
@@ -1643,7 +1643,7 @@ page 52975 "Student Classification"
             ActualStatusVisible := false;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateClassTransfer(pRegistrationSubjects: Record "Registration Subjects"; pLevel: Integer)
     var
         l_StudentSubjectsEntry: Record "Student Subjects Entry";
@@ -1720,14 +1720,14 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetInfo(pSchoolYear: Code[9]; pStudentCode: Code[20])
     begin
         varSchoolYear := pSchoolYear;
         varStudent := pStudentCode;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertTerms(pBook: Text[10]; pSheet: Text[10])
     var
         l_AssessingStudents: Record "Assessing Students";
@@ -1757,7 +1757,7 @@ page 52975 "Student Classification"
             Error(Text0018);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetTerms(var pBookTerms: Text[10]; var pSheetTerms: Text[10])
     var
         rAssessingStudents: Record "Assessing Students";
@@ -1796,7 +1796,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetMultiplePE()
     begin
         rAssessingStudentsTEMP.Reset;
@@ -1822,7 +1822,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetStudyPlan()
     var
         l_StudyPlanLines: Record "Study Plan Lines";
@@ -2059,7 +2059,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ValidateCourse(pAssessingStudents: Record "Assessing Students")
     begin
         rCourseLinesTEMP.Reset;
@@ -2163,7 +2163,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure GetNoStructureCountry(pSchoolingYear: Code[10]): Integer
     begin
 
@@ -2178,7 +2178,7 @@ page 52975 "Student Classification"
         end;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure InsertSubjects(pCourseLines: Record "Course Lines")
     var
         l_recRegSubServ: Record "Registration Subjects";
@@ -2194,7 +2194,7 @@ page 52975 "Student Classification"
         rCourseLinesTEMP2.Insert;
     end;
 
-    //[Scope('OnPrem')]
+
     procedure HasGrade(pSchoolYear: Code[9]; pSchoolingYear: Code[10]; pStudentCode: Code[20]; pSubjectCode: Code[10]; pStudyPlanCode: Code[20]): Boolean
     var
         l_pAssessingStudents: Record "Assessing Students";
@@ -2211,7 +2211,7 @@ page 52975 "Student Classification"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+
     procedure ShowHideTerms()
     begin
         BooktermsVisible := false;
