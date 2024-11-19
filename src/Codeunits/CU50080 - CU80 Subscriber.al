@@ -39,13 +39,19 @@ codeunit 50080 "Sales-Post Subscription"
         END;
         //C+ - 2011.11.29 - fim
     end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeRunGenJnlPostLine', '', false, false)]
-    local procedure SchoolProcessingOnBeforePostJnl(var GenJnlLine: Record "Gen. Journal Line"; SalesInvHeader: Record "Sales Invoice Header")
+    //[EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeRunGenJnlPostLine', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales Post Invoice Events", 'OnBeforeRunGenJnlPostLine', '', false, false)]
+    local procedure SchoolProcessingOnBeforePostJnl(var GenJnlLine: Record "Gen. Journal Line"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line")
+    var
+        SalesInvHeader: Record "Sales Invoice Header";
     begin
         //C+ RSC
         //GenJnlLine."PTSS Acc: cash-flow code" := InvPostingBuffer[1]."Cash-flow code";
         //
-        GenJnlLine."Process by Education" := SalesInvHeader."Process by Education";
+        //GenJnlLine."Process by Education" := SalesInvHeader."Process by Education";
+        if SalesInvHeader.Get(GenJnlLine."Document No.") then begin
+            GenJnlLine."Process by Education" := SalesInvHeader."Process by Education";
+        end else
+            Error('Sales Invoice Header not found for this Gen. Journal Line.');
     end;
 }

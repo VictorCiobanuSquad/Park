@@ -6,8 +6,10 @@ codeunit 50000 "NoSeries Custom"
     end;
 
     var
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
         NoSeries: Record "No. Series";
+        NextNumber: Code[20];
+        NoSeriesBatch: Codeunit "No. Series - Batch";
         LastNoSeriesLine: Record "No. Series Line";
         WarningNoSeriesCode: Code[20];
         TryNoSeriesCode: Code[20];
@@ -70,7 +72,10 @@ codeunit 50000 "NoSeries Custom"
             IF NoSeriesLine."Increment-by No." <= 1 THEN
                 NoSeriesLine."Last No. Used" := INCSTR(NoSeriesLine."Last No. Used")
             ELSE
-                NoSeriesMgt.IncrementNoText(NoSeriesLine."Last No. Used", NoSeriesLine."Increment-by No.");
+                NextNumber := NoSeriesBatch.SimulateGetNextNo(NoSeriesLine."Series Code", SeriesDate, NoSeriesLine."Last No. Used");
+        NoSeriesLine."Last No. Used" := NextNumber;
+        //TODO::No Increments needs testing
+        //NoSeries.IncrementNoText(NoSeriesLine."Last No. Used", NoSeriesLine."Increment-by No.");
         IF (NoSeriesLine."Ending No." <> '') AND
         (NoSeriesLine."Last No. Used" > NoSeriesLine."Ending No.")
         THEN

@@ -1050,7 +1050,7 @@ table 52781 Candidate
         l_rSalesHeader.Init;
         l_rSalesHeader.SetHideValidationDialog(true);
         //l_rSalesHeader."No." := NoSeriesManagement.GetNextNo(l_rSalesRecSetup."Invoice Nos.", WorkDate, true);
-        //TODO: to test
+        //TODO: to test NoSeries
         l_rSalesHeader."No." := CU_NoSeries.GetNextNo(l_rSalesRecSetup."Invoice Nos.", WorkDate, true);
         l_rSalesHeader."Document Type" := l_rSalesHeader."Document Type"::Invoice;
         l_rSalesHeader."Order Date" := WorkDate;

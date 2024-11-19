@@ -167,7 +167,7 @@ table 53011 "Devolucoes Cab"
                 END;
 
                 SalesHeader."Doc. No. Occurrence" := ArchiveManagement.GetNextOccurrenceNo(DATABASE::"Sales Header",
-                SalesHeader."Document Type"::"Credit Memo", SalesHeader."No.");
+                SalesHeader."Document Type"::"Credit Memo".AsInteger(), SalesHeader."No.");
 
                 SalesHeader."PTSS Shipment Start Time" := 235900T;
                 SalesHeader."Posting Description" := Text002;
